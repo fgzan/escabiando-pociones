@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review — Escabiando Pociones</title>
+<link rel="icon" href="assets/logo-full.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo-full.png" alt="Escabiando Pociones">
+      ESCABIANDO POCIONES
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="sobre.html">Sobre nosotros</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <a href="reviews.html" class="eyebrow" style="display:inline-block; margin-bottom:18px;">← Volver a Reviews</a>
+    <div id="review-header">
+      <h1>Cargando…</h1>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container" style="max-width: 760px;">
+    <div id="review-body"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <small>© 2026 Escabiando Pociones</small>
+    <div class="social-links">
+      <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="prensa.html">Prensa</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script>
+  const slug = new URLSearchParams(window.location.search).get('slug');
+
+  fetch('content/reviews.json')
+    .then(r => r.json())
+    .then(reviews => {
+      const review = (reviews || []).find(r => r.slug === slug && !r.draft);
+      if (!review) {
+        document.getElementById('review-header').innerHTML = '<h1>No encontramos esta review</h1>';
+        return;
+      }
+      document.title = review.title + ' — Escabiando Pociones';
+
+      const pct = Math.max(0, Math.min(100, (Number(review.score) || 0) * 10));
+      const cover = review.cover ? `<img src="${escapeHtml(review.cover)}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
+      document.getElementById('review-header').innerHTML = `
+        ${cover}
+        <span class="eyebrow">${escapeHtml(review.game || '')}</span>
+        <h1>${escapeHtml(review.title || '')}</h1>
+        <div class="vial-score" style="margin-bottom:8px;">
+          <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
+          ${review.score != null ? review.score + ' / 10' : ''}
+        </div>
+        <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
+          ${review.author ? escapeHtml(review.author) + ' · ' : ''}${review.date ? formatDate(review.date) : ''}
+        </p>
+      `;
+
+      const bodyHtml = (typeof marked !== 'undefined' && review.body)
+        ? marked.parse(review.body)
+        : `<p>${escapeHtml(review.body || '')}</p>`;
+      document.getElementById('review-body').innerHTML = bodyHtml;
+    })
+    .catch(() => {
+      document.getElementById('review-header').innerHTML = '<h1>No pudimos cargar esta review</h1>';
+    });
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  function formatDate(iso) {
+    try {
+      return new Date(iso).toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch { return iso; }
+  }
+</script>
+</body>
+</html>

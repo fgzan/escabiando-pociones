@@ -1,0 +1,368 @@
+/* ============================================
+   ESCABIANDO POCIONES — sistema de diseño
+   Paleta extraída directamente del logo oficial.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap');
+
+:root {
+  /* --- Paleta (sacada del logo con cuentagotas) --- */
+  --bg: #171a33;
+  --bg-elevated: #262b52;
+  --bg-card: #2c3160;
+  --line: #40447a;
+
+  --cyan: #86e6f6;
+  --cyan-bright: #b3feff;
+  --blue: #4d91fe;
+  --purple: #6047eb;
+  --purple-soft: #866ffe;
+  --pink: #fa7fb7;
+  --pink-hot: #f25481;
+  --pink-deep: #c33c79;
+
+  --ink: #f4f3ff;
+  --ink-dim: #b7bce0;
+
+  /* --- Tipografía --- */
+  --f-pixel: 'Press Start 2P', monospace;
+  --f-display: 'Space Grotesk', sans-serif;
+  --f-body: 'Inter', sans-serif;
+  --f-mono: 'JetBrains Mono', monospace;
+
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--cyan-bright); text-decoration: none; }
+a:hover { color: var(--pink); }
+
+:focus-visible {
+  outline: 2px solid var(--cyan-bright);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--f-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--pink);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
+h3 { font-size: 1.25rem; }
+
+p { color: var(--ink-dim); margin: 0 0 16px; }
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--ink-dim);
+  max-width: 60ch;
+}
+
+/* ============ Textura CRT / scanlines ============ */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.16) 0px,
+    rgba(0,0,0,0.16) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+.glow-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(96,71,235,0.35), transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(242,84,129,0.28), transparent 45%);
+  pointer-events: none;
+}
+
+/* ============ Navbar ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(23, 26, 51, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-pixel);
+  font-size: 0.7rem;
+  color: var(--ink);
+}
+.nav-brand img { height: 36px; width: 36px; border-radius: 8px; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+}
+.nav-links a { color: var(--ink-dim); }
+.nav-links a.active { color: var(--cyan-bright); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-elevated);
+    flex-direction: column;
+    padding: 16px 24px 22px;
+    display: none;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: inline-block; }
+}
+
+/* ============ Botones ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--pink-hot));
+  color: var(--ink);
+  box-shadow: 0 0 0 rgba(250,127,183,0);
+}
+.btn-primary:hover {
+  color: var(--ink);
+  box-shadow: 0 6px 24px rgba(96,71,235,0.4);
+}
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--ink);
+  background: rgba(255,255,255,0.02);
+}
+.btn-ghost:hover { border-color: var(--cyan-bright); color: var(--cyan-bright); }
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ============ Hero ============ */
+.hero {
+  padding: 72px 0 64px;
+  position: relative;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-art img {
+  filter: drop-shadow(0 20px 60px rgba(96,71,235,0.35));
+}
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-art { order: -1; max-width: 320px; margin: 0 auto; }
+}
+
+/* ============ Secciones ============ */
+.section {
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+/* ============ Cards ============ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.grid {
+  display: grid;
+  gap: 20px;
+}
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+}
+
+.platform-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+}
+.platform-card .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--pink-hot);
+  flex-shrink: 0;
+}
+
+/* ============ Frasco vacío / empty state ============ */
+.empty-vial {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  text-align: center;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(134,111,254,0.05) 0px,
+    rgba(134,111,254,0.05) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.empty-vial .eyebrow { margin-bottom: 8px; }
+
+/* ============ Medidor de poción (rating) ============ */
+.vial-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+.vial {
+  width: 18px;
+  height: 26px;
+  border: 2px solid var(--cyan);
+  border-radius: 0 0 4px 4px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+}
+.vial-fill {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, var(--pink-hot), var(--pink));
+}
+
+/* ============ Iframe wrappers ============ */
+.embed-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.embed-wrap iframe { display: block; width: 100%; border: none; }
+
+/* ============ Footer ============ */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0;
+  margin-top: 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer small {
+  font-family: var(--f-mono);
+  color: var(--ink-dim);
+  font-size: 0.8rem;
+}
+.social-links {
+  display: flex;
+  gap: 18px;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+}
+
+/* ============ Page header (páginas internas) ============ */
+.page-header {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ============ Utilidades ============ */
+.mt-0 { margin-top: 0; }
+.text-center { text-align: center; }
+.stack { display: flex; flex-direction: column; gap: 8px; }

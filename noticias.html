@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias — Escabiando Pociones</title>
+<link rel="icon" href="assets/logo-full.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo-full.png" alt="Escabiando Pociones">
+      ESCABIANDO POCIONES
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="noticias.html" class="active">Noticias</a></li>
+      <li><a href="sobre.html">Sobre nosotros</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">// Noticias</span>
+    <h1>Novedades del mundo gamer</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div id="news-list">
+      <div class="empty-vial">
+        <p class="mt-0">Todavía no hay noticias publicadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <small>© 2026 Escabiando Pociones</small>
+    <div class="social-links">
+      <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="prensa.html">Prensa</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  fetch('content/noticias.json')
+    .then(r => r.json())
+    .then(items => {
+      items = (items || []).filter(n => !n.draft);
+      if (items.length === 0) return;
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      const html = items.map(n => {
+        const cover = n.cover ? `<img src="${escapeHtml(n.cover)}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+        return `
+        <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+          ${cover}
+          <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
+          <h3>${escapeHtml(n.title || '')}</h3>
+          <p>${escapeHtml(n.excerpt || '')}</p>
+        </a>`;
+      }).join('');
+
+      document.getElementById('news-list').innerHTML = `<div class="grid grid-3">${html}</div>`;
+    })
+    .catch(() => {});
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  function formatDate(iso) {
+    try {
+      return new Date(iso).toLocaleDateString('es-419', { year: 'numeric', month: 'short', day: 'numeric' });
+    } catch { return iso; }
+  }
+</script>
+</body>
+</html>

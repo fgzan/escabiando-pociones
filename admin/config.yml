@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: fgzan/escabiando-pociones
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "assets/uploads"
+
+collections:
+  - name: "reviews"
+    label: "Reviews"
+    files:
+      - file: "content/reviews.json"
+        label: "Reviews"
+        name: "reviews"
+        format: "json"
+        fields:
+          - label: "Reviews"
+            name: "reviews"
+            widget: "list"
+            summary: "{{title}} — {{game}}"
+            fields:
+              - { label: "Título de la review", name: "title", widget: "string" }
+              - { label: "Juego", name: "game", widget: "string" }
+              - { label: "Slug (parte de la URL, ej: hollow-knight-silksong)", name: "slug", widget: "string", hint: "Solo minúsculas, números y guiones medios. Sin espacios ni tildes." }
+              - { label: "Puntaje (0 a 10)", name: "score", widget: "number", value_type: "float", min: 0, max: 10, required: false }
+              - { label: "Imagen de portada", name: "cover", widget: "image", required: false }
+              - { label: "Resumen corto (aparece en la tarjeta)", name: "excerpt", widget: "text" }
+              - { label: "Texto completo", name: "body", widget: "markdown" }
+              - { label: "Autor/a", name: "author", widget: "string", required: false }
+              - { label: "Fecha", name: "date", widget: "datetime" }
+              - { label: "Borrador (no se muestra en la web hasta destildar esto)", name: "draft", widget: "boolean", default: true }
+
+  - name: "noticias"
+    label: "Noticias"
+    files:
+      - file: "content/noticias.json"
+        label: "Noticias"
+        name: "noticias"
+        format: "json"
+        fields:
+          - label: "Noticias"
+            name: "noticias"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Slug (parte de la URL)", name: "slug", widget: "string", hint: "Solo minúsculas, números y guiones medios. Sin espacios ni tildes." }
+              - { label: "Imagen de portada", name: "cover", widget: "image", required: false }
+              - { label: "Resumen corto (aparece en la tarjeta)", name: "excerpt", widget: "text" }
+              - { label: "Texto completo", name: "body", widget: "markdown" }
+              - { label: "Autor/a", name: "author", widget: "string", required: false }
+              - { label: "Fecha", name: "date", widget: "datetime" }
+              - { label: "Borrador (no se muestra en la web hasta destildar esto)", name: "draft", widget: "boolean", default: true }

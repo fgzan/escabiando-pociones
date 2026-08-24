@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticia — Escabiando Pociones</title>
+<link rel="icon" href="assets/logo-full.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo-full.png" alt="Escabiando Pociones">
+      ESCABIANDO POCIONES
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="noticias.html" class="active">Noticias</a></li>
+      <li><a href="sobre.html">Sobre nosotros</a></li>
+      <li><a href="prensa.html">Prensa</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <a href="noticias.html" class="eyebrow" style="display:inline-block; margin-bottom:18px;">← Volver a Noticias</a>
+    <div id="news-header">
+      <h1>Cargando…</h1>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container" style="max-width: 760px;">
+    <div id="news-body"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <small>© 2026 Escabiando Pociones</small>
+    <div class="social-links">
+      <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="prensa.html">Prensa</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script>
+  const slug = new URLSearchParams(window.location.search).get('slug');
+
+  fetch('content/noticias.json')
+    .then(r => r.json())
+    .then(items => {
+      const item = (items || []).find(n => n.slug === slug && !n.draft);
+      if (!item) {
+        document.getElementById('news-header').innerHTML = '<h1>No encontramos esta noticia</h1>';
+        return;
+      }
+      document.title = item.title + ' — Escabiando Pociones';
+
+      const cover = item.cover ? `<img src="${escapeHtml(item.cover)}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
+      document.getElementById('news-header').innerHTML = `
+        ${cover}
+        <h1>${escapeHtml(item.title || '')}</h1>
+        <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
+          ${item.author ? escapeHtml(item.author) + ' · ' : ''}${item.date ? formatDate(item.date) : ''}
+        </p>
+      `;
+
+      const bodyHtml = (typeof marked !== 'undefined' && item.body)
+        ? marked.parse(item.body)
+        : `<p>${escapeHtml(item.body || '')}</p>`;
+      document.getElementById('news-body').innerHTML = bodyHtml;
+    })
+    .catch(() => {
+      document.getElementById('news-header').innerHTML = '<h1>No pudimos cargar esta noticia</h1>';
+    });
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  function formatDate(iso) {
+    try {
+      return new Date(iso).toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' });
+    } catch { return iso; }
+  }
+</script>
+</body>
+</html>
