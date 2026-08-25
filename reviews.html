@@ -58,34 +58,41 @@
 
 <script src="script.js"></script>
 <script>
-  fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      let reviews = Array.isArray(data) ? data : (data.reviews || []);
-      reviews = reviews.filter(r => !r.draft);
-      if (reviews.length === 0) return;
-      reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+  function loadReviews() {
+    fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        let reviews = Array.isArray(data) ? data : (data.reviews || []);
+        reviews = reviews.filter(r => !r.draft);
+        if (reviews.length === 0) {
+          document.getElementById('reviews-list').innerHTML = '<div class="empty-vial"><p class="mt-0">Todavía no hay reviews publicadas.</p></div>';
+          return;
+        }
+        reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      const html = reviews.map(r => {
-        const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
-        const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
-        return `
-          <a class="card" href="review.html?slug=${encodeURIComponent(r.slug)}" style="display:block; margin-bottom:20px;">
-            ${cover}
-            <span class="eyebrow">${escapeHtml(r.game || '')}</span>
-            <h3>${escapeHtml(r.title || '')}</h3>
-            <p>${escapeHtml(r.excerpt || '')}</p>
-            <div class="vial-score">
-              <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
-              ${r.score != null ? r.score + ' / 10' : ''}
-            </div>
-          </a>`;
-      }).join('');
+        const html = reviews.map(r => {
+          const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
+          const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+          return `
+            <a class="card" href="review.html?slug=${encodeURIComponent(r.slug)}" style="display:block; margin-bottom:20px;">
+              ${cover}
+              <span class="eyebrow">${escapeHtml(r.game || '')}</span>
+              <h3>${escapeHtml(r.title || '')}</h3>
+              <p>${escapeHtml(r.excerpt || '')}</p>
+              <div class="vial-score">
+                <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
+                ${r.score != null ? r.score + ' / 10' : ''}
+              </div>
+            </a>`;
+        }).join('');
 
-      document.getElementById('reviews-list').innerHTML =
-        `<div class="grid grid-3">${html}</div>`;
-    })
-    .catch(() => {});
+        document.getElementById('reviews-list').innerHTML =
+          `<div class="grid grid-3">${html}</div>`;
+      })
+      .catch(() => {});
+  }
+
+  window.addEventListener('pageshow', loadReviews);
 
   function escapeHtml(str) {
     const div = document.createElement('div');

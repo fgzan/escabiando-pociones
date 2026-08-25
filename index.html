@@ -108,29 +108,36 @@
 
 <script src="script.js"></script>
 <script>
-  fetch('content/noticias.json?v=' + Date.now(), { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      let items = Array.isArray(data) ? data : (data.noticias || []);
-      items = items.filter(n => !n.draft);
-      if (items.length === 0) return;
-      items.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const top = items.slice(0, 3);
+  function loadHomeNews() {
+    fetch('content/noticias.json?v=' + Date.now(), { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        let items = Array.isArray(data) ? data : (data.noticias || []);
+        items = items.filter(n => !n.draft);
+        if (items.length === 0) {
+          document.getElementById('home-news').innerHTML = '<div class="empty-vial"><p class="mt-0">Todavía no hay noticias publicadas.</p></div>';
+          return;
+        }
+        items.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const top = items.slice(0, 3);
 
-      const html = top.map(n => {
-        const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
-        return `
-        <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
-          ${cover}
-          <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
-          <h3>${escapeHtml(n.title || '')}</h3>
-          <p>${escapeHtml(n.excerpt || '')}</p>
-        </a>`;
-      }).join('');
+        const html = top.map(n => {
+          const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+          return `
+          <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+            ${cover}
+            <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
+            <h3>${escapeHtml(n.title || '')}</h3>
+            <p>${escapeHtml(n.excerpt || '')}</p>
+          </a>`;
+        }).join('');
 
-      document.getElementById('home-news').innerHTML = `<div class="grid grid-3">${html}</div>`;
-    })
-    .catch(() => {});
+        document.getElementById('home-news').innerHTML = `<div class="grid grid-3">${html}</div>`;
+      })
+      .catch(() => {});
+  }
+
+  window.addEventListener('pageshow', loadHomeNews);
 
   function escapeHtml(str) {
     const div = document.createElement('div');

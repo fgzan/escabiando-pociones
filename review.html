@@ -60,41 +60,46 @@
 <script>
   const slug = new URLSearchParams(window.location.search).get('slug');
 
-  fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
-    .then(r => r.json())
-    .then(data => {
-      const reviews = Array.isArray(data) ? data : (data.reviews || []);
-      const review = reviews.find(r => r.slug === slug && !r.draft);
-      if (!review) {
-        document.getElementById('review-header').innerHTML = '<h1>No encontramos esta review</h1>';
-        return;
-      }
-      document.title = review.title + ' — Escabiando Pociones';
+  function loadReview() {
+    fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        const reviews = Array.isArray(data) ? data : (data.reviews || []);
+        const review = reviews.find(r => r.slug === slug && !r.draft);
+        if (!review) {
+          document.getElementById('review-header').innerHTML = '<h1>No encontramos esta review</h1>';
+          document.getElementById('review-body').innerHTML = '';
+          return;
+        }
+        document.title = review.title + ' — Escabiando Pociones';
 
-      const pct = Math.max(0, Math.min(100, (Number(review.score) || 0) * 10));
-      const cover = review.cover ? `<img src="${escapeHtml(fixAssetPath(review.cover))}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
-      document.getElementById('review-header').innerHTML = `
-        ${cover}
-        <span class="eyebrow">${escapeHtml(review.game || '')}</span>
-        <h1>${escapeHtml(review.title || '')}</h1>
-        <div class="vial-score" style="margin-bottom:8px;">
-          <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
-          ${review.score != null ? review.score + ' / 10' : ''}
-        </div>
-        <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
-          ${review.author ? escapeHtml(review.author) + ' · ' : ''}${review.date ? formatDate(review.date) : ''}
-        </p>
-      `;
+        const pct = Math.max(0, Math.min(100, (Number(review.score) || 0) * 10));
+        const cover = review.cover ? `<img src="${escapeHtml(fixAssetPath(review.cover))}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
+        document.getElementById('review-header').innerHTML = `
+          ${cover}
+          <span class="eyebrow">${escapeHtml(review.game || '')}</span>
+          <h1>${escapeHtml(review.title || '')}</h1>
+          <div class="vial-score" style="margin-bottom:8px;">
+            <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
+            ${review.score != null ? review.score + ' / 10' : ''}
+          </div>
+          <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
+            ${review.author ? escapeHtml(review.author) + ' · ' : ''}${review.date ? formatDate(review.date) : ''}
+          </p>
+        `;
 
-      let bodyHtml = (typeof marked !== 'undefined' && review.body)
-        ? marked.parse(fixAssetPathsInMarkdown(review.body))
-        : `<p>${escapeHtml(review.body || '')}</p>`;
-      bodyHtml = embedYouTube(bodyHtml);
-      document.getElementById('review-body').innerHTML = bodyHtml;
-    })
-    .catch(() => {
-      document.getElementById('review-header').innerHTML = '<h1>No pudimos cargar esta review</h1>';
-    });
+        let bodyHtml = (typeof marked !== 'undefined' && review.body)
+          ? marked.parse(fixAssetPathsInMarkdown(review.body))
+          : `<p>${escapeHtml(review.body || '')}</p>`;
+        bodyHtml = embedYouTube(bodyHtml);
+        document.getElementById('review-body').innerHTML = bodyHtml;
+      })
+      .catch(() => {
+        document.getElementById('review-header').innerHTML = '<h1>No pudimos cargar esta review</h1>';
+      });
+  }
+
+  window.addEventListener('pageshow', loadReview);
 
   function escapeHtml(str) {
     const div = document.createElement('div');
