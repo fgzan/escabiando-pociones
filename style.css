@@ -337,6 +337,7 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
+  background: var(--bg-card);
 }
 .embed-wrap iframe { display: block; width: 100%; border: none; }
 
