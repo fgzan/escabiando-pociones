@@ -60,8 +60,9 @@
 
   fetch('content/noticias.json')
     .then(r => r.json())
-    .then(items => {
-      const item = (items || []).find(n => n.slug === slug && !n.draft);
+    .then(data => {
+      const items = Array.isArray(data) ? data : (data.noticias || []);
+      const item = items.find(n => n.slug === slug && !n.draft);
       if (!item) {
         document.getElementById('news-header').innerHTML = '<h1>No encontramos esta noticia</h1>';
         return;

@@ -29,8 +29,7 @@
 
 <header class="page-header">
   <div class="container">
-    <span class="eyebrow">// Reviews</span>
-    <h1>Análisis de juegos</h1>
+    <span class="eyebrow-lg">Reviews</span>
   </div>
 </header>
 
@@ -59,8 +58,9 @@
 <script>
   fetch('content/reviews.json')
     .then(r => r.json())
-    .then(reviews => {
-      reviews = (reviews || []).filter(r => !r.draft);
+    .then(data => {
+      let reviews = Array.isArray(data) ? data : (data.reviews || []);
+      reviews = reviews.filter(r => !r.draft);
       if (reviews.length === 0) return;
       reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
 

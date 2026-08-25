@@ -29,8 +29,7 @@
 
 <header class="page-header">
   <div class="container">
-    <span class="eyebrow">// Noticias</span>
-    <h1>Novedades del mundo gamer</h1>
+    <span class="eyebrow-lg">Noticias</span>
   </div>
 </header>
 
@@ -59,8 +58,9 @@
 <script>
   fetch('content/noticias.json')
     .then(r => r.json())
-    .then(items => {
-      items = (items || []).filter(n => !n.draft);
+    .then(data => {
+      let items = Array.isArray(data) ? data : (data.noticias || []);
+      items = items.filter(n => !n.draft);
       if (items.length === 0) return;
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
 

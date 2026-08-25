@@ -41,6 +41,12 @@
       </div>
     </div>
     <div class="hero-art">
+      <div class="embed-wrap" style="margin-bottom:40px;">
+        <iframe src="https://open.spotify.com/embed/show/587CqZd5K8oaRWqiVCQWSP?utm_source=generator&theme=0"
+          width="100%" height="152" frameborder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
       <img src="assets/wordmark.png" alt="">
     </div>
   </div>
@@ -49,32 +55,7 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div>
-        <span class="eyebrow">Último episodio</span>
-        <h2 class="mt-0">Escuchá el podcast acá:</h2>
-      </div>
-    </div>
-    <div class="grid grid-2">
-      <div class="embed-wrap">
-        <iframe src="https://open.spotify.com/embed/show/587CqZd5K8oaRWqiVCQWSP?utm_source=generator&theme=0"
-          width="100%" height="352" frameborder="0" allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"></iframe>
-      </div>
-      <a class="card platform-card" href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener" style="height:352px; justify-content:center; font-size:1.1rem;">
-        <span class="dot"></span> Ver los últimos videos en YouTube →
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">Noticias</span>
-        <h2 class="mt-0">Lo último</h2>
-      </div>
+      <span class="eyebrow-lg">Noticias</span>
       <a class="btn btn-ghost" href="noticias.html">Ver todas →</a>
     </div>
     <div id="home-news">
@@ -88,10 +69,7 @@
 <section class="section">
   <div class="container">
     <div class="section-head">
-      <div>
-        <span class="eyebrow">Reviews</span>
-        <h2 class="mt-0">Todavía no hay ninguna publicada</h2>
-      </div>
+      <span class="eyebrow-lg">Reviews</span>
       <a class="btn btn-ghost" href="reviews.html">Ver la sección completa →</a>
     </div>
     <div class="empty-vial">
@@ -130,8 +108,9 @@
 <script>
   fetch('content/noticias.json')
     .then(r => r.json())
-    .then(items => {
-      items = (items || []).filter(n => !n.draft);
+    .then(data => {
+      let items = Array.isArray(data) ? data : (data.noticias || []);
+      items = items.filter(n => !n.draft);
       if (items.length === 0) return;
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
       const top = items.slice(0, 3);

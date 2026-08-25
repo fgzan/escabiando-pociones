@@ -60,8 +60,9 @@
 
   fetch('content/reviews.json')
     .then(r => r.json())
-    .then(reviews => {
-      const review = (reviews || []).find(r => r.slug === slug && !r.draft);
+    .then(data => {
+      const reviews = Array.isArray(data) ? data : (data.reviews || []);
+      const review = reviews.find(r => r.slug === slug && !r.draft);
       if (!review) {
         document.getElementById('review-header').innerHTML = '<h1>No encontramos esta review</h1>';
         return;

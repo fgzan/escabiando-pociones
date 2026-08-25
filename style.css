@@ -65,12 +65,21 @@ a:hover { color: var(--pink); }
 
 .eyebrow {
   font-family: var(--f-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   color: var(--pink);
   text-transform: uppercase;
   display: inline-block;
   margin-bottom: 14px;
+}
+
+.eyebrow-lg {
+  font-family: var(--f-pixel);
+  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  letter-spacing: 0.03em;
+  color: var(--pink);
+  text-transform: uppercase;
+  display: inline-block;
 }
 
 h1, h2, h3 {
