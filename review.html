@@ -6,7 +6,7 @@
 <title>Review — Escabiando Pociones</title>
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
-<script data-goatcounter="https://TU-CODIGO-DE-SITIO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://escabiandopociones.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 </head>
 <body>
@@ -60,7 +60,7 @@
 <script>
   const slug = new URLSearchParams(window.location.search).get('slug');
 
-  fetch('content/reviews.json')
+  fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
     .then(r => r.json())
     .then(data => {
       const reviews = Array.isArray(data) ? data : (data.reviews || []);
