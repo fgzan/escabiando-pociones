@@ -1,0 +1,28 @@
+name: Actualizar índice de contenido
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/reviews/**"
+      - "content/noticias/**"
+
+permissions:
+  contents: write
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Armar content/reviews.json y content/noticias.json
+        run: python3 scripts/build_content_index.py
+
+      - name: Commitear el índice actualizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/reviews.json content/noticias.json
+          git diff --staged --quiet || git commit -m "Actualizar índice de contenido [skip ci]"
+          git push
