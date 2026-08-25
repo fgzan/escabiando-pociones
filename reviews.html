@@ -6,6 +6,8 @@
 <title>Reviews — Escabiando Pociones</title>
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
+<script data-goatcounter="https://TU-CODIGO-DE-SITIO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </head>
 <body>
 
@@ -66,7 +68,7 @@
 
       const html = reviews.map(r => {
         const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
-        const cover = r.cover ? `<img src="${escapeHtml(r.cover)}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+        const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
         return `
           <a class="card" href="review.html?slug=${encodeURIComponent(r.slug)}" style="display:block; margin-bottom:20px;">
             ${cover}
@@ -89,6 +91,9 @@
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+  function fixAssetPath(p) {
+    return p ? p.replace(/^\/(assets\/)/, '$1') : p;
   }
 </script>
 </body>

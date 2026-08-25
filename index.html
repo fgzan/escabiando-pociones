@@ -7,6 +7,8 @@
 <meta name="description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
+<script data-goatcounter="https://TU-CODIGO-DE-SITIO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </head>
 <body>
 
@@ -115,13 +117,16 @@
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
       const top = items.slice(0, 3);
 
-      const html = top.map(n => `
+      const html = top.map(n => {
+        const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+        return `
         <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+          ${cover}
           <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
           <h3>${escapeHtml(n.title || '')}</h3>
           <p>${escapeHtml(n.excerpt || '')}</p>
-        </a>`
-      ).join('');
+        </a>`;
+      }).join('');
 
       document.getElementById('home-news').innerHTML = `<div class="grid grid-3">${html}</div>`;
     })
@@ -131,6 +136,9 @@
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+  function fixAssetPath(p) {
+    return p ? p.replace(/^\/(assets\/)/, '$1') : p;
   }
   function formatDate(iso) {
     try {

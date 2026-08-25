@@ -6,6 +6,8 @@
 <title>Noticia — Escabiando Pociones</title>
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
+<script data-goatcounter="https://TU-CODIGO-DE-SITIO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </head>
 <body>
 
@@ -69,7 +71,7 @@
       }
       document.title = item.title + ' — Escabiando Pociones';
 
-      const cover = item.cover ? `<img src="${escapeHtml(item.cover)}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
+      const cover = item.cover ? `<img src="${escapeHtml(fixAssetPath(item.cover))}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
       document.getElementById('news-header').innerHTML = `
         ${cover}
         <h1>${escapeHtml(item.title || '')}</h1>
@@ -78,9 +80,10 @@
         </p>
       `;
 
-      const bodyHtml = (typeof marked !== 'undefined' && item.body)
-        ? marked.parse(item.body)
+      let bodyHtml = (typeof marked !== 'undefined' && item.body)
+        ? marked.parse(fixAssetPathsInMarkdown(item.body))
         : `<p>${escapeHtml(item.body || '')}</p>`;
+      bodyHtml = embedYouTube(bodyHtml);
       document.getElementById('news-body').innerHTML = bodyHtml;
     })
     .catch(() => {
@@ -91,6 +94,18 @@
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+  function fixAssetPath(p) {
+    return p ? p.replace(/^\/(assets\/)/, '$1') : p;
+  }
+  function fixAssetPathsInMarkdown(md) {
+    return (md || '').replace(/\]\(\/assets\//g, '](assets/');
+  }
+  function embedYouTube(html) {
+    return html.replace(
+      /<p>\s*<a[^>]*href="https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})[^"]*"[^>]*>[^<]*<\/a>\s*<\/p>/g,
+      (m, id) => `<div class="embed-wrap" style="margin:20px 0;"><iframe width="100%" height="400" src="https://www.youtube.com/embed/${id}" title="Video de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+    );
   }
   function formatDate(iso) {
     try {
