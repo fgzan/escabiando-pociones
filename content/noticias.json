@@ -1,14 +1,5 @@
 [
   {
-    "title": "prueba prueba",
-    "excerpt": "prueba 11",
-    "body": "hola hola",
-    "author": "Luiso",
-    "date": "2026-08-27T01:27:23.767Z",
-    "draft": false,
-    "slug": "prueba-prueba"
-  },
-  {
     "title": "Prueba de login con Supabase",
     "slug": "prueba-supabase-login",
     "excerpt": "Esta noticia se creó automáticamente para probar el circuito de login. Se puede borrar tranquilamente.",
