@@ -1,0 +1,9 @@
+{
+  "title": "Prueba de login con Supabase",
+  "slug": "prueba-supabase-login",
+  "excerpt": "Esta noticia se creó automáticamente para probar el circuito de login. Se puede borrar tranquilamente.",
+  "body": "Si ves esto en la web, el circuito completo (login → función → GitHub) funciona de punta a punta.",
+  "author": "Prueba automática",
+  "date": "2026-08-27T01:06:38.625Z",
+  "draft": false
+}
