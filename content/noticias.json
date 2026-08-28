@@ -1,5 +1,15 @@
 [
   {
+    "title": "Blue Dragon recibe un port no oficial para PC",
+    "cover": "assets/uploads/1787956456605-imagen.png",
+    "excerpt": "Blue Dragon, el RPG de Xbox 360 creado por Hironobu Sakaguchi, ya puede jugarse de forma nativa en Windows, Linux y macOS gracias a un proyecto no oficial. El port también es compatible con Steam Deck y permite utilizar resoluciones y tasas de cuadros superiores.",
+    "body": "Uno de los RPG más particulares de la era de _Xbox 360_ acaba de dar el salto a PC gracias a un proyecto creado por la comunidad. Blue Dragon, desarrollado por _Mistwalker_, **ahora cuenta con un port no oficial denominado _Project re:Blue_**.\n\n**El juego fue creado por Hironobu Sakaguchi**, fundador de _Mistwalker_ y creador de _Final Fantasy_. Su apartado musical estuvo a cargo de Nobuo Uematsu, también reconocido por su trabajo en la saga de Square Enix, mientras que los diseños de personajes fueron realizados por Akira Toriyama, creador de Dragon Ball.\n\n**re:Blue utiliza una recompilación estática que permite ejecutar el juego de forma nativa en Windows, Linux y macO**S, además de ser compatible con Steam Deck. Al no depender del hardware original, el proyecto permite utilizar resoluciones personalizadas y mayores tasas de cuadros por segundo, además de abrir la posibilidad de incorporar modificaciones.\n\nEl port fue desarrollado por el programador conocido como crack, o _Tomcl7_, con la colaboración de _Rc0ld_. Para realizar el proyecto utilizaron _ReXGlue SDK_, una herramienta diseñada para recompilar código de _Xbox 360 _basado en _PowerPC_ y convertirlo en C++ ejecutable en plataformas modernas.\n\nEl código de _re:Blue_ puede descargarse gratuitamente, aunque para instalarlo es necesario contar con los tres discos originales de _Blue Dragon_ o sus respectivas imágenes de disco.\n\nEl RPG también puede jugarse actualmente en las consolas Xbox mediante retrocompatibilidad, aunque esa versión no ofrece el mismo nivel de personalización que este nuevo port para PC.\n\nhttps://youtu.be/05ilZomLys8\n\nEl tráiler que acompañó el lanzamiento de re:Blue termina, además, con una dedicatoria a _Akira Toriyam_a, quien falleció en 2024.\n\nLos ports no oficiales de juegos clásicos para PC se hicieron especialmente populares a partir de proyectos como _Ship of Harkinian_, que permitió ejecutar _The Legend of Zelda: Ocarina of Time_ de forma nativa en ordenadores modernos.",
+    "author": "EPod",
+    "date": "2026-08-28T22:34:25.549Z",
+    "draft": false,
+    "slug": "blue-dragon-recibe-un-port-no-oficial-para-pc"
+  },
+  {
     "title": "asdasd",
     "cover": "assets/uploads/1787934246336-bl-negro.png",
     "excerpt": "asdasdasdasd",
