@@ -42,6 +42,7 @@
         <p class="mt-0">Todavía no hay noticias publicadas.</p>
       </div>
     </div>
+    <div id="noticias-pagination" class="pagination"></div>
   </div>
 </section>
 
@@ -71,6 +72,10 @@
 
 <script src="script.js"></script>
 <script>
+  const NOTICIAS_PAGE_SIZE = 9;
+  let allNoticias = [];
+  let noticiasPage = 1;
+
   function loadNoticias() {
     fetch('content/noticias.json?v=' + Date.now(), { cache: 'no-store' })
       .then(r => r.json())
@@ -79,24 +84,52 @@
         items = items.filter(n => !n.draft);
         if (items.length === 0) {
           document.getElementById('news-list').innerHTML = '<div class="empty-vial"><p class="mt-0">Todavía no hay noticias publicadas.</p></div>';
+          document.getElementById('noticias-pagination').innerHTML = '';
           return;
         }
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        const html = items.map(n => {
-          const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
-          return `
-          <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
-            ${cover}
-            <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
-            <h3>${escapeHtml(n.title || '')}</h3>
-            <p>${escapeHtml(n.excerpt || '')}</p>
-          </a>`;
-        }).join('');
-
-        document.getElementById('news-list').innerHTML = `<div class="grid grid-3">${html}</div>`;
+        allNoticias = items;
+        noticiasPage = 1;
+        renderNoticiasPage();
       })
       .catch(() => {});
+  }
+
+  function renderNoticiasPage() {
+    const totalPages = Math.max(1, Math.ceil(allNoticias.length / NOTICIAS_PAGE_SIZE));
+    if (noticiasPage > totalPages) noticiasPage = totalPages;
+    const pageItems = allNoticias.slice((noticiasPage - 1) * NOTICIAS_PAGE_SIZE, noticiasPage * NOTICIAS_PAGE_SIZE);
+
+    const html = pageItems.map(n => {
+      const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+      return `
+      <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+        ${cover}
+        <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
+        <h3>${escapeHtml(n.title || '')}</h3>
+        <p>${escapeHtml(n.excerpt || '')}</p>
+      </a>`;
+    }).join('');
+
+    document.getElementById('news-list').innerHTML = `<div class="grid grid-3">${html}</div>`;
+
+    const pagEl = document.getElementById('noticias-pagination');
+    if (totalPages <= 1) {
+      pagEl.innerHTML = '';
+    } else {
+      let btns = `<button ${noticiasPage === 1 ? 'disabled' : ''} onclick="goToNoticiasPage(${noticiasPage - 1})">‹ Anterior</button>`;
+      for (let i = 1; i <= totalPages; i++) {
+        btns += `<button class="${i === noticiasPage ? 'active' : ''}" onclick="goToNoticiasPage(${i})">${i}</button>`;
+      }
+      btns += `<button ${noticiasPage === totalPages ? 'disabled' : ''} onclick="goToNoticiasPage(${noticiasPage + 1})">Siguiente ›</button>`;
+      pagEl.innerHTML = btns;
+    }
+  }
+
+  function goToNoticiasPage(p) {
+    noticiasPage = p;
+    renderNoticiasPage();
+    document.getElementById('news-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   // Se ejecuta en la carga normal Y cada vez que el navegador restaura

@@ -42,6 +42,7 @@
         <p class="mt-0">Todavía no hay reviews publicadas.</p>
       </div>
     </div>
+    <div id="reviews-pagination" class="pagination"></div>
   </div>
 </section>
 
@@ -71,6 +72,10 @@
 
 <script src="script.js"></script>
 <script>
+  const REVIEWS_PAGE_SIZE = 9;
+  let allReviews = [];
+  let reviewsPage = 1;
+
   function loadReviews() {
     fetch('content/reviews.json?v=' + Date.now(), { cache: 'no-store' })
       .then(r => r.json())
@@ -79,30 +84,57 @@
         reviews = reviews.filter(r => !r.draft);
         if (reviews.length === 0) {
           document.getElementById('reviews-list').innerHTML = '<div class="empty-vial"><p class="mt-0">Todavía no hay reviews publicadas.</p></div>';
+          document.getElementById('reviews-pagination').innerHTML = '';
           return;
         }
         reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        const html = reviews.map(r => {
-          const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
-          const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
-          return `
-            <a class="card" href="review.html?slug=${encodeURIComponent(r.slug)}" style="display:block; margin-bottom:20px;">
-              ${cover}
-              <span class="eyebrow">${escapeHtml(r.game || '')}</span>
-              <h3>${escapeHtml(r.title || '')}</h3>
-              <p>${escapeHtml(r.excerpt || '')}</p>
-              <div class="vial-score">
-                <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
-                ${r.score != null ? r.score + ' / 10' : ''}
-              </div>
-            </a>`;
-        }).join('');
-
-        document.getElementById('reviews-list').innerHTML =
-          `<div class="grid grid-3">${html}</div>`;
+        allReviews = reviews;
+        reviewsPage = 1;
+        renderReviewsPage();
       })
       .catch(() => {});
+  }
+
+  function renderReviewsPage() {
+    const totalPages = Math.max(1, Math.ceil(allReviews.length / REVIEWS_PAGE_SIZE));
+    if (reviewsPage > totalPages) reviewsPage = totalPages;
+    const pageItems = allReviews.slice((reviewsPage - 1) * REVIEWS_PAGE_SIZE, reviewsPage * REVIEWS_PAGE_SIZE);
+
+    const html = pageItems.map(r => {
+      const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
+      const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+      return `
+        <a class="card" href="review.html?slug=${encodeURIComponent(r.slug)}" style="display:block; margin-bottom:20px;">
+          ${cover}
+          <span class="eyebrow">${escapeHtml(r.game || '')}</span>
+          <h3>${escapeHtml(r.title || '')}</h3>
+          <p>${escapeHtml(r.excerpt || '')}</p>
+          <div class="vial-score">
+            <div class="vial"><div class="vial-fill" style="height:${pct}%;"></div></div>
+            ${r.score != null ? r.score + ' / 10' : ''}
+          </div>
+        </a>`;
+    }).join('');
+
+    document.getElementById('reviews-list').innerHTML = `<div class="grid grid-3">${html}</div>`;
+
+    const pagEl = document.getElementById('reviews-pagination');
+    if (totalPages <= 1) {
+      pagEl.innerHTML = '';
+    } else {
+      let btns = `<button ${reviewsPage === 1 ? 'disabled' : ''} onclick="goToReviewsPage(${reviewsPage - 1})">‹ Anterior</button>`;
+      for (let i = 1; i <= totalPages; i++) {
+        btns += `<button class="${i === reviewsPage ? 'active' : ''}" onclick="goToReviewsPage(${i})">${i}</button>`;
+      }
+      btns += `<button ${reviewsPage === totalPages ? 'disabled' : ''} onclick="goToReviewsPage(${reviewsPage + 1})">Siguiente ›</button>`;
+      pagEl.innerHTML = btns;
+    }
+  }
+
+  function goToReviewsPage(p) {
+    reviewsPage = p;
+    renderReviewsPage();
+    document.getElementById('reviews-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   window.addEventListener('pageshow', loadReviews);

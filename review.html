@@ -105,8 +105,10 @@
           ? marked.parse(fixAssetPathsInMarkdown(review.body))
           : `<p>${escapeHtml(review.body || '')}</p>`;
         bodyHtml = embedYouTube(bodyHtml);
+        bodyHtml = embedTweet(bodyHtml);
         bodyHtml = openLinksInNewTab(bodyHtml);
         document.getElementById('review-body').innerHTML = bodyHtml;
+        loadTwitterWidgets();
       })
       .catch(() => {
         document.getElementById('review-header').innerHTML = '<h1>No pudimos cargar esta review</h1>';
@@ -131,6 +133,21 @@
       /<p>\s*<a[^>]*href="https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})[^"]*"[^>]*>[^<]*<\/a>\s*<\/p>/g,
       (m, id) => `<div class="embed-wrap" style="margin:20px 0;"><iframe width="100%" height="400" src="https://www.youtube.com/embed/${id}" title="Video de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
     );
+  }
+  function embedTweet(html) {
+    return html.replace(
+      /<p>\s*<a[^>]*href="(https?:\/\/(?:www\.)?(?:twitter\.com|x\.com)\/[A-Za-z0-9_]+\/status\/\d+)[^"]*"[^>]*>[^<]*<\/a>\s*<\/p>/g,
+      (m, url) => `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`
+    );
+  }
+  function loadTwitterWidgets() {
+    if (window.twttr && window.twttr.widgets) { window.twttr.widgets.load(); return; }
+    if (document.getElementById('twitter-widgets-script')) return;
+    const s = document.createElement('script');
+    s.id = 'twitter-widgets-script';
+    s.src = 'https://platform.twitter.com/widgets.js';
+    s.async = true;
+    document.body.appendChild(s);
   }
   function openLinksInNewTab(html) {
     return html.replace(/<a (?![^>]*target=)/g, '<a target="_blank" rel="noopener" ');

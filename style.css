@@ -392,6 +392,40 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   fill: currentColor;
 }
 
+/* ============ Paginado ============ */
+.pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0 8px;
+  flex-wrap: wrap;
+}
+.pagination button {
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+.pagination button.active {
+  color: var(--cyan-bright);
+  border-color: var(--cyan-bright);
+}
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ============ Embed de X (mientras carga el widget real) ============ */
+blockquote.twitter-tweet {
+  margin: 20px auto;
+  max-width: 550px;
+}
+
 /* ============ Page header (páginas internas) ============ */
 .page-header {
   padding: 56px 0 40px;
