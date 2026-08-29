@@ -365,6 +365,32 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   font-family: var(--f-mono);
   font-size: 0.85rem;
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.social-icons a {
+  color: var(--ink);
+  opacity: 0.55;
+  display: inline-flex;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+.social-icons a:hover {
+  opacity: 1;
+  color: var(--cyan-bright);
+}
+.social-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
 
 /* ============ Page header (páginas internas) ============ */
 .page-header {

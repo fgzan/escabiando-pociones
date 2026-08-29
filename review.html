@@ -46,7 +46,20 @@
 
 <footer class="footer">
   <div class="container footer-inner">
-    <small>© 2026 Escabiando Pociones</small>
+    <div class="footer-brand">
+      <small>© 2026 Escabiando Pociones</small>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/escabiandopociones?igsi=MWNld2g0ZjA0cXg2bA==" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.256 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.25a3.25 3.25 0 1 1 0-6.5 3.25 3.25 0 0 1 0 6.5zM17.4 5.15a1.17 1.17 0 1 0 0 2.34 1.17 1.17 0 0 0 0-2.34z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1GMazu41dF/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.53c0-.86.24-1.44 1.47-1.44h1.57V4.46A21 21 0 0 0 14.2 4.3c-2.24 0-3.77 1.37-3.77 3.88v2.16H7.87v2.96h2.56V21h3.07z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@escabiandopociones" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.1v13.3c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.3 0 .6.05.87.13V9.6a5.9 5.9 0 0 0-.87-.07A5.9 5.9 0 0 0 4.9 15.4a5.9 5.9 0 0 0 5.9 5.9 5.9 5.9 0 0 0 5.9-5.9V8.35a7.6 7.6 0 0 0 4.4 1.4V6.65a4.5 4.5 0 0 1-4.5-4.5V2z"/></svg>
+        </a>
+      </div>
+    </div>
     <div class="social-links">
       <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
       <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
@@ -92,6 +105,7 @@
           ? marked.parse(fixAssetPathsInMarkdown(review.body))
           : `<p>${escapeHtml(review.body || '')}</p>`;
         bodyHtml = embedYouTube(bodyHtml);
+        bodyHtml = openLinksInNewTab(bodyHtml);
         document.getElementById('review-body').innerHTML = bodyHtml;
       })
       .catch(() => {
@@ -117,6 +131,9 @@
       /<p>\s*<a[^>]*href="https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})[^"]*"[^>]*>[^<]*<\/a>\s*<\/p>/g,
       (m, id) => `<div class="embed-wrap" style="margin:20px 0;"><iframe width="100%" height="400" src="https://www.youtube.com/embed/${id}" title="Video de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
     );
+  }
+  function openLinksInNewTab(html) {
+    return html.replace(/<a (?![^>]*target=)/g, '<a target="_blank" rel="noopener" ');
   }
   function formatDate(iso) {
     try {
