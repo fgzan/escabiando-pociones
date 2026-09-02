@@ -426,6 +426,24 @@ blockquote.twitter-tweet {
   max-width: 550px;
 }
 
+/* ============ Cita destacada dentro de reviews/noticias ============ */
+#review-body blockquote:not(.twitter-tweet),
+#news-body blockquote:not(.twitter-tweet) {
+  font-family: var(--f-display);
+  font-size: clamp(1.4rem, 3.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0;
+  margin: 36px 0;
+}
+#review-body blockquote:not(.twitter-tweet) p,
+#news-body blockquote:not(.twitter-tweet) p {
+  margin: 0;
+}
+
 /* ============ Page header (páginas internas) ============ */
 .page-header {
   padding: 56px 0 40px;
