@@ -132,7 +132,11 @@
           return;
         }
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
-        const top = items.slice(0, 3);
+        // Prioriza las que están marcadas como "Destacar en la portada"
+        // desde el panel. Si todavía no marcaron ninguna, muestra las
+        // 3 más nuevas como respaldo, para que la home nunca quede vacía.
+        const featured = items.filter(n => n.featured);
+        const top = (featured.length > 0 ? featured : items).slice(0, 3);
 
         const html = top.map(n => {
           const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
