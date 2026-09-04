@@ -3,7 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noticia — Escabiando Pociones</title>
+<title>Noticia | Escabiando Pociones</title>
+<meta name="description" content="Noticias del mundo de los videojuegos, por Escabiando Pociones.">
+<link rel="canonical" href="https://www.escabiandopociones.com.ar/noticia.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Escabiando Pociones">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Noticia | Escabiando Pociones">
+<meta property="og:description" content="Noticias del mundo de los videojuegos, por Escabiando Pociones.">
+<meta property="og:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
+<meta property="og:url" content="https://www.escabiandopociones.com.ar/noticia.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Noticia | Escabiando Pociones">
+<meta name="twitter:description" content="Noticias del mundo de los videojuegos, por Escabiando Pociones.">
+<meta name="twitter:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
 <script data-goatcounter="https://escabiandopociones.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -84,7 +97,9 @@
           document.getElementById('news-body').innerHTML = '';
           return;
         }
-        document.title = item.title + ' — Escabiando Pociones';
+        document.title = item.title + ' | Escabiando Pociones';
+        updateMetaTags(item.title, item.excerpt || '', item.cover);
+        injectArticleSchema('Noticia', item);
 
         const cover = item.cover ? `<img src="${escapeHtml(fixAssetPath(item.cover))}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
         document.getElementById('news-header').innerHTML = `
@@ -150,6 +165,64 @@
     try {
       return new Date(iso).toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' });
     } catch { return iso; }
+  }
+
+  function updateMetaTags(title, description, cover) {
+    const fullTitle = title + ' | Escabiando Pociones';
+    const desc = (description || '').slice(0, 160);
+    const image = cover ? (new URL(fixAssetPath(cover), window.location.href)).href : null;
+
+    setMeta('name', 'description', desc);
+    setMeta('property', 'og:title', fullTitle);
+    setMeta('property', 'og:description', desc);
+    setMeta('property', 'og:url', window.location.href);
+    setMeta('name', 'twitter:title', fullTitle);
+    setMeta('name', 'twitter:description', desc);
+    if (image) {
+      setMeta('property', 'og:image', image);
+      setMeta('name', 'twitter:image', image);
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = window.location.href;
+  }
+
+  function setMeta(attr, key, value) {
+    if (!value) return;
+    let el = document.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute(attr, key);
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', value);
+  }
+
+  function injectArticleSchema(kind, item) {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": item.title,
+      "description": item.excerpt || '',
+      "datePublished": item.date || '',
+      "dateModified": item.date || '',
+      "author": { "@type": "Person", "name": item.author || "Escabiando Pociones" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Escabiando Pociones",
+        "logo": { "@type": "ImageObject", "url": new URL('assets/logo-full.png', window.location.href).href }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": window.location.href }
+    };
+    if (item.cover) schema.image = [new URL(fixAssetPath(item.cover), window.location.href).href];
+
+    let script = document.getElementById('article-schema');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'article-schema';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(schema);
   }
 </script>
 </body>

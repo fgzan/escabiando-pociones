@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escabiando Pociones — Podcast de videojuegos</title>
+<title>Escabiando Pociones | Podcast de videojuegos</title>
 <meta name="description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
+<link rel="canonical" href="https://www.escabiandopociones.com.ar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Escabiando Pociones">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Escabiando Pociones | Podcast de videojuegos">
+<meta property="og:description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
+<meta property="og:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
+<meta property="og:url" content="https://www.escabiandopociones.com.ar/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Escabiando Pociones | Podcast de videojuegos">
+<meta name="twitter:description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
+<meta name="twitter:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
 <script data-goatcounter="https://escabiandopociones.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -132,10 +144,13 @@
           return;
         }
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
-        // Prioriza las que están marcadas como "Destacar en la portada"
-        // desde el panel. Si todavía no marcaron ninguna, muestra las
-        // 3 más nuevas como respaldo, para que la home nunca quede vacía.
-        const featured = items.filter(n => n.featured);
+        // Prioriza las que tienen una posición asignada desde el panel
+        // (1, 2 o 3, en ese orden). Si todavía no asignaron ninguna,
+        // muestra las 3 más nuevas como respaldo, para que la home
+        // nunca quede vacía.
+        const featured = items
+          .filter(n => n.featuredPosition)
+          .sort((a, b) => a.featuredPosition - b.featuredPosition);
         const top = (featured.length > 0 ? featured : items).slice(0, 3);
 
         const html = top.map(n => {
