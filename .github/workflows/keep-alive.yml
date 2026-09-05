@@ -1,0 +1,18 @@
+name: Mantener despierto Supabase
+
+on:
+  schedule:
+    # Todos los lunes y jueves a las 09:00 UTC. Sobra de margen frente
+    # al límite de "1 semana sin actividad" que usa el plan gratis.
+    - cron: "0 9 * * 1,4"
+  workflow_dispatch: {} # permite dispararlo a mano desde la pestaña Actions, para probar
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pedido liviano a la API de Supabase
+        run: |
+          curl -s -o /dev/null -w "HTTP %{http_code}\n" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}"
