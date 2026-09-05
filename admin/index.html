@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administración de contenido | Escabiando Pociones</title>
+<link rel="icon" href="../assets/logo-full.png">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+<style>
+  .field { margin-bottom: 16px; }
+  .field label { display:block; font-family: var(--f-mono); font-size:0.8rem; color: var(--ink-dim); margin-bottom:6px; }
+  .field input, .field textarea, .field select {
+    width:100%; background: var(--bg-elevated); border:1px solid var(--line);
+    border-radius: var(--radius); color: var(--ink); padding:10px 12px; font-family: var(--f-body); font-size:0.95rem;
+  }
+  .field textarea { min-height: 260px; resize: vertical; font-family: var(--f-mono); font-size:0.85rem; }
+  .field small { display:block; margin-top:4px; color: var(--ink-dim); font-size:0.78rem; }
+
+  .login-wrap { min-height: 80vh; display:flex; align-items:center; justify-content:center; }
+  .login-card { width:100%; max-width: 400px; }
+
+  .tabs { display:flex; gap:10px; margin-bottom:28px; flex-wrap: wrap; }
+  .tab-btn {
+    font-family: var(--f-mono); font-size:0.85rem; padding:10px 18px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--bg-elevated); color: var(--ink-dim); cursor:pointer;
+  }
+  .tab-btn.active { color: var(--ink); border-color: var(--cyan-bright); }
+
+  .list-toolbar {
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    flex-wrap: wrap; margin-bottom:20px;
+  }
+  .toolbar-left { display:flex; gap:8px; align-items:center; flex-wrap: wrap; }
+  .view-btn {
+    font-family: var(--f-mono); font-size:0.8rem; padding:8px 12px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--bg-elevated); color: var(--ink-dim); cursor:pointer;
+  }
+  .view-btn.active { color: var(--cyan-bright); border-color: var(--cyan-bright); }
+  #reviews-sort-select, #noticias-sort-select {
+    width:auto; font-family: var(--f-mono); font-size:0.8rem; padding:8px 12px;
+  }
+
+  .entry-card { cursor:pointer; position:relative; }
+  .entry-card img { width:100%; aspect-ratio: 16/9; object-fit: cover; border-radius:4px; margin-bottom:12px; background: var(--bg); }
+  .entry-card .no-cover {
+    width:100%; aspect-ratio: 16/9; border-radius:4px; margin-bottom:12px;
+    background: var(--bg); display:flex; align-items:center; justify-content:center;
+    color: var(--ink-dim); font-family: var(--f-mono); font-size:0.75rem; border:1px dashed var(--line);
+  }
+  .entry-card .del-btn {
+    position:absolute; top:10px; right:10px; background: rgba(23,26,51,0.85); border:1px solid var(--line);
+    border-radius: var(--radius); width:30px; height:30px; color: var(--pink); cursor:pointer; font-size:0.9rem;
+  }
+
+  .entry-row {
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:12px 14px; border:1px solid var(--line); border-radius: var(--radius); margin-bottom:8px; flex-wrap: wrap;
+    cursor:pointer;
+  }
+  .entry-row img { width:56px; height:36px; object-fit:cover; border-radius:4px; flex-shrink:0; }
+  .entry-row .no-cover-sm {
+    width:56px; height:36px; border-radius:4px; flex-shrink:0; background: var(--bg);
+    border:1px dashed var(--line);
+  }
+  .entry-row .row-main { display:flex; align-items:center; gap:12px; flex:1; min-width:0; }
+  .entry-row .row-main > div { min-width:0; }
+  .entry-row .row-main strong { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+  .meta { font-family: var(--f-mono); font-size:0.8rem; color: var(--ink-dim); }
+  .badge { font-family: var(--f-mono); font-size:0.7rem; padding:3px 8px; border-radius:20px; display:inline-block; margin-left:8px; }
+  .badge-draft { background: rgba(250,127,183,0.15); color: var(--pink); border:1px solid var(--pink-hot); }
+  .badge-live { background: rgba(134,230,246,0.15); color: var(--cyan-bright); border:1px solid var(--cyan); }
+  .badge-featured { background: rgba(250,127,183,0.15); color: var(--pink); border:1px solid var(--pink-hot); }
+
+  .pagination { display:flex; gap:8px; align-items:center; justify-content:center; margin: 24px 0 8px; flex-wrap: wrap; }
+  .pagination button {
+    font-family: var(--f-mono); font-size:0.8rem; padding:7px 12px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--bg-elevated); color: var(--ink-dim); cursor:pointer;
+  }
+  .pagination button.active { color: var(--cyan-bright); border-color: var(--cyan-bright); }
+  .pagination button:disabled { opacity:0.4; cursor:default; }
+
+  .status-msg { font-family: var(--f-mono); font-size:0.85rem; padding:12px 14px; border-radius: var(--radius); margin: 16px 0; }
+  .status-ok { background: rgba(134,230,246,0.1); border:1px solid var(--cyan); color: var(--cyan-bright); }
+  .status-err { background: rgba(242,84,129,0.1); border:1px solid var(--pink-hot); color: var(--pink); }
+  .status-warn { background: rgba(250,127,183,0.08); border:1px solid var(--pink-hot); color: var(--pink); }
+
+  .toolbar { display:flex; gap:8px; margin-bottom:8px; flex-wrap: wrap; }
+  .toolbar button {
+    font-family: var(--f-mono); font-size:0.75rem; padding:6px 10px; border-radius: var(--radius);
+    border:1px solid var(--line); background: var(--bg-elevated); color: var(--ink-dim); cursor:pointer;
+  }
+  .toolbar button:hover { color: var(--cyan-bright); border-color: var(--cyan-bright); }
+
+  .mode-tabs { display:flex; gap:6px; margin-bottom:10px; }
+  .mode-tab {
+    font-family: var(--f-mono); font-size:0.75rem; padding:6px 14px; border-radius: var(--radius) var(--radius) 0 0;
+    border:1px solid var(--line); border-bottom:none; background: var(--bg); color: var(--ink-dim); cursor:pointer;
+  }
+  .mode-tab.active { color: var(--cyan-bright); background: var(--bg-elevated); }
+
+  .editor-toolbar-sticky {
+    position: sticky; top: 62px; z-index: 15; background: var(--bg);
+    padding: 10px 0 14px; margin-bottom: 2px;
+    box-shadow: 0 6px 8px -6px rgba(0,0,0,0.5);
+  }
+
+  .visual-editor {
+    width:100%; min-height: 260px; background: var(--bg-elevated); border:1px solid var(--line);
+    border-radius: var(--radius); color: var(--ink); padding:14px 16px; font-family: var(--f-body);
+    font-size:0.95rem; line-height:1.6; overflow-y:auto;
+  }
+  .visual-editor:focus { outline:none; border-color: var(--cyan-bright); }
+  .visual-editor img { max-width:100%; border-radius:6px; margin:8px 0; }
+  .visual-editor h2, .visual-editor h3 { margin: 0.6em 0 0.3em; }
+  .visual-editor p { margin: 0 0 0.8em; }
+  .visual-editor a { color: var(--cyan-bright); }
+  .visual-editor blockquote {
+    font-family: var(--f-display); font-size: 1.4rem; font-weight: 700; line-height: 1.3;
+    color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 20px 0; margin: 24px 0;
+  }
+
+  .dropzone {
+    border: 1px dashed var(--line); border-radius: var(--radius); padding: 18px;
+    text-align: center; cursor: pointer; background: var(--bg-elevated); margin-bottom: 8px;
+    font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink-dim);
+  }
+  .dropzone:hover, .dropzone:focus { border-color: var(--cyan-bright); outline: none; }
+  .dropzone.drag-over, .field textarea.drag-over, .visual-editor.drag-over {
+    border-color: var(--cyan-bright); background: rgba(134,230,246,0.08);
+  }
+  .cover-preview { max-width: 240px; border-radius: var(--radius); border:1px solid var(--line); margin-top:10px; display:none; }
+
+  .spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--ink-dim); border-top-color: var(--cyan-bright); border-radius:50%; animation: spin 0.7s linear infinite; margin-right:6px; vertical-align:-2px;}
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hidden { display:none !important; }
+  .panel-header { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap: wrap; }
+  input[type="file"] { font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink-dim); }
+
+  .settings-card { margin-bottom: 24px; }
+  .settings-row { display:flex; gap:10px; align-items:flex-end; flex-wrap: wrap; }
+  .settings-row .field { flex: 1; min-width: 200px; margin-bottom: 0; }
+
+  .empty-hint { color: var(--ink-dim); text-align:center; padding: 40px 20px; border:1px dashed var(--line); border-radius: var(--radius); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <img src="../assets/logo-full.png" alt="Escabiando Pociones">
+      ESCABIANDO POCIONES
+    </a>
+  </div>
+</nav>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login-screen" class="container login-wrap">
+  <div class="card login-card">
+    <span class="eyebrow">// Panel interno</span>
+    <h1 style="font-size:1.5rem;">Ingresar</h1>
+    <p style="color:var(--ink-dim); margin-bottom:24px;">Entrá con tu mail y contraseña.</p>
+    <div class="field">
+      <label>Mail</label>
+      <input type="email" id="email" autocomplete="email">
+    </div>
+    <div class="field">
+      <label>Contraseña</label>
+      <input type="password" id="password" autocomplete="current-password">
+    </div>
+    <button class="btn btn-primary" id="login-btn" onclick="login()" style="width:100%; justify-content:center;">Entrar</button>
+    <div id="login-msg"></div>
+  </div>
+</div>
+
+<!-- ===================== PANEL ===================== -->
+<div id="app-screen" class="hidden">
+  <header class="page-header">
+    <div class="container panel-header">
+      <div>
+        <span class="eyebrow">// Panel interno</span>
+        <h1 style="margin-bottom:0;">Administración de contenido</h1>
+      </div>
+      <div style="position:relative; display:flex; align-items:center; gap:10px;">
+        <p style="color:var(--ink-dim); font-family:var(--f-mono); font-size:0.85rem; margin:0;" id="user-email"></p>
+        <button class="btn btn-ghost" onclick="toggleSettings()" title="Configuración">⚙</button>
+        <button class="btn btn-ghost" onclick="logout()">Cerrar sesión</button>
+
+        <!-- ---------- Panel desplegable: apodo y contraseña ---------- -->
+        <div id="settings-dropdown" class="card hidden" style="position:absolute; top:calc(100% + 10px); right:0; width:320px; z-index:20; max-height:80vh; overflow-y:auto;">
+          <h3 class="mt-0">Tu apodo</h3>
+          <p style="margin-bottom:14px;">Así vas a firmar las reviews y noticias que publiques — nunca tu mail.</p>
+          <div class="field">
+            <input type="text" id="nickname-input" placeholder="ej: Fabro">
+          </div>
+          <button class="btn btn-primary" onclick="saveNickname()" style="width:100%; justify-content:center;">Guardar apodo</button>
+          <div id="nickname-msg"></div>
+
+          <h3 style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line);">Tu contraseña</h3>
+          <p style="margin-bottom:14px;">Si entraste con un link de invitación, todavía no tenés una puesta — poné una acá para poder loguearte sola/o la próxima vez.</p>
+          <div class="field">
+            <label style="font-family:var(--f-mono); font-size:0.75rem; color:var(--ink-dim);">Contraseña nueva</label>
+            <input type="password" id="new-password-input" autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label style="font-family:var(--f-mono); font-size:0.75rem; color:var(--ink-dim);">Repetila</label>
+            <input type="password" id="new-password-confirm" autocomplete="new-password">
+          </div>
+          <button class="btn btn-primary" onclick="changePassword()" style="width:100%; justify-content:center;">Guardar contraseña</button>
+          <div id="password-msg"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <div id="global-msg"></div>
+
+      <div class="tabs">
+        <button class="tab-btn active" id="tab-reviews-btn" onclick="switchTab('reviews')">Reviews</button>
+        <button class="tab-btn" id="tab-noticias-btn" onclick="switchTab('noticias')">Noticias</button>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- ---------------------- REVIEWS ------------------------ -->
+      <!-- ======================================================= -->
+      <div id="tab-reviews">
+
+        <!-- ---- Vista de lista ---- -->
+        <div id="reviews-list-view">
+          <div class="list-toolbar">
+            <div class="toolbar-left">
+              <button class="view-btn active" id="r-view-grid-btn" onclick="setView('r','grid')">▦ Cuadros</button>
+              <button class="view-btn" id="r-view-list-btn" onclick="setView('r','list')">☰ Lista</button>
+              <select id="reviews-sort-select" onchange="onSortChange('r')">
+                <option value="date-desc">Más nuevas primero</option>
+                <option value="date-asc">Más viejas primero</option>
+                <option value="alpha-asc">Título A-Z</option>
+                <option value="alpha-desc">Título Z-A</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="startNew('r')">+ Nueva review</button>
+          </div>
+          <div id="reviews-grid"></div>
+          <div id="reviews-pagination" class="pagination"></div>
+        </div>
+
+        <!-- ---- Vista de formulario ---- -->
+        <div id="reviews-form-view" class="hidden">
+          <button class="btn btn-ghost" onclick="backToList('r')" style="margin-bottom:20px;">← Volver a la lista</button>
+          <h2 id="r-form-title" style="margin-bottom:20px;">Agregar nueva review</h2>
+
+          <div class="field"><label>Título de la review</label><input type="text" id="r-title" oninput="autoSlug('r')"></div>
+          <div class="field"><label>Juego</label><input type="text" id="r-game"></div>
+          <div class="field">
+            <label>Slug (parte de la URL)</label>
+            <input type="text" id="r-slug">
+            <small>Se genera solo a partir del título. Si estás editando una review existente, no lo cambies.</small>
+          </div>
+          <div class="field"><label>Puntaje (0 a 10)</label><input type="number" id="r-score" min="0" max="10" step="0.5"></div>
+
+          <div class="field">
+            <label>Imagen de portada (opcional)</label>
+            <div class="dropzone" id="r-cover-drop" contenteditable="true" onclick="document.getElementById('r-cover-file').click()">
+              Hacé clic para elegir un archivo, o pegá una imagen acá (Ctrl+V o click derecho → Pegar)
+            </div>
+            <input type="file" id="r-cover-file" accept="image/*" class="hidden" onchange="uploadCover('r', this.files[0])">
+            <input type="hidden" id="r-cover">
+            <img id="r-cover-preview" class="cover-preview">
+          </div>
+
+          <div class="field"><label>Resumen corto (aparece en la tarjeta)</label><textarea id="r-excerpt" style="min-height:80px;"></textarea></div>
+
+          <div class="field">
+            <label>Texto completo</label>
+            <div class="editor-toolbar-sticky">
+              <div class="mode-tabs">
+                <button type="button" class="mode-tab active" id="r-mode-md-btn" onclick="setEditorMode('r','markdown')">Markdown</button>
+                <button type="button" class="mode-tab" id="r-mode-visual-btn" onclick="setEditorMode('r','visual')">Vista con formato</button>
+              </div>
+              <div class="toolbar">
+                <button type="button" onmousedown="event.preventDefault()" onclick="doBold('r')">Negrita</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doItalic('r')">Cursiva</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doHeading('r')">Subtítulo</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doLink('r')">🔗 Link</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doPullQuote('r')">❝ Destacado</button>
+                <input type="file" id="r-inline-img" accept="image/*" style="display:none;" onchange="uploadInlineImage('r', this.files[0])">
+                <button type="button" onclick="document.getElementById('r-inline-img').click()">🖼 Insertar imagen</button>
+              </div>
+            </div>
+            <textarea id="r-body" placeholder="También podés pegar una imagen acá directo con Ctrl+V."></textarea>
+            <div id="r-body-visual" class="visual-editor hidden" contenteditable="true"></div>
+          </div>
+
+          <div class="btn-row" style="margin-bottom:20px;">
+            <button class="btn btn-ghost" onclick="openPreview('r')">👁 Vista previa en pestaña nueva</button>
+          </div>
+
+          <label style="display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:0.9rem;">
+            <input type="checkbox" id="r-draft" style="width:auto;"> Guardar como borrador (no se muestra en la web)
+          </label>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" id="r-save-btn" onclick="saveReview()">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- ---------------------- NOTICIAS ------------------------ -->
+      <!-- ======================================================= -->
+      <div id="tab-noticias" class="hidden">
+
+        <!-- ---- Vista de lista ---- -->
+        <div id="noticias-list-view">
+          <div class="list-toolbar">
+            <div class="toolbar-left">
+              <button class="view-btn active" id="n-view-grid-btn" onclick="setView('n','grid')">▦ Cuadros</button>
+              <button class="view-btn" id="n-view-list-btn" onclick="setView('n','list')">☰ Lista</button>
+              <select id="noticias-sort-select" onchange="onSortChange('n')">
+                <option value="date-desc">Más nuevas primero</option>
+                <option value="date-asc">Más viejas primero</option>
+                <option value="alpha-asc">Título A-Z</option>
+                <option value="alpha-desc">Título Z-A</option>
+              </select>
+            </div>
+            <div class="btn-row" style="margin:0;">
+              <button class="btn btn-ghost" onclick="resetFeaturedNoticias()">↺ Resetear destacadas</button>
+              <button class="btn btn-primary" onclick="startNew('n')">+ Nueva noticia</button>
+            </div>
+          </div>
+          <div id="noticias-grid"></div>
+          <div id="noticias-pagination" class="pagination"></div>
+        </div>
+
+        <!-- ---- Vista de formulario ---- -->
+        <div id="noticias-form-view" class="hidden">
+          <button class="btn btn-ghost" onclick="backToList('n')" style="margin-bottom:20px;">← Volver a la lista</button>
+          <h2 id="n-form-title" style="margin-bottom:20px;">Agregar nueva noticia</h2>
+
+          <div class="field"><label>Título</label><input type="text" id="n-title" oninput="autoSlug('n')"></div>
+          <div class="field">
+            <label>Slug (parte de la URL)</label>
+            <input type="text" id="n-slug">
+            <small>Se genera solo a partir del título. Si estás editando una noticia existente, no lo cambies.</small>
+          </div>
+
+          <div class="field">
+            <label>Imagen de portada (opcional)</label>
+            <div class="dropzone" id="n-cover-drop" contenteditable="true" onclick="document.getElementById('n-cover-file').click()">
+              Hacé clic para elegir un archivo, o pegá una imagen acá (Ctrl+V o click derecho → Pegar)
+            </div>
+            <input type="file" id="n-cover-file" accept="image/*" class="hidden" onchange="uploadCover('n', this.files[0])">
+            <input type="hidden" id="n-cover">
+            <img id="n-cover-preview" class="cover-preview">
+          </div>
+
+          <div class="field"><label>Resumen corto (aparece en la tarjeta)</label><textarea id="n-excerpt" style="min-height:80px;"></textarea></div>
+
+          <div class="field">
+            <label>Texto completo</label>
+            <div class="editor-toolbar-sticky">
+              <div class="mode-tabs">
+                <button type="button" class="mode-tab active" id="n-mode-md-btn" onclick="setEditorMode('n','markdown')">Markdown</button>
+                <button type="button" class="mode-tab" id="n-mode-visual-btn" onclick="setEditorMode('n','visual')">Vista con formato</button>
+              </div>
+              <div class="toolbar">
+                <button type="button" onmousedown="event.preventDefault()" onclick="doBold('n')">Negrita</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doItalic('n')">Cursiva</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doHeading('n')">Subtítulo</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doLink('n')">🔗 Link</button>
+                <button type="button" onmousedown="event.preventDefault()" onclick="doPullQuote('n')">❝ Destacado</button>
+                <input type="file" id="n-inline-img" accept="image/*" style="display:none;" onchange="uploadInlineImage('n', this.files[0])">
+                <button type="button" onclick="document.getElementById('n-inline-img').click()">🖼 Insertar imagen</button>
+              </div>
+            </div>
+            <textarea id="n-body" placeholder="También podés pegar una imagen acá directo con Ctrl+V."></textarea>
+            <div id="n-body-visual" class="visual-editor hidden" contenteditable="true"></div>
+          </div>
+
+          <div class="btn-row" style="margin-bottom:20px;">
+            <button class="btn btn-ghost" onclick="openPreview('n')">👁 Vista previa en pestaña nueva</button>
+          </div>
+
+          <label style="display:flex; align-items:center; gap:8px; margin-bottom:16px; font-size:0.9rem;">
+            <input type="checkbox" id="n-draft" style="width:auto;"> Guardar como borrador (no se muestra en la web)
+          </label>
+          <div class="field" style="max-width:260px;">
+            <label>Destacar en la portada (Home)</label>
+            <select id="n-featured-position">
+              <option value="">No destacada (orden cronológico)</option>
+              <option value="1">Posición 1 (primera)</option>
+              <option value="2">Posición 2</option>
+              <option value="3">Posición 3</option>
+            </select>
+            <small>Si elegís una posición que ya tiene otra noticia, te va a avisar antes de reemplazarla.</small>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary" id="n-save-btn" onclick="saveNoticia()">Guardar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ===================== MODAL: editor de imágenes ===================== -->
+<div id="image-editor-modal" class="hidden" style="position:fixed; inset:0; background:rgba(10,12,25,0.92); z-index:100; display:flex; align-items:center; justify-content:center; padding:20px;">
+  <div class="card" style="width:100%; max-width:640px; max-height:90vh; display:flex; flex-direction:column;">
+    <h3 class="mt-0">Ajustar imagen</h3>
+    <div style="flex:1; min-height:0; max-height:55vh; background:var(--bg); border-radius:var(--radius); overflow:hidden; margin-bottom:16px;">
+      <img id="image-editor-img" style="display:block; max-width:100%;">
+    </div>
+    <div class="toolbar" style="margin-bottom:16px;">
+      <button type="button" onclick="cropperInstance && cropperInstance.rotate(-90)">↺ Rotar</button>
+      <button type="button" onclick="cropperInstance && cropperInstance.rotate(90)">↻ Rotar</button>
+      <button type="button" onclick="setCropAspect(null)">Libre</button>
+      <button type="button" onclick="setCropAspect(1)">1:1</button>
+      <button type="button" onclick="setCropAspect(16/9)">16:9</button>
+      <button type="button" onclick="cropperInstance && cropperInstance.reset()">Reiniciar</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="confirmCrop()">Usar esta imagen</button>
+      <button class="btn btn-ghost" onclick="cancelCrop()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="https://unpkg.com/turndown@7.1.2/dist/turndown.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+<script>
+  const SUPABASE_URL = "https://mmhzgamixbnawbjhmagt.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1taHpnYW1peGJuYXdiamhtYWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc3ODMyOTUsImV4cCI6MjEwMzM1OTI5NX0.sSxZWLnwAG3yzGrsQUJgOgWPbruVoTyslxSXVij89EY";
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const SITE_BASE_URL = "https://www.escabiandopociones.com.ar/";
+  const PAGE_SIZE = 9;
+
+  let currentUser = null;
+  let currentNickname = '';
+  let editingReviewSlug = null;
+  let editingNoticiaSlug = null;
+
+  const state = {
+    r: { data: [], view: 'grid', sort: 'date-desc', page: 1, folder: 'content/reviews' },
+    n: { data: [], view: 'grid', sort: 'date-desc', page: 1, folder: 'content/noticias' }
+  };
+
+  // Guarda una URL local (blob:) por cada imagen recién subida en esta
+  // sesión, para poder mostrarla ya mismo en la vista previa sin
+  // esperar a que el sitio publicado la tenga (eso tarda un rato).
+  const localImageCache = {};
+
+  // ---------- Login ----------
+
+  async function login() {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn = document.getElementById('login-btn');
+    const msg = document.getElementById('login-msg');
+    msg.innerHTML = '';
+    btn.disabled = true;
+    btn.textContent = 'Entrando…';
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+    if (error) { msg.innerHTML = `<div class="status-msg status-err">${error.message}</div>`; return; }
+    showApp(data.user);
+  }
+
+  document.getElementById('password').addEventListener('keydown', (e) => { if (e.key === 'Enter') login(); });
+  document.getElementById('email').addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('password').focus(); });
+
+  async function logout() {
+    await sb.auth.signOut();
+    document.getElementById('app-screen').classList.add('hidden');
+    document.getElementById('login-screen').classList.remove('hidden');
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+  }
+
+  function showApp(user) {
+    currentUser = user;
+    currentNickname = (user.user_metadata && user.user_metadata.nickname) || '';
+    document.getElementById('login-screen').classList.add('hidden');
+    document.getElementById('app-screen').classList.remove('hidden');
+    document.getElementById('user-email').textContent = user.email;
+    document.getElementById('nickname-input').value = currentNickname;
+    if (!currentNickname) {
+      document.getElementById('nickname-msg').innerHTML =
+        '<div class="status-msg status-warn">Todavía no tenés un apodo puesto — mientras tanto, tu mail va a aparecer como autor.</div>';
+      document.getElementById('settings-dropdown').classList.remove('hidden');
+    }
+    loadList('r');
+    loadList('n');
+    checkForPendingDrafts();
+  }
+
+  sb.auth.getSession().then(({ data }) => { if (data.session) showApp(data.session.user); });
+
+  async function saveNickname() {
+    const nickname = document.getElementById('nickname-input').value.trim();
+    if (!nickname) return;
+    const { error } = await sb.auth.updateUser({ data: { nickname } });
+    const msg = document.getElementById('nickname-msg');
+    if (error) { msg.innerHTML = `<div class="status-msg status-err">Error: ${error.message}</div>`; return; }
+    currentNickname = nickname;
+    msg.innerHTML = '<div class="status-msg status-ok">Apodo guardado. A partir de ahora firma así.</div>';
+  }
+
+  async function changePassword() {
+    const pass = document.getElementById('new-password-input').value;
+    const confirm = document.getElementById('new-password-confirm').value;
+    const msg = document.getElementById('password-msg');
+
+    if (!pass || pass.length < 6) {
+      msg.innerHTML = '<div class="status-msg status-err">La contraseña tiene que tener al menos 6 caracteres.</div>';
+      return;
+    }
+    if (pass !== confirm) {
+      msg.innerHTML = '<div class="status-msg status-err">Las dos contraseñas no coinciden.</div>';
+      return;
+    }
+
+    const { error } = await sb.auth.updateUser({ password: pass });
+    if (error) { msg.innerHTML = `<div class="status-msg status-err">Error: ${error.message}</div>`; return; }
+    document.getElementById('new-password-input').value = '';
+    document.getElementById('new-password-confirm').value = '';
+    msg.innerHTML = '<div class="status-msg status-ok">Contraseña guardada. Usala la próxima vez que entres.</div>';
+  }
+
+  function authorName() { return currentNickname || (currentUser ? currentUser.email : ''); }
+
+  function toggleSettings() {
+    document.getElementById('settings-dropdown').classList.toggle('hidden');
+  }
+  document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('settings-dropdown');
+    if (dropdown.classList.contains('hidden')) return;
+    if (dropdown.contains(e.target) || e.target.closest('[onclick="toggleSettings()"]')) return;
+    dropdown.classList.add('hidden');
+  });
+
+  // ---------- Función de Supabase ----------
+
+  async function callFn(payload) {
+    const { data, error } = await sb.functions.invoke('save-content', { body: payload });
+    if (error) throw new Error(error.message || 'Error de conexión con la función');
+    if (data && data.error) throw new Error(data.error);
+    return data;
+  }
+
+  function slugify(str) {
+    return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+  function autoSlug(prefix) {
+    const editing = prefix === 'r' ? editingReviewSlug : editingNoticiaSlug;
+    if (editing) return;
+    document.getElementById(`${prefix}-slug`).value = slugify(document.getElementById(`${prefix}-title`).value);
+  }
+  function wrapSelection(id, before, after) {
+    const el = document.getElementById(id);
+    const start = el.selectionStart, end = el.selectionEnd;
+    const selected = el.value.slice(start, end) || 'texto';
+    el.value = el.value.slice(0, start) + before + selected + after + el.value.slice(end);
+    el.focus();
+  }
+  function insertText(id, text) {
+    const el = document.getElementById(id);
+    const pos = el.selectionStart;
+    el.value = el.value.slice(0, pos) + text + el.value.slice(pos);
+    el.focus();
+  }
+  function insertLink(id) {
+    const el = document.getElementById(id);
+    const start = el.selectionStart, end = el.selectionEnd;
+    const selected = el.value.slice(start, end) || 'texto del link';
+    const url = prompt('¿A dónde tiene que llevar el link?', 'https://');
+    if (!url) return;
+    el.value = el.value.slice(0, start) + `[${selected}](${url})` + el.value.slice(end);
+    el.focus();
+  }
+  function extOf(filename) {
+    const m = (filename || '').match(/\.[^.]+$/);
+    return m ? m[0].toLowerCase() : '.png';
+  }
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+  function showGlobalMsg(text, ok) {
+    const el = document.getElementById('global-msg');
+    el.innerHTML = `<div class="status-msg ${ok ? 'status-ok' : 'status-err'}">${text}</div>`;
+    if (ok) setTimeout(() => { el.innerHTML = ''; }, 6000);
+  }
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str || '';
+    return div.innerHTML;
+  }
+  function toPreviewUrl(path) {
+    if (!path) return path;
+    if (/^https?:\/\//.test(path)) return path;
+    if (localImageCache[path]) return localImageCache[path];
+    return SITE_BASE_URL + path.replace(/^\//, '');
+  }
+
+  // ---------- Editor de imágenes (recorte, rotación, achique automático) ----------
+
+  let cropperInstance = null;
+  let cropCallback = null;
+  let cropObjectUrl = null;
+
+  function openImageEditor(file, aspectRatio, callback) {
+    cropCallback = callback;
+    const modal = document.getElementById('image-editor-modal');
+    const img = document.getElementById('image-editor-img');
+    if (cropObjectUrl) URL.revokeObjectURL(cropObjectUrl);
+    cropObjectUrl = URL.createObjectURL(file);
+    img.src = cropObjectUrl;
+    modal.classList.remove('hidden');
+
+    img.onload = () => {
+      if (cropperInstance) cropperInstance.destroy();
+      cropperInstance = new Cropper(img, {
+        aspectRatio: aspectRatio || NaN,
+        viewMode: 1,
+        autoCropArea: 1,
+        background: false
+      });
+    };
+  }
+
+  function setCropAspect(ratio) {
+    if (cropperInstance) cropperInstance.setAspectRatio(ratio === null ? NaN : ratio);
+  }
+
+  function confirmCrop() {
+    if (!cropperInstance) return;
+    // maxWidth/maxHeight achica sola cualquier foto gigante de celular.
+    const canvas = cropperInstance.getCroppedCanvas({ maxWidth: 1600, maxHeight: 1600, imageSmoothingQuality: 'high' });
+
+    // WebP con calidad 0.82: mismo aspecto visual que un PNG, una
+    // fracción del peso (es la misma técnica que usan los sitios de
+    // "comprimir imagen"). Si el navegador fuera muy viejo y no
+    // soportara exportar a WebP, cae solo a JPEG comprimido en vez de
+    // a un PNG pesado sin comprimir.
+    canvas.toBlob((blob) => {
+      const finish = (finalBlob) => {
+        const cb = cropCallback;
+        closeImageEditor();
+        if (cb) cb(finalBlob);
+      };
+      if (blob && blob.type === 'image/webp') {
+        finish(blob);
+      } else {
+        canvas.toBlob((jpegBlob) => finish(jpegBlob), 'image/jpeg', 0.85);
+      }
+    }, 'image/webp', 0.82);
+  }
+
+  function extFromBlob(blob) {
+    if (blob.type === 'image/webp') return '.webp';
+    if (blob.type === 'image/jpeg') return '.jpg';
+    return '.png';
+  }
+
+  function cancelCrop() { closeImageEditor(); }
+
+  function closeImageEditor() {
+    document.getElementById('image-editor-modal').classList.add('hidden');
+    if (cropperInstance) { cropperInstance.destroy(); cropperInstance = null; }
+    if (cropObjectUrl) { URL.revokeObjectURL(cropObjectUrl); cropObjectUrl = null; }
+    cropCallback = null;
+  }
+
+  // ---------- Imágenes: subida (archivo, pegado, o click derecho → Pegar) ----------
+
+  async function uploadCover(prefix, file) {
+    if (!file) return;
+    if (file.size > 4 * 1024 * 1024) { showGlobalMsg('La imagen pesa más de 4MB, probá con una más liviana.', false); return; }
+    openImageEditor(file, 16 / 9, (blob) => uploadCoverBlob(prefix, blob));
+  }
+
+  async function uploadCoverBlob(prefix, blob) {
+    const localUrl = URL.createObjectURL(blob);
+    const prev = document.getElementById(`${prefix}-cover-preview`);
+    prev.src = localUrl;
+    prev.style.display = 'block';
+    try {
+      showGlobalMsg('Subiendo imagen…', true);
+      const base64 = await fileToBase64(blob);
+      const path = `assets/uploads/${Date.now()}-portada${extFromBlob(blob)}`;
+      localImageCache[path] = localUrl;
+      await callFn({ action: 'putBinary', path, content: base64, message: `Subir portada: ${path}` });
+      document.getElementById(`${prefix}-cover`).value = path;
+      showGlobalMsg('Imagen subida.', true);
+    } catch (e) {
+      showGlobalMsg('Error al subir la imagen: ' + e.message, false);
+    }
+  }
+
+  // ---------- Editor dual: markdown en crudo vs. "vista con formato" ----------
+
+  const editorMode = { r: 'markdown', n: 'markdown' };
+  const turndownService = new TurndownService({ headingStyle: 'atx' });
+  // Al convertir de vuelta a markdown, usa la ruta real guardada en
+  // data-real-src (no la URL local de vista previa) para las imágenes.
+  turndownService.addRule('realImageSrc', {
+    filter: 'img',
+    replacement: (content, node) => {
+      const alt = node.getAttribute('alt') || '';
+      const src = node.getAttribute('data-real-src') || node.getAttribute('src') || '';
+      return `![${alt}](${src})`;
+    }
+  });
+
+  function markdownToVisualHtml(markdown) {
+    let html = marked.parse(markdown || '');
+    // Muestra la imagen real (o la local recién subida) pero guarda la
+    // ruta original en data-real-src, para poder reconstruir bien el
+    // markdown cuando se vuelva a ese modo.
+    html = html.replace(/<img src="([^"]*)"([^>]*)>/g, (m, src, rest) => {
+      const display = toPreviewUrl(src);
+      return `<img src="${display}" data-real-src="${src}"${rest}>`;
+    });
+    return html;
+  }
+
+  function setEditorMode(prefix, mode) {
+    if (editorMode[prefix] === mode) return;
+    const ta = document.getElementById(`${prefix}-body`);
+    const visual = document.getElementById(`${prefix}-body-visual`);
+
+    if (mode === 'visual') {
+      visual.innerHTML = markdownToVisualHtml(ta.value);
+      ta.classList.add('hidden');
+      visual.classList.remove('hidden');
+    } else {
+      ta.value = turndownService.turndown(visual.innerHTML).trim();
+      visual.classList.add('hidden');
+      ta.classList.remove('hidden');
+    }
+    editorMode[prefix] = mode;
+    document.getElementById(`${prefix}-mode-md-btn`).classList.toggle('active', mode === 'markdown');
+    document.getElementById(`${prefix}-mode-visual-btn`).classList.toggle('active', mode === 'visual');
+  }
+
+  // Antes de guardar, previsualizar, o cualquier otra cosa que lea el
+  // markdown final, hay que asegurarse de que si el modo visual está
+  // activo, sus cambios ya se hayan volcado al textarea.
+  function syncEditorToMarkdown(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      const ta = document.getElementById(`${prefix}-body`);
+      const visual = document.getElementById(`${prefix}-body-visual`);
+      ta.value = turndownService.turndown(visual.innerHTML).trim();
+    }
+  }
+
+  function resetEditorMode(prefix) {
+    editorMode[prefix] = 'markdown';
+    document.getElementById(`${prefix}-body`).classList.remove('hidden');
+    document.getElementById(`${prefix}-body-visual`).classList.add('hidden');
+    document.getElementById(`${prefix}-body-visual`).innerHTML = '';
+    document.getElementById(`${prefix}-mode-md-btn`).classList.add('active');
+    document.getElementById(`${prefix}-mode-visual-btn`).classList.remove('active');
+  }
+
+  // Botones de la barra: hacen una cosa u otra según el modo activo.
+  function doBold(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      document.getElementById(`${prefix}-body-visual`).focus();
+      document.execCommand('bold');
+    } else {
+      wrapSelection(`${prefix}-body`, '**', '**');
+    }
+  }
+  function doItalic(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      document.getElementById(`${prefix}-body-visual`).focus();
+      document.execCommand('italic');
+    } else {
+      wrapSelection(`${prefix}-body`, '_', '_');
+    }
+  }
+  function doHeading(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      document.getElementById(`${prefix}-body-visual`).focus();
+      document.execCommand('formatBlock', false, 'H2');
+    } else {
+      insertText(`${prefix}-body`, '\n## ');
+    }
+  }
+  function doLink(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      const url = prompt('¿A dónde tiene que llevar el link?', 'https://');
+      if (!url) return;
+      const visual = document.getElementById(`${prefix}-body-visual`);
+      visual.focus();
+      if (window.getSelection().toString().trim() === '') {
+        document.execCommand('insertHTML', false, `<a href="${url}">texto del link</a>`);
+      } else {
+        document.execCommand('createLink', false, url);
+      }
+    } else {
+      insertLink(`${prefix}-body`);
+    }
+  }
+
+  function doPullQuote(prefix) {
+    if (editorMode[prefix] === 'visual') {
+      document.getElementById(`${prefix}-body-visual`).focus();
+      document.execCommand('formatBlock', false, 'BLOCKQUOTE');
+    } else {
+      const el = document.getElementById(`${prefix}-body`);
+      const start = el.selectionStart, end = el.selectionEnd;
+      const selected = el.value.slice(start, end) || 'Texto destacado';
+      el.value = el.value.slice(0, start) + `\n\n> ${selected}\n\n` + el.value.slice(end);
+      el.focus();
+    }
+  }
+
+  async function uploadInlineImage(prefix, file) {
+    if (!file) return;
+    if (file.size > 4 * 1024 * 1024) { showGlobalMsg('La imagen pesa más de 4MB, probá con una más liviana.', false); return; }
+    openImageEditor(file, null, (blob) => uploadInlineBlob(prefix, blob));
+  }
+
+  async function uploadInlineBlob(prefix, blob) {
+    try {
+      showGlobalMsg('Subiendo imagen…', true);
+      const base64 = await fileToBase64(blob);
+      const path = `assets/uploads/${Date.now()}-imagen${extFromBlob(blob)}`;
+      const localUrl = URL.createObjectURL(blob);
+      localImageCache[path] = localUrl;
+      await callFn({ action: 'putBinary', path, content: base64, message: `Subir imagen: ${path}` });
+
+      if (editorMode[prefix] === 'visual') {
+        const visual = document.getElementById(`${prefix}-body-visual`);
+        visual.focus();
+        document.execCommand('insertHTML', false, `<img src="${localUrl}" data-real-src="${path}">`);
+      } else {
+        insertText(`${prefix}-body`, `\n![](${path})\n`);
+      }
+      showGlobalMsg('Imagen subida e insertada en el texto.', true);
+    } catch (e) {
+      showGlobalMsg('Error al subir la imagen: ' + e.message, false);
+    }
+  }
+
+  function attachPasteUpload(elId, prefix) {
+    document.getElementById(elId).addEventListener('paste', (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      if (!items) return;
+      for (const item of items) {
+        if (item.type.startsWith('image/')) { e.preventDefault(); uploadInlineImage(prefix, item.getAsFile()); return; }
+      }
+    });
+  }
+  attachPasteUpload('r-body', 'r');
+  attachPasteUpload('r-body-visual', 'r');
+  attachPasteUpload('n-body', 'n');
+  attachPasteUpload('n-body-visual', 'n');
+
+  function attachPasteCover(dropzoneId, prefix) {
+    const el = document.getElementById(dropzoneId);
+    const placeholder = el.textContent;
+    el.addEventListener('paste', (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      let handled = false;
+      if (items) {
+        for (const item of items) {
+          if (item.type.startsWith('image/')) { e.preventDefault(); uploadCover(prefix, item.getAsFile()); handled = true; break; }
+        }
+      }
+      if (!handled) e.preventDefault();
+    });
+    el.addEventListener('keydown', (e) => {
+      if (!(e.ctrlKey || e.metaKey)) e.preventDefault();
+    });
+    el.addEventListener('input', () => { el.textContent = placeholder; });
+  }
+  attachPasteCover('r-cover-drop', 'r');
+  attachPasteCover('n-cover-drop', 'n');
+
+  // Arrastrar y soltar una imagen directo, tanto en la portada como
+  // en el cuerpo del texto (funciona en modo Markdown y en modo Visual).
+  function attachDragDrop(elId, onFile) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    el.addEventListener('dragover', (e) => { e.preventDefault(); el.classList.add('drag-over'); });
+    el.addEventListener('dragleave', () => el.classList.remove('drag-over'));
+    el.addEventListener('drop', (e) => {
+      e.preventDefault();
+      el.classList.remove('drag-over');
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) onFile(file);
+    });
+  }
+  attachDragDrop('r-cover-drop', (file) => uploadCover('r', file));
+  attachDragDrop('n-cover-drop', (file) => uploadCover('n', file));
+  attachDragDrop('r-body', (file) => uploadInlineImage('r', file));
+  attachDragDrop('r-body-visual', (file) => uploadInlineImage('r', file));
+  attachDragDrop('n-body', (file) => uploadInlineImage('n', file));
+  attachDragDrop('n-body-visual', (file) => uploadInlineImage('n', file));
+
+  // ---------- Vista previa real, en pestaña nueva ----------
+
+  function absolutizeImages(markdown) {
+    return (markdown || '').replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g, (m, alt, path) => `![${alt}](${toPreviewUrl(path)})`);
+  }
+  function youtubeCardPreview(html) {
+    return html.replace(
+      /<p>\s*<a[^>]*href="(https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)[a-zA-Z0-9_-]{11}[^"]*)"[^>]*>[^<]*<\/a>\s*<\/p>/g,
+      (m, url) => `<div class="card" style="margin:20px 0;"><span class="eyebrow">▶ Video de YouTube</span><p style="margin:0 0 10px;">Acá se va a incrustar el video una vez publicado (no se puede previsualizar embebido en esta pestaña de prueba).</p><a class="btn btn-ghost" href="${url}" target="_blank" rel="noopener">Ver en YouTube →</a></div>`
+    );
+  }
+  function tweetCardPreview(html) {
+    return html.replace(
+      /<p>\s*<a[^>]*href="(https?:\/\/(?:www\.)?(?:twitter\.com|x\.com)\/[A-Za-z0-9_]+\/status\/\d+)[^"]*"[^>]*>[^<]*<\/a>\s*<\/p>/g,
+      (m, url) => `<div class="card" style="margin:20px 0;"><span class="eyebrow">🐦 Post de X</span><p style="margin:0 0 10px;">Acá se va a incrustar el post una vez publicado (no se puede previsualizar embebido en esta pestaña de prueba).</p><a class="btn btn-ghost" href="${url}" target="_blank" rel="noopener">Ver en X →</a></div>`
+    );
+  }
+  function openLinksNewTabPreview(html) {
+    return html.replace(/<a (?![^>]*target=)/g, '<a target="_blank" rel="noopener" ');
+  }
+
+  function buildPreviewDoc(kind, entry) {
+    let bodyHtml = marked.parse(absolutizeImages(entry.body || ''));
+    bodyHtml = youtubeCardPreview(bodyHtml);
+    bodyHtml = tweetCardPreview(bodyHtml);
+    bodyHtml = openLinksNewTabPreview(bodyHtml);
+    const cover = entry.cover ? `<img src="${toPreviewUrl(entry.cover)}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">` : '';
+    const scoreBlock = kind === 'review' ? `
+      <span class="eyebrow">${escapeHtml(entry.game || '')}</span>
+      <h1>${escapeHtml(entry.title || 'Sin título')}</h1>
+      <div class="vial-score" style="margin-bottom:8px;">
+        <div class="vial"><div class="vial-fill" style="height:${Math.max(0, Math.min(100, (Number(entry.score) || 0) * 10))}%;"></div></div>
+        ${entry.score != null && entry.score !== '' ? entry.score + ' / 10' : ''}
+      </div>` : `<h1>${escapeHtml(entry.title || 'Sin título')}</h1>`;
+
+    return `<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vista previa | ${escapeHtml(entry.title || '')}</title>
+<link rel="stylesheet" href="${SITE_BASE_URL}style.css">
+<style>
+  .preview-banner{background:var(--pink-hot);color:#fff;text-align:center;padding:8px;font-family:var(--f-mono);font-size:0.8rem;}
+  blockquote {
+    font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; line-height: 1.3;
+    color: var(--ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 24px 0; margin: 32px 0;
+  }
+</style>
+</head><body>
+<div class="preview-banner">VISTA PREVIA — esto todavía no está publicado</div>
+<header class="page-header"><div class="container">
+  ${cover}${scoreBlock}
+  <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
+    ${entry.author ? escapeHtml(entry.author) + ' · ' : ''}${new Date().toLocaleDateString('es-419', { year: 'numeric', month: 'long', day: 'numeric' })}
+  </p>
+</div></header>
+<section class="section"><div class="container" style="max-width: 760px;">${bodyHtml}</div></section>
+</body></html>`;
+  }
+
+  function openPreview(prefix) {
+    syncEditorToMarkdown(prefix);
+    const entry = prefix === 'r' ? {
+      title: document.getElementById('r-title').value, game: document.getElementById('r-game').value,
+      score: document.getElementById('r-score').value, cover: document.getElementById('r-cover').value,
+      body: document.getElementById('r-body').value, author: authorName()
+    } : {
+      title: document.getElementById('n-title').value, body: document.getElementById('n-body').value,
+      cover: document.getElementById('n-cover').value, author: authorName()
+    };
+    const html = buildPreviewDoc(prefix === 'r' ? 'review' : 'noticia', entry);
+    const win = window.open('', '_blank');
+    win.document.open();
+    win.document.write(html);
+    win.document.close();
+  }
+
+  // ---------- Tabs ----------
+
+  function switchTab(name) {
+    document.getElementById('tab-reviews').classList.toggle('hidden', name !== 'reviews');
+    document.getElementById('tab-noticias').classList.toggle('hidden', name !== 'noticias');
+    document.getElementById('tab-reviews-btn').classList.toggle('active', name === 'reviews');
+    document.getElementById('tab-noticias-btn').classList.toggle('active', name === 'noticias');
+  }
+
+  // ---------- Listado: cargar, ordenar, paginar, dibujar ----------
+
+  async function loadList(p) {
+    const s = state[p];
+    const gridEl = document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-grid`);
+    gridEl.innerHTML = '<p style="color:var(--ink-dim);"><span class="spinner"></span>Cargando…</p>';
+    try {
+      const { items } = await callFn({ action: 'list', path: s.folder });
+      s.data = await Promise.all(items.map(async (it) => {
+        const { content } = await callFn({ action: 'get', path: it.path });
+        return { slug: it.slug, ...content };
+      }));
+      s.page = 1;
+      renderList(p);
+    } catch (e) {
+      gridEl.innerHTML = `<div class="status-msg status-err">Error al cargar: ${e.message}</div>`;
+    }
+  }
+
+  function sortedData(p) {
+    const s = state[p];
+    const data = s.data.slice();
+    if (s.sort === 'date-desc') data.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    else if (s.sort === 'date-asc') data.sort((a, b) => new Date(a.date || 0) - new Date(b.date || 0));
+    else if (s.sort === 'alpha-asc') data.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'es'));
+    else if (s.sort === 'alpha-desc') data.sort((a, b) => (b.title || '').localeCompare(a.title || '', 'es'));
+    return data;
+  }
+
+  function renderList(p) {
+    const s = state[p];
+    const gridEl = document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-grid`);
+    const pagEl = document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-pagination`);
+
+    if (!s.data.length) {
+      gridEl.innerHTML = `<div class="empty-hint">Todavía no hay ${p === 'r' ? 'reviews' : 'noticias'}. Usá el botón "+ Nueva" para cargar la primera.</div>`;
+      pagEl.innerHTML = '';
+      return;
+    }
+
+    const data = sortedData(p);
+    const totalPages = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
+    if (s.page > totalPages) s.page = totalPages;
+    const pageItems = data.slice((s.page - 1) * PAGE_SIZE, s.page * PAGE_SIZE);
+
+    if (s.view === 'grid') {
+      gridEl.className = 'grid grid-3';
+      gridEl.innerHTML = pageItems.map(item => entryCardHtml(p, item)).join('');
+    } else {
+      gridEl.className = '';
+      gridEl.innerHTML = pageItems.map(item => entryRowHtml(p, item)).join('');
+    }
+
+    if (totalPages <= 1) {
+      pagEl.innerHTML = '';
+    } else {
+      let btns = `<button ${s.page === 1 ? 'disabled' : ''} onclick="goToPage('${p}', ${s.page - 1})">‹ Anterior</button>`;
+      for (let i = 1; i <= totalPages; i++) {
+        btns += `<button class="${i === s.page ? 'active' : ''}" onclick="goToPage('${p}', ${i})">${i}</button>`;
+      }
+      btns += `<button ${s.page === totalPages ? 'disabled' : ''} onclick="goToPage('${p}', ${s.page + 1})">Siguiente ›</button>`;
+      pagEl.innerHTML = btns;
+    }
+  }
+
+  function entryCardHtml(p, item) {
+    const cover = item.cover
+      ? `<img src="${toPreviewUrl(item.cover)}" alt="">`
+      : `<div class="no-cover">Sin portada</div>`;
+    const sub = p === 'r'
+      ? `${escapeHtml(item.game || '')} ${item.score != null ? '· ' + item.score + '/10' : ''}`
+      : (item.date ? new Date(item.date).toLocaleDateString('es-419') : '');
+    return `
+      <div class="card entry-card" onclick='openEdit("${p}", ${JSON.stringify(item.slug)})'>
+        <button class="del-btn" onclick='event.stopPropagation(); deleteEntry("${p}", ${JSON.stringify(item.slug)})' title="Borrar">🗑</button>
+        ${cover}
+        <span class="badge ${item.draft ? 'badge-draft' : 'badge-live'}">${item.draft ? 'Borrador' : 'Publicada'}</span>
+        ${p === 'n' && item.featuredPosition ? `<span class="badge badge-featured">★ Posición ${item.featuredPosition}</span>` : ''}
+        <h3 style="margin-top:10px;">${escapeHtml(item.title || '')}</h3>
+        <div class="meta">${sub}</div>
+      </div>`;
+  }
+
+  function entryRowHtml(p, item) {
+    const cover = item.cover ? `<img src="${toPreviewUrl(item.cover)}" alt="">` : `<div class="no-cover-sm"></div>`;
+    const sub = p === 'r'
+      ? `${escapeHtml(item.game || '')} ${item.score != null ? '· ' + item.score + '/10' : ''}`
+      : (item.date ? new Date(item.date).toLocaleDateString('es-419') : '');
+    return `
+      <div class="entry-row" onclick='openEdit("${p}", ${JSON.stringify(item.slug)})'>
+        <div class="row-main">
+          ${cover}
+          <div>
+            <strong>${escapeHtml(item.title)}</strong>
+            <div class="meta">${sub}</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="badge ${item.draft ? 'badge-draft' : 'badge-live'}">${item.draft ? 'Borrador' : 'Publicada'}</span>
+          ${p === 'n' && item.featuredPosition ? `<span class="badge badge-featured">★ Posición ${item.featuredPosition}</span>` : ''}
+          <button class="btn btn-ghost" onclick='event.stopPropagation(); deleteEntry("${p}", ${JSON.stringify(item.slug)})'>Borrar</button>
+        </div>
+      </div>`;
+  }
+
+  function setView(p, view) {
+    state[p].view = view;
+    document.getElementById(`${p}-view-grid-btn`).classList.toggle('active', view === 'grid');
+    document.getElementById(`${p}-view-list-btn`).classList.toggle('active', view === 'list');
+    renderList(p);
+  }
+  function onSortChange(p) {
+    state[p].sort = document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-sort-select`).value;
+    state[p].page = 1;
+    renderList(p);
+  }
+  function goToPage(p, page) {
+    state[p].page = page;
+    renderList(p);
+    document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-list-view`).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ---------- Cambiar entre vista de lista y vista de formulario ----------
+
+  function showListView(p) {
+    document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-list-view`).classList.remove('hidden');
+    document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-form-view`).classList.add('hidden');
+  }
+  function showFormView(p) {
+    document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-list-view`).classList.add('hidden');
+    document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-form-view`).classList.remove('hidden');
+  }
+  function backToList(p) { showListView(p); }
+
+  function startNew(p) {
+    if (p === 'r') resetReviewForm(); else resetNoticiaForm();
+    offerDraftRecovery(p);
+    showFormView(p);
+  }
+
+  function openEdit(p, slug) {
+    if (p === 'r') editReview(slug); else editNoticia(slug);
+    offerDraftRecovery(p);
+    showFormView(p);
+  }
+
+  function offerDraftRecovery(p) {
+    const key = draftKey(p);
+    const raw = localStorage.getItem(key);
+    if (!raw) return;
+    try {
+      const snap = JSON.parse(raw);
+      const msg = draftKeySlug(key) === 'new'
+        ? '¿Tenés cambios sin guardar de una sesión anterior en esta nota nueva — querés recuperarlos?'
+        : '¿Tenés cambios sin guardar de una sesión anterior en esta nota — querés recuperarlos en vez de la versión publicada?';
+      if (confirm(msg)) {
+        applyDraftSnapshot(p, snap);
+      } else {
+        localStorage.removeItem(key);
+      }
+    } catch (e) {}
+  }
+
+  function draftKeySlug(key) {
+    const m = key.match(/^ep_draft_(?:r|n)_(.+)$/);
+    return m ? m[1] : null;
+  }
+
+  async function deleteEntry(p, slug) {
+    if (!confirm('¿Borrar esta nota?')) return;
+    const folder = state[p].folder;
+    try {
+      await callFn({ action: 'delete', path: `${folder}/${slug}.json`, message: `Borrar: ${slug}` });
+      showGlobalMsg('Borrada.', true);
+      await loadList(p);
+    } catch (e) {
+      showGlobalMsg('Error al borrar: ' + e.message, false);
+    }
+  }
+
+  async function resetFeaturedNoticias() {
+    const featuredItems = state.n.data.filter(n => n.featuredPosition);
+    if (!featuredItems.length) { showGlobalMsg('No hay ninguna noticia destacada ahora mismo.', true); return; }
+    if (!confirm(`Vas a sacarle la posición destacada a ${featuredItems.length} noticia(s) y la portada vuelve a mostrar las más nuevas. ¿Confirmás?`)) return;
+
+    showGlobalMsg('Reseteando…', true);
+    try {
+      for (const item of featuredItems) {
+        const cleared = { ...item, featuredPosition: null };
+        delete cleared.slug;
+        await callFn({
+          action: 'put', path: `content/noticias/${item.slug}.json`,
+          content: JSON.stringify(cleared, null, 2),
+          message: `Resetear destacada: ${item.slug}`
+        });
+      }
+      showGlobalMsg('Listo, la portada vuelve al orden cronológico.', true);
+      await loadList('n');
+    } catch (e) {
+      showGlobalMsg('Error al resetear: ' + e.message, false);
+    }
+  }
+
+  // ---------- Reviews: formulario ----------
+
+  function editReview(slug) {
+    const content = state.r.data.find(x => x.slug === slug);
+    if (!content) return;
+    editingReviewSlug = slug;
+    resetEditorMode('r');
+    document.getElementById('r-title').value = content.title || '';
+    document.getElementById('r-game').value = content.game || '';
+    document.getElementById('r-slug').value = slug;
+    document.getElementById('r-score').value = content.score != null ? content.score : '';
+    document.getElementById('r-cover').value = content.cover || '';
+    document.getElementById('r-excerpt').value = content.excerpt || '';
+    document.getElementById('r-body').value = content.body || '';
+    document.getElementById('r-draft').checked = !!content.draft;
+    const prev = document.getElementById('r-cover-preview');
+    if (content.cover) { prev.src = toPreviewUrl(content.cover); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+    document.getElementById('r-form-title').textContent = `Editando: ${content.title}`;
+  }
+
+  function resetReviewForm() {
+    editingReviewSlug = null;
+    ['r-title','r-game','r-slug','r-score','r-cover','r-excerpt','r-body'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('r-draft').checked = false;
+    document.getElementById('r-cover-preview').style.display = 'none';
+    document.getElementById('r-form-title').textContent = 'Agregar nueva review';
+    resetEditorMode('r');
+  }
+
+  async function saveReview() {
+    syncEditorToMarkdown('r');
+    const title = document.getElementById('r-title').value.trim();
+    const slug = document.getElementById('r-slug').value.trim() || slugify(title);
+    if (!title || !slug) { showGlobalMsg('Falta el título.', false); return; }
+
+    const entry = {
+      title, game: document.getElementById('r-game').value.trim(),
+      score: document.getElementById('r-score').value !== '' ? parseFloat(document.getElementById('r-score').value) : null,
+      cover: document.getElementById('r-cover').value.trim() || null,
+      excerpt: document.getElementById('r-excerpt').value.trim(),
+      body: document.getElementById('r-body').value.trim(),
+      author: authorName(), date: new Date().toISOString(),
+      draft: document.getElementById('r-draft').checked
+    };
+
+    const btn = document.getElementById('r-save-btn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Guardando…';
+
+    try {
+      const isEditing = !!editingReviewSlug;
+      if (isEditing) {
+        const existing = state.r.data.find(x => x.slug === slug);
+        if (existing && existing.date) entry.date = existing.date;
+      }
+      await callFn({
+        action: 'put', path: `content/reviews/${slug}.json`,
+        content: JSON.stringify(entry, null, 2),
+        message: `${isEditing ? 'Editar' : 'Nueva'} review: ${title}`
+      });
+      showGlobalMsg('Guardado. El sitio se actualiza en un rato corto.', true);
+      clearDraft('r');
+      resetReviewForm();
+      await loadList('r');
+      showListView('r');
+    } catch (e) {
+      showGlobalMsg('Error al guardar: ' + e.message, false);
+    } finally {
+      btn.disabled = false; btn.textContent = 'Guardar';
+    }
+  }
+
+  // ---------- Noticias: formulario ----------
+
+  function editNoticia(slug) {
+    const content = state.n.data.find(x => x.slug === slug);
+    if (!content) return;
+    editingNoticiaSlug = slug;
+    resetEditorMode('n');
+    document.getElementById('n-title').value = content.title || '';
+    document.getElementById('n-slug').value = slug;
+    document.getElementById('n-cover').value = content.cover || '';
+    document.getElementById('n-excerpt').value = content.excerpt || '';
+    document.getElementById('n-body').value = content.body || '';
+    document.getElementById('n-draft').checked = !!content.draft;
+    document.getElementById('n-featured-position').value = content.featuredPosition ? String(content.featuredPosition) : '';
+    const prev = document.getElementById('n-cover-preview');
+    if (content.cover) { prev.src = toPreviewUrl(content.cover); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+    document.getElementById('n-form-title').textContent = `Editando: ${content.title}`;
+  }
+
+  function resetNoticiaForm() {
+    editingNoticiaSlug = null;
+    ['n-title','n-slug','n-cover','n-excerpt','n-body'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('n-draft').checked = false;
+    document.getElementById('n-featured-position').value = '';
+    document.getElementById('n-cover-preview').style.display = 'none';
+    document.getElementById('n-form-title').textContent = 'Agregar nueva noticia';
+    resetEditorMode('n');
+  }
+
+  async function saveNoticia() {
+    syncEditorToMarkdown('n');
+    const title = document.getElementById('n-title').value.trim();
+    const slug = document.getElementById('n-slug').value.trim() || slugify(title);
+    if (!title || !slug) { showGlobalMsg('Falta el título.', false); return; }
+
+    const posRaw = document.getElementById('n-featured-position').value;
+    const featuredPosition = posRaw ? parseInt(posRaw, 10) : null;
+
+    // Si esa posición ya la tiene otra noticia, avisar antes de pisarla.
+    let conflictItem = null;
+    if (featuredPosition) {
+      conflictItem = state.n.data.find(x => x.featuredPosition === featuredPosition && x.slug !== slug);
+    }
+    if (conflictItem) {
+      const ok = confirm(`La posición ${featuredPosition} ya la tiene "${conflictItem.title}". ¿Querés reemplazarla y que esa pase a orden cronológico?`);
+      if (!ok) { showGlobalMsg('Guardado cancelado. Elegí otra posición o confirmá el reemplazo.', false); return; }
+    }
+
+    const entry = {
+      title, cover: document.getElementById('n-cover').value.trim() || null,
+      excerpt: document.getElementById('n-excerpt').value.trim(),
+      body: document.getElementById('n-body').value.trim(),
+      author: authorName(), date: new Date().toISOString(),
+      draft: document.getElementById('n-draft').checked,
+      featuredPosition: featuredPosition
+    };
+
+    const btn = document.getElementById('n-save-btn');
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Guardando…';
+
+    try {
+      const isEditing = !!editingNoticiaSlug;
+      if (isEditing) {
+        const existing = state.n.data.find(x => x.slug === slug);
+        if (existing && existing.date) entry.date = existing.date;
+      }
+
+      // Si hubo conflicto y lo confirmó, primero le sacamos la posición
+      // a la otra noticia, para que no queden dos con el mismo número.
+      if (conflictItem) {
+        const cleared = { ...conflictItem, featuredPosition: null };
+        delete cleared.slug;
+        await callFn({
+          action: 'put', path: `content/noticias/${conflictItem.slug}.json`,
+          content: JSON.stringify(cleared, null, 2),
+          message: `Sacar destacada: ${conflictItem.slug}`
+        });
+      }
+
+      await callFn({
+        action: 'put', path: `content/noticias/${slug}.json`,
+        content: JSON.stringify(entry, null, 2),
+        message: `${isEditing ? 'Editar' : 'Nueva'} noticia: ${title}`
+      });
+      showGlobalMsg('Guardado. El sitio se actualiza en un rato corto.', true);
+      clearDraft('n');
+      resetNoticiaForm();
+      await loadList('n');
+      showListView('n');
+    } catch (e) {
+      showGlobalMsg('Error al guardar: ' + e.message, false);
+    } finally {
+      btn.disabled = false; btn.textContent = 'Guardar';
+    }
+  }
+  // ---------- Autoguardado local (salvavidas por si se cierra la pestaña) ----------
+
+  const AUTOSAVE_FIELDS = {
+    r: ['r-title', 'r-game', 'r-slug', 'r-score', 'r-cover', 'r-excerpt', 'r-body', 'r-draft'],
+    n: ['n-title', 'n-slug', 'n-cover', 'n-excerpt', 'n-body', 'n-draft', 'n-featured-position']
+  };
+  const autosaveTimers = { r: null, n: null };
+
+  function draftKey(prefix) {
+    const slug = prefix === 'r' ? editingReviewSlug : editingNoticiaSlug;
+    return `ep_draft_${prefix}_${slug || 'new'}`;
+  }
+
+  function scheduleAutosave(prefix) {
+    clearTimeout(autosaveTimers[prefix]);
+    autosaveTimers[prefix] = setTimeout(() => saveDraftNow(prefix), 1200);
+  }
+
+  function saveDraftNow(prefix) {
+    syncEditorToMarkdown(prefix);
+    const snap = {};
+    AUTOSAVE_FIELDS[prefix].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      snap[id] = el.type === 'checkbox' ? el.checked : el.value;
+    });
+    const hasContent = (snap[`${prefix}-title`] || '').trim() || (snap[`${prefix}-body`] || '').trim();
+    if (!hasContent) { localStorage.removeItem(draftKey(prefix)); return; }
+    try { localStorage.setItem(draftKey(prefix), JSON.stringify(snap)); } catch (e) {}
+  }
+
+  function clearDraft(prefix) {
+    localStorage.removeItem(draftKey(prefix));
+  }
+
+  function applyDraftSnapshot(prefix, snap) {
+    AUTOSAVE_FIELDS[prefix].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el || !(id in snap)) return;
+      if (el.type === 'checkbox') el.checked = !!snap[id]; else el.value = snap[id] || '';
+    });
+    const coverVal = document.getElementById(`${prefix}-cover`).value;
+    const prev = document.getElementById(`${prefix}-cover-preview`);
+    if (coverVal) { prev.src = toPreviewUrl(coverVal); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+  }
+
+  // Enganchamos el autoguardado a cada campo (y al editor visual aparte,
+  // porque ahí los cambios no tocan directamente el textarea).
+  ['r', 'n'].forEach(prefix => {
+    AUTOSAVE_FIELDS[prefix].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener(el.type === 'checkbox' ? 'change' : 'input', () => scheduleAutosave(prefix));
+    });
+    const visual = document.getElementById(`${prefix}-body-visual`);
+    if (visual) visual.addEventListener('input', () => scheduleAutosave(prefix));
+  });
+
+  // Al abrir sesión, avisa si quedó algo sin guardar de una vez anterior.
+  function checkForPendingDrafts() {
+    const found = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith('ep_draft_')) found.push(k);
+    }
+    if (!found.length) return;
+
+    const items = found.map(k => {
+      const m = k.match(/^ep_draft_(r|n)_(.+)$/);
+      if (!m) return '';
+      const [, p, slugPart] = m;
+      const kind = p === 'r' ? 'review' : 'noticia';
+      const label = slugPart === 'new' ? `Una ${kind} nueva sin guardar` : `Cambios sin guardar en "${slugPart}"`;
+      return `<div style="margin-top:8px; display:flex; justify-content:space-between; align-items:center; gap:10px;">
+        <span>${label}</span>
+        <span>
+          <a href="#" onclick="event.preventDefault(); recoverDraftKey('${k}')">Recuperar</a>
+          &nbsp;·&nbsp;
+          <a href="#" onclick="event.preventDefault(); localStorage.removeItem('${k}'); checkForPendingDrafts();">Descartar</a>
+        </span>
+      </div>`;
+    }).join('');
+
+    document.getElementById('global-msg').innerHTML =
+      `<div class="status-msg status-warn"><strong>Encontramos cambios sin guardar de una sesión anterior:</strong>${items}</div>`;
+  }
+
+  function recoverDraftKey(key) {
+    const m = key.match(/^ep_draft_(r|n)_(.+)$/);
+    if (!m) return;
+    const [, p, slugPart] = m;
+    if (slugPart === 'new') {
+      if (p === 'r') resetReviewForm(); else resetNoticiaForm();
+    } else {
+      if (p === 'r') editReview(slugPart); else editNoticia(slugPart);
+    }
+    const raw = localStorage.getItem(key);
+    if (raw) {
+      try { applyDraftSnapshot(p, JSON.parse(raw)); } catch (e) {}
+    }
+    switchTab(p === 'r' ? 'reviews' : 'noticias');
+    showFormView(p);
+    document.getElementById('global-msg').innerHTML = '';
+  }
+</script>
+
+</body>
+</html>
