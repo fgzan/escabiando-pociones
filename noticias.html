@@ -6,6 +6,7 @@
 <title>Noticias | Escabiando Pociones</title>
 <meta name="description" content="Noticias y novedades del mundo de los videojuegos, cubiertas por Escabiando Pociones.">
 <link rel="canonical" href="https://www.escabiandopociones.com.ar/noticias.html">
+<link rel="alternate" type="application/rss+xml" title="Escabiando Pociones" href="rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Escabiando Pociones">
 <meta property="og:locale" content="es_AR">
@@ -34,8 +35,8 @@
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="episodios.html">Episodios</a></li>
-      <li><a href="reviews.html">Reviews</a></li>
       <li><a href="noticias.html" class="active">Noticias</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
       <li><a href="sobre.html">Sobre nosotros</a></li>
       <li><a href="prensa.html">Prensa</a></li>
     </ul>
@@ -51,9 +52,9 @@
 <section class="section">
   <div class="container">
     <div id="news-list">
-      <div class="empty-vial">
-        <p class="mt-0">Todavía no hay noticias publicadas.</p>
-      </div>
+      <!-- SSR:news-list:start -->
+<div class="empty-vial"><p class="mt-0">Todavía no hay noticias publicadas.</p></div>
+<!-- SSR:news-list:end -->
     </div>
     <div id="noticias-pagination" class="pagination"></div>
   </div>
@@ -116,7 +117,7 @@
     const html = pageItems.map(n => {
       const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
       return `
-      <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+      <a class="card" href="noticias/${n.slug}.html" style="display:block; margin-bottom:20px;">
         ${cover}
         <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
         <h3>${escapeHtml(n.title || '')}</h3>

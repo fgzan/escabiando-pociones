@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escabiando Pociones | Podcast de videojuegos</title>
+<title>Escabiando Pociones | Portal de noticias de videojuegos</title>
 <meta name="description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
 <link rel="canonical" href="https://www.escabiandopociones.com.ar/">
+<link rel="alternate" type="application/rss+xml" title="Escabiando Pociones" href="rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Escabiando Pociones">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Escabiando Pociones | Podcast de videojuegos">
+<meta property="og:title" content="Escabiando Pociones | Portal de noticias de videojuegos">
 <meta property="og:description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
 <meta property="og:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <meta property="og:url" content="https://www.escabiandopociones.com.ar/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Escabiando Pociones | Podcast de videojuegos">
+<meta name="twitter:title" content="Escabiando Pociones | Portal de noticias de videojuegos">
 <meta name="twitter:description" content="Escabiando Pociones: podcast de videojuegos. Novedades, debates y reviews en episodios cortos.">
 <meta name="twitter:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <link rel="icon" href="assets/logo-full.png">
@@ -34,8 +35,8 @@
     <ul class="nav-links">
       <li><a href="index.html" class="active">Inicio</a></li>
       <li><a href="episodios.html">Episodios</a></li>
-      <li><a href="reviews.html">Reviews</a></li>
       <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
       <li><a href="sobre.html">Sobre nosotros</a></li>
       <li><a href="prensa.html">Prensa</a></li>
     </ul>
@@ -46,7 +47,7 @@
   <div class="glow-grid"></div>
   <div class="container hero-inner">
     <div>
-      <span class="eyebrow">// Podcast de videojuegos</span>
+      <span class="eyebrow">// Podcast</span>
       <h1>Escabiando<br>Pociones</h1>
       <p class="lede">Novedades, debates y reviews en episodios cortos para no sacarte demasiado tiempo.</p>
       <div class="btn-row">
@@ -73,9 +74,9 @@
       <a class="btn btn-ghost" href="noticias.html">Ver todas →</a>
     </div>
     <div id="home-news">
-      <div class="empty-vial">
-        <p class="mt-0">Todavía no hay noticias publicadas.</p>
-      </div>
+      <!-- SSR:home-news:start -->
+<div class="empty-vial"><p class="mt-0">Todavía no hay noticias publicadas.</p></div>
+<!-- SSR:home-news:end -->
     </div>
   </div>
 </section>
@@ -156,7 +157,7 @@
         const html = top.map(n => {
           const cover = n.cover ? `<img src="${escapeHtml(fixAssetPath(n.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
           return `
-          <a class="card" href="noticia.html?slug=${encodeURIComponent(n.slug)}" style="display:block; margin-bottom:20px;">
+          <a class="card" href="noticias/${n.slug}.html" style="display:block; margin-bottom:20px;">
             ${cover}
             <span class="eyebrow">${n.date ? formatDate(n.date) : ''}</span>
             <h3>${escapeHtml(n.title || '')}</h3>
