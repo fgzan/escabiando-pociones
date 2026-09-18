@@ -5,7 +5,14 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Fri, 18 Sep 2026 13:29:30 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 18 Sep 2026 13:42:58 +0000</lastBuildDate>
+  <item>
+    <title>CD Projekt RED explica por qué utiliza Unreal Engine 5 en The Witcher 4</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/cd-projekt-red-explica-por-que-utiliza-unreal-engine-5-en-the-witcher-4.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/cd-projekt-red-explica-por-que-utiliza-unreal-engine-5-en-the-witcher-4.html</guid>
+    <pubDate>Fri, 18 Sep 2026 13:42:47 +0000</pubDate>
+    <description><![CDATA[CD Projekt RED continúa el desarrollo de The Witcher 4 con Unreal Engine 5 y una colaboración tecnológica con Epic Games. La compañía explicó que esta estrategia busca reducir el tiempo dedicado a resolver problemas técnicos y permitir que sus equipos se concentren en el diseño y la creación de contenido.]]></description>
+  </item>
   <item>
     <title>El estudio de Hyper Light Drifter despide a casi todo su equipo tras la cancelación de un proyecto</title>
     <link>https://www.escabiandopociones.com.ar/noticias/el-estudio-de-hyper-light-drifter-despide-a-casi-todo-su-equipo-tras-la-cancelacion-de-un-proyecto.html</link>
@@ -210,13 +217,6 @@ Si venías cebado con las novedades de la franquicia que repasamos hace poco, ag
     <guid>https://www.escabiandopociones.com.ar/noticias/physint-cambia-de-rumbo-playstation-se-baja-y-kojima-continua-el-proyecto-junto-a-xbox.html</guid>
     <pubDate>Thu, 10 Sep 2026 13:15:05 +0000</pubDate>
     <description><![CDATA[El nuevo juego de espionaje de Hideo Kojima atraviesa un inesperado cambio de rumbo. Sony decidió abandonar el proyecto y, según explicó el propio creador, le comunicó en junio que debía cancelarlo. Kojima Productions buscó durante tres meses un nuevo socio y finalmente acordó continuar el desarrollo y la publicación junto a Xbox.]]></description>
-  </item>
-  <item>
-    <title>No Man’s Sky recibe Cosmos: su mayor renovación espacial en diez años</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/no-man-s-sky-recibe-cosmos-su-mayor-renovacion-espacial-en-diez-anos.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/no-man-s-sky-recibe-cosmos-su-mayor-renovacion-espacial-en-diez-anos.html</guid>
-    <pubDate>Thu, 10 Sep 2026 12:58:12 +0000</pubDate>
-    <description><![CDATA[Hello Games lanzó Cosmos, la actualización 7.0 de No Man’s Sky, como parte de las celebraciones por el décimo aniversario del juego. El parche transforma por completo la experiencia espacial con estaciones que los jugadores pueden dirigir y personalizar, nuevas zonas para explorar, bases orbitales, alianzas y una expedición especial.]]></description>
   </item>
 </channel>
 </rss>
