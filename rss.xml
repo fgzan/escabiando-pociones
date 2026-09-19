@@ -5,7 +5,14 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Sat, 19 Sep 2026 22:26:22 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 19 Sep 2026 22:31:52 +0000</lastBuildDate>
+  <item>
+    <title>Marvel’s Wolverine recibe un parche que reduce la intensidad de sus polémicos indicadores visuales</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/marvel-s-wolverine-recibe-un-parche-que-reduce-la-intensidad-de-sus-polemicos-indicadores-visuales.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/marvel-s-wolverine-recibe-un-parche-que-reduce-la-intensidad-de-sus-polemicos-indicadores-visuales.html</guid>
+    <pubDate>Sat, 19 Sep 2026 22:31:41 +0000</pubDate>
+    <description><![CDATA[Insomniac Games lanzó la actualización v.01.001.005 para Marvel’s Wolverine, que reduce la opacidad de los indicadores Scent Trails y Audio Sense y soluciona algunos cierres inesperados. El estudio también evalúa incorporar opciones para modificar estos efectos en futuras actualizaciones.]]></description>
+  </item>
   <item>
     <title>La Tokyo Game Show 2026 cancela su última jornada debido a la llegada de un tifón</title>
     <link>https://www.escabiandopociones.com.ar/noticias/la-tokyo-game-show-2026-cancela-su-ultima-jornada-debido-a-la-llegada-de-un-tifon.html</link>
@@ -208,13 +215,6 @@
     <guid>https://www.escabiandopociones.com.ar/noticias/nintendo-switch-2-recibe-una-importante-actualizacion-con-soporte-vrr.html</guid>
     <pubDate>Fri, 11 Sep 2026 13:04:40 +0000</pubDate>
     <description><![CDATA[La versión 23.0.0 del sistema de Nintendo Switch 2 incorpora finalmente soporte para VRR cuando la consola está conectada al televisor, además de permitir transferir todos los datos entre dos consolas. La actualización también suma mejoras para los Mii, Game Chat, accesibilidad y otras funciones del sistema.]]></description>
-  </item>
-  <item>
-    <title>Un desarrollador de Starfield admite que Bethesda necesitó “muchísima más gente” para cumplir la visión original</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/un-desarrollador-de-starfield-admite-que-bethesda-necesito-muchisima-mas-gente-para-cumplir-la-vision-original.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/un-desarrollador-de-starfield-admite-que-bethesda-necesito-muchisima-mas-gente-para-cumplir-la-vision-original.html</guid>
-    <pubDate>Fri, 11 Sep 2026 12:50:52 +0000</pubDate>
-    <description><![CDATA[Kurt Kuhlmann, diseñador principal de sistemas de Starfield, reconoció que el ambicioso proyecto espacial de Bethesda terminó superando las capacidades habituales del estudio. El desarrollador explicó que el juego necesitaba un equipo todavía más grande y que varias de sus mecánicas requirieron procesos completamente nuevos para el estudio.]]></description>
   </item>
 </channel>
 </rss>
