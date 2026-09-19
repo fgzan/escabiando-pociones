@@ -5,7 +5,14 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Sat, 19 Sep 2026 22:31:52 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 19 Sep 2026 22:52:34 +0000</lastBuildDate>
+  <item>
+    <title>El 85,8 % de los desarrolladores japoneses encuestados utiliza inteligencia artificial generativa</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/el-85-8-de-los-desarrolladores-japoneses-encuestados-utiliza-inteligencia-artificial-generativa.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/el-85-8-de-los-desarrolladores-japoneses-encuestados-utiliza-inteligencia-artificial-generativa.html</guid>
+    <pubDate>Sat, 19 Sep 2026 22:52:22 +0000</pubDate>
+    <description><![CDATA[Un estudio de la asociación CESA reveló que el 85,8 % de los desarrolladores de videojuegos consultados en Japón utiliza inteligencia artificial generativa en su trabajo. El informe también destaca la importancia de la supervisión humana y señala los derechos de autor como una de las principales preocupaciones de las empresas.]]></description>
+  </item>
   <item>
     <title>Marvel’s Wolverine recibe un parche que reduce la intensidad de sus polémicos indicadores visuales</title>
     <link>https://www.escabiandopociones.com.ar/noticias/marvel-s-wolverine-recibe-un-parche-que-reduce-la-intensidad-de-sus-polemicos-indicadores-visuales.html</link>
@@ -208,13 +215,6 @@
     <guid>https://www.escabiandopociones.com.ar/noticias/marvel-s-wolverine-recibe-sus-primeras-reviews-y-divide-a-la-critica-otro-exito-de-insomniac-o-una-oportunidad-desaprovechada.html</guid>
     <pubDate>Fri, 11 Sep 2026 13:21:54 +0000</pubDate>
     <description><![CDATA[Las primeras críticas de Marvel's Wolverine ya están disponibles y muestran una recepción mucho más dividida de lo esperado. La mayoría destaca el combate brutal, la interpretación de Logan y el apartado visual, pero también aparecen críticas recurrentes hacia la repetición, el diseño lineal y una historia que no siempre consigue estar a la altura de las expectativas generadas por Insomniac.]]></description>
-  </item>
-  <item>
-    <title>Nintendo Switch 2 recibe una importante actualización con soporte VRR</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/nintendo-switch-2-recibe-una-importante-actualizacion-con-soporte-vrr.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/nintendo-switch-2-recibe-una-importante-actualizacion-con-soporte-vrr.html</guid>
-    <pubDate>Fri, 11 Sep 2026 13:04:40 +0000</pubDate>
-    <description><![CDATA[La versión 23.0.0 del sistema de Nintendo Switch 2 incorpora finalmente soporte para VRR cuando la consola está conectada al televisor, además de permitir transferir todos los datos entre dos consolas. La actualización también suma mejoras para los Mii, Game Chat, accesibilidad y otras funciones del sistema.]]></description>
   </item>
 </channel>
 </rss>
