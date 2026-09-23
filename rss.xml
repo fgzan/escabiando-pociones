@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 23 Sep 2026 03:19:03 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 23 Sep 2026 12:55:15 +0000</lastBuildDate>
+  <item>
+    <title>Estrenos de la semana del 21 al 27 de septiembre</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/estrenos-de-la-semana-del-21-al-27-de-septiembre.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/estrenos-de-la-semana-del-21-al-27-de-septiembre.html</guid>
+    <pubDate>Wed, 23 Sep 2026 12:55:05 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[La tercera semana de septiembre llega con varios estrenos importantes para PC y consolas. Dune: Awakening, Graveyard Keeper 2, Silent Hill: Townfall y Control Resonant se encuentran entre los lanzamientos destacados, acompañados por diferentes juegos independientes y una selección de demos gratuitas para probar.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790168102029-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Bruce Straley se disculpó con el equipo de God of War: Laufey tras cuestionar la innovación en los juegos AAA</title>
     <link>https://www.escabiandopociones.com.ar/noticias/bruce-straley-se-disculpo-con-el-equipo-de-god-of-war-laufey-tras-cuestionar-la-innovacion-en-los-juegos-aaa.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[La vuelta de la BlizzCon dejó dos de los anuncios más importantes de los últimos años para Blizzard. La compañía confirmó Diablo V para 2029 y sorprendió con un nuevo StarCraft que abandonará el género de estrategia en tiempo real para convertirse en un shooter de mundo abierto previsto para 2030.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789387358210-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>XENOVERSE 3! LAS NUEVAS RAZAS Y TRANSFORMACIONES CASI CONFIRMADAS | ESCABIANDO POCIONES</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/xenoverse-3-las-nuevas-razas-y-transformaciones-casi-confirmadas-escabiando-pociones.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/xenoverse-3-las-nuevas-razas-y-transformaciones-casi-confirmadas-escabiando-pociones.html</guid>
-    <pubDate>Mon, 14 Sep 2026 01:44:25 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[¡Se viene un Zenkai masivo para la saga! Repasamos las filtraciones del nuevo video sobre Xenoverse 3: desde la raza del Makai hasta el Wagamama no Gokui. ¿Qué nos depara la creación de avatares?]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789350262703-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
