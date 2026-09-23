@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 23 Sep 2026 12:55:15 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 23 Sep 2026 13:24:58 +0000</lastBuildDate>
+  <item>
+    <title>Xbox reestructura sus estudios: Activision desarrollará el próximo Halo y Ninja Theory enfrenta un posible cierre</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/xbox-reestructura-sus-estudios-activision-desarrollara-el-proximo-halo-y-ninja-theory-enfrenta-un-posible-cierre.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/xbox-reestructura-sus-estudios-activision-desarrollara-el-proximo-halo-y-ninja-theory-enfrenta-un-posible-cierre.html</guid>
+    <pubDate>Wed, 23 Sep 2026 13:24:44 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Microsoft anunció una nueva reorganización de su división de videojuegos que incluye 268 despidos, el traspaso de varias franquicias a Activision y la integración de Obsidian bajo Bethesda. Además, dos acuerdos para vender Ninja Theory fracasaron y el estudio enfrenta un proceso de consulta por un posible cierre.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790169880406-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Estrenos de la semana del 21 al 27 de septiembre</title>
     <link>https://www.escabiandopociones.com.ar/noticias/estrenos-de-la-semana-del-21-al-27-de-septiembre.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[La presentación de Level-5 terminó envuelta en una polémica después de que los jugadores detectaran indicios de inteligencia artificial generativa en varios de sus materiales. El CEO Akihiro Hino confirmó que la compañía utilizó IA durante la producción del showcase y reconoció que, en esta ocasión, fueron demasiado lejos.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789389341747-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Blizzard anuncia Diablo V y un nuevo StarCraft como shooter de mundo abierto</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/blizzard-sacude-la-blizzcon-anuncia-diablo-v-y-un-nuevo-starcraft-como-shooter-de-mundo-abierto.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/blizzard-sacude-la-blizzcon-anuncia-diablo-v-y-un-nuevo-starcraft-como-shooter-de-mundo-abierto.html</guid>
-    <pubDate>Mon, 14 Sep 2026 12:29:57 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[La vuelta de la BlizzCon dejó dos de los anuncios más importantes de los últimos años para Blizzard. La compañía confirmó Diablo V para 2029 y sorprendió con un nuevo StarCraft que abandonará el género de estrategia en tiempo real para convertirse en un shooter de mundo abierto previsto para 2030.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789387358210-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
