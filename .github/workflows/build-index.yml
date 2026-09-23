@@ -12,6 +12,14 @@ on:
 permissions:
   contents: write
 
+# Si dos guardados disparan el Action casi al mismo tiempo (por ejemplo,
+# al reemplazar una noticia destacada, que guarda dos veces seguidas),
+# esto evita que las dos corridas se pisen: la segunda espera a que
+# termine la primera en vez de correr en paralelo y perder su commit.
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
 jobs:
   build-index:
     runs-on: ubuntu-latest
