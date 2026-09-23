@@ -24,7 +24,16 @@ jobs:
   build-index:
     runs-on: ubuntu-latest
     steps:
+      # Usamos un token de acceso personal (PAGES_DEPLOY_TOKEN, guardado
+      # como secreto del repo) en vez del token automático de GitHub. Es
+      # necesario porque, por seguridad, GitHub NUNCA deja que un commit
+      # hecho con su token automático dispare otros workflows (así evita
+      # bucles infinitos) — y eso incluye el despliegue de GitHub Pages.
+      # Con este token "de persona", el commit que arma este Action sí
+      # puede disparar el despliegue de Jekyll, como corresponde.
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
 
       - name: Instalar dependencias de Python
         run: pip install markdown --break-system-packages --quiet
