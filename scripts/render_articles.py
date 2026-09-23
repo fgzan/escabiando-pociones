@@ -30,7 +30,7 @@ TWEET_RE = re.compile(
     r'[^"]*"[^>]*>[^<]*</a>\s*</p>'
 )
 LINK_RE = re.compile(r'<a (?![^>]*target=)')
-BARE_URL_RE = re.compile(r'(?<![(<])\bhttps?://[^\s<>()]+')
+BARE_URL_RE = re.compile(r'(?<![(<\[])\bhttps?://[^\s<>()\[\]]+')
 
 
 def autolink_bare_urls(text):
