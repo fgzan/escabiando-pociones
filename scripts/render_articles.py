@@ -338,12 +338,20 @@ def build_rss(reviews, noticias):
             pub_date = format_datetime(datetime.fromisoformat(item["date"].replace("Z", "+00:00")))
         except Exception:
             pub_date = format_datetime(datetime.now(timezone.utc))
+        # Portada: si la nota no tiene una propia, usamos el banner del
+        # podcast como respaldo, para que Instagram siempre tenga algo
+        # con qué postear (no admite posteos sin imagen).
+        cover_url = f"{SITE_URL}/{item['cover'].lstrip('/')}" if item.get("cover") else OG_IMAGE
+        cover_ext = cover_url.rsplit(".", 1)[-1].lower()
+        cover_mime = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}.get(cover_ext, "image/jpeg")
         items_xml.append(f"""  <item>
     <title>{esc(item.get('title', ''))}</title>
     <link>{url}</link>
     <guid>{url}</guid>
     <pubDate>{pub_date}</pubDate>
+    <category>{'Review' if kind == 'review' else 'Noticia'}</category>
     <description><![CDATA[{item.get('excerpt', '')}]]></description>
+    <enclosure url="{cover_url}" type="{cover_mime}" length="0"/>
   </item>""")
 
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
