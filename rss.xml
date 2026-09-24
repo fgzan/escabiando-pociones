@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 24 Sep 2026 14:05:09 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 24 Sep 2026 14:11:36 +0000</lastBuildDate>
+  <item>
+    <title>Meta presenta sus nuevos lentes de realidad virtual con pantalla 5K y ultra livianas</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/meta-presenta-sus-nuevos-lentes-de-realidad-virtual-con-pantalla-5k-y-ultra-livianas.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/meta-presenta-sus-nuevos-lentes-de-realidad-virtual-con-pantalla-5k-y-ultra-livianas.html</guid>
+    <pubDate>Thu, 24 Sep 2026 14:11:19 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Durante Meta Connect 2026, la compañía presentó Meta VR Glasses, un dispositivo de realidad virtual que busca reducir drásticamente el peso de los visores tradicionales. Con apenas unos 100 gramos, incorpora una pantalla micro-OLED 5K, seguimiento ocular y control mediante gestos, aunque su lanzamiento todavía está previsto para 2027.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790258791346-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Wo Long 2: Wings of Ember explica por qué abandonó los niveles cerrados del primer juego</title>
     <link>https://www.escabiandopociones.com.ar/noticias/wo-long-2-wings-of-ember-explica-por-que-abandono-los-niveles-cerrados-del-primer-juego.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Los elevados requisitos recomendados de Danganronpa 2×2 sorprendieron a los jugadores por tratarse de una novela visual, pero Spike Chunsoft ya explicó el motivo. El productor aclaró que las especificaciones estaban pensadas para jugar en 4K con calidad máxima y serán actualizadas próximamente.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789473246854-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>El PlayStation Blackout no habría tenido un impacto significativo en el uso de PS5</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/el-playstation-blackout-no-habria-tenido-un-impacto-significativo-en-el-uso-de-ps5.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/el-playstation-blackout-no-habria-tenido-un-impacto-significativo-en-el-uso-de-ps5.html</guid>
-    <pubDate>Tue, 15 Sep 2026 11:48:29 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[El boicot organizado contra PlayStation para protestar por el abandono progresivo de los discos físicos aparentemente no provocó cambios significativos en el uso de las consolas en Estados Unidos. Según datos de Circana, no hubo una variación relevante en el número de jugadores ni en el nivel de actividad registrado.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789472820946-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
