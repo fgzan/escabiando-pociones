@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Fri, 25 Sep 2026 13:23:03 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 25 Sep 2026 13:26:06 +0000</lastBuildDate>
+  <item>
+    <title>Bungie cambia el rumbo de Marathon: prepara un modo PvE permanente y abandona el calendario estacional rígido</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/bungie-cambia-el-rumbo-de-marathon-prepara-un-modo-pve-permanente-y-abandona-el-calendario-estacional-rigido.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/bungie-cambia-el-rumbo-de-marathon-prepara-un-modo-pve-permanente-y-abandona-el-calendario-estacional-rigido.html</guid>
+    <pubDate>Fri, 25 Sep 2026 13:25:53 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Bungie anunció una importante modificación en los planes de Marathon. El estudio quiere ampliar la propuesta más allá del extraction shooter tradicional con una experiencia PvE permanente, un nuevo espacio social, una zona Perimeter renovada y otros cambios que llegarán entre octubre y diciembre.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342747349-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Armed Fantasia, el sucesor espiritual de Wild Arms, fue cancelado tras cuatro años de desarrollo</title>
     <link>https://www.escabiandopociones.com.ar/noticias/armed-fantasia-el-sucesor-espiritual-de-wild-arms-fue-cancelado-tras-cuatro-anos-de-desarrollo.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Wright Flyer Studios reconstruyó desde cero Another Eden para convertir su primera gran historia en un JRPG tradicional sin gacha ni modelo de servicio. El equipo modificó el motor, el combate, la progresión y la incorporación de personajes para crear una experiencia pensada específicamente para PC y consolas.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789478529975-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Valve lanza Steam Frame: su nuevo visor VR que también puede ejecutar juegos tradicionales de PC</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/valve-lanza-steam-frame-su-nuevo-visor-vr-que-tambien-puede-ejecutar-juegos-tradicionales-de-pc.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/valve-lanza-steam-frame-su-nuevo-visor-vr-que-tambien-puede-ejecutar-juegos-tradicionales-de-pc.html</guid>
-    <pubDate>Tue, 15 Sep 2026 12:28:29 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Valve presentó oficialmente Steam Frame, su nuevo visor de realidad virtual y su primer hardware VR desde Valve Index. El dispositivo combina conexión inalámbrica con PC, funcionamiento independiente y la posibilidad de ejecutar juegos tradicionales de Steam, aunque su potencia en modo standalone tiene algunas limitaciones.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789475145888-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
