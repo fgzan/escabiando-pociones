@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 24 Sep 2026 22:45:46 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 25 Sep 2026 13:23:03 +0000</lastBuildDate>
+  <item>
+    <title>Armed Fantasia, el sucesor espiritual de Wild Arms, fue cancelado tras cuatro años de desarrollo</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/armed-fantasia-el-sucesor-espiritual-de-wild-arms-fue-cancelado-tras-cuatro-anos-de-desarrollo.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/armed-fantasia-el-sucesor-espiritual-de-wild-arms-fue-cancelado-tras-cuatro-anos-de-desarrollo.html</guid>
+    <pubDate>Fri, 25 Sep 2026 13:22:52 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[El RPG financiado mediante Kickstarter y creado por varios veteranos de Wild Arms fue oficialmente discontinuado por Digital Bros, compañía matriz de 505 Games. La empresa señaló cambios en las condiciones del mercado, múltiples revisiones del gameplay y la inversión adicional necesaria para completar el proyecto.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342524332-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Forza Horizon 6 aclara su sistema de moderación tras la polémica por los baneos de autos decorados con anime</title>
     <link>https://www.escabiandopociones.com.ar/noticias/forza-horizon-6-aclara-su-sistema-de-moderacion-tras-la-polemica-por-los-baneos-de-autos-decorados-con-anime.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Valve presentó oficialmente Steam Frame, su nuevo visor de realidad virtual y su primer hardware VR desde Valve Index. El dispositivo combina conexión inalámbrica con PC, funcionamiento independiente y la posibilidad de ejecutar juegos tradicionales de Steam, aunque su potencia en modo standalone tiene algunas limitaciones.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789475145888-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Arc System Works vuelve a registrar ganancias después de un año con pérdidas</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/arc-system-works-vuelve-a-registrar-ganancias-despues-de-un-ano-con-perdidas.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/arc-system-works-vuelve-a-registrar-ganancias-despues-de-un-ano-con-perdidas.html</guid>
-    <pubDate>Tue, 15 Sep 2026 12:24:05 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Arc System Works, responsable de franquicias como Guilty Gear y BlazBlue, volvió a números positivos durante su último ejercicio fiscal. La compañía registró una ganancia neta de 115 millones de yenes, después de haber cerrado el período anterior con un déficit de 803 millones.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789474596119-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
