@@ -162,7 +162,7 @@ PAGE_SHELL = """<!DOCTYPE html>
 </header>
 
 <section class="section">
-  <div class="container" style="max-width: 760px;">
+  <div class="container" id="{body_id}" style="max-width: 760px;">
     {body}
   </div>
 </section>
@@ -270,6 +270,7 @@ def render_article_page(kind, item):
         header_extra=header_extra,
         title_esc=esc(item.get("title", "")),
         byline=byline,
+        body_id="review-body" if kind == "review" else "news-body",
         body=body_full,
     )
 
