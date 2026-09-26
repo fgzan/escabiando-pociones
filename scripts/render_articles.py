@@ -14,6 +14,7 @@ import re
 from datetime import datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
+from urllib.parse import quote
 
 import markdown as md
 
@@ -98,6 +99,14 @@ def fmt_date_es(iso):
 
 def esc(s):
     return html.escape(s or "", quote=True)
+
+
+def estimate_reading_minutes(body_md):
+    """Cálculo simple: cuenta palabras del markdown crudo (sin renderizar)
+    y asume ~200 palabras por minuto, que es un promedio razonable de
+    lectura en español. No pretende ser exacto, solo dar una referencia."""
+    words = len(re.findall(r"\w+", body_md or ""))
+    return max(1, round(words / 200))
 
 
 def fmt_pct(score):
@@ -224,6 +233,21 @@ def build_schema(kind, item, url):
     return json.dumps(schema, ensure_ascii=False)
 
 
+def build_share_buttons(title, url):
+    """Botones de compartir: son solo links armados a mano (wa.me para
+    WhatsApp, el intent de tweet para X, y un botón que copia el link
+    con JS). No necesitan ninguna cuenta conectada ni API de terceros."""
+    wa_text = quote(f"{title} {url}")
+    tw_text = quote(title)
+    tw_url = quote(url)
+    return f'''<div class="btn-row" style="margin-top:40px; padding-top:24px; border-top:1px solid var(--line);">
+      <span class="eyebrow" style="margin:0 4px 0 0; align-self:center;">Compartir</span>
+      <a class="btn btn-ghost" href="https://wa.me/?text={wa_text}" target="_blank" rel="noopener" aria-label="Compartir por WhatsApp">WhatsApp</a>
+      <a class="btn btn-ghost" href="https://twitter.com/intent/tweet?text={tw_text}&url={tw_url}" target="_blank" rel="noopener" aria-label="Compartir en X">X</a>
+      <button type="button" class="btn btn-ghost js-copy-link" data-url="{esc(url)}" aria-label="Copiar el link de esta nota">Copiar link</button>
+    </div>'''
+
+
 def render_article_page(kind, item):
     slug = item["slug"]
     folder = "reviews" if kind == "review" else "noticias"
@@ -233,7 +257,8 @@ def render_article_page(kind, item):
 
     cover_html = ""
     if item.get("cover"):
-        cover_html = f'<img src="../{item["cover"].lstrip("/")}" alt="" style="width:100%; border-radius:6px; margin-bottom:20px;">'
+        cover_alt = esc(item.get("game") or item.get("title", ""))
+        cover_html = f'<img src="../{item["cover"].lstrip("/")}" alt="{cover_alt}" style="width:100%; border-radius:6px; margin-bottom:20px;">'
 
     title_block_extra = ""
     if kind == "review":
@@ -253,10 +278,13 @@ def render_article_page(kind, item):
         byline_parts.append(esc(item["author"]))
     if item.get("date"):
         byline_parts.append(fmt_date_es(item["date"]))
+    reading_minutes = estimate_reading_minutes(item.get("body", ""))
+    byline_parts.append(f"{reading_minutes} min de lectura")
     byline = " · ".join(byline_parts)
 
     body_html = render_body(item.get("body", ""), asset_prefix="../")
-    body_full = title_block_extra + "\n    " + body_html
+    share_html = build_share_buttons(item.get("title", ""), url)
+    body_full = title_block_extra + "\n    " + body_html + "\n    " + share_html
 
     html_out = PAGE_SHELL.format(
         title=esc(item.get("title", "")),
@@ -286,7 +314,7 @@ def render_card(kind, item):
     slug = item["slug"]
     folder = "reviews" if kind == "review" else "noticias"
     cover = (
-        f'<img src="{item["cover"]}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">'
+        f'<img src="{item["cover"]}" alt="{esc(item.get("game") or item.get("title", ""))}" style="width:100%; border-radius:4px; margin-bottom:14px;">'
         if item.get("cover") else ""
     )
     if kind == "review":
