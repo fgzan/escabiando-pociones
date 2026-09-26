@@ -255,8 +255,13 @@
           <button class="btn btn-ghost" onclick="backToList('r')" style="margin-bottom:20px;">← Volver a la lista</button>
           <h2 id="r-form-title" style="margin-bottom:20px;">Agregar nueva review</h2>
 
-          <div class="field"><label>Título de la review</label><input type="text" id="r-title" oninput="autoSlug('r')"></div>
+          <div class="field"><label>Título de la review</label><input type="text" id="r-title" oninput="autoSlug('r'); autoTagSuggest('r')"></div>
           <div class="field"><label>Juego</label><input type="text" id="r-game"></div>
+          <div class="field">
+            <label>Tags extra (opcional, separados por coma) — el juego de arriba ya se suma solo como tag</label>
+            <input type="text" id="r-tags" placeholder="Ej: Remake, Konami">
+            <small><a href="#" onclick="event.preventDefault(); suggestTagsButton('r')">✨ Sugerir tags según el título</a></small>
+          </div>
           <div class="field">
             <label>Slug (parte de la URL)</label>
             <input type="text" id="r-slug">
@@ -343,7 +348,12 @@
           <button class="btn btn-ghost" onclick="backToList('n')" style="margin-bottom:20px;">← Volver a la lista</button>
           <h2 id="n-form-title" style="margin-bottom:20px;">Agregar nueva noticia</h2>
 
-          <div class="field"><label>Título</label><input type="text" id="n-title" oninput="autoSlug('n')"></div>
+          <div class="field"><label>Título</label><input type="text" id="n-title" oninput="autoSlug('n'); autoTagSuggest('n')"></div>
+          <div class="field">
+            <label>Tags / franquicias (opcional, separados por coma)</label>
+            <input type="text" id="n-tags" placeholder="Ej: Silent Hill, Konami">
+            <small><a href="#" onclick="event.preventDefault(); suggestTagsButton('n')">✨ Sugerir tags según el título</a></small>
+          </div>
           <div class="field">
             <label>Slug (parte de la URL)</label>
             <input type="text" id="n-slug">
@@ -567,6 +577,93 @@
     const editing = prefix === 'r' ? editingReviewSlug : editingNoticiaSlug;
     if (editing) return;
     document.getElementById(`${prefix}-slug`).value = slugify(document.getElementById(`${prefix}-title`).value);
+  }
+
+  // ---------- Tags: sugerencia automática a partir del título ----------
+  // La idea: no hay ninguna base de datos de juegos externa. En vez de
+  // eso, comparamos el título contra TODOS los tags que ya se usaron
+  // antes en el sitio (el campo "Juego" de cada review + los tags de
+  // cada noticia). Así el sistema se va poniendo más inteligente solo,
+  // a medida que se cargan más notas con tags correctos.
+
+  function normalizeForMatch(s) {
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+  }
+
+  function parseTagsField(value) {
+    return (value || '').split(',').map(t => t.trim()).filter(Boolean);
+  }
+
+  function collectKnownTags() {
+    const byKey = new Map(); // clave normalizada -> primera versión con mayúsculas que vimos
+    const add = (val) => {
+      if (!val) return;
+      const arr = Array.isArray(val) ? val : [val];
+      arr.forEach(t => {
+        const trimmed = (t || '').trim();
+        if (!trimmed) return;
+        const key = normalizeForMatch(trimmed);
+        if (!byKey.has(key)) byKey.set(key, trimmed);
+      });
+    };
+    state.r.data.forEach(r => { add(r.game); add(r.tags); });
+    state.n.data.forEach(n => { add(n.tags); });
+    return [...byKey.values()];
+  }
+
+  function suggestTagsForTitle(title, knownTags) {
+    const normTitle = normalizeForMatch(title);
+    if (!normTitle) return [];
+    const matches = [];
+    const seen = new Set();
+    // Los tags más largos van primero, así "Silent Hill 2" no queda
+    // opacado por que "Silent Hill" ya haya "ganado" ese pedazo del texto.
+    const sorted = [...knownTags].sort((a, b) => b.length - a.length);
+    for (const tag of sorted) {
+      const normTag = normalizeForMatch(tag);
+      if (!normTag || seen.has(normTag)) continue;
+      const escaped = normTag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const re = new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i');
+      if (re.test(normTitle)) { matches.push(tag); seen.add(normTag); }
+    }
+    return matches;
+  }
+
+  function mergeTagsIntoField(existingStr, newTags) {
+    const existing = parseTagsField(existingStr);
+    const seen = new Set(existing.map(normalizeForMatch));
+    const merged = [...existing];
+    newTags.forEach(t => {
+      const key = normalizeForMatch(t);
+      if (!seen.has(key)) { merged.push(t); seen.add(key); }
+    });
+    return merged.join(', ');
+  }
+
+  // Se llama sola mientras se escribe el título. Solo actúa si el
+  // campo de tags está vacío — apenas el usuario escribe algo ahí,
+  // dejamos de tocarlo para no pisarle lo que puso a mano.
+  function autoTagSuggest(prefix) {
+    const titleEl = document.getElementById(`${prefix}-title`);
+    const tagsEl = document.getElementById(`${prefix}-tags`);
+    if (!titleEl || !tagsEl || tagsEl.value.trim() !== '') return;
+    const suggested = suggestTagsForTitle(titleEl.value, collectKnownTags());
+    tagsEl.value = suggested.join(', ');
+  }
+
+  // Botón "✨ Sugerir": se puede usar en cualquier momento (útil para
+  // notas viejas sin tags), y suma lo que encuentre sin borrar lo que
+  // ya había escrito a mano.
+  function suggestTagsButton(prefix) {
+    const titleEl = document.getElementById(`${prefix}-title`);
+    const tagsEl = document.getElementById(`${prefix}-tags`);
+    const suggested = suggestTagsForTitle(titleEl.value, collectKnownTags());
+    if (!suggested.length) {
+      showGlobalMsg('No encontré ningún tag conocido en el título. Podés escribirlos vos a mano, separados por coma.', true);
+      return;
+    }
+    tagsEl.value = mergeTagsIntoField(tagsEl.value, suggested);
+    scheduleAutosave(prefix);
   }
   function wrapSelection(id, before, after) {
     const el = document.getElementById(id);
@@ -1215,6 +1312,7 @@
     resetEditorMode('r');
     document.getElementById('r-title').value = content.title || '';
     document.getElementById('r-game').value = content.game || '';
+    document.getElementById('r-tags').value = (content.tags || []).join(', ');
     document.getElementById('r-slug').value = slug;
     document.getElementById('r-score').value = content.score != null ? content.score : '';
     document.getElementById('r-cover').value = content.cover || '';
@@ -1228,7 +1326,7 @@
 
   function resetReviewForm() {
     editingReviewSlug = null;
-    ['r-title','r-game','r-slug','r-score','r-cover','r-excerpt','r-body'].forEach(id => document.getElementById(id).value = '');
+    ['r-title','r-game','r-tags','r-slug','r-score','r-cover','r-excerpt','r-body'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('r-draft').checked = false;
     document.getElementById('r-cover-preview').style.display = 'none';
     document.getElementById('r-form-title').textContent = 'Agregar nueva review';
@@ -1243,6 +1341,7 @@
 
     const entry = {
       title, game: document.getElementById('r-game').value.trim(),
+      tags: parseTagsField(document.getElementById('r-tags').value),
       score: document.getElementById('r-score').value !== '' ? parseFloat(document.getElementById('r-score').value) : null,
       cover: document.getElementById('r-cover').value.trim() || null,
       excerpt: document.getElementById('r-excerpt').value.trim(),
@@ -1285,6 +1384,7 @@
     editingNoticiaSlug = slug;
     resetEditorMode('n');
     document.getElementById('n-title').value = content.title || '';
+    document.getElementById('n-tags').value = (content.tags || []).join(', ');
     document.getElementById('n-slug').value = slug;
     document.getElementById('n-cover').value = content.cover || '';
     document.getElementById('n-excerpt').value = content.excerpt || '';
@@ -1298,7 +1398,7 @@
 
   function resetNoticiaForm() {
     editingNoticiaSlug = null;
-    ['n-title','n-slug','n-cover','n-excerpt','n-body'].forEach(id => document.getElementById(id).value = '');
+    ['n-title','n-tags','n-slug','n-cover','n-excerpt','n-body'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('n-draft').checked = false;
     document.getElementById('n-featured-position').value = '';
     document.getElementById('n-cover-preview').style.display = 'none';
@@ -1327,6 +1427,7 @@
 
     const entry = {
       title, cover: document.getElementById('n-cover').value.trim() || null,
+      tags: parseTagsField(document.getElementById('n-tags').value),
       excerpt: document.getElementById('n-excerpt').value.trim(),
       body: document.getElementById('n-body').value.trim(),
       author: authorName(), date: new Date().toISOString(),
@@ -1375,8 +1476,8 @@
   // ---------- Autoguardado local (salvavidas por si se cierra la pestaña) ----------
 
   const AUTOSAVE_FIELDS = {
-    r: ['r-title', 'r-game', 'r-slug', 'r-score', 'r-cover', 'r-excerpt', 'r-body', 'r-draft'],
-    n: ['n-title', 'n-slug', 'n-cover', 'n-excerpt', 'n-body', 'n-draft', 'n-featured-position']
+    r: ['r-title', 'r-game', 'r-tags', 'r-slug', 'r-score', 'r-cover', 'r-excerpt', 'r-body', 'r-draft'],
+    n: ['n-title', 'n-tags', 'n-slug', 'n-cover', 'n-excerpt', 'n-body', 'n-draft', 'n-featured-position']
   };
   const autosaveTimers = { r: null, n: null };
 
