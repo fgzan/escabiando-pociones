@@ -125,7 +125,7 @@
 
     const html = pageItems.map(r => {
       const pct = Math.max(0, Math.min(100, (Number(r.score) || 0) * 10));
-      const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
+      const cover = r.cover ? `<img src="${escapeHtml(fixAssetPath(r.cover))}" alt="${escapeHtml(r.game || r.title || '')}" style="width:100%; border-radius:4px; margin-bottom:14px;">` : '';
       return `
         <a class="card" href="reviews/${r.slug}.html" style="display:block; margin-bottom:20px;">
           ${cover}

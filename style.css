@@ -241,7 +241,10 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   border-radius: var(--radius);
   color: var(--ink);
   font-size: 1.2rem;
-  padding: 6px 10px;
+  line-height: 1;
+  /* padding pensado para que el botón toque al menos 44x44px en el
+     celular, el mínimo recomendado para que no falle el toque */
+  padding: 12px 14px;
   cursor: pointer;
 }
 
@@ -446,6 +449,11 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   color: var(--ink);
   opacity: 0.55;
   display: inline-flex;
+  /* el ícono visual sigue midiendo 18px (ver .social-icons svg), pero el
+     padding + margin negativo agranda el área donde realmente se puede
+     tocar sin mover nada del diseño */
+  padding: 11px;
+  margin: -11px;
   transition: opacity 0.15s ease, color 0.15s ease;
 }
 .social-icons a:hover {
@@ -471,6 +479,8 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   font-family: var(--f-mono);
   font-size: 0.8rem;
   padding: 8px 14px;
+  min-height: 44px;
+  min-width: 44px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--bg-card);

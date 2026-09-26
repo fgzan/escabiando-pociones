@@ -14,3 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Botón "Copiar link" en las notas: copia la URL de la nota al
+// portapapeles y avisa con un cambio de texto de 1.5 segundos.
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.js-copy-link');
+  if (!button) return;
+
+  const url = button.dataset.url || window.location.href;
+  const original = button.textContent;
+
+  navigator.clipboard.writeText(url).then(() => {
+    button.textContent = '¡Copiado!';
+    setTimeout(() => { button.textContent = original; }, 1500);
+  }).catch(() => {
+    // Si el navegador no deja copiar (por permisos, por ejemplo),
+    // no rompemos nada: el link ya está en la barra de direcciones.
+  });
+});
