@@ -551,3 +551,20 @@ blockquote.twitter-tweet {
 .mt-0 { margin-top: 0; }
 .text-center { text-align: center; }
 .stack { display: flex; flex-direction: column; gap: 8px; }
+
+/* ============ Buscador (Pagefind) ============
+   Repinta el widget de búsqueda con la paleta del sitio en vez de
+   dejarlo con los colores por defecto (claros) de Pagefind. */
+:root {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--cyan-bright);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-background: var(--bg-card);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: var(--bg-elevated);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 6px;
+  --pagefind-ui-image-border-radius: 4px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--f-body);
+}

@@ -3,23 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Episodios | Escabiando Pociones</title>
-<meta name="description" content="Todos los capítulos de Escabiando Pociones, el podcast de videojuegos: en Spotify y en video.">
-<link rel="canonical" href="https://www.escabiandopociones.com.ar/episodios.html">
+<title>Buscar | Escabiando Pociones</title>
+<meta name="description" content="Buscador de reviews y noticias de Escabiando Pociones.">
+<link rel="canonical" href="https://www.escabiandopociones.com.ar/search.html">
 <link rel="alternate" type="application/rss+xml" title="Escabiando Pociones" href="rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Escabiando Pociones">
 <meta property="og:locale" content="es_AR">
-<meta property="og:title" content="Episodios | Escabiando Pociones">
-<meta property="og:description" content="Todos los capítulos de Escabiando Pociones, el podcast de videojuegos: en Spotify y en video.">
+<meta property="og:title" content="Buscar | Escabiando Pociones">
+<meta property="og:description" content="Buscador de reviews y noticias de Escabiando Pociones.">
 <meta property="og:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
-<meta property="og:url" content="https://www.escabiandopociones.com.ar/episodios.html">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Episodios | Escabiando Pociones">
-<meta name="twitter:description" content="Todos los capítulos de Escabiando Pociones, el podcast de videojuegos: en Spotify y en video.">
-<meta name="twitter:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
+<meta property="og:url" content="https://www.escabiandopociones.com.ar/search.html">
+<meta name="robots" content="noindex">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
+<link href="pagefind/pagefind-ui.css" rel="stylesheet">
 <script data-goatcounter="https://escabiandopociones.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 </head>
@@ -34,48 +32,32 @@
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="episodios.html" class="active">Episodios</a></li>
+      <li><a href="episodios.html">Episodios</a></li>
       <li><a href="noticias.html">Noticias</a></li>
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="sobre.html">Sobre nosotros</a></li>
       <li><a href="prensa.html">Prensa</a></li>
-      <li><a href="search.html">Buscar</a></li>
+      <li><a href="search.html" class="active">Buscar</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="page-header">
   <div class="container">
-    <span class="eyebrow">// Episodios</span>
-    <h1>Todos los capítulos</h1>
+    <span class="eyebrow-lg">Buscar</span>
+    <h1>¿Qué andás buscando?</h1>
+    <p style="font-family: var(--f-mono); font-size:0.85rem; color: var(--ink-dim);">
+      Buscá entre todas las reviews y noticias del sitio.
+    </p>
   </div>
 </header>
 
 <section class="section">
-  <div class="container">
-    <span class="eyebrow">// En audio</span>
-    <div class="embed-wrap">
-      <iframe id="spotify-embed" src="https://open.spotify.com/embed/show/587CqZd5K8oaRWqiVCQWSP?utm_source=generator&theme=0"
-        width="100%" height="352" frameborder="0" allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"></iframe>
-    </div>
-    <p style="margin-top:14px;">
-      Para ver todos los episodios, <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">click acá</a>.
-    </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">En video</span>
-    <div class="embed-wrap">
-      <iframe id="youtube-embed" width="100%" height="600"
-        src="https://www.youtube.com/embed/videoseries?list=PLzqskEhszOSu0NXq6B23l1IwURFYNAcno"
-        title="Capítulos de Escabiando Pociones" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy"></iframe>
-    </div>
+  <div class="container" style="max-width: 760px;">
+    <div id="search"></div>
+    <noscript>
+      <p>Necesitás JavaScript activado para usar el buscador.</p>
+    </noscript>
   </div>
 </section>
 
@@ -104,19 +86,22 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="pagefind/pagefind-ui.js"></script>
 <script>
-  // Fuerza a los reproductores de Spotify y YouTube a recargarse de cero
-  // cada vez que la página se muestra (carga normal, o cuando el
-  // navegador la restaura desde su caché al volver con los links de
-  // arriba) — así siempre traen el contenido más nuevo, no una "foto"
-  // vieja guardada en memoria.
-  function refreshEmbeds() {
-    const spotify = document.getElementById('spotify-embed');
-    if (spotify) spotify.src = spotify.src;
-    const youtube = document.getElementById('youtube-embed');
-    if (youtube) youtube.src = youtube.src;
-  }
-  window.addEventListener('pageshow', refreshEmbeds);
+  window.addEventListener('DOMContentLoaded', function () {
+    if (typeof PagefindUI === 'undefined') {
+      document.getElementById('search').innerHTML =
+        '<p>El buscador todavía no está listo. Si acabás de subir el sitio por primera vez con esta función, ' +
+        'andá a la pestaña Actions de GitHub y disparás "Actualizar índice de contenido" a mano una vez.</p>';
+      return;
+    }
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: true,
+      resetStyles: false
+    });
+  });
 </script>
 </body>
 </html>
