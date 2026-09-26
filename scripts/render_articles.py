@@ -224,6 +224,7 @@ PAGE_SHELL = """<!DOCTYPE html>
       <li><a href="../reviews.html">Reviews</a></li>
       <li><a href="../sobre.html">Sobre nosotros</a></li>
       <li><a href="../prensa.html">Prensa</a></li>
+      <li><a href="../search.html">Buscar</a></li>
     </ul>
   </div>
 </nav>
@@ -240,7 +241,7 @@ PAGE_SHELL = """<!DOCTYPE html>
   </div>
 </header>
 
-<section class="section">
+<section class="section" data-pagefind-body>
   <div class="container" id="{body_id}" style="max-width: 760px;">
     {body}
   </div>
@@ -299,7 +300,10 @@ def build_schema(kind, item, url):
         schema["reviewRating"] = {
             "@type": "Rating", "ratingValue": item["score"], "bestRating": 10, "worstRating": 0,
         }
-        schema["itemReviewed"] = {"@type": "VideoGame", "name": item.get("game") or item.get("title")}
+        video_game = {"@type": "VideoGame", "name": item.get("game") or item.get("title")}
+        if item.get("cover"):
+            video_game["image"] = f"{SITE_URL}/{item['cover'].lstrip('/')}"
+        schema["itemReviewed"] = video_game
     return json.dumps(schema, ensure_ascii=False)
 
 
@@ -457,6 +461,7 @@ def nav_html(prefix):
       <li><a href="{prefix}reviews.html">Reviews</a></li>
       <li><a href="{prefix}sobre.html">Sobre nosotros</a></li>
       <li><a href="{prefix}prensa.html">Prensa</a></li>
+      <li><a href="{prefix}search.html">Buscar</a></li>
     </ul>
   </div>
 </nav>'''
