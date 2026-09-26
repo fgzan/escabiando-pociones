@@ -44,11 +44,21 @@ jobs:
       - name: Generar páginas de reviews/noticias, RSS y sitemap
         run: python3 scripts/render_articles.py
 
+      # Indexa el sitio YA generado (tiene que ir después de armar las
+      # páginas de arriba, para que el buscador encuentre el contenido
+      # de la última corrida y no uno viejo). Sólo indexa lo que esté
+      # marcado con data-pagefind-body en el HTML (las notas
+      # individuales de reviews/noticias); el resto del sitio (admin,
+      # listados, tags) queda afuera del buscador a propósito.
+      - name: Indexar el sitio con Pagefind (buscador)
+        run: npx -y pagefind --site .
+
       - name: Commitear todo lo generado
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add content/reviews.json content/noticias.json sitemap.xml rss.xml \
                   reviews/ noticias/ tags/ tags.html index.html reviews.html noticias.html
-          git diff --staged --quiet || git commit -m "Actualizar contenido, páginas, RSS y sitemap"
+          git add -A -- pagefind/
+          git diff --staged --quiet || git commit -m "Actualizar contenido, páginas, RSS, sitemap e índice de búsqueda"
           git push
