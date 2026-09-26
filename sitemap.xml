@@ -31,6 +31,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/reviews/1.html</loc>
     <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
@@ -534,5 +539,10 @@
     <loc>https://www.escabiandopociones.com.ar/noticias/se-viene-un-necesario-skin-de-mega-man-para-pragmata.html</loc>
     <lastmod>2026-08-25</lastmod>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/1.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.3</priority>
   </url>
 </urlset>
