@@ -520,6 +520,27 @@ blockquote.twitter-tweet {
   margin: 0;
 }
 
+/* ============ Chips de tags (dentro de reviews/noticias, y en las
+   páginas de tags) ============ */
+.tag-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.tag-chip {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-dim);
+}
+.tag-chip:hover {
+  border-color: var(--cyan-bright);
+  color: var(--cyan-bright);
+}
+
 /* ============ Page header (páginas internas) ============ */
 .page-header {
   padding: 56px 0 40px;
