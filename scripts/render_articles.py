@@ -216,7 +216,13 @@ PAGE_SHELL = """<!DOCTYPE html>
       <img src="../assets/logo-full.png" alt="Escabiando Pociones">
       ESCABIANDO POCIONES
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="nav-actions">
+      <button type="button" class="nav-search-toggle" aria-label="Buscar" aria-expanded="false">🔍</button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+    <form class="nav-search-box" action="../search.html" method="get" hidden>
+      <input type="search" name="q" placeholder="Buscar reviews y noticias…" autocomplete="off">
+    </form>
     <ul class="nav-links">
       <li><a href="../index.html">Inicio</a></li>
       <li><a href="../episodios.html">Episodios</a></li>
@@ -224,8 +230,6 @@ PAGE_SHELL = """<!DOCTYPE html>
       <li><a href="../reviews.html">Reviews</a></li>
       <li><a href="../estrenos.html">Estrenos</a></li>
       <li><a href="../sobre.html">Sobre nosotros</a></li>
-      <li><a href="../prensa.html">Prensa</a></li>
-      <li><a href="../search.html">Buscar</a></li>
     </ul>
   </div>
 </nav>
@@ -267,7 +271,7 @@ PAGE_SHELL = """<!DOCTYPE html>
     <div class="social-links">
       <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
       <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
-      <a href="../prensa.html">Prensa</a>
+      <a href="../sobre.html">Prensa</a>
     </div>
   </div>
 </footer>
@@ -454,7 +458,13 @@ def nav_html(prefix):
       <img src="{prefix}assets/logo-full.png" alt="Escabiando Pociones">
       ESCABIANDO POCIONES
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="nav-actions">
+      <button type="button" class="nav-search-toggle" aria-label="Buscar" aria-expanded="false">🔍</button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+    <form class="nav-search-box" action="{prefix}search.html" method="get" hidden>
+      <input type="search" name="q" placeholder="Buscar reviews y noticias…" autocomplete="off">
+    </form>
     <ul class="nav-links">
       <li><a href="{prefix}index.html">Inicio</a></li>
       <li><a href="{prefix}episodios.html">Episodios</a></li>
@@ -462,8 +472,6 @@ def nav_html(prefix):
       <li><a href="{prefix}reviews.html">Reviews</a></li>
       <li><a href="{prefix}estrenos.html">Estrenos</a></li>
       <li><a href="{prefix}sobre.html">Sobre nosotros</a></li>
-      <li><a href="{prefix}prensa.html">Prensa</a></li>
-      <li><a href="{prefix}search.html">Buscar</a></li>
     </ul>
   </div>
 </nav>'''
@@ -489,7 +497,7 @@ def footer_html(prefix):
     <div class="social-links">
       <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
       <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
-      <a href="{prefix}prensa.html">Prensa</a>
+      <a href="{prefix}sobre.html">Prensa</a>
     </div>
   </div>
 </footer>'''
@@ -931,7 +939,6 @@ def build_sitemap(reviews, noticias, tag_index, estrenos=None):
         {"loc": f"{SITE_URL}/noticias.html", "lastmod": today, "priority": "0.9"},
         {"loc": f"{SITE_URL}/estrenos.html", "lastmod": today, "priority": "0.8"},
         {"loc": f"{SITE_URL}/sobre.html", "lastmod": today, "priority": "0.5"},
-        {"loc": f"{SITE_URL}/prensa.html", "lastmod": today, "priority": "0.5"},
         {"loc": f"{SITE_URL}/tags.html", "lastmod": today, "priority": "0.4"},
     ]
     for r in reviews:
