@@ -668,3 +668,27 @@ blockquote.twitter-tweet {
   cursor: pointer;
 }
 .game-modal-close:hover { color: var(--cyan-bright); }
+.game-modal-meta {
+  font-family: var(--f-mono);
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  margin: 4px 0 0;
+}
+.game-modal .game-modal-gallery {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  padding-bottom: 4px;
+}
+.game-modal .game-modal-gallery img {
+  width: 84px;
+  height: 56px;
+  min-width: 84px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+.game-modal .game-modal-gallery img:hover { opacity: 1; }
