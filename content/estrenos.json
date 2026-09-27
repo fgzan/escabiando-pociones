@@ -4,7 +4,7 @@
     "date": "2026-09-21",
     "week_start": "2026-09-21",
     "week_end": "2026-09-27",
-    "generated_at": "2026-09-27T00:48:20.615301+00:00",
+    "generated_at": "2026-09-27T01:20:56.568825+00:00",
     "source": "RAWG (rawg.io)",
     "games": [
       {
@@ -14,7 +14,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/773/77371e56a9482d41b41565d04046a912.jpg",
-        "rawg_url": "https://rawg.io/games/well-dweller"
+        "rawg_url": "https://rawg.io/games/well-dweller",
+        "genres": [],
+        "developers": [
+          "Kyle Thompson"
+        ],
+        "metacritic": null,
+        "description": "Deep within the forest, at the bottom of a well, lives the only creature brave enough to kill the queen...\n\n\nWELL DWELLER is a dark fairy-tale metroidvania made by the creators of Crypt Custodian and Islets!\n\nPlay as Glimmer - a tiny bird armed with a matchstick- who must burn the wicked queen to save his family. Explore a dark fairy-tale landscape and befriend the charming characters who reside in the kingdom’s underbelly. Battle terrifying beasts and gain new abilities to expand your map.…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/f25/f25d3ef04d9b8a58cce39029e1080401.jpg",
+          "https://media.rawg.io/media/screenshots/354/354a33f130cd2b3caac8b4bc2bd93bba.jpg",
+          "https://media.rawg.io/media/screenshots/bd3/bd3f5ea98a891a48e2026782940987ba.jpg",
+          "https://media.rawg.io/media/screenshots/ee8/ee8f9472350fa927ddf028419474527a.jpg",
+          "https://media.rawg.io/media/screenshots/1c3/1c38258780abcff3da6861e99b149704.jpg",
+          "https://media.rawg.io/media/screenshots/823/823b977126fee7cdc467cfc866423157.jpg"
+        ]
       },
       {
         "name": "Graveyard Keeper 2",
@@ -23,7 +37,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/83c/83c07c37053d0d4663a1ed9b6d75ac64.jpg",
-        "rawg_url": "https://rawg.io/games/graveyard-keeper-2"
+        "rawg_url": "https://rawg.io/games/graveyard-keeper-2",
+        "genres": [],
+        "developers": [
+          "Lazy Bear Games"
+        ],
+        "metacritic": null,
+        "description": "You are the Grand Inquisitor now! Restore the Town and lead your undead army into battle to save the realm from a zombie apocalypse. Welcome to Graveyard Keeper 2 - the sequel to the original, unhinged classic!\n\nManage your own medieval graveyard\nAutomate your production like never before\nLead your zombie army into battle and fortify the Town against the undead\nRebuild The Town and milk its residents for maximum profits\nA world full of unhinged humour, grotesque characters and a twisted…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/dc6/dc6e2179f1d56bc8cd057170d284b488.jpg",
+          "https://media.rawg.io/media/screenshots/4c8/4c8bc58ad1bfc82378a8d157af293ac8.jpg",
+          "https://media.rawg.io/media/screenshots/9f1/9f12826481dd99ae99bdf26a96e0e8ef.jpg",
+          "https://media.rawg.io/media/screenshots/ae1/ae1ba68ac8b69b8684aec7082c600711.jpg",
+          "https://media.rawg.io/media/screenshots/bf1/bf1edbef1f593262ac5f00d35a8d876f.jpg",
+          "https://media.rawg.io/media/screenshots/f56/f56db87f8e0c2c1edf42c8d1a35f7b22.jpg"
+        ]
       },
       {
         "name": "The Grave Deal",
@@ -32,7 +60,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/599/5998216bd4ba0e1d3ea02652f5765adb.jpg",
-        "rawg_url": "https://rawg.io/games/the-grave-deal"
+        "rawg_url": "https://rawg.io/games/the-grave-deal",
+        "genres": [],
+        "developers": [
+          "Lazy Bear Games"
+        ],
+        "metacritic": null,
+        "description": "Running a graveyard is already a bad enough idea. Doing it twice is commitment.\nThe Graveyard Keeper Franchise Bundle includes Graveyard Keeper and Graveyard Keeper 2, with more corpses, more questionable decisions, more automation, and even more ways to turn death into a business.\n\nThe \"grave deal\"  includes:\nGraveyard Keeper\nBury the dead, manage the living, and discover how flexible morality can become when there’s money to be made.\nGraveyard Keeper 2\nGrow the operation with larger…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/4e0/4e0b458243997374c6fb5779c6b7079e.jpg",
+          "https://media.rawg.io/media/screenshots/caa/caad3e806b1d05415744273e2dd2699b.jpg",
+          "https://media.rawg.io/media/screenshots/a07/a075d0540192acb4a261a567a59b897d.jpg",
+          "https://media.rawg.io/media/screenshots/584/584c2dd43d0d527658a3936b33dacc49.jpg",
+          "https://media.rawg.io/media/screenshots/381/3819483190ae756410c96c3d19df09f9.jpg",
+          "https://media.rawg.io/media/screenshots/599/5998216bd4ba0e1d3ea02652f5765adb.jpg"
+        ]
       },
       {
         "name": "Apocalypter",
@@ -41,7 +83,20 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/c19/c19f6c89d2cdc01fd7591211c2fa6b00.jpg",
-        "rawg_url": "https://rawg.io/games/apocalypter"
+        "rawg_url": "https://rawg.io/games/apocalypter",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Racing"
+        ],
+        "developers": [],
+        "metacritic": null,
+        "description": "",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/8f5/8f5c9c28f81b725c17de18a556694db6.jpg",
+          "https://media.rawg.io/media/screenshots/740/74062b598aef78e2d80327a1690e95ac.jpg",
+          "https://media.rawg.io/media/screenshots/c19/c19f6c89d2cdc01fd7591211c2fa6b00.jpg"
+        ]
       },
       {
         "name": "Alien Breed 35th Anniversary",
@@ -50,7 +105,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/5de/5de4981a33bfb2927f34f0832db0f1e2.jpg",
-        "rawg_url": "https://rawg.io/games/alien-breed-35th-anniversary"
+        "rawg_url": "https://rawg.io/games/alien-breed-35th-anniversary",
+        "genres": [],
+        "developers": [
+          "Antstream"
+        ],
+        "metacritic": null,
+        "description": "<\n>\n###.Arrival in T-minus 47 seconds. Report - Intex Elite Archive Retrieval Team - Attempt Thirty-Six._###\n35 years ago, this station initiated blackout protocols, burying the first era of Intex’s xeno operations.\nYour objective - Infiltrate the station, get power and systems back online, uncover the last, complete archive of original redacted documents, first-person combat firefights and classified secrets.\nArchive footage and the all-new Horde Mode training will equip you with the skills…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/2d3/2d36194f9242e331afad9d1e5f7b06da.jpg",
+          "https://media.rawg.io/media/screenshots/d42/d42a895fc50b4a120cdf2bba7afad112.jpg",
+          "https://media.rawg.io/media/screenshots/cd8/cd8b04b511629d2c5f732eeedf2dde7c.jpg",
+          "https://media.rawg.io/media/screenshots/04f/04f72cde508a32bad77f036b74f6761d.jpg",
+          "https://media.rawg.io/media/screenshots/587/5874440101aa06cab998ad20ef1266f7.jpg",
+          "https://media.rawg.io/media/screenshots/9e2/9e23b27c62f6e69829c5d447b0fadb85.jpg"
+        ]
       },
       {
         "name": "Something Weird Will Happen",
@@ -59,7 +128,28 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/617/6173db572009f3593f46741d69b60bde.jpg",
-        "rawg_url": "https://rawg.io/games/something-weird-will-happen"
+        "rawg_url": "https://rawg.io/games/something-weird-will-happen",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Strategy",
+          "Casual",
+          "Massively Multiplayer",
+          "Indie"
+        ],
+        "developers": [
+          "SpazeWorlds LLC"
+        ],
+        "metacritic": null,
+        "description": "Welcome to Something Weird Will Happen, in short... something weird will indeed happen...\n18 Different Maps - More are added monthly to weekly.\n10 Different Game modes - More will also be added monthly to weekly.\nGather up to 16 friends and transport to the ship, your home grounds as you get ready to uncover the issues with reality that unravel around the places you go.Random Events will happen in almost every environment you come across, experiencing these can be unpredictable the first time…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/021/021111bc3288a8a9564f2abd9c2a107b.jpg",
+          "https://media.rawg.io/media/screenshots/d8f/d8f882a201968cd88090f8b4bb3ebc52.jpg",
+          "https://media.rawg.io/media/screenshots/bb5/bb58596a2c3237bfa5ec531d4bf68466.jpg",
+          "https://media.rawg.io/media/screenshots/aa7/aa72c3cbc8798e438f63550b18b0bbea.jpg",
+          "https://media.rawg.io/media/screenshots/6aa/6aa1bf7b928b5c63675fbe784ed8110d.jpg",
+          "https://media.rawg.io/media/screenshots/e3c/e3cf1f80e9e5ffd5e403b29ea8078cee.jpg"
+        ]
       },
       {
         "name": "Fusty Dungeon",
@@ -68,7 +158,20 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/cbc/cbc199d6963d84f17761a9e37f346ec7.jpg",
-        "rawg_url": "https://rawg.io/games/fusty-dungeon"
+        "rawg_url": "https://rawg.io/games/fusty-dungeon",
+        "genres": [],
+        "developers": [
+          "Vitamin Gohan"
+        ],
+        "metacritic": null,
+        "description": "Venture out in this simple RPG!\nSTORY\nYour childhood friend, a female priest, has been jinxed by a curse! The clues to treatment lie in the ancient ruins and, being a knight of the Imperial Church’s ruins research unit, you and your female friend must conquer this dungeon! And during your travels, a rather peculiar witch will also join your party...\n\nFEATURES\nA simple, easy-to-understand system!\nAn approachable 2D map system that will aid your dungeon conquest.\nAdorable, peppy…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/d27/d2772efb12e6d1f1a3a3d0a3502791be.jpg",
+          "https://media.rawg.io/media/screenshots/70c/70c5bd58b24247b8ac9a8759b23a4d0e.jpg",
+          "https://media.rawg.io/media/screenshots/ec0/ec0e5d91fac5e50127f7bb655b72a7e0.jpg",
+          "https://media.rawg.io/media/screenshots/32a/32a05b487d666faad99530780308b312.jpg",
+          "https://media.rawg.io/media/screenshots/cbc/cbc199d6963d84f17761a9e37f346ec7.jpg"
+        ]
       },
       {
         "name": "SiN Reloaded - Blade's Bounty Bundle",
@@ -77,7 +180,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/ad7/ad7f207636ee22a815a010de5e5ba159.jpg",
-        "rawg_url": "https://rawg.io/games/sin-reloaded-blades-bounty-bundle"
+        "rawg_url": "https://rawg.io/games/sin-reloaded-blades-bounty-bundle",
+        "genres": [],
+        "developers": [
+          "Nightdive Studios"
+        ],
+        "metacritic": null,
+        "description": "Blade's Bounty Bundle includes:\n\nSiN Reloaded\nElexis Sinclaire Wallpapers\nOriginal Soundtrack",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/221/221d3649a92d127c58a00e80fa912e6e.jpg",
+          "https://media.rawg.io/media/screenshots/e21/e211edf23e572b5ba1a5dfee3eb5f99c.jpg",
+          "https://media.rawg.io/media/screenshots/7ab/7ab19feb3d12c4e0fd41dbebfe899b41.jpg",
+          "https://media.rawg.io/media/screenshots/4e5/4e5674a5fd607b51f607dd57db9dae39.jpg",
+          "https://media.rawg.io/media/screenshots/1e8/1e8f03beb2693ac42677f40121012372.jpg",
+          "https://media.rawg.io/media/screenshots/7d6/7d66fc098e0ac22ade2f1f45b2e8ec83.jpg"
+        ]
       },
       {
         "name": "SiN Reloaded",
@@ -86,7 +203,21 @@
           "PC"
         ],
         "cover": "https://media.rawg.io/media/screenshots/f0c/f0c149d621ae8cf5c234d9920163ec96.jpg",
-        "rawg_url": "https://rawg.io/games/sin-reloaded"
+        "rawg_url": "https://rawg.io/games/sin-reloaded",
+        "genres": [],
+        "developers": [
+          "Nightdive Studios"
+        ],
+        "metacritic": null,
+        "description": "From Nightdive Studios, SiN: Reloaded is a completely remastered experience of the 1998 shooter from Ritual Entertainment. This diamond-in-the-rough, story-driven FPS features memorable characters, horrific enemies, and a devastating arsenal that pushed the Quake II Engine to its limits.\n\n\nEnter a near-future dystopian world as security consultant Colonel John R. Blade as you take on the seductively evil Doctor Elexis Sinclaire. When Elexis, the CEO of SinTEK Industries, begins injecting the…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/335/33531a34aa181839b6f5ab96102d8949.jpg",
+          "https://media.rawg.io/media/screenshots/55c/55ce699ae700b2d65da89f1af0e9782d.jpg",
+          "https://media.rawg.io/media/screenshots/b22/b229c155faae9979af2b77840aaa4e97.jpg",
+          "https://media.rawg.io/media/screenshots/079/07983ab239431fade54815499fc445ec.jpg",
+          "https://media.rawg.io/media/screenshots/e90/e9071dcb94214bfaa6c41c33c06c0deb.jpg",
+          "https://media.rawg.io/media/screenshots/67c/67c8efc1519e8a9bd08934b4c1aecf17.jpg"
+        ]
       },
       {
         "name": "Control Resonant",
@@ -97,7 +228,22 @@
           "Xbox Series S/X"
         ],
         "cover": "https://media.rawg.io/media/games/bfc/bfc7b45c6e9d3e21bb1c613c16c088f2.jpeg",
-        "rawg_url": "https://rawg.io/games/control-resonant"
+        "rawg_url": "https://rawg.io/games/control-resonant",
+        "genres": [
+          "Action",
+          "Adventure"
+        ],
+        "developers": [
+          "Remedy Entertainment"
+        ],
+        "metacritic": null,
+        "description": "After years in confinement at the hands of the Federal Bureau of Control (FBC), Dylan Faden’s former captors are deploying him at the peak of a supernatural crisis.\n\nCharged with combating a mysterious cosmic entity as it alters fundamental aspects of our reality, Dylan must harness his new-found powers to take the fight to the myriad threats overwhelming Manhattan.\n\nJoin Dylan in this sequel to the multi-award-winning CONTROL to explore the expansive zones of a city overrun by the corrupting…",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/616/616d40205c7195eb56478ff6d746d3bb.jpg",
+          "https://media.rawg.io/media/screenshots/169/169ace563987496b5510382259a76eab.jpg",
+          "https://media.rawg.io/media/screenshots/e8b/e8bad477f0fa4d7bd28be50dd61b5c79.jpg",
+          "https://media.rawg.io/media/screenshots/5b8/5b812f73e4c5df28630747c52f57170b.jpg"
+        ]
       },
       {
         "name": "Silent Hill Townfall",
@@ -107,7 +253,16 @@
           "PlayStation 5"
         ],
         "cover": "https://media.rawg.io/media/games/d1c/d1c4e52d3084231530fcab5d90033d42.jpg",
-        "rawg_url": "https://rawg.io/games/silent-hill-townfall"
+        "rawg_url": "https://rawg.io/games/silent-hill-townfall",
+        "genres": [
+          "Adventure"
+        ],
+        "developers": [
+          "No Code"
+        ],
+        "metacritic": null,
+        "description": "",
+        "screenshots": []
       },
       {
         "name": "Silent Hill: Townfall",
@@ -117,7 +272,21 @@
           "PlayStation 5"
         ],
         "cover": "https://media.rawg.io/media/games/8ff/8ff55788736c59fcb7b814d862c2ae6f.jpeg",
-        "rawg_url": "https://rawg.io/games/silent-hill-townfall-2"
+        "rawg_url": "https://rawg.io/games/silent-hill-townfall-2",
+        "genres": [
+          "Adventure"
+        ],
+        "developers": [],
+        "metacritic": null,
+        "description": "",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/963/963b84cecc13538f5bc26cc8fb8f9fa3.jpg",
+          "https://media.rawg.io/media/screenshots/cf4/cf4411b56493fc18eb4a8a7117b9a884.jpg",
+          "https://media.rawg.io/media/screenshots/656/656e8fdbcfaacccce64c4cf47e1f4652.jpg",
+          "https://media.rawg.io/media/screenshots/5fb/5fb567b83d4b0f13d1359384d7c9b4f9.jpg",
+          "https://media.rawg.io/media/screenshots/464/464e9bf4c100a0ac2d3dceec6c2fa12d.jpg",
+          "https://media.rawg.io/media/screenshots/5f8/5f8c543999bf08fc8d21aff28e55314a.jpg"
+        ]
       },
       {
         "name": "EA SPORTS FC 27",
@@ -131,7 +300,22 @@
           "Nintendo Switch"
         ],
         "cover": "https://media.rawg.io/media/screenshots/d9b/d9b0ef34a249647310c5bc7577ce68e3.jpg",
-        "rawg_url": "https://rawg.io/games/ea-sports-fc-27"
+        "rawg_url": "https://rawg.io/games/ea-sports-fc-27",
+        "genres": [
+          "Sports"
+        ],
+        "developers": [
+          "EA Group"
+        ],
+        "metacritic": null,
+        "description": "Welcome to The World’s Game in EA SPORTS FC™ 27. Step into The Grounds to experience a football playground where the streets meet the stadium, and feel greater control in every mode as community-driven innovations deliver more true-to-football gameplay.",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/8a3/8a362da6053e94416327b211eac26daa.jpg",
+          "https://media.rawg.io/media/screenshots/3d8/3d87b6344f25b392d3315eaf8fd2c24d.jpg",
+          "https://media.rawg.io/media/screenshots/b9d/b9d82085d8d051de495e1241f148e517.jpg",
+          "https://media.rawg.io/media/screenshots/018/018b8d079c88dfa272f06ddaa7ff020b.jpg",
+          "https://media.rawg.io/media/screenshots/d9b/d9b0ef34a249647310c5bc7577ce68e3.jpg"
+        ]
       }
     ],
     "fetch_error": null
