@@ -34,16 +34,29 @@ API_URL = "https://api.rawg.io/api/games"
 DETAIL_URL = "https://api.rawg.io/api/games/{id}"
 SCREENSHOTS_URL = "https://api.rawg.io/api/games/{id}/screenshots"
 
+# Traductor gratis, sin necesidad de crear cuenta ni pedir otra clave
+# (MyMemory). El "de" es un mail cualquiera: no hace falta que exista
+# ni lo verifican, solo sirve para que MyMemory nos dé una cuota
+# diaria más alta (50.000 caracteres) en vez de la anónima (5.000,
+# compartida encima con cualquier otro que use la misma IP que los
+# runners de GitHub) — a nadie le va a llegar nada a esa dirección.
+TRANSLATE_URL = "https://api.mymemory.translated.net/get"
+TRANSLATE_DE = "estrenos@escabiandopociones.com.ar"
+
 # Cuántos juegos como máximo mostramos por semana. RAWG devuelve de
 # todo (desde AAA hasta shovelware de mobile), así que primero
 # filtramos por popularidad (campo "added") y de ahí nos quedamos con
 # los más relevantes.
 MAX_JUEGOS = 15
 
-# Cuántos caracteres de la descripción larga de RAWG guardamos (para
-# que el modal no termine siendo una página entera), y cuántas
-# capturas de pantalla como máximo van a la galería de cada juego.
-MAX_DESCRIPCION = 500
+# La descripción larga de RAWG viene en inglés. Antes de mandarla a
+# traducir la recortamos a MAX_DESCRIPCION_EN (el traductor gratis
+# solo acepta hasta 500 bytes por pedido) y, ya traducida, la
+# recortamos de nuevo a MAX_DESCRIPCION_ES por las dudas (una
+# traducción rara vez es mucho más larga que el original, pero por
+# las dudas). MAX_CAPTURAS: cuántas screenshots como máximo por juego.
+MAX_DESCRIPCION_EN = 480
+MAX_DESCRIPCION_ES = 600
 MAX_CAPTURAS = 6
 
 # Huso horario de Argentina. Uso un offset fijo en vez de
@@ -75,12 +88,33 @@ def pedir_con_reintentos(url, intentos=3):
     raise RuntimeError(f"No se pudo consultar la API de RAWG tras {intentos} intentos: {ultimo_error}")
 
 
-def recortar_texto(s, max_len=MAX_DESCRIPCION):
+def recortar_texto(s, max_len=MAX_DESCRIPCION_ES):
     s = (s or "").strip()
     if len(s) <= max_len:
         return s
     corte = s[:max_len].rsplit(" ", 1)[0]
     return corte + "…"
+
+
+def traducir_es(texto_en):
+    """Traduce al español con MyMemory (gratis, sin API key). Si algo
+    falla (cuota agotada, sin conexión, respuesta rara) devuelve el
+    texto en inglés recortado en vez de nada — mejor una descripción
+    en inglés que ninguna."""
+    texto_en = recortar_texto(texto_en, MAX_DESCRIPCION_EN)
+    if not texto_en:
+        return ""
+    try:
+        params = {"q": texto_en, "langpair": "en|es", "de": TRANSLATE_DE}
+        url = f"{TRANSLATE_URL}?{urllib.parse.urlencode(params)}"
+        data = pedir_con_reintentos(url, intentos=2)
+        if data.get("responseStatus") == 200:
+            traducido = (data.get("responseData") or {}).get("translatedText", "").strip()
+            if traducido:
+                return recortar_texto(traducido, MAX_DESCRIPCION_ES)
+    except Exception as e:  # noqa: BLE001
+        print(f"  (no se pudo traducir la descripción: {e})", file=sys.stderr)
+    return texto_en
 
 
 def enriquecer_juego(game_id):
@@ -98,7 +132,7 @@ def enriquecer_juego(game_id):
         extra["genres"] = [g["name"] for g in (detalle.get("genres") or []) if g.get("name")]
         extra["developers"] = [d["name"] for d in (detalle.get("developers") or []) if d.get("name")]
         extra["metacritic"] = detalle.get("metacritic")
-        extra["description"] = recortar_texto(detalle.get("description_raw"))
+        extra["description"] = traducir_es(detalle.get("description_raw"))
     except Exception as e:  # noqa: BLE001
         print(f"  (sin ficha detallada para el juego {game_id}: {e})", file=sys.stderr)
 
