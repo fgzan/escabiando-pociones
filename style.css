@@ -568,3 +568,46 @@ blockquote.twitter-tweet {
   --pagefind-ui-image-box-ratio: 3 / 2;
   --pagefind-ui-font: var(--f-body);
 }
+
+/* ============ Estrenos de la semana ============ */
+.platform-chip {
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--ink-dim);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+}
+.estrenos-archive summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--f-display);
+  font-weight: 600;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.estrenos-archive summary::-webkit-details-marker { display: none; }
+.estrenos-archive summary::before {
+  content: "▸ ";
+  color: var(--cyan-bright);
+}
+.estrenos-archive[open] summary::before {
+  content: "▾ ";
+}
+.estrenos-archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.estrenos-archive-list a {
+  color: var(--ink);
+  font-family: var(--f-body);
+}
+.estrenos-archive-list a:hover {
+  color: var(--cyan-bright);
+}
