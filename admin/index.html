@@ -1227,10 +1227,15 @@
   function showListView(p) {
     document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-list-view`).classList.remove('hidden');
     document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-form-view`).classList.add('hidden');
+    // Sin esto, después de guardar una nota la página quedaba scrolleada
+    // donde había quedado el formulario (generalmente bien abajo), y
+    // había que subir a mano para cargar la siguiente.
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function showFormView(p) {
     document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-list-view`).classList.add('hidden');
     document.getElementById(`${p === 'r' ? 'reviews' : 'noticias'}-form-view`).classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   function backToList(p) { showListView(p); }
 
