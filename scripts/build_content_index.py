@@ -40,3 +40,4 @@ def build(folder_name, index_name):
 if __name__ == "__main__":
     build("reviews", "reviews")
     build("noticias", "noticias")
+    build("estrenos", "estrenos")
