@@ -631,19 +631,87 @@ def render_estreno_game_card(game):
     )
     chips = "".join(f'<span class="platform-chip">{esc(p)}</span>' for p in (game.get("platforms") or []))
     fecha = fmt_date_es(game["released"]) if game.get("released") else ""
-    return f'''<a class="card" href="{esc(game.get("rawg_url") or "https://rawg.io")}" target="_blank" rel="noopener" style="display:block; margin-bottom:20px;">
+    return f'''<button type="button" class="card estreno-card" data-url="{esc(game.get("rawg_url") or "https://rawg.io")}" style="display:block; margin-bottom:20px;">
       {cover}
       <span class="eyebrow">{fecha}</span>
       <h3>{esc(game.get("name", ""))}</h3>
       <div class="tag-list">{chips}</div>
-    </a>'''
+    </button>'''
+
+
+# Modal compartido: se imprime UNA vez por página (donde haya tarjetas
+# de juegos) y lee los datos directo de la tarjeta clickeada (nombre,
+# fecha, portada, plataformas) — así no hay que duplicar esos datos en
+# ningún lado, y siempre queda igual a lo que ya se ve en la tarjeta.
+GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" hidden>
+  <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="game-modal-title">
+    <button type="button" class="game-modal-close" aria-label="Cerrar">✕</button>
+    <img id="game-modal-cover" alt="" hidden>
+    <span class="eyebrow" id="game-modal-date"></span>
+    <h3 id="game-modal-title" style="margin-top:6px;"></h3>
+    <div class="tag-list" id="game-modal-platforms"></div>
+    <a id="game-modal-rawg" class="btn btn-ghost" href="https://rawg.io" target="_blank" rel="noopener" style="margin-top:20px; display:inline-block;">Ver más en RAWG →</a>
+  </div>
+</div>
+<script>
+(function () {
+  var backdrop = document.getElementById('game-modal-backdrop');
+  if (!backdrop || backdrop.dataset.wired) return;
+  backdrop.dataset.wired = '1';
+  var cover = document.getElementById('game-modal-cover');
+  var dateEl = document.getElementById('game-modal-date');
+  var titleEl = document.getElementById('game-modal-title');
+  var platEl = document.getElementById('game-modal-platforms');
+  var rawgLink = document.getElementById('game-modal-rawg');
+
+  function abrir(btn) {
+    var h3 = btn.querySelector('h3');
+    var eyebrow = btn.querySelector('.eyebrow');
+    var img = btn.querySelector('img');
+    var chips = btn.querySelectorAll('.tag-list .platform-chip');
+    titleEl.textContent = h3 ? h3.textContent : '';
+    dateEl.textContent = eyebrow ? eyebrow.textContent : '';
+    if (img) {
+      cover.src = img.src;
+      cover.alt = img.alt;
+      cover.hidden = false;
+    } else {
+      cover.hidden = true;
+    }
+    platEl.innerHTML = '';
+    chips.forEach(function (c) {
+      var span = document.createElement('span');
+      span.className = 'platform-chip';
+      span.textContent = c.textContent;
+      platEl.appendChild(span);
+    });
+    rawgLink.href = btn.dataset.url || 'https://rawg.io';
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrar() {
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.estreno-card').forEach(function (btn) {
+    btn.addEventListener('click', function () { abrir(btn); });
+  });
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) cerrar();
+  });
+  backdrop.querySelector('.game-modal-close').addEventListener('click', cerrar);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !backdrop.hidden) cerrar();
+  });
+})();
+</script>'''
 
 
 def render_estrenos_week_body(week):
     games = week.get("games") or []
     if games:
         cards = "".join(render_estreno_game_card(g) for g in games)
-        grid = f'<div class="grid grid-3">{cards}</div>'
+        grid = f'<div class="grid grid-3">{cards}</div>' + GAME_MODAL_HTML
     elif week.get("fetch_error"):
         grid = ('<div class="empty-vial"><p class="mt-0">Esta semana no pudimos consultar la base de '
                 'datos de juegos (problema técnico momentáneo). La probamos de nuevo la semana que viene.</p></div>')
