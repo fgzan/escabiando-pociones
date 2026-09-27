@@ -222,6 +222,7 @@ PAGE_SHELL = """<!DOCTYPE html>
       <li><a href="../episodios.html">Episodios</a></li>
       <li><a href="../noticias.html">Noticias</a></li>
       <li><a href="../reviews.html">Reviews</a></li>
+      <li><a href="../estrenos.html">Estrenos</a></li>
       <li><a href="../sobre.html">Sobre nosotros</a></li>
       <li><a href="../prensa.html">Prensa</a></li>
       <li><a href="../search.html">Buscar</a></li>
@@ -459,6 +460,7 @@ def nav_html(prefix):
       <li><a href="{prefix}episodios.html">Episodios</a></li>
       <li><a href="{prefix}noticias.html">Noticias</a></li>
       <li><a href="{prefix}reviews.html">Reviews</a></li>
+      <li><a href="{prefix}estrenos.html">Estrenos</a></li>
       <li><a href="{prefix}sobre.html">Sobre nosotros</a></li>
       <li><a href="{prefix}prensa.html">Prensa</a></li>
       <li><a href="{prefix}search.html">Buscar</a></li>
@@ -493,7 +495,7 @@ def footer_html(prefix):
 </footer>'''
 
 
-def render_listing_page(*, title, description, url, back_href, back_label, subtitle, body, prefix):
+def render_listing_page(*, title, description, url, back_href, back_label, subtitle, body, prefix, pagefind_body=False):
     """Página genérica de listado (usada para cada tags/<slug>.html y
     para tags.html), con el mismo nav/header/footer que el resto del
     sitio pero sin todo lo específico de un artículo individual."""
@@ -533,7 +535,7 @@ def render_listing_page(*, title, description, url, back_href, back_label, subti
   </div>
 </header>
 
-<section class="section">
+<section class="section"{" data-pagefind-body" if pagefind_body else ""}>
   <div class="container">
     {body}
   </div>
@@ -604,6 +606,139 @@ def clean_stale_tag_pages(valid_slugs):
             print(f"Borrado (tag ya sin notas): {f}")
 
 
+# ============ Estrenos de la semana (automático, corre los lunes) ============
+
+def fmt_rango_semana(week_start, week_end):
+    """'28 al 4 de octubre' o '28 de septiembre al 4 de octubre' si la
+    semana cruza de un mes al otro."""
+    try:
+        d1 = datetime.fromisoformat(week_start)
+        d2 = datetime.fromisoformat(week_end)
+    except Exception:
+        return f"{week_start} - {week_end}"
+    mes1 = MESES_ES[d1.strftime("%B")]
+    mes2 = MESES_ES[d2.strftime("%B")]
+    if d1.month == d2.month and d1.year == d2.year:
+        return f"{d1.day} al {d2.day} de {mes2}"
+    return f"{d1.day} de {mes1} al {d2.day} de {mes2}"
+
+
+def render_estreno_game_card(game):
+    cover = (
+        f'<img src="{esc(game["cover"])}" alt="{esc(game.get("name", ""))}" loading="lazy" '
+        f'style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:4px; margin-bottom:14px;">'
+        if game.get("cover") else ""
+    )
+    chips = "".join(f'<span class="platform-chip">{esc(p)}</span>' for p in (game.get("platforms") or []))
+    fecha = fmt_date_es(game["released"]) if game.get("released") else ""
+    return f'''<a class="card" href="{esc(game.get("rawg_url") or "https://rawg.io")}" target="_blank" rel="noopener" style="display:block; margin-bottom:20px;">
+      {cover}
+      <span class="eyebrow">{fecha}</span>
+      <h3>{esc(game.get("name", ""))}</h3>
+      <div class="tag-list">{chips}</div>
+    </a>'''
+
+
+def render_estrenos_week_body(week):
+    games = week.get("games") or []
+    if games:
+        cards = "".join(render_estreno_game_card(g) for g in games)
+        grid = f'<div class="grid grid-3">{cards}</div>'
+    elif week.get("fetch_error"):
+        grid = ('<div class="empty-vial"><p class="mt-0">Esta semana no pudimos consultar la base de '
+                'datos de juegos (problema técnico momentáneo). La probamos de nuevo la semana que viene.</p></div>')
+    else:
+        grid = '<div class="empty-vial"><p class="mt-0">No encontramos estrenos grandes para esta semana.</p></div>'
+    attribution = ('<p style="font-family: var(--f-mono); font-size:0.75rem; color: var(--ink-dim); margin-top:20px;">'
+                   'Datos de estrenos: <a href="https://rawg.io" target="_blank" rel="noopener">RAWG.io</a></p>')
+    return grid + attribution
+
+
+def render_estreno_week_page(week):
+    slug = week["slug"]
+    rango = fmt_rango_semana(week["week_start"], week["week_end"])
+    url = f"{SITE_URL}/estrenos/{slug}.html"
+    n = len(week.get("games") or [])
+    html_out = render_listing_page(
+        title=f"Estrenos de la semana del {rango}",
+        description=f"Los juegos que salen entre el {rango}: fecha de lanzamiento y consolas disponibles.",
+        url=url,
+        back_href="../estrenos.html",
+        back_label="Volver a Estrenos",
+        subtitle=f"{n} juego{'s' if n != 1 else ''} esta semana",
+        body=render_estrenos_week_body(week),
+        prefix="../",
+        pagefind_body=True,
+    )
+    out_dir = ROOT / "estrenos"
+    out_dir.mkdir(exist_ok=True)
+    with open(out_dir / f"{slug}.html", "w", encoding="utf-8") as fh:
+        fh.write(html_out)
+
+
+def render_estrenos_index(estrenos):
+    """estrenos: ya viene ordenado con la semana más nueva primero
+    (así lo deja build_content_index.py, que ordena por 'date')."""
+    if not estrenos:
+        body = '<div class="empty-vial"><p class="mt-0">Todavía no se generó ninguna semana de estrenos.</p></div>'
+    else:
+        latest, *previous = estrenos
+        rango_latest = esc(fmt_rango_semana(latest["week_start"], latest["week_end"]))
+        latest_block = f'''<div>
+      <span class="eyebrow-lg">Semana del {rango_latest}</span>
+      {render_estrenos_week_body(latest)}
+    </div>'''
+
+        # Archivo agrupado por mes (mes del lunes de cada semana), el
+        # grupo más nuevo primero y abierto de entrada; el resto queda
+        # colapsado con <details> pero nunca se borra nada.
+        grupos, orden_grupos = {}, []
+        for week in previous:
+            d = datetime.fromisoformat(week["week_start"])
+            clave = (d.year, d.month)
+            if clave not in grupos:
+                grupos[clave] = []
+                orden_grupos.append(clave)
+            grupos[clave].append(week)
+
+        archive_html = ""
+        if orden_grupos:
+            bloques = []
+            for i, (year, month) in enumerate(orden_grupos):
+                nombre_mes = MESES_ES[datetime(year, month, 1).strftime("%B")]
+                filas = "".join(
+                    f'<li><a href="estrenos/{w["slug"]}.html">Semana del '
+                    f'{esc(fmt_rango_semana(w["week_start"], w["week_end"]))}</a> '
+                    f'<span class="platform-chip">{len(w.get("games") or [])} '
+                    f'juego{"s" if len(w.get("games") or []) != 1 else ""}</span></li>'
+                    for w in grupos[(year, month)]
+                )
+                bloques.append(
+                    f'<details class="estrenos-archive"{" open" if i == 0 else ""}>'
+                    f'<summary>{nombre_mes.capitalize()} de {year}</summary>'
+                    f'<ul class="estrenos-archive-list">{filas}</ul></details>'
+                )
+            archive_html = f'''<div style="margin-top:56px; padding-top:32px; border-top:1px solid var(--line);">
+      <span class="eyebrow-lg" style="display:block; margin-bottom:12px;">Semanas anteriores</span>
+      {"".join(bloques)}
+    </div>'''
+
+        body = latest_block + archive_html
+
+    html_out = render_listing_page(
+        title="Estrenos de la semana",
+        description="Los juegos que salen cada semana: fecha de lanzamiento y consolas disponibles. Se arma solo, todos los lunes.",
+        url=f"{SITE_URL}/estrenos.html",
+        back_href="index.html",
+        back_label="Volver al inicio",
+        subtitle="Se arma solo, todos los lunes",
+        body=body,
+        prefix="",
+    )
+    with open(ROOT / "estrenos.html", "w", encoding="utf-8") as fh:
+        fh.write(html_out)
+
+
 def fill_ssr_marker(file_path, marker_name, inner_html):
     path = ROOT / file_path
     text = path.read_text(encoding="utf-8")
@@ -663,13 +798,15 @@ def build_rss(reviews, noticias):
     print(f"rss.xml: {len(entries)} elemento(s)")
 
 
-def build_sitemap(reviews, noticias, tag_index):
+def build_sitemap(reviews, noticias, tag_index, estrenos=None):
+    estrenos = estrenos or []
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     urls = [
         {"loc": f"{SITE_URL}/", "lastmod": today, "priority": "1.0"},
         {"loc": f"{SITE_URL}/episodios.html", "lastmod": today, "priority": "0.7"},
         {"loc": f"{SITE_URL}/reviews.html", "lastmod": today, "priority": "0.8"},
         {"loc": f"{SITE_URL}/noticias.html", "lastmod": today, "priority": "0.9"},
+        {"loc": f"{SITE_URL}/estrenos.html", "lastmod": today, "priority": "0.8"},
         {"loc": f"{SITE_URL}/sobre.html", "lastmod": today, "priority": "0.5"},
         {"loc": f"{SITE_URL}/prensa.html", "lastmod": today, "priority": "0.5"},
         {"loc": f"{SITE_URL}/tags.html", "lastmod": today, "priority": "0.4"},
@@ -678,6 +815,8 @@ def build_sitemap(reviews, noticias, tag_index):
         urls.append({"loc": f"{SITE_URL}/reviews/{r['slug']}.html", "lastmod": (r.get("date") or today)[:10], "priority": "0.8"})
     for n in noticias:
         urls.append({"loc": f"{SITE_URL}/noticias/{n['slug']}.html", "lastmod": (n.get("date") or today)[:10], "priority": "0.9"})
+    for w in estrenos:
+        urls.append({"loc": f"{SITE_URL}/estrenos/{w['slug']}.html", "lastmod": (w.get("week_start") or today)[:10], "priority": "0.6"})
     for slug, entry in tag_index.items():
         newest_date = entry["items"][0][1].get("date", "") if entry["items"] else ""
         urls.append({"loc": f"{SITE_URL}/tags/{slug}.html", "lastmod": (newest_date or today)[:10], "priority": "0.3"})
@@ -703,6 +842,8 @@ def clean_stale_pages(folder_name, valid_slugs):
 if __name__ == "__main__":
     reviews = json.loads((ROOT / "content" / "reviews.json").read_text(encoding="utf-8"))
     noticias = json.loads((ROOT / "content" / "noticias.json").read_text(encoding="utf-8"))
+    estrenos_path = ROOT / "content" / "estrenos.json"
+    estrenos = json.loads(estrenos_path.read_text(encoding="utf-8")) if estrenos_path.exists() else []
 
     published_reviews = [r for r in reviews if not r.get("draft")]
     published_noticias = [n for n in noticias if not n.get("draft")]
@@ -718,9 +859,14 @@ if __name__ == "__main__":
         render_tag_page(slug, entry["label"], entry["items"])
     render_tags_index(tag_index)
 
+    for w in estrenos:
+        render_estreno_week_page(w)
+    render_estrenos_index(estrenos)
+
     clean_stale_pages("reviews", {r["slug"] for r in published_reviews})
     clean_stale_pages("noticias", {n["slug"] for n in published_noticias})
     clean_stale_tag_pages(set(tag_index.keys()))
+    clean_stale_pages("estrenos", {w["slug"] for w in estrenos})
 
     reviews_cards = "".join(render_card("review", r) for r in published_reviews[:9])
     reviews_html = f'<div class="grid grid-3">{reviews_cards}</div>' if published_reviews else \
@@ -740,6 +886,7 @@ if __name__ == "__main__":
     fill_ssr_marker("index.html", "home-news", home_html)
 
     build_rss(published_reviews, published_noticias)
-    build_sitemap(published_reviews, published_noticias, tag_index)
+    build_sitemap(published_reviews, published_noticias, tag_index, estrenos)
 
-    print(f"Listo: {len(published_reviews)} review(s), {len(published_noticias)} noticia(s), {len(tag_index)} página(s) de tag generadas.")
+    print(f"Listo: {len(published_reviews)} review(s), {len(published_noticias)} noticia(s), "
+          f"{len(tag_index)} página(s) de tag, {len(estrenos)} semana(s) de estrenos generadas.")
