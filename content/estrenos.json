@@ -1,0 +1,139 @@
+[
+  {
+    "slug": "2026-09-21",
+    "date": "2026-09-21",
+    "week_start": "2026-09-21",
+    "week_end": "2026-09-27",
+    "generated_at": "2026-09-27T00:48:20.615301+00:00",
+    "source": "RAWG (rawg.io)",
+    "games": [
+      {
+        "name": "Well Dweller",
+        "released": "2026-09-21",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/773/77371e56a9482d41b41565d04046a912.jpg",
+        "rawg_url": "https://rawg.io/games/well-dweller"
+      },
+      {
+        "name": "Graveyard Keeper 2",
+        "released": "2026-09-21",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/83c/83c07c37053d0d4663a1ed9b6d75ac64.jpg",
+        "rawg_url": "https://rawg.io/games/graveyard-keeper-2"
+      },
+      {
+        "name": "The Grave Deal",
+        "released": "2026-09-21",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/599/5998216bd4ba0e1d3ea02652f5765adb.jpg",
+        "rawg_url": "https://rawg.io/games/the-grave-deal"
+      },
+      {
+        "name": "Apocalypter",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/c19/c19f6c89d2cdc01fd7591211c2fa6b00.jpg",
+        "rawg_url": "https://rawg.io/games/apocalypter"
+      },
+      {
+        "name": "Alien Breed 35th Anniversary",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/5de/5de4981a33bfb2927f34f0832db0f1e2.jpg",
+        "rawg_url": "https://rawg.io/games/alien-breed-35th-anniversary"
+      },
+      {
+        "name": "Something Weird Will Happen",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/617/6173db572009f3593f46741d69b60bde.jpg",
+        "rawg_url": "https://rawg.io/games/something-weird-will-happen"
+      },
+      {
+        "name": "Fusty Dungeon",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/cbc/cbc199d6963d84f17761a9e37f346ec7.jpg",
+        "rawg_url": "https://rawg.io/games/fusty-dungeon"
+      },
+      {
+        "name": "SiN Reloaded - Blade's Bounty Bundle",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/ad7/ad7f207636ee22a815a010de5e5ba159.jpg",
+        "rawg_url": "https://rawg.io/games/sin-reloaded-blades-bounty-bundle"
+      },
+      {
+        "name": "SiN Reloaded",
+        "released": "2026-09-23",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/f0c/f0c149d621ae8cf5c234d9920163ec96.jpg",
+        "rawg_url": "https://rawg.io/games/sin-reloaded"
+      },
+      {
+        "name": "Control Resonant",
+        "released": "2026-09-24",
+        "platforms": [
+          "PC",
+          "PlayStation 5",
+          "Xbox Series S/X"
+        ],
+        "cover": "https://media.rawg.io/media/games/bfc/bfc7b45c6e9d3e21bb1c613c16c088f2.jpeg",
+        "rawg_url": "https://rawg.io/games/control-resonant"
+      },
+      {
+        "name": "Silent Hill Townfall",
+        "released": "2026-09-24",
+        "platforms": [
+          "PC",
+          "PlayStation 5"
+        ],
+        "cover": "https://media.rawg.io/media/games/d1c/d1c4e52d3084231530fcab5d90033d42.jpg",
+        "rawg_url": "https://rawg.io/games/silent-hill-townfall"
+      },
+      {
+        "name": "Silent Hill: Townfall",
+        "released": "2026-09-24",
+        "platforms": [
+          "PC",
+          "PlayStation 5"
+        ],
+        "cover": "https://media.rawg.io/media/games/8ff/8ff55788736c59fcb7b814d862c2ae6f.jpeg",
+        "rawg_url": "https://rawg.io/games/silent-hill-townfall-2"
+      },
+      {
+        "name": "EA SPORTS FC 27",
+        "released": "2026-09-25",
+        "platforms": [
+          "PC",
+          "PlayStation 5",
+          "Xbox One",
+          "PlayStation 4",
+          "Xbox Series S/X",
+          "Nintendo Switch"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/d9b/d9b0ef34a249647310c5bc7577ce68e3.jpg",
+        "rawg_url": "https://rawg.io/games/ea-sports-fc-27"
+      }
+    ],
+    "fetch_error": null
+  }
+]
