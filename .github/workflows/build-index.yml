@@ -6,6 +6,7 @@ on:
     paths:
       - "content/reviews/**"
       - "content/noticias/**"
+      - "content/estrenos/**"
   workflow_dispatch: {} # para poder dispararlo a mano una vez y "rellenar" todo lo ya publicado
 
 # Necesario para que el Action pueda commitear el resultado de vuelta al repo.
@@ -57,8 +58,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/reviews.json content/noticias.json sitemap.xml rss.xml \
-                  reviews/ noticias/ tags/ tags.html index.html reviews.html noticias.html
+          git add content/reviews.json content/noticias.json content/estrenos.json sitemap.xml rss.xml \
+                  reviews/ noticias/ tags/ tags.html estrenos/ estrenos.html index.html reviews.html noticias.html
           git add -A -- pagefind/
           git diff --staged --quiet || git commit -m "Actualizar contenido, páginas, RSS, sitemap e índice de búsqueda"
           git push

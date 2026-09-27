@@ -1,0 +1,48 @@
+name: Buscar estrenos de la semana
+
+on:
+  schedule:
+    # Todos los lunes 12:00 UTC = 9:00 de Argentina (Argentina no
+    # tiene horario de verano desde 2009, así que este horario no se
+    # corre en ninguna época del año).
+    - cron: "0 12 * * 1"
+  workflow_dispatch: {} # para probarlo a mano o forzar una actualización de la semana en curso
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  fetch-estrenos:
+    runs-on: ubuntu-latest
+    steps:
+      # Mismo token "de persona" que usa build-index.yml: hace falta
+      # para que el commit de acá SÍ dispare ese otro workflow después
+      # (con el token automático de un Action, GitHub no deja
+      # encadenar workflows, es una regla de seguridad).
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+
+      - name: Buscar en la API de RAWG
+        env:
+          RAWG_API_KEY: ${{ secrets.RAWG_API_KEY }}
+        run: python3 scripts/fetch_estrenos.py
+
+      - name: Commitear la semana nueva
+        # if: always() para que esto corra incluso si el paso de
+        # arriba falló: igual queremos guardar el archivo de esa
+        # semana (con la lista vacía y el error adentro) en vez de
+        # perderla, pero dejamos que el workflow completo quede
+        # marcado en rojo — así el aviso automático por mail de
+        # GitHub cuando falla un Action sigue llegando.
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/estrenos/
+          git diff --staged --quiet || git commit -m "Estrenos de la semana ($(date -u +%F))"
+          git push
