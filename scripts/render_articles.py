@@ -631,7 +631,19 @@ def render_estreno_game_card(game):
     )
     chips = "".join(f'<span class="platform-chip">{esc(p)}</span>' for p in (game.get("platforms") or []))
     fecha = fmt_date_es(game["released"]) if game.get("released") else ""
-    return f'''<button type="button" class="card estreno-card" data-url="{esc(game.get("rawg_url") or "https://rawg.io")}" style="display:block; margin-bottom:20px;">
+    # Todo lo que la tarjeta NO muestra (género, desarrolladora,
+    # metacritic, descripción, galería de capturas) viaja acá adentro
+    # como JSON, para que el modal lo pueda mostrar sin tener que
+    # volver a pedirle nada a nadie.
+    extra = {
+        "genres": game.get("genres") or [],
+        "developers": game.get("developers") or [],
+        "metacritic": game.get("metacritic"),
+        "description": game.get("description") or "",
+        "screenshots": game.get("screenshots") or [],
+    }
+    extra_json = esc(json.dumps(extra, ensure_ascii=False))
+    return f'''<button type="button" class="card estreno-card" data-url="{esc(game.get("rawg_url") or "https://rawg.io")}" data-extra="{extra_json}" style="display:block; margin-bottom:20px;">
       {cover}
       <span class="eyebrow">{fecha}</span>
       <h3>{esc(game.get("name", ""))}</h3>
@@ -640,16 +652,22 @@ def render_estreno_game_card(game):
 
 
 # Modal compartido: se imprime UNA vez por página (donde haya tarjetas
-# de juegos) y lee los datos directo de la tarjeta clickeada (nombre,
-# fecha, portada, plataformas) — así no hay que duplicar esos datos en
-# ningún lado, y siempre queda igual a lo que ya se ve en la tarjeta.
+# de juegos). Lo básico (nombre, fecha, portada, plataformas) lo lee
+# directo de la tarjeta clickeada; lo demás (género, desarrolladora,
+# metacritic, descripción, galería) viene del data-extra de esa misma
+# tarjeta — así nunca se puede desincronizar con lo que ya se ve en
+# la tarjeta, y el popup siempre muestra MÁS que la tarjeta, no lo
+# mismo.
 GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" hidden>
   <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="game-modal-title">
     <button type="button" class="game-modal-close" aria-label="Cerrar">✕</button>
     <img id="game-modal-cover" alt="" hidden>
+    <div id="game-modal-gallery" class="game-modal-gallery" hidden></div>
     <span class="eyebrow" id="game-modal-date"></span>
     <h3 id="game-modal-title" style="margin-top:6px;"></h3>
+    <p id="game-modal-meta" class="game-modal-meta" hidden></p>
     <div class="tag-list" id="game-modal-platforms"></div>
+    <p id="game-modal-description" style="margin-top:16px; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;" hidden></p>
     <a id="game-modal-rawg" class="btn btn-ghost" href="https://rawg.io" target="_blank" rel="noopener" style="margin-top:20px; display:inline-block;">Ver más en RAWG →</a>
   </div>
 </div>
@@ -659,9 +677,12 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
   if (!backdrop || backdrop.dataset.wired) return;
   backdrop.dataset.wired = '1';
   var cover = document.getElementById('game-modal-cover');
+  var gallery = document.getElementById('game-modal-gallery');
   var dateEl = document.getElementById('game-modal-date');
   var titleEl = document.getElementById('game-modal-title');
+  var metaEl = document.getElementById('game-modal-meta');
   var platEl = document.getElementById('game-modal-platforms');
+  var descEl = document.getElementById('game-modal-description');
   var rawgLink = document.getElementById('game-modal-rawg');
 
   function abrir(btn) {
@@ -669,8 +690,12 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     var eyebrow = btn.querySelector('.eyebrow');
     var img = btn.querySelector('img');
     var chips = btn.querySelectorAll('.tag-list .platform-chip');
+    var extra = {};
+    try { extra = JSON.parse(btn.dataset.extra || '{}'); } catch (e) { extra = {}; }
+
     titleEl.textContent = h3 ? h3.textContent : '';
     dateEl.textContent = eyebrow ? eyebrow.textContent : '';
+
     if (img) {
       cover.src = img.src;
       cover.alt = img.alt;
@@ -678,6 +703,7 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     } else {
       cover.hidden = true;
     }
+
     platEl.innerHTML = '';
     chips.forEach(function (c) {
       var span = document.createElement('span');
@@ -685,6 +711,35 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
       span.textContent = c.textContent;
       platEl.appendChild(span);
     });
+
+    var metaParts = [];
+    if (extra.genres && extra.genres.length) metaParts.push(extra.genres.join(', '));
+    if (extra.developers && extra.developers.length) metaParts.push(extra.developers.join(', '));
+    if (extra.metacritic) metaParts.push('Metacritic ' + extra.metacritic);
+    metaEl.textContent = metaParts.join(' · ');
+    metaEl.hidden = metaParts.length === 0;
+
+    descEl.textContent = extra.description || '';
+    descEl.hidden = !extra.description;
+
+    gallery.innerHTML = '';
+    if (extra.screenshots && extra.screenshots.length) {
+      extra.screenshots.forEach(function (src) {
+        var thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.alt = '';
+        thumb.loading = 'lazy';
+        thumb.addEventListener('click', function () {
+          cover.src = src;
+          cover.hidden = false;
+        });
+        gallery.appendChild(thumb);
+      });
+      gallery.hidden = false;
+    } else {
+      gallery.hidden = true;
+    }
+
     rawgLink.href = btn.dataset.url || 'https://rawg.io';
     backdrop.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -795,11 +850,11 @@ def render_estrenos_index(estrenos):
 
     html_out = render_listing_page(
         title="Estrenos de la semana",
-        description="Los juegos que salen cada semana: fecha de lanzamiento y consolas disponibles. Se arma solo, todos los lunes.",
+        description="Los juegos que salen cada semana: fecha de lanzamiento y consolas disponibles. Se actualiza todos los lunes con los estrenos más importantes.",
         url=f"{SITE_URL}/estrenos.html",
         back_href="index.html",
         back_label="Volver al inicio",
-        subtitle="Se arma solo, todos los lunes",
+        subtitle="Se actualiza todos los lunes con los estrenos más importantes",
         body=body,
         prefix="",
     )

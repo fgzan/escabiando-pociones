@@ -31,12 +31,20 @@ ROOT = __import__("pathlib").Path(__file__).resolve().parent.parent
 
 API_KEY = os.environ.get("RAWG_API_KEY", "").strip()
 API_URL = "https://api.rawg.io/api/games"
+DETAIL_URL = "https://api.rawg.io/api/games/{id}"
+SCREENSHOTS_URL = "https://api.rawg.io/api/games/{id}/screenshots"
 
 # Cuántos juegos como máximo mostramos por semana. RAWG devuelve de
 # todo (desde AAA hasta shovelware de mobile), así que primero
 # filtramos por popularidad (campo "added") y de ahí nos quedamos con
 # los más relevantes.
 MAX_JUEGOS = 15
+
+# Cuántos caracteres de la descripción larga de RAWG guardamos (para
+# que el modal no termine siendo una página entera), y cuántas
+# capturas de pantalla como máximo van a la galería de cada juego.
+MAX_DESCRIPCION = 500
+MAX_CAPTURAS = 6
 
 # Huso horario de Argentina. Uso un offset fijo en vez de
 # zoneinfo("America/Argentina/Buenos_Aires") para no depender de que
@@ -65,6 +73,45 @@ def pedir_con_reintentos(url, intentos=3):
             if i < intentos - 1:
                 time.sleep(5 * (i + 1))
     raise RuntimeError(f"No se pudo consultar la API de RAWG tras {intentos} intentos: {ultimo_error}")
+
+
+def recortar_texto(s, max_len=MAX_DESCRIPCION):
+    s = (s or "").strip()
+    if len(s) <= max_len:
+        return s
+    corte = s[:max_len].rsplit(" ", 1)[0]
+    return corte + "…"
+
+
+def enriquecer_juego(game_id):
+    """Trae género, desarrolladora, descripción y una galería de
+    capturas para un juego puntual (dos pedidos más a la API, solo
+    para los juegos que ya filtramos y vamos a mostrar). Si algo de
+    esto falla, no rompe la corrida entera: el juego se sigue
+    mostrando igual, solo que sin ese dato de más — ni la tarjeta ni
+    lo básico del modal dependen de esto."""
+    extra = {"genres": [], "developers": [], "metacritic": None, "description": "", "screenshots": []}
+
+    try:
+        url = f"{DETAIL_URL.format(id=game_id)}?{urllib.parse.urlencode({'key': API_KEY})}"
+        detalle = pedir_con_reintentos(url, intentos=2)
+        extra["genres"] = [g["name"] for g in (detalle.get("genres") or []) if g.get("name")]
+        extra["developers"] = [d["name"] for d in (detalle.get("developers") or []) if d.get("name")]
+        extra["metacritic"] = detalle.get("metacritic")
+        extra["description"] = recortar_texto(detalle.get("description_raw"))
+    except Exception as e:  # noqa: BLE001
+        print(f"  (sin ficha detallada para el juego {game_id}: {e})", file=sys.stderr)
+
+    try:
+        url = f"{SCREENSHOTS_URL.format(id=game_id)}?{urllib.parse.urlencode({'key': API_KEY})}"
+        capturas = pedir_con_reintentos(url, intentos=2)
+        extra["screenshots"] = [
+            s["image"] for s in (capturas.get("results") or [])[:MAX_CAPTURAS] if s.get("image")
+        ]
+    except Exception as e:  # noqa: BLE001
+        print(f"  (sin capturas para el juego {game_id}: {e})", file=sys.stderr)
+
+    return extra
 
 
 def buscar_juegos(lunes, domingo):
@@ -103,6 +150,7 @@ def buscar_juegos(lunes, domingo):
             continue
 
         juegos.append({
+            "id": g.get("id"),
             "name": g.get("name") or "Sin nombre",
             "released": released,
             "platforms": plataformas,
@@ -114,10 +162,19 @@ def buscar_juegos(lunes, domingo):
     # Nos quedamos con los más populares...
     juegos.sort(key=lambda j: j["added"], reverse=True)
     juegos = juegos[:MAX_JUEGOS]
+
+    # Recién acá (ya con la lista final, chiquita) pedimos el detalle
+    # y las capturas de cada uno — así no gastamos pedidos de más en
+    # juegos que después ni vamos a mostrar.
+    for j in juegos:
+        if j.get("id") is not None:
+            j.update(enriquecer_juego(j["id"]))
+
     # ...pero se muestran ordenados por fecha de salida.
     juegos.sort(key=lambda j: j["released"])
     for j in juegos:
         j.pop("added", None)
+        j.pop("id", None)
     return juegos
 
 
