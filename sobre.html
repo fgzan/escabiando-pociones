@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sobre nosotros | Escabiando Pociones</title>
-<meta name="description" content="Quiénes hacen Escabiando Pociones, un podcast de videojuegos independiente.">
+<meta name="description" content="Quiénes hacen Escabiando Pociones y cómo contactarnos si sos parte de un estudio o una editora.">
 <link rel="canonical" href="https://www.escabiandopociones.com.ar/sobre.html">
 <link rel="alternate" type="application/rss+xml" title="Escabiando Pociones" href="rss.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Escabiando Pociones">
 <meta property="og:locale" content="es_AR">
 <meta property="og:title" content="Sobre nosotros | Escabiando Pociones">
-<meta property="og:description" content="Quiénes hacen Escabiando Pociones, un podcast de videojuegos independiente.">
+<meta property="og:description" content="Quiénes hacen Escabiando Pociones y cómo contactarnos si sos parte de un estudio o una editora.">
 <meta property="og:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <meta property="og:url" content="https://www.escabiandopociones.com.ar/sobre.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sobre nosotros | Escabiando Pociones">
-<meta name="twitter:description" content="Quiénes hacen Escabiando Pociones, un podcast de videojuegos independiente.">
+<meta name="twitter:description" content="Quiénes hacen Escabiando Pociones y cómo contactarnos si sos parte de un estudio o una editora.">
 <meta name="twitter:image" content="https://www.escabiandopociones.com.ar/assets/banner-podcast.png">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="stylesheet" href="style.css">
@@ -31,7 +31,13 @@
       <img src="assets/logo-full.png" alt="Escabiando Pociones">
       ESCABIANDO POCIONES
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="nav-actions">
+      <button type="button" class="nav-search-toggle" aria-label="Buscar" aria-expanded="false">🔍</button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+    <form class="nav-search-box" action="search.html" method="get" hidden>
+      <input type="search" name="q" placeholder="Buscar reviews y noticias…" autocomplete="off">
+    </form>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="episodios.html">Episodios</a></li>
@@ -39,8 +45,6 @@
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="estrenos.html">Estrenos</a></li>
       <li><a href="sobre.html" class="active">Sobre nosotros</a></li>
-      <li><a href="prensa.html">Prensa</a></li>
-      <li><a href="search.html">Buscar</a></li>
     </ul>
   </div>
 </nav>
@@ -55,22 +59,18 @@
 <section class="section">
   <div class="container" style="max-width: 760px;">
     <p class="lede">
-      Escabiando Pociones es un podcast de videojuegos sin ningún medio
-      grande sosteniéndolo desde atrás. Lo armamos porque nos apasionan
-      los jueguitos.
+      Escabiando Pociones es un podcast de videojuegos que devino en una
+      plataforma donde enterarte de todas las novedades.
     </p>
+    <h2>Prensa &amp; contacto</h2>
     <p>
-      El podcast lo hacen Drim, Fabro, Pincha y Luiso. Además del
-      programa semanal, subimos noticias del día a día en formato corto
-      por YouTube.
+      Podés escribirnos para lo que necesites a
+      <strong style="color:var(--ink)">contacto@escabiandopociones.com.ar</strong>
+      y te vamos a contestar lo más rápido posible. Gracias!
     </p>
-    <h2>Cómo trabajamos</h2>
-    <p>
-      Cubrimos noticias de la industria, lanzamientos que se vienen y
-      reviews propias. Si sos parte de un estudio o una editora y te
-      interesa hablar con nosotros, toda la info está en la página de
-      en la página de <a href="prensa.html">Prensa</a>.
-    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:contacto@escabiandopociones.com.ar">Escribirnos</a>
+    </div>
   </div>
 </section>
 
@@ -93,7 +93,7 @@
     <div class="social-links">
       <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
       <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
-      <a href="prensa.html">Prensa</a>
+      <a href="sobre.html">Prensa</a>
     </div>
   </div>
 </footer>

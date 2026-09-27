@@ -29,7 +29,13 @@
       <img src="assets/logo-full.png" alt="Escabiando Pociones">
       ESCABIANDO POCIONES
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <div class="nav-actions">
+      <button type="button" class="nav-search-toggle" aria-label="Buscar" aria-expanded="false">🔍</button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+    <form class="nav-search-box" action="search.html" method="get" hidden>
+      <input type="search" name="q" placeholder="Buscar reviews y noticias…" autocomplete="off">
+    </form>
     <ul class="nav-links">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="episodios.html">Episodios</a></li>
@@ -37,8 +43,6 @@
       <li><a href="reviews.html">Reviews</a></li>
       <li><a href="estrenos.html">Estrenos</a></li>
       <li><a href="sobre.html">Sobre nosotros</a></li>
-      <li><a href="prensa.html">Prensa</a></li>
-      <li><a href="search.html" class="active">Buscar</a></li>
     </ul>
   </div>
 </nav>
@@ -81,7 +85,7 @@
     <div class="social-links">
       <a href="https://open.spotify.com/show/587CqZd5K8oaRWqiVCQWSP" target="_blank" rel="noopener">Spotify</a>
       <a href="https://www.youtube.com/@EscabiandoPociones/videos" target="_blank" rel="noopener">YouTube</a>
-      <a href="prensa.html">Prensa</a>
+      <a href="sobre.html">Prensa</a>
     </div>
   </div>
 </footer>
@@ -96,12 +100,21 @@
         'andá a la pestaña Actions de GitHub y disparás "Actualizar índice de contenido" a mano una vez.</p>';
       return;
     }
-    new PagefindUI({
+    var ui = new PagefindUI({
       element: '#search',
       showSubResults: true,
       showImages: true,
       resetStyles: false
     });
+
+    // Si venís del buscador de arriba (el de la lupita), la palabra
+    // ya viaja en la URL como ?q=... — la usamos para no hacerte
+    // escribir de nuevo.
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get('q');
+    if (q) {
+      ui.triggerSearch(q);
+    }
   });
 </script>
 </body>

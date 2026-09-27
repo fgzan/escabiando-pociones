@@ -213,6 +213,7 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   padding: 12px 24px;
   max-width: 1120px;
   margin: 0 auto;
+  position: relative;
 }
 .nav-brand {
   display: flex;
@@ -223,46 +224,79 @@ p { color: var(--ink-dim); margin: 0 0 16px; }
   color: var(--ink);
 }
 .nav-brand img { height: 36px; width: 36px; border-radius: 8px; }
-.nav-links {
+.nav-actions {
   display: flex;
-  gap: 28px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-family: var(--f-mono);
-  font-size: 0.85rem;
+  align-items: center;
+  gap: 8px;
 }
-.nav-links a { color: var(--ink-dim); }
-.nav-links a.active { color: var(--cyan-bright); }
+.nav-search-toggle,
 .nav-toggle {
-  display: none;
   background: none;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   color: var(--ink);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1;
   /* padding pensado para que el botón toque al menos 44x44px en el
      celular, el mínimo recomendado para que no falle el toque */
-  padding: 12px 14px;
+  padding: 10px 14px;
   cursor: pointer;
 }
+.nav-search-toggle:hover,
+.nav-toggle:hover { border-color: var(--cyan-bright); }
 
-@media (max-width: 760px) {
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg-elevated);
-    flex-direction: column;
-    padding: 16px 24px 22px;
-    display: none;
-    gap: 16px;
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-links.open { display: flex; }
-  .nav-toggle { display: inline-block; }
+/* El menú de secciones siempre arranca colapsado (desktop y celular
+   por igual) y se despliega con el botón ☰. */
+.nav-links {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-elevated);
+  flex-direction: column;
+  padding: 16px 24px 22px;
+  display: none;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  z-index: 60;
+}
+.nav-links.open { display: flex; }
+.nav-links a { color: var(--ink-dim); }
+.nav-links a.active { color: var(--cyan-bright); }
+
+/* Buscador embebido: se abre con el botón 🔍 (mismo desplegable en
+   desktop y celular) y al mandar el texto navega directo a
+   search.html?q=... (esa página ya sabe leer el parámetro y disparar
+   la búsqueda sola). */
+.nav-search-box {
+  position: absolute;
+  top: 100%;
+  left: 24px;
+  right: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 14px;
+  z-index: 61;
+}
+.nav-search-box input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  padding: 10px 14px;
+}
+.nav-search-box input:focus {
+  outline: none;
+  border-color: var(--cyan-bright);
 }
 
 /* ============ Botones ============ */
