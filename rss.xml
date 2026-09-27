@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Sun, 27 Sep 2026 06:27:07 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 27 Sep 2026 20:24:20 +0000</lastBuildDate>
+  <item>
+    <title>SYNDUALITY: Echo of Ada cerrará sus servidores pero continuará como juego offline</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/synduality-echo-of-ada-cerrara-sus-servidores-pero-continuara-como-juego-offline.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/synduality-echo-of-ada-cerrara-sus-servidores-pero-continuara-como-juego-offline.html</guid>
+    <pubDate>Sun, 27 Sep 2026 20:24:08 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Bandai Namco anunció que el servicio online de SYNDUALITY: Echo of Ada finalizará en mayo de 2027. Sin embargo, el juego no desaparecerá: el equipo está trabajando en una versión independiente y offline que permitirá continuar jugando en solitario contra enemigos controlados por la IA.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790540377250-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Starfield 2 podría no suceder: un exdesarrollador de Bethesda cree que el primer juego no tuvo suficiente éxito</title>
     <link>https://www.escabiandopociones.com.ar/noticias/starfield-2-podria-no-suceder-un-exdesarrollador-de-bethesda-cree-que-el-primer-juego-no-tuvo-suficiente-exito.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Masahiro Sakurai anunció el cierre del Game Designers Award, reconocimiento que impulsó durante 16 años para destacar el trabajo creativo detrás de los videojuegos. El creador de Super Smash Bros. explicó que decidió terminar el proyecto después de no conseguir encontrar una persona que pudiera continuar con su labor.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789564624162-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Katsuhiro Harada y SNK quieren recuperar la “época dorada” de los videojuegos japoneses</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/katsuhiro-harada-y-snk-quieren-recuperar-la-epoca-dorada-de-los-videojuegos-japoneses.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/katsuhiro-harada-y-snk-quieren-recuperar-la-epoca-dorada-de-los-videojuegos-japoneses.html</guid>
-    <pubDate>Tue, 15 Sep 2026 14:39:00 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[El creador de Tekken y SNK tienen grandes ambiciones para VS Studio, el nuevo estudio de Harada respaldado por la compañía japonesa. Ambos aseguran que buscan crear nuevas IP, revitalizar el catálogo de SNK y cambiar la forma en que se desarrollan videojuegos en Japón, aprovechando la actual crisis del mercado AAA.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789483280339-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
