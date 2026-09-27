@@ -611,3 +611,60 @@ blockquote.twitter-tweet {
 .estrenos-archive-list a:hover {
   color: var(--cyan-bright);
 }
+
+/* La tarjeta de un juego es un <button> (para poder abrir el modal en
+   vez de navegar), así que hay que pisarle los estilos por defecto
+   del navegador para que se vea igual que las tarjetas <a> de
+   reviews/noticias. */
+.estreno-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ============ Modal de un juego (dentro de Estrenos) ============ */
+.game-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 26, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+.game-modal-backdrop[hidden] { display: none; }
+.game-modal {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.game-modal img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.game-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--ink-dim);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+}
+.game-modal-close:hover { color: var(--cyan-bright); }
