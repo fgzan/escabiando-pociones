@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Mon, 28 Sep 2026 14:28:36 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 15:03:00 +0000</lastBuildDate>
+  <item>
+    <title>Sony patenta un mando de PlayStation que podría aceptar pagos contactless</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/sony-patenta-un-mando-de-playstation-que-podria-aceptar-pagos-contactless.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/sony-patenta-un-mando-de-playstation-que-podria-aceptar-pagos-contactless.html</guid>
+    <pubDate>Mon, 28 Sep 2026 15:02:26 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Una patente presentada por Sony Interactive Entertainment describe un mando de PlayStation capaz de recibir información mediante tecnología NFC desde tarjetas, teléfonos y otros dispositivos. El documento contempla posibles usos para realizar compras, aunque no existe ningún anuncio de un nuevo mando que vaya a incorporar esta función.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790607759531-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>The Witcher 3 Remastered detalla sus horarios de lanzamiento y el tamaño de su actualización</title>
     <link>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-detalla-sus-horarios-de-lanzamiento-y-el-tamano-de-su-actualizacion.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Hideo Kojima confirmó que Bill Skarsgård encabezará el reparto de PHYSINT, su próximo proyecto de acción y espionaje desarrollado por Kojima Productions. El anuncio se realizó durante la presentación de Xbox para el Tokyo Game Show 2026, junto con un nuevo póster del juego.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789736291673-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>1</title>
-    <link>https://www.escabiandopociones.com.ar/reviews/1.html</link>
-    <guid>https://www.escabiandopociones.com.ar/reviews/1.html</guid>
-    <pubDate>Fri, 18 Sep 2026 12:53:37 +0000</pubDate>
-    <category>Review</category>
-    <description><![CDATA[1]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/banner-podcast.png" type="image/png" length="0"/>
   </item>
 </channel>
 </rss>

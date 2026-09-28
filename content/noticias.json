@@ -1,5 +1,22 @@
 [
   {
+    "title": "Sony patenta un mando de PlayStation que podría aceptar pagos contactless",
+    "cover": "assets/uploads/1790607759531-portada.webp",
+    "tags": [
+      "PlayStation",
+      "Sony",
+      "DualSense",
+      "PlayStation 5"
+    ],
+    "excerpt": "Una patente presentada por Sony Interactive Entertainment describe un mando de PlayStation capaz de recibir información mediante tecnología NFC desde tarjetas, teléfonos y otros dispositivos. El documento contempla posibles usos para realizar compras, aunque no existe ningún anuncio de un nuevo mando que vaya a incorporar esta función.",
+    "body": "_Sony_ patentó una tecnología que podría convertir al mando de _PlayStation_ en una herramienta para realizar pagos sin contacto.\n\nLa patente, titulada **“Video Game Controller-Driven Information Transfer”**, describe un controlador equipado con tecnología **NFC** capaz de recibir información de dispositivos cercanos y enviarla posteriormente a la consola.\n\nEl documento fue presentado originalmente en **marzo de 2025** y publicado durante septiembre de 2026.\n\n  \n\n### El mando como intermediario\n\nEl funcionamiento planteado es relativamente sencillo.\n\nCuando la consola solicite determinada información, el jugador podría acercar **una tarjeta de pago, un teléfono u otro dispositivo compatible al mando**.\n\nEl controlador recibiría esos datos mediante NFC y posteriormente los transmitiría a la consola.\n\nEntre los ejemplos incluidos en la patente aparecen operaciones relacionadas con **la compra de videojuegos, créditos dentro de juegos y contenidos adicionales**.\n\nUno de los escenarios descritos plantea incluso que un jugador podría probar una demo en una tienda o evento y, posteriormente, realizar la compra utilizando una tarjeta acercada al mando.\n\n  \n\n### No significa que vaya a llegar a un nuevo DualSense\n\nA pesar de lo llamativo de la propuesta, hay una diferencia importante entre una patente y un producto.\n\n**Sony no anunció un nuevo mando con esta función**, ni confirmó que la tecnología vaya a formar parte de un futuro _DualSense_.\n\nLa patente simplemente protege un concepto tecnológico que la compañía podría utilizar en algún momento.\n\nAdemás, el NFC podría tener aplicaciones distintas de los pagos, ya que el documento habla de una tecnología general para transferir información entre dispositivos.",
+    "author": "Luiso",
+    "date": "2026-09-28T15:02:26.196Z",
+    "draft": false,
+    "featuredPosition": null,
+    "slug": "sony-patenta-un-mando-de-playstation-que-podria-aceptar-pagos-contactless"
+  },
+  {
     "title": "The Witcher 3 Remastered detalla sus horarios de lanzamiento y el tamaño de su actualización",
     "cover": "assets/uploads/1790598842914-portada.webp",
     "tags": [
