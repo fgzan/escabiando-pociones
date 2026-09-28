@@ -12,7 +12,7 @@ import html
 import json
 import re
 import unicodedata
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import quote
@@ -959,6 +959,87 @@ def build_sitemap(reviews, noticias, tag_index, estrenos=None):
     print(f"sitemap.xml: {len(urls)} URL(s)")
 
 
+def parse_item_datetime(date_str):
+    """Convierte el 'date' de una review/noticia (que puede venir con o
+    sin zona horaria, y con o sin 'Z') a un datetime con zona horaria
+    siempre puesta, para poder compararlo con la fecha de hoy. Si no
+    tiene zona horaria propia, se asume Argentina (-03:00), que es
+    donde se carga el contenido."""
+    if not date_str:
+        return None
+    s = date_str.strip()
+    try:
+        if s.endswith("Z"):
+            dt = datetime.fromisoformat(s[:-1]).replace(tzinfo=timezone.utc)
+        else:
+            dt = datetime.fromisoformat(s)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone(timedelta(hours=-3)))
+    except ValueError:
+        return None
+    return dt
+
+
+def fmt_w3c(dt):
+    """Python deja '+0000' con strftime('%z'); el formato W3C que pide
+    Google para el sitemap de noticias necesita los dos puntos:
+    '+00:00'."""
+    s = dt.strftime("%Y-%m-%dT%H:%M:%S%z")
+    return f"{s[:-2]}:{s[-2:]}"
+
+
+PUBLICATION_NAME = "Escabiando Pociones"
+PUBLICATION_LANG = "es"
+
+
+def build_news_sitemap(reviews, noticias):
+    """Sitemap aparte (sitemap_news.xml), solo para Google News. A
+    diferencia de sitemap.xml, este SOLO puede tener notas de los
+    últimos 2 días -- así lo exige Google, para que el archivo se
+    mantenga siempre chico y 'fresco'. Como se regenera desde cero en
+    cada build (build-index.yml corre esto con cada nota nueva), las
+    notas viejas se van cayendo solas al pasar las 48hs, sin que haga
+    falta borrar nada a mano. Si en un momento no hay notas de los
+    últimos 2 días, el archivo queda con la lista vacía -- Google
+    avisa con un warning de 'sitemap vacío' en Search Console nomás
+    para confirmar que fue a propósito, no rompe nada."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=2)
+    entries = []
+    for items, folder in ((reviews, "reviews"), (noticias, "noticias")):
+        for item in items:
+            dt = parse_item_datetime(item.get("date"))
+            if not dt or dt < cutoff:
+                continue
+            entries.append({
+                "loc": f"{SITE_URL}/{folder}/{item['slug']}.html",
+                "pub_date": fmt_w3c(dt),
+                "title": item.get("title", ""),
+            })
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">',
+    ]
+    for e in entries:
+        lines += [
+            "  <url>",
+            f"    <loc>{e['loc']}</loc>",
+            "    <news:news>",
+            "      <news:publication>",
+            f"        <news:name>{PUBLICATION_NAME}</news:name>",
+            f"        <news:language>{PUBLICATION_LANG}</news:language>",
+            "      </news:publication>",
+            f"      <news:publication_date>{e['pub_date']}</news:publication_date>",
+            f"      <news:title>{esc(e['title'])}</news:title>",
+            "    </news:news>",
+            "  </url>",
+        ]
+    lines.append("</urlset>")
+    (ROOT / "sitemap_news.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"sitemap_news.xml: {len(entries)} URL(s) (últimos 2 días)")
+
+
 def clean_stale_pages(folder_name, valid_slugs):
     folder = ROOT / folder_name
     if not folder.exists():
@@ -1017,6 +1098,7 @@ if __name__ == "__main__":
 
     build_rss(published_reviews, published_noticias)
     build_sitemap(published_reviews, published_noticias, tag_index, estrenos)
+    build_news_sitemap(published_reviews, published_noticias)
 
     print(f"Listo: {len(published_reviews)} review(s), {len(published_noticias)} noticia(s), "
           f"{len(tag_index)} página(s) de tag, {len(estrenos)} semana(s) de estrenos generadas.")
