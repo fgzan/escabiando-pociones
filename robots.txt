@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.escabiandopociones.com.ar/sitemap.xml
+Sitemap: https://www.escabiandopociones.com.ar/sitemap_news.xml
