@@ -58,7 +58,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content/reviews.json content/noticias.json content/estrenos.json sitemap.xml rss.xml \
+          git add content/reviews.json content/noticias.json content/estrenos.json sitemap.xml sitemap_news.xml rss.xml \
                   reviews/ noticias/ tags/ tags.html estrenos/ estrenos.html index.html reviews.html noticias.html
           git add -A -- pagefind/
           git diff --staged --quiet || git commit -m "Actualizar contenido, páginas, RSS, sitemap e índice de búsqueda"
