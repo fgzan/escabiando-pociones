@@ -1,5 +1,143 @@
 [
   {
+    "slug": "2026-09-28",
+    "date": "2026-09-28",
+    "week_start": "2026-09-28",
+    "week_end": "2026-10-04",
+    "generated_at": "2026-09-28T12:32:13.697986+00:00",
+    "source": "RAWG (rawg.io)",
+    "games": [
+      {
+        "name": "Transport Fever 3",
+        "released": "2026-09-28",
+        "platforms": [
+          "PC",
+          "macOS",
+          "Linux"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/003/003cfd6bb966df4e3e9cd97641c83bfb.jpg",
+        "rawg_url": "https://rawg.io/games/transport-fever-3",
+        "genres": [],
+        "developers": [
+          "Urban Games"
+        ],
+        "metacritic": null,
+        "description": "Reserva Transport Fever 3 ahora para obtener el contenido exclusivo que añade escala y atmósfera icónicas a tu mundo:\nUn vehículo histórico completamente nuevo:\n- TS Queen Mary: legendario transatlántico, meticulosamente recreado con un detalle impresionante\nUn monumento mundialmente famoso:\n- Gran Pirámide: la maravilla más emblemática del mundo antiguo\nUna majestuosa adición a la vida silvestre:\n- Elefante asiático: majestuoso símbolo de fuerza y vida en las regiones tropicales\n\n¡Planifique, construya y optimice! Transport Fever 3 te pone a cargo...",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/230/230733c0830eb89aa997a3c266bb5a9e.jpg",
+          "https://media.rawg.io/media/screenshots/dbd/dbd9b530f9c5438e748715076da0f691.jpg",
+          "https://media.rawg.io/media/screenshots/78e/78eb97fc3b212eb47eaed6678dbaef30.jpg",
+          "https://media.rawg.io/media/screenshots/517/517be51aafdf4af4e964ab3993cbd09e.jpg",
+          "https://media.rawg.io/media/screenshots/e0c/e0c7e4ec6e566cfa126c2f85534204ba.jpg",
+          "https://media.rawg.io/media/screenshots/beb/beb7dcafc04017b38e1ea3663f90cde7.jpg"
+        ]
+      },
+      {
+        "name": "Okko The Exiled",
+        "released": "2026-09-29",
+        "platforms": [
+          "PC",
+          "macOS"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/1b5/1b57f1b1bddfe11b702b398755795546.jpg",
+        "rawg_url": "https://rawg.io/games/okko-the-exiled",
+        "genres": [],
+        "developers": [
+          "Frozen Flame Interactive"
+        ],
+        "metacritic": null,
+        "description": "¡Lucha para unirte al mundo aislado de Kutala con los cielos y cumplir un antiguo juramento!\n¡Prepárate para embarcarte en una aventura llena de acción en la que pisas fuerte, te lanzas, te desvías y te abres camino a través de Kutala, una tierra de demonios, en una búsqueda para derrotar al Señor Demonio Yalda y vincular el mundo aislado de Okko con los cielos! Después de 1.000 años de ocultamiento, Okko está listo para empuñar el Colmillo Poderoso y acabar con los señores de Kutala uno por uno. Derrota a poderosos enemigos, supera obstáculos y...",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/a18/a18266ea49c4b1078554d9d187f0b246.jpg",
+          "https://media.rawg.io/media/screenshots/492/492b10dafb2f7c79056d64e12206f89c.jpg",
+          "https://media.rawg.io/media/screenshots/9dd/9dd9af48b9c379380645bbc50d7feb12.jpg",
+          "https://media.rawg.io/media/screenshots/91f/91fc5411f8dda6a8fa0193c9a6e70354.jpg",
+          "https://media.rawg.io/media/screenshots/25e/25e5c1d28c185bdbbb2ef3c680081e91.jpg",
+          "https://media.rawg.io/media/screenshots/390/3906de45ca7b6fc8d8701cd24616152f.jpg"
+        ]
+      },
+      {
+        "name": "End of Abyss",
+        "released": "2026-10-01",
+        "platforms": [
+          "PC",
+          "PlayStation 5",
+          "Xbox Series S/X"
+        ],
+        "cover": "https://media.rawg.io/media/games/9b7/9b755942f5c8006891c20e50095dae09.jpg",
+        "rawg_url": "https://rawg.io/games/end-of-abyss",
+        "genres": [
+          "Action",
+          "Adventure"
+        ],
+        "developers": [],
+        "metacritic": null,
+        "description": "End of Abyss es un juego atmosférico de acción y aventura ambientado en un oscuro mundo de ciencia ficción con énfasis en\nexploración, apoyada por combates entablados y tensos. En las profundidades de un misterioso subterráneo\ncompuesto, una misión para investigar perturbaciones de origen desconocido se convierte en un descenso desgarrador\na través de un mundo roto y abandonado. Los jugadores asumen el papel del joven técnico de combate, Cel, como\ndescubre la verdad detrás de las áreas abandonadas de la instalación y se enfrenta a la...",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/c3f/c3fa8823abcab5102fc3ab0fd6f41eba.jpg",
+          "https://media.rawg.io/media/screenshots/647/647a9f513b5a8a7d39927493fde03dac.jpg",
+          "https://media.rawg.io/media/screenshots/b94/b94328802fcc9da89f39f60fc15cd58b.jpg",
+          "https://media.rawg.io/media/screenshots/a7e/a7e4c12bf1cb17660c5a2bc46236c7ca.jpg",
+          "https://media.rawg.io/media/screenshots/bfb/bfb12538a14ea0f5f14c8f347a0ed1e6.jpg",
+          "https://media.rawg.io/media/screenshots/7ba/7baacc4780d3199810acffba636c0f9f.jpg"
+        ]
+      },
+      {
+        "name": "Ghost of Yōtei: Echoes of Sekigahara",
+        "released": "2026-10-01",
+        "platforms": [
+          "PlayStation 5"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/c36/c369c40764cab0de8491d414289cbf6c.jpg",
+        "rawg_url": "https://rawg.io/games/ghost-of-yotei-echoes-of-sekigahara",
+        "genres": [
+          "Action",
+          "Adventure"
+        ],
+        "developers": [
+          "Sucker Punch Productions"
+        ],
+        "metacritic": null,
+        "description": "Una nueva expansión narrativa. Dividido entre el presente y los flashbacks de la época de Atsu en el continente, conoceremos a Nagato, una figura del pasado de Atsu que ha llegado a Ezo. En el presente, explorarás un valle nunca antes visto habitado por La Serpiente y su pandilla de fieles seguidores, los Víboras. En el pasado, experimentarás el tiempo de Atsu en la batalla de Sekigahara y un momento clave en su vida antes de regresar a casa en busca de venganza. Conocerás a nuevos...",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/7b5/7b5da26fb07f70c5b237bbf80ae800d9.jpg",
+          "https://media.rawg.io/media/screenshots/4fa/4fa7a118cce11dbf911b2befd0333001.jpg",
+          "https://media.rawg.io/media/screenshots/4d0/4d0e5b998d6a7ebe1ed057ee00aad296.jpg",
+          "https://media.rawg.io/media/screenshots/c36/c369c40764cab0de8491d414289cbf6c.jpg"
+        ]
+      },
+      {
+        "name": "Ace Combat 8: Wings of Theve",
+        "released": "2026-10-02",
+        "platforms": [
+          "PC",
+          "PlayStation 5",
+          "Xbox Series S/X"
+        ],
+        "cover": "https://media.rawg.io/media/games/541/541d6c97a674635d68ea3d19737f090b.jpg",
+        "rawg_url": "https://rawg.io/games/ace-combat-8-wings-of-theve",
+        "genres": [
+          "Action",
+          "Simulation"
+        ],
+        "developers": [
+          "NAMCO"
+        ],
+        "metacritic": null,
+        "description": "Vuela por los cielos y supera todos los desafíos para ganarte un lugar entre la élite. Participa en intensos combates aéreos para dominar el campo de batalla con poderosas armas. Experimenta una campaña impresionante llena de misiones de alto riesgo, decisiones difíciles y conexiones profundas con el escuadrón.",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/f9e/f9ef6161a0fc80e9f588077e3c3206b0.jpg",
+          "https://media.rawg.io/media/screenshots/b04/b04a441f06fb96c42a8ae5744c493249.jpg",
+          "https://media.rawg.io/media/screenshots/046/0463d346c904d38d339282e7d18c9db0.jpg",
+          "https://media.rawg.io/media/screenshots/e73/e730c9d628d079c22dc2f54e3df37f6c.jpg",
+          "https://media.rawg.io/media/screenshots/136/1368adb9b5ae4e7643595fb226e00d5e_xoyRKMA.jpg",
+          "https://media.rawg.io/media/screenshots/f5c/f5cebeba64e4e68a2dd15a1d00b96adb.jpg"
+        ]
+      }
+    ],
+    "fetch_error": null
+  },
+  {
     "slug": "2026-09-21",
     "date": "2026-09-21",
     "week_start": "2026-09-21",
