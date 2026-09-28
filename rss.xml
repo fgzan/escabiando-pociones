@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Mon, 28 Sep 2026 12:32:26 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 12:34:29 +0000</lastBuildDate>
+  <item>
+    <title>The Witcher 3 Remastered detalla sus horarios de lanzamiento y el tamaño de su actualización</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-detalla-sus-horarios-de-lanzamiento-y-el-tamano-de-su-actualizacion.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-detalla-sus-horarios-de-lanzamiento-y-el-tamano-de-su-actualizacion.html</guid>
+    <pubDate>Mon, 28 Sep 2026 12:34:17 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[CD Projekt Red detalló los horarios en los que estará disponible la gran actualización gratuita de The Witcher 3: Wild Hunt y confirmó el tamaño aproximado de los archivos que deberán descargar los jugadores. La actualización incorpora las mejoras de la versión remasterizada para Nintendo Switch 2 y otras plataformas.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790598842914-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>SEGA llegó a considerar cancelar Sonic, según el jefe de Sonic Team</title>
     <link>https://www.escabiandopociones.com.ar/noticias/sega-llego-a-considerar-cancelar-sonic-segun-el-jefe-de-sonic-team.html</link>
@@ -266,15 +275,6 @@
     <category>Review</category>
     <description><![CDATA[1]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/banner-podcast.png" type="image/png" length="0"/>
-  </item>
-  <item>
-    <title>Eternal Darkness vuelve a generar rumores por una misteriosa pista de Nightdive Studios</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/eternal-darkness-vuelve-a-generar-rumores-por-una-misteriosa-pista-de-nightdive-studios.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/eternal-darkness-vuelve-a-generar-rumores-por-una-misteriosa-pista-de-nightdive-studios.html</guid>
-    <pubDate>Wed, 16 Sep 2026 14:13:07 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Un mensaje publicado por el CEO de Nightdive Studios volvió a despertar las especulaciones sobre el posible regreso de Eternal Darkness: Sanity's Requiem. El clásico de GameCube lleva años siendo uno de los juegos más pedidos para una remasterización, aunque por ahora no existe ninguna confirmación oficial.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789567281098-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
