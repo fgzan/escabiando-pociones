@@ -726,3 +726,72 @@ blockquote.twitter-tweet {
   transition: opacity 0.15s;
 }
 .game-modal .game-modal-gallery img:hover { opacity: 1; }
+
+
+/* ============ Visor de imagen ampliada (Estrenos) ============ */
+.game-modal > #game-modal-cover { cursor: zoom-in; }
+.game-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(5, 6, 15, 0.95);
+}
+.game-lightbox[hidden] { display: none; }
+.game-lightbox-stage {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  display: flex;
+  padding: 56px 64px;
+}
+.game-lightbox-stage img {
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  cursor: zoom-in;
+}
+.game-lightbox.zoomed .game-lightbox-stage img {
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+.game-lightbox-close,
+.game-lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  background: rgba(10, 12, 26, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.game-lightbox-close:hover,
+.game-lightbox-nav:hover { color: var(--cyan-bright); border-color: var(--cyan-bright); }
+.game-lightbox-close { top: 14px; right: 14px; }
+.game-lightbox-nav { top: 50%; transform: translateY(-50%); }
+.game-lightbox-nav[hidden] { display: none; }
+.game-lightbox-prev { left: 14px; }
+.game-lightbox-next { right: 14px; }
+.game-lightbox-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .game-lightbox-stage { padding: 56px 8px; }
+  .game-lightbox-prev { left: 6px; }
+  .game-lightbox-next { right: 6px; }
+}
