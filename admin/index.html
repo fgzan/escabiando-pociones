@@ -902,6 +902,27 @@
     });
   }
 
+  function looksBlank(canvas) {
+    // Red de seguridad: si por lo que sea el resultado de la IA salió
+    // vacío (como pasó por el bug de memoria de la placa de video que
+    // arreglamos), esto lo detecta antes de subir nada raro. Muestrea
+    // una grillita de puntos en vez de todos los píxeles, para que
+    // sea instantáneo.
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    let blackCount = 0, total = 0;
+    for (let row = 0; row < 4; row++) {
+      for (let col = 0; col < 6; col++) {
+        const x = Math.min(w - 1, Math.floor((col + 0.5) * w / 6));
+        const y = Math.min(h - 1, Math.floor((row + 0.5) * h / 4));
+        const d = ctx.getImageData(x, y, 1, 1).data;
+        total++;
+        if (d[0] < 6 && d[1] < 6 && d[2] < 6) blackCount++;
+      }
+    }
+    return blackCount === total;
+  }
+
   async function upscaleCoverWithAI(prefix) {
     const btn = document.getElementById(`${prefix}-cover-ai-btn`);
     const preview = document.getElementById(`${prefix}-cover-preview`);
@@ -915,7 +936,13 @@
 
       const original = await loadImageEl(preview.src);
       const upscaler = new window.Upscaler({ model: window.ESRGANSlim2x });
-      const resultDataUrl = await upscaler.upscale(original);
+      // patchSize+padding: procesa la imagen en mosaicos chicos con
+      // superposición, en vez de mandarla entera de una sola vez a la
+      // placa de video. Sin esto, con imágenes de tamaño normal la
+      // placa se puede quedar sin memoria/tamaño de textura a mitad
+      // de camino y devolver un resultado vacío (negro) en vez de un
+      // error -- justo lo que pasó antes de este arreglo.
+      const resultDataUrl = await upscaler.upscale(original, { patchSize: 64, padding: 4 });
       const bigImg = await loadImageEl(resultDataUrl);
 
       // Si la imagen ya venía grande, duplicarla se va de rango:
@@ -935,6 +962,10 @@
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(bigImg, 0, 0, targetW, targetH);
+
+      if (looksBlank(canvas)) {
+        throw new Error('La IA devolvió una imagen vacía (problema de memoria de la placa de video). No se subió nada.');
+      }
 
       // Mismo paso de compresión a WebP que cualquier otra imagen que
       // se sube, para que esto no termine pesando una tonelada.
