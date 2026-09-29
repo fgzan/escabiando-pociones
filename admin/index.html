@@ -132,6 +132,10 @@
     border-color: var(--cyan-bright); background: rgba(134,230,246,0.08);
   }
   .cover-preview { max-width: 240px; border-radius: var(--radius); border:1px solid var(--line); margin-top:10px; display:none; }
+  .cover-ai-row { display:none; align-items:center; gap:10px; margin-top:8px; }
+  .cover-ai-row.visible { display:flex; }
+  .cover-ai-row button { font-family: var(--f-mono); font-size: 0.75rem; padding: 6px 10px; }
+  .cover-ai-status { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-dim); }
 
   .spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--ink-dim); border-top-color: var(--cyan-bright); border-radius:50%; animation: spin 0.7s linear infinite; margin-right:6px; vertical-align:-2px;}
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -277,6 +281,10 @@
             <input type="file" id="r-cover-file" accept="image/*" class="hidden" onchange="uploadCover('r', this.files[0])">
             <input type="hidden" id="r-cover">
             <img id="r-cover-preview" class="cover-preview">
+            <div class="cover-ai-row" id="r-cover-ai-row">
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r')" id="r-cover-ai-btn">✨ Mejorar con IA</button>
+              <span class="cover-ai-status" id="r-cover-ai-status"></span>
+            </div>
           </div>
 
           <div class="field"><label>Resumen corto (aparece en la tarjeta)</label><textarea id="r-excerpt" style="min-height:80px;"></textarea></div>
@@ -368,6 +376,10 @@
             <input type="file" id="n-cover-file" accept="image/*" class="hidden" onchange="uploadCover('n', this.files[0])">
             <input type="hidden" id="n-cover">
             <img id="n-cover-preview" class="cover-preview">
+            <div class="cover-ai-row" id="n-cover-ai-row">
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n')" id="n-cover-ai-btn">✨ Mejorar con IA</button>
+              <span class="cover-ai-status" id="n-cover-ai-status"></span>
+            </div>
           </div>
 
           <div class="field"><label>Resumen corto (aparece en la tarjeta)</label><textarea id="n-excerpt" style="min-height:80px;"></textarea></div>
@@ -709,6 +721,20 @@
     div.textContent = str || '';
     return div.innerHTML;
   }
+  function showCoverPreview(prefix, src) {
+    const prev = document.getElementById(`${prefix}-cover-preview`);
+    prev.src = src;
+    prev.style.display = 'block';
+    document.getElementById(`${prefix}-cover-ai-row`).classList.add('visible');
+    setCoverAiStatus(prefix, '');
+  }
+  function hideCoverPreview(prefix) {
+    document.getElementById(`${prefix}-cover-preview`).style.display = 'none';
+    document.getElementById(`${prefix}-cover-ai-row`).classList.remove('visible');
+  }
+  function setCoverAiStatus(prefix, text) {
+    document.getElementById(`${prefix}-cover-ai-status`).textContent = text;
+  }
   function toPreviewUrl(path) {
     if (!path) return path;
     if (/^https?:\/\//.test(path)) return path;
@@ -746,28 +772,92 @@
     if (cropperInstance) cropperInstance.setAspectRatio(ratio === null ? NaN : ratio);
   }
 
+  // Si la foto recortada queda angosta (menos de 1000px), la agranda
+  // sola con un suavizado de buena calidad y le suma un toque de
+  // nitidez -- no es IA, pero disimula bastante el efecto "borroso"
+  // de una foto chica estirada. Nunca agranda más de 1400px de ancho
+  // ni más del doble del tamaño original.
+  const AUTO_UPSCALE_MIN_WIDTH = 1000;
+  const AUTO_UPSCALE_MAX_WIDTH = 1400;
+
+  function autoUpscaleIfSmall(canvas) {
+    if (canvas.width >= AUTO_UPSCALE_MIN_WIDTH) return canvas;
+    const scale = Math.min(2, AUTO_UPSCALE_MAX_WIDTH / canvas.width);
+    const newW = Math.round(canvas.width * scale);
+    const newH = Math.round(canvas.height * scale);
+    const big = document.createElement('canvas');
+    big.width = newW;
+    big.height = newH;
+    const ctx = big.getContext('2d');
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(canvas, 0, 0, newW, newH);
+    sharpenCanvas(big, 0.25);
+    return big;
+  }
+
+  // Nitidez simple (unsharp mask casero): mezcla la imagen con una
+  // versión resaltada por un kernel 3x3 clásico. El 'amount' controla
+  // cuánto de ese resaltado se mete -- bajo, para que no se note como
+  // un filtro, solo como "menos blando".
+  function sharpenCanvas(canvas, amount) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    const imgData = ctx.getImageData(0, 0, w, h);
+    const src = imgData.data;
+    const out = new Uint8ClampedArray(src.length);
+    const kernel = [0, -1, 0, -1, 5, -1, 0, -1, 0];
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const idx = (y * w + x) * 4;
+        if (x === 0 || y === 0 || x === w - 1 || y === h - 1) {
+          out[idx] = src[idx]; out[idx + 1] = src[idx + 1]; out[idx + 2] = src[idx + 2]; out[idx + 3] = src[idx + 3];
+          continue;
+        }
+        for (let c = 0; c < 3; c++) {
+          let sum = 0, k = 0;
+          for (let ky = -1; ky <= 1; ky++) {
+            for (let kx = -1; kx <= 1; kx++) {
+              sum += src[((y + ky) * w + (x + kx)) * 4 + c] * kernel[k];
+              k++;
+            }
+          }
+          out[idx + c] = src[idx + c] * (1 - amount) + sum * amount;
+        }
+        out[idx + 3] = src[idx + 3];
+      }
+    }
+    imgData.data.set(out);
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  // WebP con calidad 0.82: mismo aspecto visual que un PNG, una
+  // fracción del peso (es la misma técnica que usan los sitios de
+  // "comprimir imagen"). Si el navegador fuera muy viejo y no
+  // soportara exportar a WebP, cae solo a JPEG comprimido en vez de
+  // a un PNG pesado sin comprimir. La usan tanto el recorte manual
+  // como el agrandado automático y el botón de IA, así ninguna imagen
+  // sale del editor sin pasar por acá.
+  function canvasToWebp(canvas, quality) {
+    return new Promise((resolve) => {
+      canvas.toBlob((blob) => {
+        if (blob && blob.type === 'image/webp') { resolve(blob); return; }
+        canvas.toBlob((jpegBlob) => resolve(jpegBlob), 'image/jpeg', 0.85);
+      }, 'image/webp', quality != null ? quality : 0.82);
+    });
+  }
+
   function confirmCrop() {
     if (!cropperInstance) return;
     // maxWidth/maxHeight achica sola cualquier foto gigante de celular.
-    const canvas = cropperInstance.getCroppedCanvas({ maxWidth: 1600, maxHeight: 1600, imageSmoothingQuality: 'high' });
+    let canvas = cropperInstance.getCroppedCanvas({ maxWidth: 1600, maxHeight: 1600, imageSmoothingQuality: 'high' });
+    canvas = autoUpscaleIfSmall(canvas);
 
-    // WebP con calidad 0.82: mismo aspecto visual que un PNG, una
-    // fracción del peso (es la misma técnica que usan los sitios de
-    // "comprimir imagen"). Si el navegador fuera muy viejo y no
-    // soportara exportar a WebP, cae solo a JPEG comprimido en vez de
-    // a un PNG pesado sin comprimir.
-    canvas.toBlob((blob) => {
-      const finish = (finalBlob) => {
-        const cb = cropCallback;
-        closeImageEditor();
-        if (cb) cb(finalBlob);
-      };
-      if (blob && blob.type === 'image/webp') {
-        finish(blob);
-      } else {
-        canvas.toBlob((jpegBlob) => finish(jpegBlob), 'image/jpeg', 0.85);
-      }
-    }, 'image/webp', 0.82);
+    canvasToWebp(canvas, 0.82).then((finalBlob) => {
+      const cb = cropCallback;
+      closeImageEditor();
+      if (cb) cb(finalBlob);
+    });
   }
 
   function extFromBlob(blob) {
@@ -777,6 +867,87 @@
   }
 
   function cancelCrop() { closeImageEditor(); }
+
+  // ---------- Mejorar con IA (botón manual, bajo demanda) ----------
+  // Usa UpscalerJS (mismo tipo de modelo que Upscayl) corriendo en el
+  // propio navegador -- no manda la imagen a ningún servidor. Las
+  // librerías (~2.3MB entre todas) se bajan solo la primera vez que
+  // se aprieta el botón en esta sesión, no en cada carga del panel.
+  let upscalerLoadPromise = null;
+  function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+      const el = document.createElement('script');
+      el.src = src;
+      el.onload = () => resolve();
+      el.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+      document.head.appendChild(el);
+    });
+  }
+  function ensureUpscalerLoaded() {
+    if (!upscalerLoadPromise) {
+      upscalerLoadPromise = (async () => {
+        if (!window.tf) await loadScriptOnce('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js');
+        if (!window.Upscaler) await loadScriptOnce('https://cdn.jsdelivr.net/npm/upscaler@1.0.0/dist/browser/umd/upscaler.min.js');
+        if (!window.ESRGANSlim2x) await loadScriptOnce('https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-slim@1.0.0/dist/umd/models/esrgan-slim/src/x2/index.min.js');
+      })().catch((err) => { upscalerLoadPromise = null; throw err; });
+    }
+    return upscalerLoadPromise;
+  }
+  function loadImageEl(src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('No se pudo leer la imagen'));
+      img.src = src;
+    });
+  }
+
+  async function upscaleCoverWithAI(prefix) {
+    const btn = document.getElementById(`${prefix}-cover-ai-btn`);
+    const preview = document.getElementById(`${prefix}-cover-preview`);
+    if (!preview.src) return;
+
+    btn.disabled = true;
+    setCoverAiStatus(prefix, 'Cargando el modelo de IA (solo la primera vez)…');
+    try {
+      await ensureUpscalerLoaded();
+      setCoverAiStatus(prefix, 'Mejorando la imagen, puede tardar unos segundos…');
+
+      const original = await loadImageEl(preview.src);
+      const upscaler = new window.Upscaler({ model: window.ESRGANSlim2x });
+      const resultDataUrl = await upscaler.upscale(original);
+      const bigImg = await loadImageEl(resultDataUrl);
+
+      // Si la imagen ya venía grande, duplicarla se va de rango:
+      // topeamos el resultado para no terminar con un archivo
+      // gigante por las dudas (después igual pasa por WebP).
+      const MAX_W = 2000;
+      let targetW = bigImg.naturalWidth;
+      let targetH = bigImg.naturalHeight;
+      if (targetW > MAX_W) {
+        targetH = Math.round(targetH * (MAX_W / targetW));
+        targetW = MAX_W;
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = targetW;
+      canvas.height = targetH;
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(bigImg, 0, 0, targetW, targetH);
+
+      // Mismo paso de compresión a WebP que cualquier otra imagen que
+      // se sube, para que esto no termine pesando una tonelada.
+      const blob = await canvasToWebp(canvas, 0.82);
+      await uploadCoverBlob(prefix, blob);
+      setCoverAiStatus(prefix, '✓ Imagen mejorada.');
+    } catch (err) {
+      console.error(err);
+      setCoverAiStatus(prefix, 'No se pudo mejorar la imagen. Probá de nuevo, o con otra foto.');
+    } finally {
+      btn.disabled = false;
+    }
+  }
 
   function closeImageEditor() {
     document.getElementById('image-editor-modal').classList.add('hidden');
@@ -795,9 +966,7 @@
 
   async function uploadCoverBlob(prefix, blob) {
     const localUrl = URL.createObjectURL(blob);
-    const prev = document.getElementById(`${prefix}-cover-preview`);
-    prev.src = localUrl;
-    prev.style.display = 'block';
+    showCoverPreview(prefix, localUrl);
     try {
       showGlobalMsg('Subiendo imagen…', true);
       const base64 = await fileToBase64(blob);
@@ -1324,8 +1493,7 @@
     document.getElementById('r-excerpt').value = content.excerpt || '';
     document.getElementById('r-body').value = content.body || '';
     document.getElementById('r-draft').checked = !!content.draft;
-    const prev = document.getElementById('r-cover-preview');
-    if (content.cover) { prev.src = toPreviewUrl(content.cover); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+    if (content.cover) { showCoverPreview('r', toPreviewUrl(content.cover)); } else { hideCoverPreview('r'); }
     document.getElementById('r-form-title').textContent = `Editando: ${content.title}`;
   }
 
@@ -1333,7 +1501,7 @@
     editingReviewSlug = null;
     ['r-title','r-game','r-tags','r-slug','r-score','r-cover','r-excerpt','r-body'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('r-draft').checked = false;
-    document.getElementById('r-cover-preview').style.display = 'none';
+    hideCoverPreview('r');
     document.getElementById('r-form-title').textContent = 'Agregar nueva review';
     resetEditorMode('r');
   }
@@ -1396,8 +1564,7 @@
     document.getElementById('n-body').value = content.body || '';
     document.getElementById('n-draft').checked = !!content.draft;
     document.getElementById('n-featured-position').value = content.featuredPosition ? String(content.featuredPosition) : '';
-    const prev = document.getElementById('n-cover-preview');
-    if (content.cover) { prev.src = toPreviewUrl(content.cover); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+    if (content.cover) { showCoverPreview('n', toPreviewUrl(content.cover)); } else { hideCoverPreview('n'); }
     document.getElementById('n-form-title').textContent = `Editando: ${content.title}`;
   }
 
@@ -1406,7 +1573,7 @@
     ['n-title','n-tags','n-slug','n-cover','n-excerpt','n-body'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('n-draft').checked = false;
     document.getElementById('n-featured-position').value = '';
-    document.getElementById('n-cover-preview').style.display = 'none';
+    hideCoverPreview('n');
     document.getElementById('n-form-title').textContent = 'Agregar nueva noticia';
     resetEditorMode('n');
   }
@@ -1520,8 +1687,7 @@
       if (el.type === 'checkbox') el.checked = !!snap[id]; else el.value = snap[id] || '';
     });
     const coverVal = document.getElementById(`${prefix}-cover`).value;
-    const prev = document.getElementById(`${prefix}-cover-preview`);
-    if (coverVal) { prev.src = toPreviewUrl(coverVal); prev.style.display = 'block'; } else { prev.style.display = 'none'; }
+    if (coverVal) { showCoverPreview(prefix, toPreviewUrl(coverVal)); } else { hideCoverPreview(prefix); }
   }
 
   // Enganchamos el autoguardado a cada campo (y al editor visual aparte,
