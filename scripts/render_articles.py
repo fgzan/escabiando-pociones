@@ -359,7 +359,7 @@ def render_article_page(kind, item, tag_index):
     cover_html = ""
     if item.get("cover"):
         cover_alt = esc(item.get("game") or item.get("title", ""))
-        cover_html = f'<img src="../{item["cover"].lstrip("/")}" alt="{cover_alt}" style="width:100%; border-radius:6px; margin-bottom:20px;">'
+        cover_html = f'<img src="../{item["cover"].lstrip("/")}" alt="{cover_alt}" style="display:block; width:auto; max-width:100%; height:auto; margin:0 auto 20px; border-radius:6px;">'
 
     title_block_extra = ""
     if kind == "review":
@@ -679,6 +679,13 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     <a id="game-modal-rawg" class="btn btn-ghost" href="https://rawg.io" target="_blank" rel="noopener" style="margin-top:20px; display:inline-block;">Ver más en RAWG →</a>
   </div>
 </div>
+<div class="game-lightbox" id="game-lightbox" hidden role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button type="button" class="game-lightbox-close" aria-label="Cerrar">✕</button>
+  <button type="button" class="game-lightbox-nav game-lightbox-prev" aria-label="Anterior">‹</button>
+  <div class="game-lightbox-stage" id="game-lightbox-stage"><img id="game-lightbox-img" alt=""></div>
+  <button type="button" class="game-lightbox-nav game-lightbox-next" aria-label="Siguiente">›</button>
+  <p class="game-lightbox-hint">Tocá la imagen para acercar o alejar</p>
+</div>
 <script>
 (function () {
   var backdrop = document.getElementById('game-modal-backdrop');
@@ -692,6 +699,34 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
   var platEl = document.getElementById('game-modal-platforms');
   var descEl = document.getElementById('game-modal-description');
   var rawgLink = document.getElementById('game-modal-rawg');
+  var lb = document.getElementById('game-lightbox');
+  var lbImg = document.getElementById('game-lightbox-img');
+  var lbStage = document.getElementById('game-lightbox-stage');
+  var lbPrev = lb.querySelector('.game-lightbox-prev');
+  var lbNext = lb.querySelector('.game-lightbox-next');
+  var zoomList = [];
+  var zoomIdx = 0;
+
+  function lbShow() {
+    lbImg.src = zoomList[zoomIdx];
+    lb.classList.remove('zoomed');
+    lbStage.scrollTop = 0;
+    lbStage.scrollLeft = 0;
+    lbPrev.hidden = lbNext.hidden = zoomList.length < 2;
+    cover.src = zoomList[zoomIdx];
+  }
+  function lbOpen() {
+    var i = zoomList.indexOf(cover.src);
+    if (i === -1) { zoomList.unshift(cover.src); i = 0; }
+    zoomIdx = i;
+    lbShow();
+    lb.hidden = false;
+  }
+  function lbClose() { lb.hidden = true; lbImg.removeAttribute('src'); }
+  function lbNav(d) {
+    zoomIdx = (zoomIdx + d + zoomList.length) % zoomList.length;
+    lbShow();
+  }
 
   function abrir(btn) {
     var h3 = btn.querySelector('h3');
@@ -730,6 +765,12 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     descEl.textContent = extra.description || '';
     descEl.hidden = !extra.description;
 
+    zoomList = [];
+    if (img) zoomList.push(img.src);
+    (extra.screenshots || []).forEach(function (src) {
+      if (zoomList.indexOf(src) === -1) zoomList.push(src);
+    });
+
     gallery.innerHTML = '';
     if (extra.screenshots && extra.screenshots.length) {
       extra.screenshots.forEach(function (src) {
@@ -753,6 +794,7 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     document.body.style.overflow = 'hidden';
   }
   function cerrar() {
+    lbClose();
     backdrop.hidden = true;
     document.body.style.overflow = '';
   }
@@ -763,7 +805,25 @@ GAME_MODAL_HTML = '''<div class="game-modal-backdrop" id="game-modal-backdrop" h
     if (e.target === backdrop) cerrar();
   });
   backdrop.querySelector('.game-modal-close').addEventListener('click', cerrar);
+  cover.addEventListener('click', lbOpen);
+  lbImg.addEventListener('click', function () {
+    var zoomed = lb.classList.toggle('zoomed');
+    if (zoomed) {
+      lbStage.scrollLeft = (lbStage.scrollWidth - lbStage.clientWidth) / 2;
+      lbStage.scrollTop = (lbStage.scrollHeight - lbStage.clientHeight) / 2;
+    }
+  });
+  lbStage.addEventListener('click', function (e) { if (e.target === lbStage) lbClose(); });
+  lb.querySelector('.game-lightbox-close').addEventListener('click', lbClose);
+  lbPrev.addEventListener('click', function () { lbNav(-1); });
+  lbNext.addEventListener('click', function () { lbNav(1); });
   document.addEventListener('keydown', function (e) {
+    if (!lb.hidden) {
+      if (e.key === 'Escape') lbClose();
+      else if (e.key === 'ArrowLeft') lbNav(-1);
+      else if (e.key === 'ArrowRight') lbNav(1);
+      return;
+    }
     if (e.key === 'Escape' && !backdrop.hidden) cerrar();
   });
 })();
