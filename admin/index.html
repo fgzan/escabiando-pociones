@@ -132,9 +132,19 @@
     border-color: var(--cyan-bright); background: rgba(134,230,246,0.08);
   }
   .cover-preview { max-width: 240px; border-radius: var(--radius); border:1px solid var(--line); margin-top:10px; display:none; }
-  .cover-ai-row { display:none; align-items:center; gap:10px; margin-top:8px; }
+  .cover-ai-row { display:none; align-items:center; gap:10px; margin-top:8px; flex-wrap: wrap; }
   .cover-ai-row.visible { display:flex; }
   .cover-ai-row button { font-family: var(--f-mono); font-size: 0.75rem; padding: 6px 10px; }
+  .cover-ai-candidate { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); }
+  .cover-ai-candidate small { display:block; color: var(--ink-dim); font-family: var(--f-mono); margin-bottom: 8px; }
+  .cover-zoomable { cursor: zoom-in; }
+  .img-lightbox { position: fixed; inset: 0; z-index: 1200; background: rgba(5,6,15,0.95); }
+  .img-lightbox[hidden] { display: none; }
+  .img-lightbox-stage { position:absolute; inset:0; overflow:auto; display:flex; padding: 56px 64px; }
+  .img-lightbox-stage img { margin:auto; max-width:100%; max-height:100%; object-fit:contain; border-radius:4px; cursor: zoom-in; }
+  .img-lightbox.zoomed .img-lightbox-stage img { max-width:none; max-height:none; cursor: zoom-out; }
+  .img-lightbox-close { position:absolute; top:14px; right:14px; z-index:2; background:rgba(10,12,26,0.7); border:1px solid var(--line); border-radius:50%; color:var(--ink); width:40px; height:40px; font-size:1.3rem; line-height:1; cursor:pointer; }
+  .img-lightbox-close:hover { color: var(--cyan-bright); border-color: var(--cyan-bright); }
   .cover-ai-status { font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-dim); }
 
   .spinner { display:inline-block; width:14px; height:14px; border:2px solid var(--ink-dim); border-top-color: var(--cyan-bright); border-radius:50%; animation: spin 0.7s linear infinite; margin-right:6px; vertical-align:-2px;}
@@ -280,10 +290,19 @@
             </div>
             <input type="file" id="r-cover-file" accept="image/*" class="hidden" onchange="uploadCover('r', this.files[0])">
             <input type="hidden" id="r-cover">
-            <img id="r-cover-preview" class="cover-preview">
+            <img id="r-cover-preview" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
             <div class="cover-ai-row" id="r-cover-ai-row">
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r')" id="r-cover-ai-btn">✨ Mejorar con IA</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r', 'fast')" id="r-cover-ai-btn-fast">✨ Nítida (rápida)</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r', 'detail')" id="r-cover-ai-btn-detail">✨ Detalle (más lenta)</button>
               <span class="cover-ai-status" id="r-cover-ai-status"></span>
+            </div>
+            <div class="cover-ai-candidate" id="r-cover-ai-candidate" hidden>
+              <small>Resultado de la IA (todavía NO se subió -- elegí si la usás):</small>
+              <img id="r-cover-ai-candidate-img" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
+              <div class="btn-row">
+                <button type="button" class="btn btn-primary" onclick="useAiCandidate('r')">Usar esta versión</button>
+                <button type="button" class="btn btn-ghost" onclick="discardAiCandidate('r')">Descartar</button>
+              </div>
             </div>
           </div>
 
@@ -375,10 +394,19 @@
             </div>
             <input type="file" id="n-cover-file" accept="image/*" class="hidden" onchange="uploadCover('n', this.files[0])">
             <input type="hidden" id="n-cover">
-            <img id="n-cover-preview" class="cover-preview">
+            <img id="n-cover-preview" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
             <div class="cover-ai-row" id="n-cover-ai-row">
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n')" id="n-cover-ai-btn">✨ Mejorar con IA</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n', 'fast')" id="n-cover-ai-btn-fast">✨ Nítida (rápida)</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n', 'detail')" id="n-cover-ai-btn-detail">✨ Detalle (más lenta)</button>
               <span class="cover-ai-status" id="n-cover-ai-status"></span>
+            </div>
+            <div class="cover-ai-candidate" id="n-cover-ai-candidate" hidden>
+              <small>Resultado de la IA (todavía NO se subió -- elegí si la usás):</small>
+              <img id="n-cover-ai-candidate-img" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
+              <div class="btn-row">
+                <button type="button" class="btn btn-primary" onclick="useAiCandidate('n')">Usar esta versión</button>
+                <button type="button" class="btn btn-ghost" onclick="discardAiCandidate('n')">Descartar</button>
+              </div>
             </div>
           </div>
 
@@ -452,6 +480,14 @@
       <button class="btn btn-primary" onclick="confirmCrop()">Usar esta imagen</button>
       <button class="btn btn-ghost" onclick="cancelCrop()">Cancelar</button>
     </div>
+  </div>
+</div>
+
+<!-- ===================== Lightbox genérico (zoom de portadas) ===================== -->
+<div class="img-lightbox" id="img-lightbox" hidden>
+  <button type="button" class="img-lightbox-close" aria-label="Cerrar" onclick="closeImgLightbox()">✕</button>
+  <div class="img-lightbox-stage" id="img-lightbox-stage">
+    <img id="img-lightbox-img" alt="">
   </div>
 </div>
 
@@ -727,14 +763,47 @@
     prev.style.display = 'block';
     document.getElementById(`${prefix}-cover-ai-row`).classList.add('visible');
     setCoverAiStatus(prefix, '');
+    discardAiCandidate(prefix);
   }
   function hideCoverPreview(prefix) {
     document.getElementById(`${prefix}-cover-preview`).style.display = 'none';
     document.getElementById(`${prefix}-cover-ai-row`).classList.remove('visible');
+    discardAiCandidate(prefix);
   }
   function setCoverAiStatus(prefix, text) {
     document.getElementById(`${prefix}-cover-ai-status`).textContent = text;
   }
+  // ---------- Lightbox genérico: zoom de cualquier portada/candidato ----------
+  (function () {
+    const lb = document.getElementById('img-lightbox');
+    if (!lb) return;
+    const stage = document.getElementById('img-lightbox-stage');
+    const img = document.getElementById('img-lightbox-img');
+    window.openImgLightbox = function (src) {
+      if (!src) return;
+      img.src = src;
+      lb.classList.remove('zoomed');
+      lb.hidden = false;
+      stage.scrollTop = 0;
+      stage.scrollLeft = 0;
+    };
+    window.closeImgLightbox = function () {
+      lb.hidden = true;
+      img.removeAttribute('src');
+    };
+    img.addEventListener('click', function () {
+      const zoomed = lb.classList.toggle('zoomed');
+      if (zoomed) {
+        stage.scrollLeft = (stage.scrollWidth - stage.clientWidth) / 2;
+        stage.scrollTop = (stage.scrollHeight - stage.clientHeight) / 2;
+      }
+    });
+    stage.addEventListener('click', function (e) { if (e.target === stage) window.closeImgLightbox(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !lb.hidden) window.closeImgLightbox();
+    });
+  })();
+
   function toPreviewUrl(path) {
     if (!path) return path;
     if (/^https?:\/\//.test(path)) return path;
@@ -868,12 +937,26 @@
 
   function cancelCrop() { closeImageEditor(); }
 
-  // ---------- Mejorar con IA (botón manual, bajo demanda) ----------
+  // ---------- Mejorar con IA (dos modelos, a elección) ----------
   // Usa UpscalerJS (mismo tipo de modelo que Upscayl) corriendo en el
-  // propio navegador -- no manda la imagen a ningún servidor. Las
-  // librerías (~2.3MB entre todas) se bajan solo la primera vez que
-  // se aprieta el botón en esta sesión, no en cada carga del panel.
-  let upscalerLoadPromise = null;
+  // propio navegador -- no manda la imagen a ningún servidor. Cada
+  // modelo se baja solo la primera vez que se aprieta SU botón en
+  // esta sesión, no en cada carga del panel.
+  //  - 'fast'   -> ESRGAN Slim: liviano (~1MB), tiende a suavizar.
+  //  - 'detail' -> ESRGAN clásico entrenado con GAN (~4MB): busca
+  //    inventar textura realista en vez de solo promediar píxeles;
+  //    más lento y a veces se pasa de "creativo".
+  const AI_MODELS = {
+    fast: {
+      globalName: 'ESRGANSlim2x',
+      scriptUrl: 'https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-slim@1.0.0/dist/umd/models/esrgan-slim/src/x2/index.min.js',
+    },
+    detail: {
+      globalName: 'ESRGANLegacyGANS',
+      scriptUrl: 'https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-legacy@1.0.0/dist/umd/models/esrgan-legacy/src/gans/index.min.js',
+    },
+  };
+  const upscalerLoadPromises = {};
   function loadScriptOnce(src) {
     return new Promise((resolve, reject) => {
       const el = document.createElement('script');
@@ -883,15 +966,20 @@
       document.head.appendChild(el);
     });
   }
-  function ensureUpscalerLoaded() {
-    if (!upscalerLoadPromise) {
-      upscalerLoadPromise = (async () => {
-        if (!window.tf) await loadScriptOnce('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js');
+  function ensureTfLoaded() {
+    if (window.tf) return Promise.resolve();
+    return loadScriptOnce('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js');
+  }
+  function ensureModelLoaded(mode) {
+    const cfg = AI_MODELS[mode];
+    if (!upscalerLoadPromises[mode]) {
+      upscalerLoadPromises[mode] = (async () => {
+        await ensureTfLoaded();
         if (!window.Upscaler) await loadScriptOnce('https://cdn.jsdelivr.net/npm/upscaler@1.0.0/dist/browser/umd/upscaler.min.js');
-        if (!window.ESRGANSlim2x) await loadScriptOnce('https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-slim@1.0.0/dist/umd/models/esrgan-slim/src/x2/index.min.js');
-      })().catch((err) => { upscalerLoadPromise = null; throw err; });
+        if (!window[cfg.globalName]) await loadScriptOnce(cfg.scriptUrl);
+      })().catch((err) => { upscalerLoadPromises[mode] = null; throw err; });
     }
-    return upscalerLoadPromise;
+    return upscalerLoadPromises[mode];
   }
   function loadImageEl(src) {
     return new Promise((resolve, reject) => {
@@ -905,9 +993,9 @@
   function looksBlank(canvas) {
     // Red de seguridad: si por lo que sea el resultado de la IA salió
     // vacío (como pasó por el bug de memoria de la placa de video que
-    // arreglamos), esto lo detecta antes de subir nada raro. Muestrea
-    // una grillita de puntos en vez de todos los píxeles, para que
-    // sea instantáneo.
+    // arreglamos), esto lo detecta antes de mostrarlo como candidato.
+    // Muestrea una grillita de puntos en vez de todos los píxeles,
+    // para que sea instantáneo.
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
     let blackCount = 0, total = 0;
@@ -923,31 +1011,41 @@
     return blackCount === total;
   }
 
-  async function upscaleCoverWithAI(prefix) {
-    const btn = document.getElementById(`${prefix}-cover-ai-btn`);
+  // Blobs candidatos pendientes de confirmar (todavía no subidos).
+  const aiCandidateBlob = {};
+  const aiCandidateUrl = {};
+
+  async function upscaleCoverWithAI(prefix, mode) {
+    const cfg = AI_MODELS[mode];
+    const btnFast = document.getElementById(`${prefix}-cover-ai-btn-fast`);
+    const btnDetail = document.getElementById(`${prefix}-cover-ai-btn-detail`);
     const preview = document.getElementById(`${prefix}-cover-preview`);
     if (!preview.src) return;
 
-    btn.disabled = true;
-    setCoverAiStatus(prefix, 'Cargando el modelo de IA (solo la primera vez)…');
+    btnFast.disabled = true;
+    btnDetail.disabled = true;
+    setCoverAiStatus(prefix, mode === 'fast'
+      ? 'Cargando el modelo rápido (solo la primera vez)…'
+      : 'Cargando el modelo de detalle (~4MB, solo la primera vez)…');
     try {
-      await ensureUpscalerLoaded();
+      await ensureModelLoaded(mode);
       setCoverAiStatus(prefix, 'Mejorando la imagen, puede tardar unos segundos…');
 
       const original = await loadImageEl(preview.src);
-      const upscaler = new window.Upscaler({ model: window.ESRGANSlim2x });
+      const upscaler = new window.Upscaler({ model: window[cfg.globalName] });
       // patchSize+padding: procesa la imagen en mosaicos chicos con
       // superposición, en vez de mandarla entera de una sola vez a la
       // placa de video. Sin esto, con imágenes de tamaño normal la
       // placa se puede quedar sin memoria/tamaño de textura a mitad
       // de camino y devolver un resultado vacío (negro) en vez de un
-      // error -- justo lo que pasó antes de este arreglo.
+      // error.
       const resultDataUrl = await upscaler.upscale(original, { patchSize: 64, padding: 4 });
       const bigImg = await loadImageEl(resultDataUrl);
 
-      // Si la imagen ya venía grande, duplicarla se va de rango:
-      // topeamos el resultado para no terminar con un archivo
-      // gigante por las dudas (después igual pasa por WebP).
+      // Si la imagen ya venía grande (o el modelo de detalle, que
+      // siempre trabaja a x4, la infló de más), topeamos el resultado
+      // para no terminar con un archivo gigante por las dudas
+      // (después igual pasa por WebP).
       const MAX_W = 2000;
       let targetW = bigImg.naturalWidth;
       let targetH = bigImg.naturalHeight;
@@ -964,20 +1062,46 @@
       ctx.drawImage(bigImg, 0, 0, targetW, targetH);
 
       if (looksBlank(canvas)) {
-        throw new Error('La IA devolvió una imagen vacía (problema de memoria de la placa de video). No se subió nada.');
+        throw new Error('La IA devolvió una imagen vacía (problema de memoria de la placa de video). Probá con el otro botón.');
       }
 
       // Mismo paso de compresión a WebP que cualquier otra imagen que
-      // se sube, para que esto no termine pesando una tonelada.
+      // se sube, para que esto no termine pesando una tonelada --
+      // pero todavía NO se sube a ningún lado: se muestra como
+      // candidato para que decidas si te gusta antes de usarla.
       const blob = await canvasToWebp(canvas, 0.82);
-      await uploadCoverBlob(prefix, blob);
-      setCoverAiStatus(prefix, '✓ Imagen mejorada.');
+      if (aiCandidateUrl[prefix]) URL.revokeObjectURL(aiCandidateUrl[prefix]);
+      const url = URL.createObjectURL(blob);
+      aiCandidateBlob[prefix] = blob;
+      aiCandidateUrl[prefix] = url;
+
+      const candidateImg = document.getElementById(`${prefix}-cover-ai-candidate-img`);
+      candidateImg.src = url;
+      document.getElementById(`${prefix}-cover-ai-candidate`).hidden = false;
+      setCoverAiStatus(prefix, '✓ Listo -- comparalas (click en cualquiera para agrandar) y elegí si la usás.');
     } catch (err) {
       console.error(err);
-      setCoverAiStatus(prefix, 'No se pudo mejorar la imagen. Probá de nuevo, o con otra foto.');
+      setCoverAiStatus(prefix, 'No se pudo mejorar la imagen. Probá de nuevo, o con el otro botón.');
     } finally {
-      btn.disabled = false;
+      btnFast.disabled = false;
+      btnDetail.disabled = false;
     }
+  }
+
+  async function useAiCandidate(prefix) {
+    const blob = aiCandidateBlob[prefix];
+    if (!blob) return;
+    await uploadCoverBlob(prefix, blob);
+    discardAiCandidate(prefix);
+    setCoverAiStatus(prefix, '✓ Imagen mejorada y subida.');
+  }
+
+  function discardAiCandidate(prefix) {
+    if (aiCandidateUrl[prefix]) URL.revokeObjectURL(aiCandidateUrl[prefix]);
+    aiCandidateBlob[prefix] = null;
+    aiCandidateUrl[prefix] = null;
+    document.getElementById(`${prefix}-cover-ai-candidate`).hidden = true;
+    document.getElementById(`${prefix}-cover-ai-candidate-img`).removeAttribute('src');
   }
 
   function closeImageEditor() {
