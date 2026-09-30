@@ -34,48 +34,4 @@
       <news:title>The Witcher 3 Remastered detalla sus horarios de lanzamiento y el tamaño de su actualización</news:title>
     </news:news>
   </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/sega-llego-a-considerar-cancelar-sonic-segun-el-jefe-de-sonic-team.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-27T23:05:32+00:00</news:publication_date>
-      <news:title>SEGA llegó a considerar cancelar Sonic, según el jefe de Sonic Team</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/los-creadores-de-witchspring-presentan-shade-of-the-marionette-un-nuevo-rpg-de-accion-3d.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-27T20:58:37+00:00</news:publication_date>
-      <news:title>Los creadores de WitchSpring presentan Shade of the Marionette, un nuevo RPG de acción 3D</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/veteranos-de-falcom-quieren-hacer-los-remakes-de-trails-from-zero-y-trails-to-azure-antes-de-retirarse.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-27T20:32:52+00:00</news:publication_date>
-      <news:title>Veteranos de Falcom quieren hacer los remakes de Trails from Zero y Trails to Azure antes de retirarse</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/synduality-echo-of-ada-cerrara-sus-servidores-pero-continuara-como-juego-offline.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-27T20:24:08+00:00</news:publication_date>
-      <news:title>SYNDUALITY: Echo of Ada cerrará sus servidores pero continuará como juego offline</news:title>
-    </news:news>
-  </url>
 </urlset>
