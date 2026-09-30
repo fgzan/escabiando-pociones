@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/shuhei-yoshida-cree-que-sony-y-nintendo-deberian-mantener-la-generacion-actual-durante-mas-tiempo.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/xbox-empieza-a-convertir-juegos-fisicos-en-licencias-digitales-sin-necesidad-de-volver-a-insertar-el-disco.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.9</priority>
@@ -616,7 +621,37 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/shuhei-yoshida.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation-5.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nintendo.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/switch-2.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/xbox.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/project-helix.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
@@ -672,11 +707,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/mario-kart-tour.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/nintendo.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
@@ -796,17 +826,7 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/dualsense.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/playstation-5.html</loc>
     <lastmod>2026-09-28</lastmod>
     <priority>0.3</priority>
   </url>
