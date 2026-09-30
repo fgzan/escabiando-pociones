@@ -89,15 +89,4 @@
       <news:title>The Elder Scrolls no tuvo un spin-off al estilo Fallout: New Vegas por la protección de Todd Howard, según un exdesarrollador</news:title>
     </news:news>
   </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/sony-patenta-un-mando-de-playstation-que-podria-aceptar-pagos-contactless.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-28T15:02:26+00:00</news:publication_date>
-      <news:title>Sony patenta un mando de PlayStation que podría aceptar pagos contactless</news:title>
-    </news:news>
-  </url>
 </urlset>
