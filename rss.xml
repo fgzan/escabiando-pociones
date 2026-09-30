@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 30 Sep 2026 12:33:39 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 30 Sep 2026 13:16:47 +0000</lastBuildDate>
+  <item>
+    <title>Idea Factory presenta IFChronicle, una nueva marca de aventuras, y anuncia ICONOLOGY</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/idea-factory-presenta-ifchronicle-una-nueva-marca-de-aventuras-y-anuncia-iconology.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/idea-factory-presenta-ifchronicle-una-nueva-marca-de-aventuras-y-anuncia-iconology.html</guid>
+    <pubDate>Wed, 30 Sep 2026 13:16:36 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Idea Factory anunció IFChronicle, una nueva marca dedicada a aventuras narrativas con intención de expandirse desde Japón hacia el mercado internacional. Su primer proyecto será ICONOLOGY, un thriller policial que combina investigación, tecnología y análisis artístico para investigar imágenes extraídas directamente de la mente de los sospechosos.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790774192978-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>DiceVaders, el spin-off de StarVaders, ya está disponible para PC y Nintendo Switch</title>
     <link>https://www.escabiandopociones.com.ar/noticias/dicevaders-el-spin-off-de-starvaders-ya-esta-disponible-para-pc-y-nintendo-switch.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[CD Projekt RED continúa el desarrollo de The Witcher 4 con Unreal Engine 5 y una colaboración tecnológica con Epic Games. La compañía explicó que esta estrategia busca reducir el tiempo dedicado a resolver problemas técnicos y permitir que sus equipos se concentren en el diseño y la creación de contenido.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789738895654-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>El estudio de Hyper Light Drifter despide a casi todo su equipo tras la cancelación de un proyecto</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/el-estudio-de-hyper-light-drifter-despide-a-casi-todo-su-equipo-tras-la-cancelacion-de-un-proyecto.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/el-estudio-de-hyper-light-drifter-despide-a-casi-todo-su-equipo-tras-la-cancelacion-de-un-proyecto.html</guid>
-    <pubDate>Fri, 18 Sep 2026 13:29:18 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Heart Machine atraviesa una grave crisis después de que una editora decidiera retirar la financiación de un juego que todavía no había sido anunciado. La medida provocó despidos masivos y dejó en duda la continuidad del estudio responsable de Hyper Light Drifter y Solar Ash.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789738156216-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
