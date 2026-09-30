@@ -2,10 +2,14 @@ name: Buscar estrenos de la semana
 
 on:
   schedule:
-    # Todos los lunes 12:00 UTC = 9:00 de Argentina (Argentina no
-    # tiene horario de verano desde 2009, así que este horario no se
-    # corre en ninguna época del año).
-    - cron: "0 12 * * 1"
+    # Todos los lunes ~9:00 de Argentina (Argentina no tiene horario
+    # de verano desde 2009, así que este horario no se corre en
+    # ninguna época del año). El minuto 07 (no en punto) es a
+    # propósito: GitHub avisa que los cron justo en punto son los de
+    # mayor riesgo de demora o de saltearse la corrida, por ser la
+    # hora de más carga en todo Actions -- probablemente la causa de
+    # que no se disparara solo una semana.
+    - cron: "7 12 * * 1"
   workflow_dispatch: {} # para probarlo a mano o forzar una actualización de la semana en curso
 
 permissions:

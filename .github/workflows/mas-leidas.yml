@@ -2,9 +2,13 @@ name: Actualizar más leídas
 
 on:
   schedule:
-    # 13:00 UTC = 10am Argentina (Argentina no tiene horario de
+    # 13:07 UTC = ~10am Argentina (Argentina no tiene horario de
     # verano desde 2009, así que esto no se corre en ningún mes).
-    - cron: "0 13 * * *"
+    # El minuto 07 (no en punto) es a propósito: GitHub avisa que los
+    # cron justo en punto son los de mayor riesgo de demora o de
+    # saltearse la corrida, por ser la hora de más carga en todo
+    # Actions.
+    - cron: "7 13 * * *"
   workflow_dispatch: {} # para poder probarlo a mano desde la pestaña Actions
 
 # Necesario para que el Action pueda commitear el resultado de vuelta al repo.
