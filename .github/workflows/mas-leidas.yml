@@ -1,0 +1,58 @@
+name: Actualizar más leídas
+
+on:
+  schedule:
+    # 13:00 UTC = 10am Argentina (Argentina no tiene horario de
+    # verano desde 2009, así que esto no se corre en ningún mes).
+    - cron: "0 13 * * *"
+  workflow_dispatch: {} # para poder probarlo a mano desde la pestaña Actions
+
+# Necesario para que el Action pueda commitear el resultado de vuelta al repo.
+permissions:
+  contents: write
+
+# Si dos corridas se solaparan (no debería pasar con una sola vez por
+# día, pero por las dudas), esto evita que se pisen entre sí.
+concurrency:
+  group: mas-leidas
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repo
+        uses: actions/checkout@v4
+        with:
+          # Mismo token de siempre (no el automático de GitHub): así
+          # el commit de este paso SÍ dispara a build-index.yml, que
+          # es el que arma la sección nueva en el home.
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Traer el ranking desde GoatCounter
+        env:
+          GOATCOUNTER_CODE: ${{ secrets.GOATCOUNTER_CODE }}
+          GOATCOUNTER_API_TOKEN: ${{ secrets.GOATCOUNTER_API_TOKEN }}
+        run: python scripts/fetch_mas_leidas.py
+
+      # if: always() -- así, aunque el paso de arriba falle (por
+      # ejemplo, la API de GoatCounter caída), igual se intenta
+      # commitear lo que haya (que en ese caso es nada, porque el
+      # script no llega a tocar el archivo si hubo un error real).
+      - name: Commitear el ranking (si cambió)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # El "|| true": la primera vez que esto corre, si el script
+          # todavía no pudo generar el archivo (por ejemplo, faltan
+          # los secretos de GoatCounter), git add fallaría porque el
+          # archivo ni existe -- no queremos que eso tumbe el paso.
+          git add content/mas_leidas.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Actualizar ranking de más leídas"
+          git push

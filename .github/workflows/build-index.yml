@@ -7,6 +7,7 @@ on:
       - "content/reviews/**"
       - "content/noticias/**"
       - "content/estrenos/**"
+      - "content/mas_leidas.json"
   workflow_dispatch: {} # para poder dispararlo a mano una vez y "rellenar" todo lo ya publicado
 
 # Necesario para que el Action pueda commitear el resultado de vuelta al repo.
