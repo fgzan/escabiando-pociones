@@ -292,8 +292,7 @@
             <input type="hidden" id="r-cover">
             <img id="r-cover-preview" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
             <div class="cover-ai-row" id="r-cover-ai-row">
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r', 'fast')" id="r-cover-ai-btn-fast">✨ Nítida (rápida)</button>
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r', 'detail')" id="r-cover-ai-btn-detail">✨ Detalle (más lenta)</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('r', 'fast')" id="r-cover-ai-btn-fast">✨ Mejorar con IA</button>
               <span class="cover-ai-status" id="r-cover-ai-status"></span>
             </div>
             <div class="cover-ai-candidate" id="r-cover-ai-candidate" hidden>
@@ -396,8 +395,7 @@
             <input type="hidden" id="n-cover">
             <img id="n-cover-preview" class="cover-preview cover-zoomable" onclick="openImgLightbox(this.src)" title="Click para ver más grande">
             <div class="cover-ai-row" id="n-cover-ai-row">
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n', 'fast')" id="n-cover-ai-btn-fast">✨ Nítida (rápida)</button>
-              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n', 'detail')" id="n-cover-ai-btn-detail">✨ Detalle (más lenta)</button>
+              <button type="button" class="btn btn-ghost" onclick="upscaleCoverWithAI('n', 'fast')" id="n-cover-ai-btn-fast">✨ Mejorar con IA</button>
               <span class="cover-ai-status" id="n-cover-ai-status"></span>
             </div>
             <div class="cover-ai-candidate" id="n-cover-ai-candidate" hidden>
@@ -937,23 +935,19 @@
 
   function cancelCrop() { closeImageEditor(); }
 
-  // ---------- Mejorar con IA (dos modelos, a elección) ----------
+  // ---------- Mejorar con IA ----------
   // Usa UpscalerJS (mismo tipo de modelo que Upscayl) corriendo en el
-  // propio navegador -- no manda la imagen a ningún servidor. Cada
-  // modelo se baja solo la primera vez que se aprieta SU botón en
-  // esta sesión, no en cada carga del panel.
-  //  - 'fast'   -> ESRGAN Slim: liviano (~1MB), tiende a suavizar.
-  //  - 'detail' -> ESRGAN clásico entrenado con GAN (~4MB): busca
-  //    inventar textura realista en vez de solo promediar píxeles;
-  //    más lento y a veces se pasa de "creativo".
+  // propio navegador -- no manda la imagen a ningún servidor. Se baja
+  // solo la primera vez que se aprieta el botón en esta sesión, no en
+  // cada carga del panel.
+  // Nota: se probó también un modelo "de detalle" (ESRGAN clásico
+  // entrenado con GAN) que en teoría inventa mejor la textura, pero
+  // en la práctica se colgaba el navegador (demasiado pesado para
+  // correr en una pestaña común) -- se sacó, queda solo este.
   const AI_MODELS = {
     fast: {
       globalName: 'ESRGANSlim2x',
       scriptUrl: 'https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-slim@1.0.0/dist/umd/models/esrgan-slim/src/x2/index.min.js',
-    },
-    detail: {
-      globalName: 'ESRGANLegacyGANS',
-      scriptUrl: 'https://cdn.jsdelivr.net/npm/@upscalerjs/esrgan-legacy@1.0.0/dist/umd/models/esrgan-legacy/src/gans/index.min.js',
     },
   };
   const upscalerLoadPromises = {};
@@ -1018,15 +1012,11 @@
   async function upscaleCoverWithAI(prefix, mode) {
     const cfg = AI_MODELS[mode];
     const btnFast = document.getElementById(`${prefix}-cover-ai-btn-fast`);
-    const btnDetail = document.getElementById(`${prefix}-cover-ai-btn-detail`);
     const preview = document.getElementById(`${prefix}-cover-preview`);
     if (!preview.src) return;
 
     btnFast.disabled = true;
-    btnDetail.disabled = true;
-    setCoverAiStatus(prefix, mode === 'fast'
-      ? 'Cargando el modelo rápido (solo la primera vez)…'
-      : 'Cargando el modelo de detalle (~4MB, solo la primera vez)…');
+    setCoverAiStatus(prefix, 'Cargando el modelo de IA (solo la primera vez)…');
     try {
       await ensureModelLoaded(mode);
       setCoverAiStatus(prefix, 'Mejorando la imagen, puede tardar unos segundos…');
@@ -1084,7 +1074,6 @@
       setCoverAiStatus(prefix, 'No se pudo mejorar la imagen. Probá de nuevo, o con el otro botón.');
     } finally {
       btnFast.disabled = false;
-      btnDetail.disabled = false;
     }
   }
 
