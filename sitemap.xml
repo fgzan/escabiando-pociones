@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/dicevaders-el-spin-off-de-starvaders-ya-esta-disponible-para-pc-y-nintendo-switch.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/the-elder-scrolls-no-tuvo-un-spin-off-al-estilo-fallout-new-vegas-por-la-proteccion-de-todd-howard-segun-un-exdesarrollador.html</loc>
     <lastmod>2026-09-29</lastmod>
     <priority>0.9</priority>
@@ -588,6 +593,41 @@
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/1.html</loc>
     <lastmod>2026-09-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/dicevaders.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/starvaders.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/pengonauts.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstack.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nintendo-switch.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nintendo-switch-2.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/steam.html</loc>
+    <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
   <url>

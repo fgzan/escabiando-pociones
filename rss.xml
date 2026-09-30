@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 30 Sep 2026 03:42:06 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 30 Sep 2026 12:33:39 +0000</lastBuildDate>
+  <item>
+    <title>DiceVaders, el spin-off de StarVaders, ya está disponible para PC y Nintendo Switch</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/dicevaders-el-spin-off-de-starvaders-ya-esta-disponible-para-pc-y-nintendo-switch.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/dicevaders-el-spin-off-de-starvaders-ya-esta-disponible-para-pc-y-nintendo-switch.html</guid>
+    <pubDate>Wed, 30 Sep 2026 12:33:21 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Pengonauts y Playstack lanzaron DiceVaders, un spin-off independiente ambientado en el universo de StarVaders. Esta vez, en lugar de defender la Tierra, los jugadores controlan una invasión alienígena utilizando un sistema de dados, construcción de mazos, posicionamiento en cuadrícula y combinaciones cada vez más poderosas.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790771352125-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>The Elder Scrolls no tuvo un spin-off al estilo Fallout: New Vegas por la protección de Todd Howard, según un exdesarrollador</title>
     <link>https://www.escabiandopociones.com.ar/noticias/the-elder-scrolls-no-tuvo-un-spin-off-al-estilo-fallout-new-vegas-por-la-proteccion-de-todd-howard-segun-un-exdesarrollador.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Heart Machine atraviesa una grave crisis después de que una editora decidiera retirar la financiación de un juego que todavía no había sido anunciado. La medida provocó despidos masivos y dejó en duda la continuidad del estudio responsable de Hyper Light Drifter y Solar Ash.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789738156216-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Bungie desmiente los rumores sobre una posible fusión entre Marathon y Destiny</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/bungie-desmiente-los-rumores-sobre-una-posible-fusion-entre-marathon-y-destiny.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/bungie-desmiente-los-rumores-sobre-una-posible-fusion-entre-marathon-y-destiny.html</guid>
-    <pubDate>Fri, 18 Sep 2026 13:12:33 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Bungie salió al cruce de una serie de rumores que aseguraban que Marathon incorporaría elementos de Destiny para recuperar el interés de los jugadores. La compañía negó esas versiones y recordó que ambas franquicias continúan siendo proyectos independientes.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789737185559-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
