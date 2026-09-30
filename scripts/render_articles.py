@@ -1100,6 +1100,36 @@ def build_news_sitemap(reviews, noticias):
     print(f"sitemap_news.xml: {len(entries)} URL(s) (últimos 2 días)")
 
 
+def build_mas_leidas_home(published_reviews, published_noticias):
+    """Arma la sección 'Más leídas' del home a partir de
+    content/mas_leidas.json (generado aparte por
+    scripts/fetch_mas_leidas.py + su propio Action, no acá). Si el
+    archivo no existe todavía (por ejemplo, recién se configuró y
+    nunca corrió, o GoatCounter nunca respondió con datos), se muestra
+    un aviso en vez de romper el build."""
+    path = ROOT / "content" / "mas_leidas.json"
+    if not path.exists():
+        return ('<div class="empty-vial"><p class="mt-0">Todavía no hay datos de lecturas '
+                '(se arma solo, se actualiza todos los días).</p></div>')
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    by_slug = {
+        "review": {r["slug"]: r for r in published_reviews},
+        "noticia": {n["slug"]: n for n in published_noticias},
+    }
+    cards = []
+    for entry in data.get("items", []):
+        item = by_slug.get(entry.get("kind"), {}).get(entry.get("slug"))
+        if not item:
+            continue  # se borró o pasó a borrador desde que se armó el ranking
+        cards.append(render_card(entry["kind"], item))
+
+    if not cards:
+        return ('<div class="empty-vial"><p class="mt-0">Todavía no hay datos de lecturas '
+                '(se arma solo, se actualiza todos los días).</p></div>')
+    return f'<div class="grid grid-3">{"".join(cards)}</div>'
+
+
 def clean_stale_pages(folder_name, valid_slugs):
     folder = ROOT / folder_name
     if not folder.exists():
@@ -1155,6 +1185,9 @@ if __name__ == "__main__":
     home_html = f'<div class="grid grid-3">{home_cards}</div>' if home_source else \
         '<div class="empty-vial"><p class="mt-0">Todavía no hay noticias publicadas.</p></div>'
     fill_ssr_marker("index.html", "home-news", home_html)
+
+    mas_leidas_html = build_mas_leidas_home(published_reviews, published_noticias)
+    fill_ssr_marker("index.html", "home-mas-leidas", mas_leidas_html)
 
     build_rss(published_reviews, published_noticias)
     build_sitemap(published_reviews, published_noticias, tag_index, estrenos)
