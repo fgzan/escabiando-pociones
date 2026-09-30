@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/mario-kart-tour-cierra-sus-servidores-despues-de-siete-anos-y-mas-de-276-millones-de-descargas.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-30T13:23:22+00:00</news:publication_date>
+      <news:title>Mario Kart Tour cierra sus servidores después de siete años y más de 276 millones de descargas</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/idea-factory-presenta-ifchronicle-una-nueva-marca-de-aventuras-y-anuncia-iconology.html</loc>
     <news:news>
       <news:publication>
