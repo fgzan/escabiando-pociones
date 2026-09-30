@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/el-exdirector-creativo-de-halo-pide-a-activision-recuperar-a-los-desarrolladores-despedidos-para-el-proximo-juego.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-30T13:51:57+00:00</news:publication_date>
+      <news:title>El exdirector creativo de Halo pide a Activision recuperar a los desarrolladores despedidos para el próximo juego</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/mario-kart-tour-cierra-sus-servidores-despues-de-siete-anos-y-mas-de-276-millones-de-descargas.html</loc>
     <news:news>
       <news:publication>
