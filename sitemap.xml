@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/xbox-empieza-a-convertir-juegos-fisicos-en-licencias-digitales-sin-necesidad-de-volver-a-insertar-el-disco.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/el-exdirector-creativo-de-halo-pide-a-activision-recuperar-a-los-desarrolladores-despedidos-para-el-proximo-juego.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.9</priority>
@@ -611,12 +616,7 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/halo.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/activision.html</loc>
+    <loc>https://www.escabiandopociones.com.ar/tags/xbox.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
@@ -626,7 +626,32 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/xbox.html</loc>
+    <loc>https://www.escabiandopociones.com.ar/tags/xbox-series-x.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/xbox-one.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/xbox-play-anywhere.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/xbox-cloud-gaming.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/halo.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/activision.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>

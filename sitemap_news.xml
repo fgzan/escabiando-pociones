@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/xbox-empieza-a-convertir-juegos-fisicos-en-licencias-digitales-sin-necesidad-de-volver-a-insertar-el-disco.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-30T13:55:15+00:00</news:publication_date>
+      <news:title>Xbox empieza a convertir juegos físicos en licencias digitales sin necesidad de volver a insertar el disco</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/el-exdirector-creativo-de-halo-pide-a-activision-recuperar-a-los-desarrolladores-despedidos-para-el-proximo-juego.html</loc>
     <news:news>
       <news:publication>
