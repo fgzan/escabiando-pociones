@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/monster-hunter-outlanders-llegara-a-moviles-el-29-de-octubre.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-01T12:52:04+00:00</news:publication_date>
+      <news:title>Monster Hunter Outlanders llegará a móviles el 29 de octubre</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibira-un-parche-para-hacer-menos-frustrantes-las-secciones-contra-the-weight.html</loc>
     <news:news>
       <news:publication>
@@ -76,17 +87,6 @@
       </news:publication>
       <news:publication_date>2026-09-30T12:33:21+00:00</news:publication_date>
       <news:title>DiceVaders, el spin-off de StarVaders, ya está disponible para PC y Nintendo Switch</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/noticias/the-elder-scrolls-no-tuvo-un-spin-off-al-estilo-fallout-new-vegas-por-la-proteccion-de-todd-howard-segun-un-exdesarrollador.html</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Escabiando Pociones</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-29T01:27:31+00:00</news:publication_date>
-      <news:title>The Elder Scrolls no tuvo un spin-off al estilo Fallout: New Vegas por la protección de Todd Howard, según un exdesarrollador</news:title>
     </news:news>
   </url>
 </urlset>

@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 30 Sep 2026 18:24:33 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 01 Oct 2026 12:52:16 +0000</lastBuildDate>
+  <item>
+    <title>Monster Hunter Outlanders llegará a móviles el 29 de octubre</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/monster-hunter-outlanders-llegara-a-moviles-el-29-de-octubre.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/monster-hunter-outlanders-llegara-a-moviles-el-29-de-octubre.html</guid>
+    <pubDate>Thu, 01 Oct 2026 12:52:04 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Capcom y TiMi Studio Group confirmaron que Monster Hunter Outlanders, el nuevo RPG de acción y supervivencia basado en la popular franquicia de cacería, llegará a iOS y Android el 29 de octubre. El juego será gratuito y ofrecerá un nuevo mundo, personajes, compañeros y monstruos.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790859115970-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Silent Hill: Townfall recibirá un parche para hacer menos frustrantes las secciones contra The Weight</title>
     <link>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibira-un-parche-para-hacer-menos-frustrantes-las-secciones-contra-the-weight.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[El director de The Last of Us afirmó que los grandes juegos de la industria se volvieron repetitivos y utilizó God of War: Laufey como ejemplo. Tras la repercusión de sus declaraciones, aclaró que sus críticas estaban dirigidas al modelo AAA en general y pidió disculpas al equipo de Santa Monica Studio.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789866923145-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>El 85,8 % de los desarrolladores japoneses encuestados utiliza inteligencia artificial generativa</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/el-85-8-de-los-desarrolladores-japoneses-encuestados-utiliza-inteligencia-artificial-generativa.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/el-85-8-de-los-desarrolladores-japoneses-encuestados-utiliza-inteligencia-artificial-generativa.html</guid>
-    <pubDate>Sat, 19 Sep 2026 22:52:22 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Un estudio de la asociación CESA reveló que el 85,8 % de los desarrolladores de videojuegos consultados en Japón utiliza inteligencia artificial generativa en su trabajo. El informe también destaca la importancia de la supervisión humana y señala los derechos de autor como una de las principales preocupaciones de las empresas.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1789858328472-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
