@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/castlevania-belmont-s-curse-ya-tiene-demo-y-permite-transferir-la-partida-al-juego-completo.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/litgirls-bookbound-dungeons-mezcla-literatura-clasica-anime-y-dungeon-crawling.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.9</priority>
@@ -641,6 +646,31 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/castlevaniacastlevania-belmont-s-curse.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/castlevania.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/konami.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/evil-empire.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/motion-twin.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/litgirls-bookbound-dungeons.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -727,11 +757,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/screen-burn.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/konami.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
@@ -1017,11 +1042,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/dawngazer.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/castlevania.html</loc>
     <lastmod>2026-09-25</lastmod>
     <priority>0.3</priority>
   </url>
