@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/house-of-the-dead-vuelve-a-los-arcades-con-una-experiencia-de-realidad-virtual.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-01T14:21:38+00:00</news:publication_date>
+      <news:title>House of the Dead vuelve a los arcades con una experiencia de realidad virtual</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/castlevania-belmont-s-curse-ya-tiene-demo-y-permite-transferir-la-partida-al-juego-completo.html</loc>
     <news:news>
       <news:publication>
