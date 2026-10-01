@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/capcom-ya-tiene-un-plan-para-cuando-los-remakes-de-resident-evil-alcancen-a-los-juegos-modernos.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/naughty-dog-estaria-trabajando-en-un-nuevo-uncharted-que-podria-recuperar-a-nathan-drake.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.9</priority>
@@ -666,6 +671,41 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/resident-evil.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/resident-evil-requiem.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/resident-evil-code-veronica.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/capcom.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/jun-takeuchi.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/umbrella.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/raccoon-city.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/uncharted.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -857,11 +897,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/monster-hunter.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/capcom.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
   </url>
