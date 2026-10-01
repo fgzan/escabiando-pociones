@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 01 Oct 2026 14:25:40 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 01 Oct 2026 14:29:10 +0000</lastBuildDate>
+  <item>
+    <title>The Witcher 3 Remastered recibe un nuevo parche con mejoras para DLSS e iluminación</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-recibe-un-nuevo-parche-con-mejoras-para-dlss-e-iluminacion.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-recibe-un-nuevo-parche-con-mejoras-para-dlss-e-iluminacion.html</guid>
+    <pubDate>Thu, 01 Oct 2026 14:28:54 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[CD Projekt Red lanzó una nueva actualización para The Witcher 3: Wild Hunt Remastered que corrige problemas de DLSS en PC, realiza ajustes de iluminación y mejora la paridad entre las versiones de consola y PC. El estudio también prepara un hotfix para solucionar problemas de guardado detectados por algunos jugadores.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790864927235-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>House of the Dead vuelve a los arcades con una experiencia de realidad virtual</title>
     <link>https://www.escabiandopociones.com.ar/noticias/house-of-the-dead-vuelve-a-los-arcades-con-una-experiencia-de-realidad-virtual.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[El fundador de Double Fine cuestionó la situación laboral que atraviesa la industria del videojuego y aseguró que lleva alrededor de cuatro años sin ver una recuperación clara. Aunque reconoce que los jugadores siguen consumiendo videojuegos y que el sector continúa generando dinero, no encuentra una explicación para la persistencia de los despidos.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790194497164-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>El productor de la nueva Resident Evil estaría trabajando en una nueva película de Silent Hill</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/el-productor-de-la-nueva-resident-evil-estaria-trabajando-en-una-nueva-pelicula-de-silent-hill.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/el-productor-de-la-nueva-resident-evil-estaria-trabajando-en-una-nueva-pelicula-de-silent-hill.html</guid>
-    <pubDate>Wed, 23 Sep 2026 14:16:45 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Roy Lee, productor de la exitosa adaptación de Resident Evil dirigida por Zach Cregger, estaría involucrado en un nuevo proyecto cinematográfico de Silent Hill. La información surge de un perfil publicado por The Wall Street Journal, aunque todavía no hay confirmación oficial.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790173000968-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

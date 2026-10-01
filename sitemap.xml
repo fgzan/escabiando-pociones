@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-recibe-un-nuevo-parche-con-mejoras-para-dlss-e-iluminacion.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/house-of-the-dead-vuelve-a-los-arcades-con-una-experiencia-de-realidad-virtual.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.9</priority>
@@ -651,6 +656,36 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-witcher-3-wild-hunt-remastered.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-witcher-3.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/cd-projekt-red.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/cdpr.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nvidia.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/dlss.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/the-house-of-the-dead.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -1007,11 +1042,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/the-witcher-3-remastered.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/cd-projekt-red.html</loc>
     <lastmod>2026-09-28</lastmod>
     <priority>0.3</priority>
   </url>
