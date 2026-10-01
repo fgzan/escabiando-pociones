@@ -795,3 +795,26 @@ blockquote.twitter-tweet {
   .game-lightbox-prev { left: 6px; }
   .game-lightbox-next { right: 6px; }
 }
+
+
+/* ============ Comentarios ============ */
+.comments-section { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.comments-section .eyebrow-lg { display: block; margin-bottom: 20px; }
+.comments-empty { color: var(--ink-dim); font-size: 0.95rem; }
+.comment { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 12px; }
+.comment-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; font-family: var(--f-mono); font-size: 0.8rem; color: var(--ink-dim); }
+.comment-head strong { color: var(--cyan-bright); font-weight: 600; }
+.comment-body { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.comment-form { margin-top: 28px; }
+.comment-form h3 { margin: 0 0 12px; }
+.comment-form label { display: block; margin: 12px 0 4px; font-size: 0.85rem; color: var(--ink-dim); }
+.comment-form input[type="text"], .comment-form textarea { width: 100%; box-sizing: border-box; background: var(--bg-elevated); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; font: inherit; }
+.comment-form input[type="text"]:focus, .comment-form textarea:focus { outline: none; border-color: var(--cyan-bright); }
+.comment-form textarea { resize: vertical; }
+.comment-counter { text-align: right; font-family: var(--f-mono); font-size: 0.75rem; color: var(--ink-dim); margin: 4px 0 12px; }
+.comment-note { font-size: 0.8rem; color: var(--ink-dim); margin: 10px 0 0; }
+/* Campo trampa: fuera de pantalla, un humano nunca lo ve ni lo completa */
+.comment-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.comment-msg { font-family: var(--f-mono); font-size: 0.85rem; padding: 12px 14px; border-radius: var(--radius); margin-top: 14px; }
+.comment-msg-ok { background: rgba(134,230,246,0.1); border: 1px solid var(--cyan); color: var(--cyan-bright); }
+.comment-msg-err { background: rgba(242,84,129,0.1); border: 1px solid var(--pink-hot); color: var(--pink); }
