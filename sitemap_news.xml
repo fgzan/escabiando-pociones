@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/football-manager-27-ya-tiene-fecha-de-lanzamiento.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-01T12:54:56+00:00</news:publication_date>
+      <news:title>Football Manager 27 ya tiene fecha de lanzamiento</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/monster-hunter-outlanders-llegara-a-moviles-el-29-de-octubre.html</loc>
     <news:news>
       <news:publication>
