@@ -349,6 +349,32 @@ def build_related_section(kind, item, tag_index):
     </div>'''
 
 
+def build_comments_section(kind, slug):
+    """Sección de comentarios al final de cada nota. Se rellena en el
+    navegador (comments.js), por eso no cuenta para el buscador ni el SEO."""
+    return f'''<section class="comments-section" id="comments" data-kind="{kind}" data-slug="{esc(slug)}" data-pagefind-ignore>
+      <span class="eyebrow-lg">Comentarios <span id="comments-count"></span></span>
+      <div id="comments-list"><p class="comments-empty">Cargando comentarios…</p></div>
+      <form id="comment-form" class="comment-form" novalidate>
+        <h3>Dejá tu comentario</h3>
+        <label for="comment-name">Nombre</label>
+        <input type="text" id="comment-name" maxlength="40" autocomplete="nickname" required>
+        <label for="comment-body">Comentario</label>
+        <textarea id="comment-body" rows="4" maxlength="1000" required></textarea>
+        <div class="comment-counter" id="comment-counter">0 / 1000</div>
+        <div class="comment-hp" aria-hidden="true">
+          <label for="comment-website">No completar este campo</label>
+          <input type="text" id="comment-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary" id="comment-submit">Enviar comentario</button>
+        <p class="comment-note">Los comentarios se revisan antes de publicarse. No se permiten links.</p>
+        <div id="comment-msg" role="status"></div>
+      </form>
+      <noscript><p class="comments-empty">Activá JavaScript para ver y dejar comentarios.</p></noscript>
+      <script src="../comments.js" defer></script>
+    </section>'''
+
+
 def render_article_page(kind, item, tag_index):
     slug = item["slug"]
     folder = "reviews" if kind == "review" else "noticias"
@@ -386,7 +412,8 @@ def render_article_page(kind, item, tag_index):
     body_html = render_body(item.get("body", ""), asset_prefix="../")
     share_html = build_share_buttons(item.get("title", ""), url)
     related_html = build_related_section(kind, item, tag_index)
-    body_full = title_block_extra + "\n    " + body_html + "\n    " + share_html + "\n    " + related_html
+    comments_html = build_comments_section(kind, slug)
+    body_full = title_block_extra + "\n    " + body_html + "\n    " + share_html + "\n    " + comments_html + "\n    " + related_html
 
     html_out = PAGE_SHELL.format(
         title=esc(item.get("title", "")),
