@@ -238,6 +238,7 @@
       <div class="tabs">
         <button class="tab-btn active" id="tab-reviews-btn" onclick="switchTab('reviews')">Reviews</button>
         <button class="tab-btn" id="tab-noticias-btn" onclick="switchTab('noticias')">Noticias</button>
+        <button class="tab-btn" id="tab-comentarios-btn" onclick="switchTab('comentarios')">Comentarios <span id="comments-badge" class="hidden" style="background:var(--pink-hot); color:#fff; border-radius:10px; padding:1px 7px; font-size:0.75rem; margin-left:4px;">0</span></button>
       </div>
 
       <!-- ======================================================= -->
@@ -455,6 +456,23 @@
         </div>
       </div>
 
+      <!-- ======================================================= -->
+      <!-- -------------------- COMENTARIOS ---------------------- -->
+      <!-- ======================================================= -->
+      <div id="tab-comentarios" class="hidden">
+        <div class="list-toolbar">
+          <div class="toolbar-left">
+            <select id="comments-filter" onchange="loadComments()">
+              <option value="pending">Pendientes</option>
+              <option value="approved">Aprobados</option>
+              <option value="rejected">Rechazados</option>
+            </select>
+            <button class="btn btn-ghost" onclick="loadComments()">↻ Actualizar</button>
+          </div>
+        </div>
+        <div id="comments-admin-list"></div>
+      </div>
+
     </div>
   </section>
 </div>
@@ -558,6 +576,7 @@
     }
     loadList('r');
     loadList('n');
+    refreshPendingCount();
     checkForPendingDrafts();
   }
 
@@ -1409,8 +1428,83 @@
   function switchTab(name) {
     document.getElementById('tab-reviews').classList.toggle('hidden', name !== 'reviews');
     document.getElementById('tab-noticias').classList.toggle('hidden', name !== 'noticias');
+    document.getElementById('tab-comentarios').classList.toggle('hidden', name !== 'comentarios');
     document.getElementById('tab-reviews-btn').classList.toggle('active', name === 'reviews');
     document.getElementById('tab-noticias-btn').classList.toggle('active', name === 'noticias');
+    document.getElementById('tab-comentarios-btn').classList.toggle('active', name === 'comentarios');
+    if (name === 'comentarios') loadComments();
+  }
+
+  // ---------- Comentarios: moderación ----------
+  // Se lee y modifica directo la tabla "comments" con la sesión del
+  // usuario logueado (la seguridad de la tabla solo lo permite a él).
+
+  async function refreshPendingCount() {
+    const badge = document.getElementById('comments-badge');
+    try {
+      const { count, error } = await sb.from('comments')
+        .select('id', { count: 'exact', head: true }).eq('status', 'pending');
+      if (error) throw error;
+      badge.textContent = count || 0;
+      badge.classList.toggle('hidden', !count);
+    } catch (e) { badge.classList.add('hidden'); }
+  }
+
+  async function loadComments() {
+    const list = document.getElementById('comments-admin-list');
+    const status = document.getElementById('comments-filter').value;
+    list.innerHTML = '<p style="color:var(--ink-dim);"><span class="spinner"></span>Cargando…</p>';
+    const { data, error } = await sb.from('comments').select('*')
+      .eq('status', status)
+      .order('created_at', { ascending: status === 'pending' })
+      .limit(200);
+    if (error) {
+      list.innerHTML = `<div class="status-msg status-err">Error al cargar comentarios: ${escapeHtml(error.message)}</div>`;
+      return;
+    }
+    refreshPendingCount();
+    if (!data.length) {
+      const vacio = { pending: 'No hay comentarios pendientes. 🎉', approved: 'Todavía no hay comentarios aprobados.', rejected: 'No hay comentarios rechazados.' };
+      list.innerHTML = `<p style="color:var(--ink-dim);">${vacio[status]}</p>`;
+      return;
+    }
+    list.innerHTML = data.map((c) => {
+      const folder = c.kind === 'review' ? 'reviews' : 'noticias';
+      const fecha = new Date(c.created_at).toLocaleString('es-AR', { dateStyle: 'medium', timeStyle: 'short' });
+      const botones = [];
+      if (c.status !== 'approved') botones.push(`<button class="btn btn-primary" onclick="setCommentStatus('${c.id}','approved')">Aprobar</button>`);
+      if (c.status === 'pending') botones.push(`<button class="btn btn-ghost" onclick="setCommentStatus('${c.id}','rejected')">Rechazar</button>`);
+      if (c.status === 'approved') botones.push(`<button class="btn btn-ghost" onclick="setCommentStatus('${c.id}','rejected')">Ocultar</button>`);
+      botones.push(`<button class="btn btn-ghost" style="color:var(--pink);" onclick="deleteComment('${c.id}')">Borrar</button>`);
+      return `<div class="card" style="margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:var(--f-mono); font-size:0.8rem; color:var(--ink-dim); margin-bottom:8px;">
+          <span><strong style="color:var(--cyan-bright);">${escapeHtml(c.name)}</strong> en
+            <a href="../${folder}/${encodeURIComponent(c.slug)}.html" target="_blank" rel="noopener">${escapeHtml(c.kind)}: ${escapeHtml(c.slug)}</a></span>
+          <span>${fecha}</span>
+        </div>
+        <p style="margin:0 0 12px; white-space:pre-wrap; overflow-wrap:anywhere;">${escapeHtml(c.body)}</p>
+        <div class="btn-row">${botones.join('')}</div>
+      </div>`;
+    }).join('');
+  }
+
+  async function setCommentStatus(id, status) {
+    const { data, error } = await sb.from('comments').update({ status }).eq('id', id).select('id');
+    if (error || !data || !data.length) {
+      showGlobalMsg('No se pudo actualizar el comentario' + (error ? ': ' + error.message : '.'), false);
+      return;
+    }
+    loadComments();
+  }
+
+  async function deleteComment(id) {
+    if (!confirm('¿Borrar este comentario para siempre?')) return;
+    const { data, error } = await sb.from('comments').delete().eq('id', id).select('id');
+    if (error || !data || !data.length) {
+      showGlobalMsg('No se pudo borrar el comentario' + (error ? ': ' + error.message : '.'), false);
+      return;
+    }
+    loadComments();
   }
 
   // ---------- Listado: cargar, ordenar, paginar, dibujar ----------
