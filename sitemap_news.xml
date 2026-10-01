@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/naughty-dog-estaria-trabajando-en-un-nuevo-uncharted-que-podria-recuperar-a-nathan-drake.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-01T22:17:56+00:00</news:publication_date>
+      <news:title>Naughty Dog estaría trabajando en un nuevo Uncharted que podría recuperar a Nathan Drake</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/grasshopper-manufacture-vuelve-a-ser-independiente-despues-de-cinco-anos-con-netease.html</loc>
     <news:news>
       <news:publication>
