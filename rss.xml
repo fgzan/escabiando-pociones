@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 01 Oct 2026 12:55:09 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 01 Oct 2026 14:16:00 +0000</lastBuildDate>
+  <item>
+    <title>LitGirls: Bookbound Dungeons mezcla literatura clásica, anime y dungeon crawling</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/litgirls-bookbound-dungeons-mezcla-literatura-clasica-anime-y-dungeon-crawling.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/litgirls-bookbound-dungeons-mezcla-literatura-clasica-anime-y-dungeon-crawling.html</guid>
+    <pubDate>Thu, 01 Oct 2026 14:15:46 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[DANGEN Entertainment y NANAIRO ENTERPRISE anunciaron un nuevo dungeon crawler que transforma personajes y mundos de la literatura clásica en anime. LitGirls: Bookbound Dungeons combinará exploración de mazmorras, combate por turnos, gestión de recursos y desarrollo de una base.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790863619767-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Football Manager 27 ya tiene fecha de lanzamiento</title>
     <link>https://www.escabiandopociones.com.ar/noticias/football-manager-27-ya-tiene-fecha-de-lanzamiento.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Microsoft anunció una nueva reorganización de su división de videojuegos que incluye 268 despidos, el traspaso de varias franquicias a Activision y la integración de Obsidian bajo Bethesda. Además, dos acuerdos para vender Ninja Theory fracasaron y el estudio enfrenta un proceso de consulta por un posible cierre.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790169880406-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Estrenos de la semana del 21 al 27 de septiembre</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/estrenos-de-la-semana-del-21-al-27-de-septiembre.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/estrenos-de-la-semana-del-21-al-27-de-septiembre.html</guid>
-    <pubDate>Wed, 23 Sep 2026 12:55:05 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[La tercera semana de septiembre llega con varios estrenos importantes para PC y consolas. Dune: Awakening, Graveyard Keeper 2, Silent Hill: Townfall y Control Resonant se encuentran entre los lanzamientos destacados, acompañados por diferentes juegos independientes y una selección de demos gratuitas para probar.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790168102029-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
