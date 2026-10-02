@@ -1,16 +1,11 @@
 {
-  "generated_at": "2026-10-01T18:58:07Z",
+  "generated_at": "2026-10-02T18:21:01Z",
   "window_days": 7,
   "items": [
     {
       "kind": "noticia",
       "slug": "el-director-de-unicorn-overlord-presenta-dawngazer-un-nuevo-rpg-de-accion-que-dara-inicio-a-un-universo-de-fantasia",
       "count": 3
-    },
-    {
-      "kind": "noticia",
-      "slug": "meta-presenta-sus-nuevos-lentes-de-realidad-virtual-con-pantalla-5k-y-ultra-livianas",
-      "count": 1
     }
   ]
 }
