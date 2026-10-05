@@ -1,0 +1,108 @@
+{
+  "slug": "2026-10-05",
+  "date": "2026-10-05",
+  "week_start": "2026-10-05",
+  "week_end": "2026-10-11",
+  "generated_at": "2026-10-05T20:36:54.454218+00:00",
+  "source": "RAWG (rawg.io)",
+  "games": [
+    {
+      "name": "Gears of War: E-Day",
+      "released": "2026-10-06",
+      "platforms": [
+        "PC",
+        "Xbox Series S/X"
+      ],
+      "cover": "https://media.rawg.io/media/games/c85/c85991ad8164824715377e603a2d7693.jpg",
+      "rawg_url": "https://rawg.io/games/gears-of-war-e-day",
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "developers": [
+        "The Coalition"
+      ],
+      "metacritic": null,
+      "description": "La historia de E-Day\nCatorce años antes de Gears of War, los héroes de guerra Marcus Fenix y Dom Santiago regresan a casa para enfrentarse a una nueva pesadilla: la Horda de langostas. Estos monstruos subterráneos, grotescos e implacables, estallan desde abajo, asediando a la propia humanidad.\n\nNuevas fundaciones\nConstruido desde cero con Unreal Engine 5, Gears of War: E-Day ofrece una fidelidad gráfica sin precedentes.",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/2dd/2ddacaf4a439076f390beaca74707bcb.jpg",
+        "https://media.rawg.io/media/screenshots/9a2/9a2488797ed1b9722e2aa9c16d76f310.jpg",
+        "https://media.rawg.io/media/screenshots/cb8/cb88356feb27fba1102659e7a09c222a.jpg"
+      ]
+    },
+    {
+      "name": "Star Wars: Galactic Racer",
+      "released": "2026-10-06",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox One"
+      ],
+      "cover": "https://media.rawg.io/media/games/553/5536c25da9711a39a5c4d752361de551.jpg",
+      "rawg_url": "https://rawg.io/games/star-wars-galactic-racer",
+      "genres": [
+        "Racing"
+      ],
+      "developers": [
+        "Fuse Games"
+      ],
+      "metacritic": null,
+      "description": "STAR WARS: Galactic Racer™ es una reinvención de carreras basada en carreras y de alto riesgo nacida en el anárquico Borde Exterior. Con el Imperio desaparecido y la reconstrucción de la galaxia, se crea la Liga Galáctica: un circuito subterráneo no autorizado donde se forjan sindicatos, caos financiero y campeones.",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/1af/1afb15dc670cec686e060ce6916ba2d5_3woE0tY.jpg",
+        "https://media.rawg.io/media/screenshots/c16/c168d53905c39756eafaf28ae2b113f5.jpg",
+        "https://media.rawg.io/media/screenshots/3b0/3b08e5073f8de54278c3ec6c3020aed0.jpg",
+        "https://media.rawg.io/media/screenshots/d7d/d7d7e08f9192f4294a1b94a7069f7720.jpg",
+        "https://media.rawg.io/media/screenshots/2f2/2f21fd7b7efea66883443e2ba848dcd4.jpg",
+        "https://media.rawg.io/media/screenshots/1c1/1c147e800bd6964bc8afc3c9f238ac99.jpg"
+      ]
+    },
+    {
+      "name": "Clive Barker's Hellraiser: Revival",
+      "released": "2026-10-08",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox Series S/X",
+        "Nintendo Switch"
+      ],
+      "cover": "https://media.rawg.io/media/games/816/8167f331942bc2cb8a6711938cd17f5c.jpg",
+      "rawg_url": "https://rawg.io/games/clive-barkers-hellraiser-revival",
+      "genres": [
+        "Action"
+      ],
+      "developers": [
+        "Saber Interactive"
+      ],
+      "metacritic": null,
+      "description": "",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/de4/de45de8994fbed7891da2c9023ed3218.jpg"
+      ]
+    },
+    {
+      "name": "Battleplan",
+      "released": "2026-10-11",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/252/252c359a0db2bcf04802bab5e488fe69.jpg",
+      "rawg_url": "https://rawg.io/games/battleplan",
+      "genres": [],
+      "developers": [
+        "Foolish Mortals Games"
+      ],
+      "metacritic": null,
+      "description": "Toma el mando de divisiones enteras y lucha en algunas de las batallas más grandes de la guerra. Battleplan es un juego de estrategia en tiempo real único que simula batallas masivas de un mes con cientos de miles de soldados segundo a segundo, día a día. Das órdenes de alto nivel, luego observas a tus oficiales y empresas llevarlas a cabo de forma autónoma.\n\nCrear planes elaborados\nCrea planes elaborados, de varios pasos y de varias unidades de forma intuitiva dibujando directamente en el mapa. Emplea tácticas variadas como...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/3a0/3a06dfc34892982b74525bf3f2d29b35.jpg",
+        "https://media.rawg.io/media/screenshots/ca7/ca77f4a0afa2e995ec714189b2831779.jpg",
+        "https://media.rawg.io/media/screenshots/5c1/5c19f48f5246f30f261d37e388ff1074.jpg",
+        "https://media.rawg.io/media/screenshots/03e/03eff8afed69d43e3144e291bee6e89c.jpg",
+        "https://media.rawg.io/media/screenshots/6a9/6a962a9f3fc6f311a9d0190417bc53fb.jpg",
+        "https://media.rawg.io/media/screenshots/c67/c67d11b79419e5d81e1df64d1887fb5c.jpg"
+      ]
+    }
+  ],
+  "fetch_error": null
+}
