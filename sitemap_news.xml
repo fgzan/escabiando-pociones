@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/el-perfect-dark-cancelado-muestra-mas-de-dos-minutos-de-gameplay-inedito.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-07T13:43:49+00:00</news:publication_date>
+      <news:title>El Perfect Dark cancelado muestra más de dos minutos de gameplay inédito</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/diablo-iv-y-dc-shoes-lanzan-unas-zapatillas-limitadas-a-666-unidades.html</loc>
     <news:news>
       <news:publication>
