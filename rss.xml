@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 07 Oct 2026 13:44:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 07 Oct 2026 14:28:24 +0000</lastBuildDate>
+  <item>
+    <title>RPCS3 consigue que los seis Ratchet &amp; Clank de PS3 funcionen sin los crashes históricos</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos.html</guid>
+    <pubDate>Wed, 07 Oct 2026 14:28:11 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Una importante corrección técnica de RPCS3 eliminó los congelamientos y cierres que durante años afectaron a los seis juegos de Ratchet & Clank publicados en PlayStation 3. La mejora no significa compatibilidad perfecta ni rendimiento óptimo, pero representa un avance importante para preservar la saga en PC.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1791383273345-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>El Perfect Dark cancelado muestra más de dos minutos de gameplay inédito</title>
     <link>https://www.escabiandopociones.com.ar/noticias/el-perfect-dark-cancelado-muestra-mas-de-dos-minutos-de-gameplay-inedito.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Bungie anunció una importante modificación en los planes de Marathon. El estudio quiere ampliar la propuesta más allá del extraction shooter tradicional con una experiencia PvE permanente, un nuevo espacio social, una zona Perimeter renovada y otros cambios que llegarán entre octubre y diciembre.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342747349-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Armed Fantasia, el sucesor espiritual de Wild Arms, fue cancelado tras cuatro años de desarrollo</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/armed-fantasia-el-sucesor-espiritual-de-wild-arms-fue-cancelado-tras-cuatro-anos-de-desarrollo.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/armed-fantasia-el-sucesor-espiritual-de-wild-arms-fue-cancelado-tras-cuatro-anos-de-desarrollo.html</guid>
-    <pubDate>Fri, 25 Sep 2026 13:22:52 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[El RPG financiado mediante Kickstarter y creado por varios veteranos de Wild Arms fue oficialmente discontinuado por Digital Bros, compañía matriz de 505 Games. La empresa señaló cambios en las condiciones del mercado, múltiples revisiones del gameplay y la inversión adicional necesaria para completar el proyecto.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342524332-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

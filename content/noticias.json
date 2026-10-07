@@ -1,5 +1,23 @@
 [
   {
+    "title": "RPCS3 consigue que los seis Ratchet & Clank de PS3 funcionen sin los crashes históricos",
+    "cover": "assets/uploads/1791383273345-portada.webp",
+    "tags": [
+      "Ratchet & Clank",
+      "RPCS3",
+      "PlayStation 3",
+      "Sony Interactive Entertainment",
+      "emulación"
+    ],
+    "excerpt": "Una importante corrección técnica de RPCS3 eliminó los congelamientos y cierres que durante años afectaron a los seis juegos de Ratchet & Clank publicados en PlayStation 3. La mejora no significa compatibilidad perfecta ni rendimiento óptimo, pero representa un avance importante para preservar la saga en PC.",
+    "body": "Los seis juegos de _Ratchet & Clank_ lanzados originalmente para _PlayStation 3_ acaban de dar un paso importante dentro de la emulación en PC. El equipo de **RPCS3 solucionó los problemas históricos de congelamientos y crashes** que afectaban a estos títulos, permitiendo ejecutarlos sin esos bloqueos que durante años habían complicado la experiencia. La mejora está relacionada con la forma en que el emulador procesa determinadas instrucciones gráficas de la arquitectura de PS3.\n\nLos juegos beneficiados son _Ratchet & Clank Future: Tools of Destruction_, _Ratchet & Clank Future: Quest for Booty_, _Ratchet & Clank Future: A Crack in Time_, _Ratchet & Clank: All 4 One_, _Ratchet & Clank: QForce_ —conocido como _Full Frontal Assault_ en Norteamérica— y _Ratchet & Clank: Into the Nexus_. En conjunto, representan prácticamente toda la etapa principal de la franquicia en _PlayStation 3_.\n\nEl problema estaba relacionado con el funcionamiento del procesador gráfico RSX de la consola y la manera en que RPCS3 seguía determinadas órdenes gráficas. El desarrollador principal _elad335_ realizó una modificación destinada a mejorar la precisión del seguimiento de estas instrucciones, eliminando la necesidad de algunos _workarounds_ que se utilizaban anteriormente para evitar que los juegos quedaran congelados.\n\nEs importante, sin embargo, **no confundir estabilidad con compatibilidad perfecta**. Los seis títulos ahora pueden ejecutarse sin los crashes históricos, pero todavía aparecen clasificados como _Ingame_ dentro de la base de datos de RPCS3 y no como _Playable_. Esto significa que aún pueden existir problemas gráficos, de rendimiento u otros inconvenientes dependiendo del juego y del hardware utilizado.\n\nLa mejora tiene un valor especial para la preservación de la saga porque varios de estos juegos continúan sin recibir versiones modernas oficiales. _Tools of Destruction_, _Quest for Booty_, _A Crack in Time_ e _Into the Nexus_, por ejemplo, forman una parte importante de la historia de _Ratchet & Clank_ que todavía no está disponible de manera nativa en las consolas actuales.\n\nPor eso, aunque RPCS3 no haya convertido mágicamente los seis juegos en experiencias perfectas, **la eliminación de los bloqueos representa un avance técnico considerable**. También demuestra hasta qué punto pequeños cambios en la comprensión del hardware de una consola pueden permitir recuperar juegos que durante años fueron difíciles de emular correctamente.",
+    "author": "Luiso",
+    "date": "2026-10-07T14:28:11.114Z",
+    "draft": false,
+    "featuredPosition": null,
+    "slug": "rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos"
+  },
+  {
     "title": "El Perfect Dark cancelado muestra más de dos minutos de gameplay inédito",
     "cover": "assets/uploads/1791380625210-portada.webp",
     "tags": [
