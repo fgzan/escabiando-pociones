@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/diablo-iv-y-dc-shoes-lanzan-unas-zapatillas-limitadas-a-666-unidades.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-07T12:16:49+00:00</news:publication_date>
+      <news:title>Diablo IV y DC Shoes lanzan unas zapatillas limitadas a 666 unidades</news:title>
+    </news:news>
+  </url>
 </urlset>

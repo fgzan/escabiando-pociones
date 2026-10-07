@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Tue, 06 Oct 2026 18:53:02 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 07 Oct 2026 12:17:01 +0000</lastBuildDate>
+  <item>
+    <title>Diablo IV y DC Shoes lanzan unas zapatillas limitadas a 666 unidades</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/diablo-iv-y-dc-shoes-lanzan-unas-zapatillas-limitadas-a-666-unidades.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/diablo-iv-y-dc-shoes-lanzan-unas-zapatillas-limitadas-a-666-unidades.html</guid>
+    <pubDate>Wed, 07 Oct 2026 12:16:49 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Blizzard Entertainment y DC Shoes se unieron para crear una edición especial de las clásicas COURT GRAFFIK, inspirada en el universo de Diablo IV. El modelo COURT GRAFFIK DIABLO está limitado a solo 666 pares en todo el mundo, con 50 unidades destinadas al mercado japonés.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1791375319201-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Capcom ya tiene un plan para cuando los remakes de Resident Evil alcancen a los juegos modernos</title>
     <link>https://www.escabiandopociones.com.ar/noticias/capcom-ya-tiene-un-plan-para-cuando-los-remakes-de-resident-evil-alcancen-a-los-juegos-modernos.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[En medio de nuevas denuncias de jugadores japoneses que aseguran haber sido sancionados por sus diseños itasha, Forza Horizon 6 actualizó su Código de Conducta para explicar cómo funciona el sistema de moderación. Xbox asegura que las denuncias son revisadas por personas y que la cantidad de reportes no determina un baneo.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790289930925-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Meta presenta sus nuevos lentes de realidad virtual con pantalla 5K y ultra livianas</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/meta-presenta-sus-nuevos-lentes-de-realidad-virtual-con-pantalla-5k-y-ultra-livianas.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/meta-presenta-sus-nuevos-lentes-de-realidad-virtual-con-pantalla-5k-y-ultra-livianas.html</guid>
-    <pubDate>Thu, 24 Sep 2026 14:11:19 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Durante Meta Connect 2026, la compañía presentó Meta VR Glasses, un dispositivo de realidad virtual que busca reducir drásticamente el peso de los visores tradicionales. Con apenas unos 100 gramos, incorpora una pantalla micro-OLED 5K, seguimiento ocular y control mediante gestos, aunque su lanzamiento todavía está previsto para 2027.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790258791346-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
