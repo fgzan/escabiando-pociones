@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 08 Oct 2026 12:51:40 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 08 Oct 2026 13:27:12 +0000</lastBuildDate>
+  <item>
+    <title>Silent Hill: Townfall recibe un parche que reduce la dificultad de sus secciones más frustrantes</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibe-un-parche-que-reduce-la-dificultad-de-sus-secciones-mas-frustrantes.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibe-un-parche-que-reduce-la-dificultad-de-sus-secciones-mas-frustrantes.html</guid>
+    <pubDate>Thu, 08 Oct 2026 13:26:52 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Konami lanzó una nueva actualización para Silent Hill: Townfall que modifica especialmente los encuentros contra The Weight, uno de los puntos más criticados del juego. El parche también reduce la agresividad de otros enemigos, facilita algunos aspectos del combate y agrega información para resolver uno de los rompecabezas finales.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1791466007465-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Richard Garriott recuperará los derechos de Ultima de manos de Electronic Arts en 2027</title>
     <link>https://www.escabiandopociones.com.ar/noticias/richard-garriott-recuperara-los-derechos-de-ultima-de-manos-de-electronic-arts-en-2027.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Toshihiro Kondo, presidente de Nihon Falcom, reveló que algunos desarrolladores veteranos quieren regresar a los juegos de Crossbell antes de retirarse. La compañía estaría interesada en realizar remakes de Trails from Zero y Trails to Azure, aunque ninguno de los dos proyectos fue confirmado oficialmente.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790541166912-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>SYNDUALITY: Echo of Ada cerrará sus servidores pero continuará como juego offline</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/synduality-echo-of-ada-cerrara-sus-servidores-pero-continuara-como-juego-offline.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/synduality-echo-of-ada-cerrara-sus-servidores-pero-continuara-como-juego-offline.html</guid>
-    <pubDate>Sun, 27 Sep 2026 20:24:08 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Bandai Namco anunció que el servicio online de SYNDUALITY: Echo of Ada finalizará en mayo de 2027. Sin embargo, el juego no desaparecerá: el equipo está trabajando en una versión independiente y offline que permitirá continuar jugando en solitario contra enemigos controlados por la IA.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790540377250-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

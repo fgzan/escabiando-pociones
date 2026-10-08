@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibe-un-parche-que-reduce-la-dificultad-de-sus-secciones-mas-frustrantes.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/richard-garriott-recuperara-los-derechos-de-ultima-de-manos-de-electronic-arts-en-2027.html</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.9</priority>
@@ -711,6 +716,26 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/silent-hill-townfall.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/konami.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/screen-burn-interactive.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-weight.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/ultima.html</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.3</priority>
@@ -1086,11 +1111,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/konami.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/evil-empire.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -1163,11 +1183,6 @@
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/android.html</loc>
     <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/silent-hill-townfall.html</loc>
-    <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
