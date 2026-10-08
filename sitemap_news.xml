@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/richard-garriott-recuperara-los-derechos-de-ultima-de-manos-de-electronic-arts-en-2027.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-08T12:51:27+00:00</news:publication_date>
+      <news:title>Richard Garriott recuperará los derechos de Ultima de manos de Electronic Arts en 2027</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/ape-escape-podria-regresar-de-la-mano-del-equipo-de-sonic-mania.html</loc>
     <news:news>
       <news:publication>
