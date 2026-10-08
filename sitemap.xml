@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/sony-vende-43-patentes-de-realidad-virtual-a-meta-y-vuelve-a-poner-en-duda-el-futuro-de-playstation-vr.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/el-guionista-de-resident-evil-requiem-adelanta-que-el-proximo-dlc-profundizara-en-la-historia-de-spencer.html</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.9</priority>
@@ -721,6 +726,41 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation-vr.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation-vr2.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/meta.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/realidad-virtual.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/vr.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/quest.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/resident-evil-requiem.html</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.3</priority>
@@ -1026,11 +1066,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/grasshopper-manufacture.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -1107,11 +1142,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/sega-amusements.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/realidad-virtual.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
   </url>

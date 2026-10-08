@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/sony-vende-43-patentes-de-realidad-virtual-a-meta-y-vuelve-a-poner-en-duda-el-futuro-de-playstation-vr.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-08T14:13:38+00:00</news:publication_date>
+      <news:title>Sony vende 43 patentes de realidad virtual a Meta y vuelve a poner en duda el futuro de PlayStation VR</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/el-guionista-de-resident-evil-requiem-adelanta-que-el-proximo-dlc-profundizara-en-la-historia-de-spencer.html</loc>
     <news:news>
       <news:publication>
