@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/el-guionista-de-resident-evil-requiem-adelanta-que-el-proximo-dlc-profundizara-en-la-historia-de-spencer.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-08T13:29:25+00:00</news:publication_date>
+      <news:title>El guionista de Resident Evil Requiem adelanta que el próximo DLC profundizará en la historia de Spencer</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibe-un-parche-que-reduce-la-dificultad-de-sus-secciones-mas-frustrantes.html</loc>
     <news:news>
       <news:publication>
