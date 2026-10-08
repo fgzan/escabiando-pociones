@@ -2,43 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.escabiandopociones.com.ar/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/episodios.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/reviews.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/noticias.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/estrenos.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/sobre.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags.html</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/reviews/1.html</loc>
     <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/un-olvidado-clasico-de-pc-98-vuelve-mas-de-30-anos-despues-dead-of-the-brain-llegara-a-steam-en-ingles.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos.html</loc>
@@ -688,6 +693,41 @@
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/1.html</loc>
     <lastmod>2026-09-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/dead-of-the-brain.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/fairytale.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/fakku.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/pc-98.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/horror.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/zombies.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/survival-horror.html</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.3</priority>
   </url>
   <url>

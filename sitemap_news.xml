@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/un-olvidado-clasico-de-pc-98-vuelve-mas-de-30-anos-despues-dead-of-the-brain-llegara-a-steam-en-ingles.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-08T12:27:58+00:00</news:publication_date>
+      <news:title>Un olvidado clásico de PC-98 vuelve más de 30 años después: Dead of the Brain llegará a Steam en inglés</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos.html</loc>
     <news:news>
       <news:publication>

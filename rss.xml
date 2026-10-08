@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 07 Oct 2026 19:18:27 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 08 Oct 2026 12:28:10 +0000</lastBuildDate>
+  <item>
+    <title>Un olvidado clásico de PC-98 vuelve más de 30 años después: Dead of the Brain llegará a Steam en inglés</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/un-olvidado-clasico-de-pc-98-vuelve-mas-de-30-anos-despues-dead-of-the-brain-llegara-a-steam-en-ingles.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/un-olvidado-clasico-de-pc-98-vuelve-mas-de-30-anos-despues-dead-of-the-brain-llegara-a-steam-en-ingles.html</guid>
+    <pubDate>Thu, 08 Oct 2026 12:27:58 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Dead of the Brain, el peculiar juego de horror y zombis lanzado originalmente para PC-98 en 1992, prepara su regreso a plataformas modernas. La reedición estará publicada por FAKKU y contará por primera vez con soporte oficial en inglés, permitiendo descubrir fuera de Japón uno de los títulos de culto más extraños de aquella generación.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1791462475931-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>RPCS3 consigue que los seis Ratchet &amp; Clank de PS3 funcionen sin los crashes históricos</title>
     <link>https://www.escabiandopociones.com.ar/noticias/rpcs3-consigue-que-los-seis-ratchet-clank-de-ps3-funcionen-sin-los-crashes-historicos.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[La histórica franquicia de Konami celebra cuatro décadas y la compañía inició una serie de actividades especiales. El Castlevania original de 1986 puede descargarse gratis en iOS y Android hasta el 24 de octubre, mientras que también hay descuentos de hasta el 80% y nuevas actividades vinculadas a la celebración.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342807587-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Bungie cambia el rumbo de Marathon: prepara un modo PvE permanente y abandona el calendario estacional rígido</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/bungie-cambia-el-rumbo-de-marathon-prepara-un-modo-pve-permanente-y-abandona-el-calendario-estacional-rigido.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/bungie-cambia-el-rumbo-de-marathon-prepara-un-modo-pve-permanente-y-abandona-el-calendario-estacional-rigido.html</guid>
-    <pubDate>Fri, 25 Sep 2026 13:25:53 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Bungie anunció una importante modificación en los planes de Marathon. El estudio quiere ampliar la propuesta más allá del extraction shooter tradicional con una experiencia PvE permanente, un nuevo espacio social, una zona Perimeter renovada y otros cambios que llegarán entre octubre y diciembre.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790342747349-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
