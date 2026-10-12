@@ -1,0 +1,257 @@
+{
+  "slug": "2026-10-12",
+  "date": "2026-10-12",
+  "week_start": "2026-10-12",
+  "week_end": "2026-10-18",
+  "generated_at": "2026-10-12T21:13:27.394863+00:00",
+  "source": "RAWG (rawg.io)",
+  "games": [
+    {
+      "name": "Valor Mortis",
+      "released": "2026-10-13",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox Series S/X"
+      ],
+      "cover": "https://media.rawg.io/media/games/61d/61d1431d20f9f6e19b27cb89aa4a4402.jpg",
+      "rawg_url": "https://rawg.io/games/valor-mortis",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "developers": [
+        "One More Level"
+      ],
+      "metacritic": null,
+      "description": "Valor Mortis es un soullike de acción en primera persona de los creadores de Ghostrunner. Salir de la muerte como un ex soldado del ejército de Napoleón. Ejerce poderes sobrenaturales, lucha contra monstruos horripilantes y desentraña una conspiración que amenaza a toda la humanidad.",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/20e/20e62ea7ec2a498bf56e31058f0bd4b1.jpg",
+        "https://media.rawg.io/media/screenshots/b85/b85a50b6b63f6c70d9d746b4f4451dc9.jpg",
+        "https://media.rawg.io/media/screenshots/09d/09d683c732bc5f26f1e7403f54ae259f.jpg",
+        "https://media.rawg.io/media/screenshots/4e0/4e0fa4d7d3b4091a3e3f4e7313deccaa.jpg",
+        "https://media.rawg.io/media/screenshots/969/969b1242be42d0b5f47f174227e99948.jpg",
+        "https://media.rawg.io/media/screenshots/dc2/dc2c3fab9c3e41c67d41bd3fd16530de.jpg"
+      ]
+    },
+    {
+      "name": "FIRE AND ASHES",
+      "released": "2026-10-13",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/889/8895c68d88e39f50e0ad33b68f2b7ec7.jpg",
+      "rawg_url": "https://rawg.io/games/fire-and-ashes",
+      "genres": [],
+      "developers": [
+        "ASDstudio"
+      ],
+      "metacritic": null,
+      "description": "Jugando como Henry Gray, entras en el epicentro de una pesadilla viviente. Fantasmas del pasado, pacientes enloquecidos, entidades de otro mundo: todos aquí están buscando tu sangre, y el asilo ahora es una trampa.\n\nTu principal arma, y tu vulnerabilidad fatal, es el sonido. Gracias al reconocimiento de voz avanzado, el juego detecta tu respiración, susurros y pánico. Controla tus emociones. ¡Cállate si quieres sobrevivir!\n\nDescenso a la locura\nEn 1977, Henry entra en una bañera dentro de la...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/fff/fff54742dcb8cfa3bf32c1791bc8c140.jpg",
+        "https://media.rawg.io/media/screenshots/ec5/ec568519af52a4402f7c2f6e3a1cd8d6.jpg",
+        "https://media.rawg.io/media/screenshots/2fb/2fbcb67a037a984443cbe77d9be5e0b3.jpg",
+        "https://media.rawg.io/media/screenshots/67a/67ac2615788081132b72d66948701ad3.jpg",
+        "https://media.rawg.io/media/screenshots/dc5/dc5b33d196b4178c7261827ed3f33a85.jpg",
+        "https://media.rawg.io/media/screenshots/524/524329ce66368f4bf91c25d5666a2b69.jpg"
+      ]
+    },
+    {
+      "name": "Thank You Bus Driver",
+      "released": "2026-10-13",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/730/730de75e5e4b795f4540ed2ca03d055f.jpg",
+      "rawg_url": "https://rawg.io/games/thank-you-bus-driver",
+      "genres": [],
+      "developers": [
+        "Double Fine Productions"
+      ],
+      "metacritic": null,
+      "description": "Thank You Bus Driver es un juego caótico de conducción de autobuses en el que asumes el papel del conductor de autobús de una ciudad que solo intenta pasar el día con un mínimo de incumplimiento de reglas y máxima gratitud... ¡en forma de Thank Yous!\n\nPonte al volante y recuerda las tres prioridades principales en tu autobús:\nSin transgresión de reglas\n¡Tu autobús, tus reglas! ¿A quién le importa que cambien todos los días? ¿Y que el depósito sigue añadiendo nuevas reglas? ¿Y que algunas de estas reglas solo tienen ganas de romperse?\n\nNo…",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/9a5/9a5e545fd44862ada4e7113d049eb1de.jpg",
+        "https://media.rawg.io/media/screenshots/ce8/ce8223957a5321f7074dbc12ae2d8e24.jpg",
+        "https://media.rawg.io/media/screenshots/aeb/aeb43a955442bb8784c1c4f6517f8f89.jpg",
+        "https://media.rawg.io/media/screenshots/7f0/7f0b9363e401e7d68e1aaedc0ae4caff.jpg",
+        "https://media.rawg.io/media/screenshots/b7e/b7e495be0564b0e5c706cb5c1074dffb.jpg",
+        "https://media.rawg.io/media/screenshots/954/9540d0f3159a6dbaa48128a52e956aed.jpg"
+      ]
+    },
+    {
+      "name": "Warhammer 40,000: Boltgun 2",
+      "released": "2026-10-14",
+      "platforms": [
+        "PC"
+      ],
+      "cover": null,
+      "rawg_url": "https://rawg.io/games/warhammer-40000-boltgun-2",
+      "genres": [
+        "Action",
+        "Indie"
+      ],
+      "developers": [
+        "Auroch Digital"
+      ],
+      "metacritic": null,
+      "description": "",
+      "screenshots": []
+    },
+    {
+      "name": "Odd Town",
+      "released": "2026-10-14",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/2b4/2b4850537a381a06ef236f57c5ff77b7.jpg",
+      "rawg_url": "https://rawg.io/games/odd-town",
+      "genres": [],
+      "developers": [
+        "The Flying Baguette"
+      ],
+      "metacritic": null,
+      "description": "No recuerdas cómo se averió tu coche aquí y no mucho más para ser honesto.\n\nNo sabes por qué, pero tienes la sensación de que no deberías confiar en nadie aquí.\n\nHay algo extraño en esta gente. Sobre este lugar. No en general, sino en los detalles. La forma en que te miran. La forma en que el teléfono sigue sonando. Allí, debajo del desorden de píxeles... hay algo siniestro.\n\n\nOdd Town sigue una regla simple: menos es más. Su ciudad compacta, artesanal y ligeramente distópica...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/26d/26d9476d04c13c5fae5986e235f23cbc.jpg",
+        "https://media.rawg.io/media/screenshots/2d0/2d093e9b3c2d73b0d6a242e61b72ca83.jpg",
+        "https://media.rawg.io/media/screenshots/3bf/3bf70c362180f3d8308892fdc845a935.jpg",
+        "https://media.rawg.io/media/screenshots/90e/90e9fb630a5c165dd4245dccea671e4f.jpg",
+        "https://media.rawg.io/media/screenshots/fbd/fbde19d5d3191299342d0108c169554c.jpg",
+        "https://media.rawg.io/media/screenshots/eb3/eb3d06c790382f6d9b0b2ca55320a781.jpg"
+      ]
+    },
+    {
+      "name": "Enshrouded",
+      "released": "2026-10-15",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/games/23a/23a1c71366aea4341aec483c9dd08a59.jpg",
+      "rawg_url": "https://rawg.io/games/enshrouded-2",
+      "genres": [
+        "Action",
+        "Adventure",
+        "RPG"
+      ],
+      "developers": [
+        "Keen Games"
+      ],
+      "metacritic": null,
+      "description": "ÚNETE A NUESTRA DISCORDIA\nAcerca del juegoEl reino de Embervale está perdido. En su codicia por el poder mágico, tus antepasados desataron una peste que consumió al mundo.\nEnshrouded es un juego de supervivencia, creación y combate RPG de acción, ambientado en un extenso continente basado en vóxeles. Mientras viajas a través de las montañas y los desiertos de un mundo abierto, eres libre de elegir tu camino y dar forma a tu destino.\nEnciende el antiguo poder de la Llama y junta los fragmentos de una historia...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/98e/98e4f3b3096a2784cd28663c51eca14f.jpg",
+        "https://media.rawg.io/media/screenshots/b97/b97ef4b9629b66b650f56693ac1c1f68.jpg",
+        "https://media.rawg.io/media/screenshots/8f8/8f84eca273a25dd92053d3c317271a51.jpg",
+        "https://media.rawg.io/media/screenshots/875/875b002c296c075ccdf43b9b71120357.jpg",
+        "https://media.rawg.io/media/screenshots/770/770acbfe96f3a4204a00171c94b394d2.jpg",
+        "https://media.rawg.io/media/screenshots/a63/a6322e9da6621a4543806b98ff97e8c1.jpg"
+      ]
+    },
+    {
+      "name": "Castlevania: Belmont's Curse",
+      "released": "2026-10-15",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox Series S/X",
+        "Nintendo Switch"
+      ],
+      "cover": "https://media.rawg.io/media/games/429/42928697eb80feb13e6087170a10565a.jpeg",
+      "rawg_url": "https://rawg.io/games/castlevania-belmonts-curse",
+      "genres": [
+        "Action",
+        "RPG"
+      ],
+      "developers": [
+        "Evil Empire"
+      ],
+      "metacritic": null,
+      "description": "",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/4cc/4cc5771a85434a6cae4035f1962a5e78.jpg",
+        "https://media.rawg.io/media/screenshots/648/6487041a7d8c038be55e242dcb4aeb70.jpg",
+        "https://media.rawg.io/media/screenshots/4ad/4adc9a65918d5a697f4c5448d6215fed.jpg",
+        "https://media.rawg.io/media/screenshots/d61/d61984089423f85a661dcdfe43ed84c7.jpg",
+        "https://media.rawg.io/media/screenshots/e2d/e2db04e455f8bb0b675409af3b23abd0.jpg",
+        "https://media.rawg.io/media/screenshots/b8c/b8c1e4ccb0ae9f584297ad62de093660.jpg"
+      ]
+    },
+    {
+      "name": "Disney/Pixar Toy Story 3 Complete Edition",
+      "released": "2026-10-15",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox One",
+        "PlayStation 4",
+        "Xbox Series S/X",
+        "Nintendo Switch"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/24e/24e4aefbd856a211efd74bd384bd33a2.jpg",
+      "rawg_url": "https://rawg.io/games/disneypixar-toy-story-3-complete-edition",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Platformer"
+      ],
+      "developers": [],
+      "metacritic": null,
+      "description": "Reabre el cofre de juguete y monta como Woody, Buzz Lightyear y Jessie en Toy Story 3 Complete Edition, una aventura en 3D basada en la exitosa película animada de 2010, Toy Story 3. Juega a través de momentos de película auténticos en el modo Historia, o entra en la caja de arena del salvaje oeste de Woody's Roundup en el modo Caja de juguetes.",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/24e/24e4aefbd856a211efd74bd384bd33a2.jpg"
+      ]
+    },
+    {
+      "name": "Penguin Colony",
+      "released": "2026-10-15",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/8eb/8ebf9110459339d6bded00aa37b73941.jpg",
+      "rawg_url": "https://rawg.io/games/penguin-colony",
+      "genres": [],
+      "developers": [
+        "ORIGAME DIGITAL"
+      ],
+      "metacritic": null,
+      "description": "-Estoy escribiendo esto bajo una tensión mental apreciable...\n\nUna fiel reinvención de H.P. Lovecraft a través de los ojos de un pingüino. Desarrollado por Origame Digital, creadores de Umurangi Generation, publicado por Fellow Traveller (1000xRESIST), y narrado por Lenval Brown.\n\"El viento aúlla de manera diferente en el S?????????????????????????????????????\n\nCorre el año 1939, y los nazis y Kaitiaki se están adentrando en las profundidades de la Antártida para responder al llamado de un increíblemente antiguo...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/50e/50eaa7a9470e8d322e0882a699973b59.jpg",
+        "https://media.rawg.io/media/screenshots/6b1/6b193ddda896c0490b8eb33a1445acd2.jpg",
+        "https://media.rawg.io/media/screenshots/e44/e4452a31260c3072743dba4d5a5520f7.jpg",
+        "https://media.rawg.io/media/screenshots/705/705ad43a53b74ffda00253c433703bb2.jpg",
+        "https://media.rawg.io/media/screenshots/fd7/fd7744ce38c2c48b8c0e6b87caac2679.jpg",
+        "https://media.rawg.io/media/screenshots/447/4476ad2f654ccd8e21ab487bf078ba44.jpg"
+      ]
+    },
+    {
+      "name": "Tenebris Somnia",
+      "released": "2026-10-16",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/games/97b/97b849dfc43f7634e65c0fccbf6c737d.jpg",
+      "rawg_url": "https://rawg.io/games/tenebris-somnia-demo",
+      "genres": [
+        "Action"
+      ],
+      "developers": [
+        "Saibot Studios",
+        "Andrés Borghi"
+      ],
+      "metacritic": null,
+      "description": "Tenebris Somnia llegará pronto\ny se pueden incluir en la lista de deseos\naquí.\n\n¡Experimenta la demostración de Tenebris Somnia hoy mismo!\n\nTenebris Somnia es un juego de aventuras de terror y supervivencia en la misma línea que clásicos como Silent Hill o Resident Evil, pero adaptado a una estética retro 2D de la era de 8 o 16 bits.\n\nLuchará por sobrevivir mientras resuelve rompecabezas y lucha contra criaturas horribles.\n\nSin embargo, los secretos del juego se encuentran dentro de sus cinemáticas...\n\nCuando llegues a ciertos puntos clave, verás...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/0aa/0aa49a73f67f068f990ca5d91ed0e62a.jpg",
+        "https://media.rawg.io/media/screenshots/ee9/ee9fc9e668ea0d4786e015d7f0ac3308.jpg",
+        "https://media.rawg.io/media/screenshots/d2e/d2e5b8fffb231d70544ea801426bf0b8.jpg",
+        "https://media.rawg.io/media/screenshots/376/376bd24ec49c9183a3162d12a9b1799a.jpg",
+        "https://media.rawg.io/media/screenshots/8ac/8acaeeb74e7917f3768aade70cb53ebd.jpg",
+        "https://media.rawg.io/media/screenshots/bc9/bc928aa4735701e94ff304375041a912.jpg"
+      ]
+    }
+  ],
+  "fetch_error": null
+}
