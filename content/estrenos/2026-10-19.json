@@ -1,0 +1,113 @@
+{
+  "slug": "2026-10-19",
+  "date": "2026-10-19",
+  "week_start": "2026-10-19",
+  "week_end": "2026-10-25",
+  "generated_at": "2026-10-19T18:41:10.891149+00:00",
+  "source": "RAWG (rawg.io)",
+  "games": [
+    {
+      "name": "Mycopunk",
+      "released": "2026-10-20",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/games/cbf/cbf5b06692e82e312a5dc9db32ed5b4c.jpg",
+      "rawg_url": "https://rawg.io/games/mycopunk",
+      "genres": [
+        "Action",
+        "Shooter",
+        "Indie"
+      ],
+      "developers": [
+        "Pigeons at Play"
+      ],
+      "metacritic": null,
+      "description": "Un escuadrón variopinto de robots rechazados es contratado por la corporación SAJONA y se le da una última oportunidad de alcanzar la gloria rentable (y evitar el montón de chatarra). Son la New Atlas Hazard Crew, un escuadrón destartalado de exterminadores enviados para descubrir los misterios detrás de una catástrofe fúngica en todo el planeta.\nEmbárcate en una serie de peligrosas misiones del lado del planeta para hacer retroceder la amenaza micológica. ¿Podría tratarse de un simple desastre natural como afirman? ¿Y SAXON realmente archivó mal sus impuestos? O fue...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/028/0280de5334aaa28dfc621e0824404d9d.jpg",
+        "https://media.rawg.io/media/screenshots/748/74893c81366800d936c06b908bd52950.jpg",
+        "https://media.rawg.io/media/screenshots/f3c/f3c72f83d1780faf3d6c011111c541b3.jpg",
+        "https://media.rawg.io/media/screenshots/004/004acc473ede37630be468eb07f74f14.jpg",
+        "https://media.rawg.io/media/screenshots/8cb/8cbe8e380b240f0f2136266d20b0941b.jpg",
+        "https://media.rawg.io/media/screenshots/aa1/aa170843e2f2bd5a604625e747ae708e.jpg"
+      ]
+    },
+    {
+      "name": "Stupid Never Dies",
+      "released": "2026-10-21",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/games/41c/41c5448f15d06825947791da15489f92.jpg",
+      "rawg_url": "https://rawg.io/games/stupid-never-dies",
+      "genres": [
+        "Action"
+      ],
+      "developers": [],
+      "metacritic": null,
+      "description": "",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/633/6333ad5e01f5fd0a5f0b590e068175a6.jpg",
+        "https://media.rawg.io/media/screenshots/c52/c52fc6e3736e37c79095f79f0feb6751.jpg",
+        "https://media.rawg.io/media/screenshots/a34/a34b1775a2ad6a297d6d974ce58467e2.jpg",
+        "https://media.rawg.io/media/screenshots/83f/83f60b9c0aeb5299e154c6cbc876ffd9_iHBrA97.jpg",
+        "https://media.rawg.io/media/screenshots/d94/d94b77cf6f48d7775be5f201feea6c3d.jpg",
+        "https://media.rawg.io/media/screenshots/6c6/6c60371651328eeb61913c1df43d2f0b.jpg"
+      ]
+    },
+    {
+      "name": "Final Fantasy Resonance",
+      "released": "2026-10-22",
+      "platforms": [
+        "PC",
+        "PlayStation 5",
+        "Xbox Series S/X",
+        "Nintendo Switch"
+      ],
+      "cover": "https://media.rawg.io/media/games/e51/e51aab3845c598b52a2881c3f7155f76.jpg",
+      "rawg_url": "https://rawg.io/games/final-fantasy-resonance",
+      "genres": [
+        "RPG"
+      ],
+      "developers": [
+        "Square Enix",
+        "Lancarse"
+      ],
+      "metacritic": null,
+      "description": "",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/e79/e79f71ca3e876b54f4ca02c0a5d03aa2.jpg",
+        "https://media.rawg.io/media/screenshots/536/5363b53c7d390a85356040b75ff96cc5.jpg",
+        "https://media.rawg.io/media/screenshots/7fe/7fe5bac8d3cc08dcfc6bf937c7aa0031_RwcQmmI.jpg",
+        "https://media.rawg.io/media/screenshots/bbe/bbe6b7294bfbb0863fbaa0ba13865603.jpg",
+        "https://media.rawg.io/media/screenshots/93f/93fbc1c75e4b628c2e26f2cf30ee5368.jpg",
+        "https://media.rawg.io/media/screenshots/d4c/d4c7d9bf29b5f294444afebac80f0a67.jpg"
+      ]
+    },
+    {
+      "name": "Ecstatica",
+      "released": "2026-10-25",
+      "platforms": [
+        "PC"
+      ],
+      "cover": "https://media.rawg.io/media/screenshots/f3b/f3b34c8df90a7b4dd489860454e350ec.jpg",
+      "rawg_url": "https://rawg.io/games/ecstatica",
+      "genres": [],
+      "developers": [
+        "Andrew Spencer Studios"
+      ],
+      "metacritic": null,
+      "description": "La joven extática se encuentra en un coma profundo y en trance, y sus inquietantes sueños están causando estragos en el otrora pacífico pueblo de Tirich.\n\nUn viajero solitario ha tropezado con este pueblo desierto, y lo que comenzó como una simple búsqueda de refugio se convierte en una horrible saga de muerte, tortura y posesión demoníaca.\n\nAyuda a liberar a Ecstatica en esta aterradora aventura gráfica con un entorno 3D totalmente explorable, una animación impresionante y una tecnología elipsoidal única...",
+      "screenshots": [
+        "https://media.rawg.io/media/screenshots/2a4/2a4fc1a4250d8a884fcafe3c6809f805.jpg",
+        "https://media.rawg.io/media/screenshots/92f/92f2c2dd441400b4e9c132c7d00c7062.jpg",
+        "https://media.rawg.io/media/screenshots/92a/92a4355d7d0aa478cd0db3bbddadbac3.jpg",
+        "https://media.rawg.io/media/screenshots/deb/deb61fd9e62cd777f3b3b7e351e97bab.jpg",
+        "https://media.rawg.io/media/screenshots/6f0/6f0bbc0ea56d5459d3c95f951160347c.jpg",
+        "https://media.rawg.io/media/screenshots/f3b/f3b34c8df90a7b4dd489860454e350ec.jpg"
+      ]
+    }
+  ],
+  "fetch_error": null
+}
