@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/don-t-nod-el-estudio-detras-de-life-is-strange-busca-proteccion-judicial-ante-su-crisis.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/star-wars-battlefront-3-podria-estar-en-la-mira-de-bungie-y-dice.html</loc>
     <lastmod>2026-10-21</lastmod>
     <priority>0.9</priority>
@@ -753,6 +758,31 @@
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/1.html</loc>
     <lastmod>2026-09-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/don-t-nod.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/life-is-strange.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/jusant.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/lost-records-bloom-rage.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/aphelion.html</loc>
+    <lastmod>2026-10-21</lastmod>
     <priority>0.3</priority>
   </url>
   <url>

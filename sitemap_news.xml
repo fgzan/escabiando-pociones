@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/don-t-nod-el-estudio-detras-de-life-is-strange-busca-proteccion-judicial-ante-su-crisis.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-21T12:54:07+00:00</news:publication_date>
+      <news:title>DON’T NOD, el estudio detrás de Life Is Strange, busca protección judicial ante su crisis</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/star-wars-battlefront-3-podria-estar-en-la-mira-de-bungie-y-dice.html</loc>
     <news:news>
       <news:publication>
