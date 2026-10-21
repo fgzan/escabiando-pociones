@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 21 Oct 2026 13:00:35 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 13:05:37 +0000</lastBuildDate>
+  <item>
+    <title>La próxima Xbox podría llegar en 2028 con un precio de hasta 1.800 dólares</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/la-proxima-xbox-podria-llegar-en-2028-con-un-precio-de-hasta-1-800-dolares.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/la-proxima-xbox-podria-llegar-en-2028-con-un-precio-de-hasta-1-800-dolares.html</guid>
+    <pubDate>Wed, 21 Oct 2026 13:05:18 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Un informe basado en información publicada por Fortune señala que la próxima consola de Microsoft, conocida como Project Helix, tendría como objetivo la temporada de fiestas de 2028 y podría alcanzar un precio de entre 1.200 y 1.800 dólares. Las cifras serían proyecciones internas, no un precio de venta confirmado, mientras que un dispositivo portátil de la marca podría llegar antes.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1792587911961-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>La IA empuja al cierre del índice público de decomp.dev, una herramienta clave para la descompilación de videojuegos</title>
     <link>https://www.escabiandopociones.com.ar/noticias/la-ia-empuja-al-cierre-del-indice-publico-de-decomp-dev-una-herramienta-clave-para-la-descompilacion-de-videojuegos.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Con Halo ahora bajo la responsabilidad de Activision, Frank O'Connor, quien trabajó durante casi dos décadas en la franquicia, compartió varias posibilidades para su futuro. Entre sus recomendaciones está recuperar a veteranos despedidos de Bungie y Halo Studios y mantener uno de los elementos que considera fundamentales para la identidad de la saga: su sandbox.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790776306372-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Mario Kart Tour cierra sus servidores después de siete años y más de 276 millones de descargas</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/mario-kart-tour-cierra-sus-servidores-despues-de-siete-anos-y-mas-de-276-millones-de-descargas.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/mario-kart-tour-cierra-sus-servidores-despues-de-siete-anos-y-mas-de-276-millones-de-descargas.html</guid>
-    <pubDate>Wed, 30 Sep 2026 13:23:22 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[El spin-off para celulares de Mario Kart dejó de funcionar oficialmente después de siete años de servicio. Según estimaciones de AppMagic citadas por Mobilegamer.biz, el juego superó los 276 millones de descargas y generó aproximadamente 268,5 millones de dólares para Nintendo durante su recorrido.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790774594062-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
