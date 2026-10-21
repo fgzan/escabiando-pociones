@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/star-wars-battlefront-3-podria-estar-en-la-mira-de-bungie-y-dice.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-21T12:39:59+00:00</news:publication_date>
+      <news:title>Star Wars: Battlefront 3 podría estar en la mira de Bungie y DICE</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/fight-night-vuelve-despues-de-15-anos-ea-sports-confirma-el-regreso-de-su-saga-de-boxeo.html</loc>
     <news:news>
       <news:publication>
