@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/cyberpunk-2077-recibira-la-actualizacion-gratuita-edgerunners-2-el-22-de-octubre.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/final-fantasy-resonance-llega-esta-semana-el-nuevo-rpg-de-square-enix-apuesta-por-el-hd-2d.html</loc>
     <lastmod>2026-10-21</lastmod>
     <priority>0.9</priority>
@@ -741,6 +746,31 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/cyberpunk-2077.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/cyberpunk-edgerunners-2.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/cd-projekt-red.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/trigger.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/netflix.html</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/final-fantasy-resonance.html</loc>
     <lastmod>2026-10-21</lastmod>
     <priority>0.3</priority>
@@ -1141,11 +1171,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/cd-projekt-red.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/cdpr.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
@@ -1232,11 +1257,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/game-pass.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/netflix.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
   </url>

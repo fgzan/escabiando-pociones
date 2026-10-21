@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 21 Oct 2026 12:14:17 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 12:30:38 +0000</lastBuildDate>
+  <item>
+    <title>Cyberpunk 2077 recibirá la actualización gratuita Edgerunners 2 el 22 de octubre</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/cyberpunk-2077-recibira-la-actualizacion-gratuita-edgerunners-2-el-22-de-octubre.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/cyberpunk-2077-recibira-la-actualizacion-gratuita-edgerunners-2-el-22-de-octubre.html</guid>
+    <pubDate>Wed, 21 Oct 2026 12:30:26 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[CD Projekt RED lanzará el 22 de octubre la actualización gratuita 2.5 de Cyberpunk 2077, conocida como Edgerunners 2 Update. El contenido estará inspirado en el nuevo anime de Netflix e incluirá novedades para el juego. La actualización llegará primero a PC, PlayStation 5 y Xbox Series X|S, mientras que la versión de Nintendo Switch 2 se publicará más adelante.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1792585823131-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Final Fantasy Resonance llega esta semana: el nuevo RPG de Square Enix apuesta por el HD-2D</title>
     <link>https://www.escabiandopociones.com.ar/noticias/final-fantasy-resonance-llega-esta-semana-el-nuevo-rpg-de-square-enix-apuesta-por-el-hd-2d.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Una patente presentada por Sony Interactive Entertainment describe un mando de PlayStation capaz de recibir información mediante tecnología NFC desde tarjetas, teléfonos y otros dispositivos. El documento contempla posibles usos para realizar compras, aunque no existe ningún anuncio de un nuevo mando que vaya a incorporar esta función.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790607759531-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>The Witcher 3 Remastered detalla sus horarios de lanzamiento y el tamaño de su actualización</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-detalla-sus-horarios-de-lanzamiento-y-el-tamano-de-su-actualizacion.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-detalla-sus-horarios-de-lanzamiento-y-el-tamano-de-su-actualizacion.html</guid>
-    <pubDate>Mon, 28 Sep 2026 12:34:17 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[CD Projekt Red detalló los horarios en los que estará disponible la gran actualización gratuita de The Witcher 3: Wild Hunt y confirmó el tamaño aproximado de los archivos que deberán descargar los jugadores. La actualización incorpora las mejoras de la versión remasterizada para Nintendo Switch 2 y otras plataformas.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790598842914-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
