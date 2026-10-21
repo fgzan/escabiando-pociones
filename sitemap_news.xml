@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/final-fantasy-resonance-llega-esta-semana-el-nuevo-rpg-de-square-enix-apuesta-por-el-hd-2d.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-10-21T12:14:02+00:00</news:publication_date>
+      <news:title>Final Fantasy Resonance llega esta semana: el nuevo RPG de Square Enix apuesta por el HD-2D</news:title>
+    </news:news>
+  </url>
 </urlset>
