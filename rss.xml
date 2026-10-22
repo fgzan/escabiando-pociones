@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Wed, 21 Oct 2026 13:05:37 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 22 Oct 2026 12:42:06 +0000</lastBuildDate>
+  <item>
+    <title>Xbox Series X|S y las portátiles ROG Xbox Ally recibirán AMD FSR 4.1 para mejorar la imagen y el rendimiento</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/xbox-series-x-s-y-las-portatiles-rog-xbox-ally-recibiran-amd-fsr-4-1-para-mejorar-la-imagen-y-el-rendimiento.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/xbox-series-x-s-y-las-portatiles-rog-xbox-ally-recibiran-amd-fsr-4-1-para-mejorar-la-imagen-y-el-rendimiento.html</guid>
+    <pubDate>Thu, 22 Oct 2026 12:41:54 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[AMD y Microsoft anunciaron que la tecnología de reescalado FSR 4.1 llegará a Xbox Series X|S y a determinados modelos de la familia ROG Xbox Ally. La herramienta utiliza aprendizaje automático para reconstruir imágenes a partir de resoluciones más bajas. Las portátiles compatibles recibirán una versión preliminar el 23 de octubre, mientras que las consolas todavía no tienen una fecha pública de implementación.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1792672220580-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>La próxima Xbox podría llegar en 2028 con un precio de hasta 1.800 dólares</title>
     <link>https://www.escabiandopociones.com.ar/noticias/la-proxima-xbox-podria-llegar-en-2028-con-un-precio-de-hasta-1-800-dolares.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Microsoft comenzó a desplegar para todos los usuarios una función que permite convertir determinados juegos físicos de Xbox One y Xbox Series X en licencias digitales. El sistema amplía las posibilidades de los discos, incluyendo compatibilidad con Xbox Series S, Xbox Play Anywhere y juego en la nube cuando el título lo permite.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790776511028-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>El exdirector creativo de Halo pide a Activision recuperar a los desarrolladores despedidos para el próximo juego</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/el-exdirector-creativo-de-halo-pide-a-activision-recuperar-a-los-desarrolladores-despedidos-para-el-proximo-juego.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/el-exdirector-creativo-de-halo-pide-a-activision-recuperar-a-los-desarrolladores-despedidos-para-el-proximo-juego.html</guid>
-    <pubDate>Wed, 30 Sep 2026 13:51:57 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Con Halo ahora bajo la responsabilidad de Activision, Frank O'Connor, quien trabajó durante casi dos décadas en la franquicia, compartió varias posibilidades para su futuro. Entre sus recomendaciones está recuperar a veteranos despedidos de Bungie y Halo Studios y mantener uno de los elementos que considera fundamentales para la identidad de la saga: su sandbox.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790776306372-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
