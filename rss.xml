@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Thu, 22 Oct 2026 12:57:45 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 22 Oct 2026 13:52:23 +0000</lastBuildDate>
+  <item>
+    <title>EA cierra BioWare después de más de 30 años y cancela el próximo Mass Effect</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/ea-cierra-bioware-despues-de-mas-de-30-anos-y-cancela-el-proximo-mass-effect.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/ea-cierra-bioware-despues-de-mas-de-30-anos-y-cancela-el-proximo-mass-effect.html</guid>
+    <pubDate>Thu, 22 Oct 2026 13:52:10 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Electronic Arts anunció el cierre de BioWare, el histórico estudio responsable de Mass Effect, Dragon Age y Baldur’s Gate. La decisión también pone fin al desarrollo inicial del próximo Mass Effect y forma parte de una reestructuración que contempla alrededor de 400 despidos en la compañía. El estudio de Edmonton, Canadá, será cerrado tras más de tres décadas de actividad.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1792677023345-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Hideo Kojima advierte sobre las opiniones heredadas de las redes sociales y el caso de Death Stranding</title>
     <link>https://www.escabiandopociones.com.ar/noticias/hideo-kojima-advierte-sobre-las-opiniones-heredadas-de-las-redes-sociales-y-el-caso-de-death-stranding.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Screen Burn confirmó que está trabajando en un nuevo parche para Silent Hill: Townfall que modificará el balance de las secciones de sigilo protagonizadas por The Weight. El enemigo fue uno de los aspectos más cuestionados por jugadores y análisis, debido a su comportamiento, su capacidad para detectar al protagonista y las muertes instantáneas.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790779095011-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Shuhei Yoshida cree que Sony y Nintendo deberían mantener la generación actual durante más tiempo</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/shuhei-yoshida-cree-que-sony-y-nintendo-deberian-mantener-la-generacion-actual-durante-mas-tiempo.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/shuhei-yoshida-cree-que-sony-y-nintendo-deberian-mantener-la-generacion-actual-durante-mas-tiempo.html</guid>
-    <pubDate>Wed, 30 Sep 2026 14:02:07 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[El exdirectivo de PlayStation, Shuhei Yoshida, habló sobre el futuro del hardware y consideró que Sony y Nintendo podrían prolongar la vida de PS5 y Switch 2. Su argumento está relacionado con el aumento del precio de los componentes y con la percepción de que muchos jugadores todavía están satisfechos con el hardware actual.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790776910292-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

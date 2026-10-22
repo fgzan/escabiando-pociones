@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/ea-cierra-bioware-despues-de-mas-de-30-anos-y-cancela-el-proximo-mass-effect.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/hideo-kojima-advierte-sobre-las-opiniones-heredadas-de-las-redes-sociales-y-el-caso-de-death-stranding.html</loc>
     <lastmod>2026-10-22</lastmod>
     <priority>0.9</priority>
@@ -781,6 +786,36 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/bioware.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/electronic-arts.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/mass-effect.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/dragon-age.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/baldur-s-gate.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/star-wars-knights-of-the-old-republic.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/hideo-kojima.html</loc>
     <lastmod>2026-10-22</lastmod>
     <priority>0.3</priority>
@@ -927,11 +962,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/lucasfilm.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/electronic-arts.html</loc>
     <lastmod>2026-10-21</lastmod>
     <priority>0.3</priority>
   </url>
