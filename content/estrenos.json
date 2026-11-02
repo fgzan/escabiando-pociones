@@ -1,5 +1,15 @@
 [
   {
+    "slug": "2026-11-02",
+    "date": "2026-11-02",
+    "week_start": "2026-11-02",
+    "week_end": "2026-11-08",
+    "generated_at": "2026-11-02T21:41:08.355619+00:00",
+    "source": "RAWG (rawg.io)",
+    "games": [],
+    "fetch_error": "No se pudo consultar la API de RAWG tras 3 intentos: HTTP Error 522: <none>"
+  },
+  {
     "slug": "2026-10-26",
     "date": "2026-10-26",
     "week_start": "2026-10-26",
