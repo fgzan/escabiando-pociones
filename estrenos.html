@@ -55,11 +55,182 @@
 <section class="section">
   <div class="container">
     <div>
-      <span class="eyebrow-lg">Semana del 9 al 15 de noviembre</span>
-      <div class="empty-vial"><p class="mt-0">Esta semana no pudimos consultar la base de datos de juegos (problema técnico momentáneo). La probamos de nuevo la semana que viene.</p></div><p style="font-family: var(--f-mono); font-size:0.75rem; color: var(--ink-dim); margin-top:20px;">Datos de estrenos: <a href="https://rawg.io" target="_blank" rel="noopener">RAWG.io</a></p>
+      <span class="eyebrow-lg">Semana del 16 al 22 de noviembre</span>
+      <div class="grid grid-3"><button type="button" class="card estreno-card" data-url="https://rawg.io/games/space-station-designer" data-extra="{&quot;genres&quot;: [], &quot;developers&quot;: [&quot;Polar Motion&quot;], &quot;metacritic&quot;: null, &quot;description&quot;: &quot;Space Station Designer es un juego de construcción y gestión en el que te conviertes en el director general de una empresa aeroespacial privada, encargado de crear y gestionar una próspera red de puestos avanzados orbitales.\n\nEmpieza con un único módulo central en órbita terrestre baja y amplía gradualmente tus operaciones a órbitas terrestres y lunares más altas. Diseña estaciones autosuficientes, gestiona a los astronautas y la logística, desbloquea tecnologías avanzadas y ayuda a dar forma a la economía espacial de la humanidad.\n\nTu objetivo final...&quot;, &quot;screenshots&quot;: [&quot;https://media.rawg.io/media/screenshots/a05/a051d85d3d2fbffa496e368319d19136.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/672/672d417ebcdaa532fa501e2dd425423a.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/812/812d47a0b8ab21008041c0db6a1b7878.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/ec4/ec4fd2755325f8b279d23a6df650fcf2.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/4ab/4abbef0deb1fbf1aeb0e23ce600dafc1.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/908/908181234e6cb33ad7b45eea72334b4b.jpg&quot;]}" style="display:block; margin-bottom:20px;">
+      <img src="https://media.rawg.io/media/screenshots/53c/53ca443f2fb80f24ecec21d4b21a9f2b.jpg" alt="Space Station Designer" loading="lazy" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:4px; margin-bottom:14px;">
+      <span class="eyebrow">17 de noviembre de 2026</span>
+      <h3>Space Station Designer</h3>
+      <div class="tag-list"><span class="platform-chip">PC</span></div>
+    </button><button type="button" class="card estreno-card" data-url="https://rawg.io/games/grand-theft-aito-vi" data-extra="{&quot;genres&quot;: [&quot;Action&quot;], &quot;developers&quot;: [&quot;Rockstar Games&quot;], &quot;metacritic&quot;: null, &quot;description&quot;: &quot;Grand Theft Auto VI es un próximo juego de acción y aventura desarrollado y publicado por Rockstar Games. Será el octavo juego principal de Grand Theft Auto, después de Grand Theft Auto V (2013), y el decimosexto título en total. Ambientada en el estado ficticio estadounidense de Leonida, basado en Florida, la historia sigue al dúo de delincuentes enamorados formado por Jason Duval y Lucía Caminos. Los jugadores podrán moverse libremente por el mundo abierto de Leonida, que incluye Vice City, inspirada en Miami.&quot;, &quot;screenshots&quot;: [&quot;https://media.rawg.io/media/screenshots/c5a/c5a192a8bc1b96d6388272be20af78af.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/598/5983ffe274a237b33e0f0452364fba78.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/384/384241113cb4510774289415d7d6dba1.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/4c4/4c47d5e898bda3ce131a8e73db6fe505.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/db2/db2c206e7896ddc846c60f5d315ecfc3.jpg&quot;, &quot;https://media.rawg.io/media/screenshots/05d/05db79dc3d0b0cc9af3f10135ad78025.jpg&quot;]}" style="display:block; margin-bottom:20px;">
+      <img src="https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg" alt="Grand Theft Auto VI" loading="lazy" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:4px; margin-bottom:14px;">
+      <span class="eyebrow">19 de noviembre de 2026</span>
+      <h3>Grand Theft Auto VI</h3>
+      <div class="tag-list"><span class="platform-chip">PlayStation 5</span><span class="platform-chip">Xbox Series S/X</span></div>
+    </button></div><div class="game-modal-backdrop" id="game-modal-backdrop" hidden>
+  <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="game-modal-title">
+    <button type="button" class="game-modal-close" aria-label="Cerrar">✕</button>
+    <img id="game-modal-cover" alt="" hidden>
+    <div id="game-modal-gallery" class="game-modal-gallery" hidden></div>
+    <span class="eyebrow" id="game-modal-date"></span>
+    <h3 id="game-modal-title" style="margin-top:6px;"></h3>
+    <p id="game-modal-meta" class="game-modal-meta" hidden></p>
+    <div class="tag-list" id="game-modal-platforms"></div>
+    <p id="game-modal-description" style="margin-top:16px; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;" hidden></p>
+    <a id="game-modal-rawg" class="btn btn-ghost" href="https://rawg.io" target="_blank" rel="noopener" style="margin-top:20px; display:inline-block;">Ver más en RAWG →</a>
+  </div>
+</div>
+<div class="game-lightbox" id="game-lightbox" hidden role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button type="button" class="game-lightbox-close" aria-label="Cerrar">✕</button>
+  <button type="button" class="game-lightbox-nav game-lightbox-prev" aria-label="Anterior">‹</button>
+  <div class="game-lightbox-stage" id="game-lightbox-stage"><img id="game-lightbox-img" alt=""></div>
+  <button type="button" class="game-lightbox-nav game-lightbox-next" aria-label="Siguiente">›</button>
+  <p class="game-lightbox-hint">Tocá la imagen para acercar o alejar</p>
+</div>
+<script>
+(function () {
+  var backdrop = document.getElementById('game-modal-backdrop');
+  if (!backdrop || backdrop.dataset.wired) return;
+  backdrop.dataset.wired = '1';
+  var cover = document.getElementById('game-modal-cover');
+  var gallery = document.getElementById('game-modal-gallery');
+  var dateEl = document.getElementById('game-modal-date');
+  var titleEl = document.getElementById('game-modal-title');
+  var metaEl = document.getElementById('game-modal-meta');
+  var platEl = document.getElementById('game-modal-platforms');
+  var descEl = document.getElementById('game-modal-description');
+  var rawgLink = document.getElementById('game-modal-rawg');
+  var lb = document.getElementById('game-lightbox');
+  var lbImg = document.getElementById('game-lightbox-img');
+  var lbStage = document.getElementById('game-lightbox-stage');
+  var lbPrev = lb.querySelector('.game-lightbox-prev');
+  var lbNext = lb.querySelector('.game-lightbox-next');
+  var zoomList = [];
+  var zoomIdx = 0;
+
+  function lbShow() {
+    lbImg.src = zoomList[zoomIdx];
+    lb.classList.remove('zoomed');
+    lbStage.scrollTop = 0;
+    lbStage.scrollLeft = 0;
+    lbPrev.hidden = lbNext.hidden = zoomList.length < 2;
+    cover.src = zoomList[zoomIdx];
+  }
+  function lbOpen() {
+    var i = zoomList.indexOf(cover.src);
+    if (i === -1) { zoomList.unshift(cover.src); i = 0; }
+    zoomIdx = i;
+    lbShow();
+    lb.hidden = false;
+  }
+  function lbClose() { lb.hidden = true; lbImg.removeAttribute('src'); }
+  function lbNav(d) {
+    zoomIdx = (zoomIdx + d + zoomList.length) % zoomList.length;
+    lbShow();
+  }
+
+  function abrir(btn) {
+    var h3 = btn.querySelector('h3');
+    var eyebrow = btn.querySelector('.eyebrow');
+    var img = btn.querySelector('img');
+    var chips = btn.querySelectorAll('.tag-list .platform-chip');
+    var extra = {};
+    try { extra = JSON.parse(btn.dataset.extra || '{}'); } catch (e) { extra = {}; }
+
+    titleEl.textContent = h3 ? h3.textContent : '';
+    dateEl.textContent = eyebrow ? eyebrow.textContent : '';
+
+    if (img) {
+      cover.src = img.src;
+      cover.alt = img.alt;
+      cover.hidden = false;
+    } else {
+      cover.hidden = true;
+    }
+
+    platEl.innerHTML = '';
+    chips.forEach(function (c) {
+      var span = document.createElement('span');
+      span.className = 'platform-chip';
+      span.textContent = c.textContent;
+      platEl.appendChild(span);
+    });
+
+    var metaParts = [];
+    if (extra.genres && extra.genres.length) metaParts.push(extra.genres.join(', '));
+    if (extra.developers && extra.developers.length) metaParts.push(extra.developers.join(', '));
+    if (extra.metacritic) metaParts.push('Metacritic ' + extra.metacritic);
+    metaEl.textContent = metaParts.join(' · ');
+    metaEl.hidden = metaParts.length === 0;
+
+    descEl.textContent = extra.description || '';
+    descEl.hidden = !extra.description;
+
+    zoomList = [];
+    if (img) zoomList.push(img.src);
+    (extra.screenshots || []).forEach(function (src) {
+      if (zoomList.indexOf(src) === -1) zoomList.push(src);
+    });
+
+    gallery.innerHTML = '';
+    if (extra.screenshots && extra.screenshots.length) {
+      extra.screenshots.forEach(function (src) {
+        var thumb = document.createElement('img');
+        thumb.src = src;
+        thumb.alt = '';
+        thumb.loading = 'lazy';
+        thumb.addEventListener('click', function () {
+          cover.src = src;
+          cover.hidden = false;
+        });
+        gallery.appendChild(thumb);
+      });
+      gallery.hidden = false;
+    } else {
+      gallery.hidden = true;
+    }
+
+    rawgLink.href = btn.dataset.url || 'https://rawg.io';
+    backdrop.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrar() {
+    lbClose();
+    backdrop.hidden = true;
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.estreno-card').forEach(function (btn) {
+    btn.addEventListener('click', function () { abrir(btn); });
+  });
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) cerrar();
+  });
+  backdrop.querySelector('.game-modal-close').addEventListener('click', cerrar);
+  cover.addEventListener('click', lbOpen);
+  lbImg.addEventListener('click', function () {
+    var zoomed = lb.classList.toggle('zoomed');
+    if (zoomed) {
+      lbStage.scrollLeft = (lbStage.scrollWidth - lbStage.clientWidth) / 2;
+      lbStage.scrollTop = (lbStage.scrollHeight - lbStage.clientHeight) / 2;
+    }
+  });
+  lbStage.addEventListener('click', function (e) { if (e.target === lbStage) lbClose(); });
+  lb.querySelector('.game-lightbox-close').addEventListener('click', lbClose);
+  lbPrev.addEventListener('click', function () { lbNav(-1); });
+  lbNext.addEventListener('click', function () { lbNav(1); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.hidden) {
+      if (e.key === 'Escape') lbClose();
+      else if (e.key === 'ArrowLeft') lbNav(-1);
+      else if (e.key === 'ArrowRight') lbNav(1);
+      return;
+    }
+    if (e.key === 'Escape' && !backdrop.hidden) cerrar();
+  });
+})();
+</script><p style="font-family: var(--f-mono); font-size:0.75rem; color: var(--ink-dim); margin-top:20px;">Datos de estrenos: <a href="https://rawg.io" target="_blank" rel="noopener">RAWG.io</a></p>
     </div><div style="margin-top:56px; padding-top:32px; border-top:1px solid var(--line);">
       <span class="eyebrow-lg" style="display:block; margin-bottom:12px;">Semanas anteriores</span>
-      <details class="estrenos-archive" open><summary>Noviembre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-11-02.html">Semana del 2 al 8 de noviembre</a> <span class="platform-chip">0 juegos</span></li></ul></details><details class="estrenos-archive"><summary>Octubre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-10-26.html">Semana del 26 de octubre al 1 de noviembre</a> <span class="platform-chip">8 juegos</span></li><li><a href="estrenos/2026-10-19.html">Semana del 19 al 25 de octubre</a> <span class="platform-chip">4 juegos</span></li><li><a href="estrenos/2026-10-12.html">Semana del 12 al 18 de octubre</a> <span class="platform-chip">10 juegos</span></li><li><a href="estrenos/2026-10-05.html">Semana del 5 al 11 de octubre</a> <span class="platform-chip">4 juegos</span></li></ul></details><details class="estrenos-archive"><summary>Septiembre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-09-28.html">Semana del 28 de septiembre al 4 de octubre</a> <span class="platform-chip">5 juegos</span></li><li><a href="estrenos/2026-09-21.html">Semana del 21 al 27 de septiembre</a> <span class="platform-chip">13 juegos</span></li></ul></details>
+      <details class="estrenos-archive" open><summary>Noviembre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-11-09.html">Semana del 9 al 15 de noviembre</a> <span class="platform-chip">0 juegos</span></li><li><a href="estrenos/2026-11-02.html">Semana del 2 al 8 de noviembre</a> <span class="platform-chip">0 juegos</span></li></ul></details><details class="estrenos-archive"><summary>Octubre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-10-26.html">Semana del 26 de octubre al 1 de noviembre</a> <span class="platform-chip">8 juegos</span></li><li><a href="estrenos/2026-10-19.html">Semana del 19 al 25 de octubre</a> <span class="platform-chip">4 juegos</span></li><li><a href="estrenos/2026-10-12.html">Semana del 12 al 18 de octubre</a> <span class="platform-chip">10 juegos</span></li><li><a href="estrenos/2026-10-05.html">Semana del 5 al 11 de octubre</a> <span class="platform-chip">4 juegos</span></li></ul></details><details class="estrenos-archive"><summary>Septiembre de 2026</summary><ul class="estrenos-archive-list"><li><a href="estrenos/2026-09-28.html">Semana del 28 de septiembre al 4 de octubre</a> <span class="platform-chip">5 juegos</span></li><li><a href="estrenos/2026-09-21.html">Semana del 21 al 27 de septiembre</a> <span class="platform-chip">13 juegos</span></li></ul></details>
     </div>
   </div>
 </section>

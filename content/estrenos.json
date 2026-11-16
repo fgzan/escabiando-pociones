@@ -1,5 +1,65 @@
 [
   {
+    "slug": "2026-11-16",
+    "date": "2026-11-16",
+    "week_start": "2026-11-16",
+    "week_end": "2026-11-22",
+    "generated_at": "2026-11-16T14:22:16.662003+00:00",
+    "source": "RAWG (rawg.io)",
+    "games": [
+      {
+        "name": "Space Station Designer",
+        "released": "2026-11-17",
+        "platforms": [
+          "PC"
+        ],
+        "cover": "https://media.rawg.io/media/screenshots/53c/53ca443f2fb80f24ecec21d4b21a9f2b.jpg",
+        "rawg_url": "https://rawg.io/games/space-station-designer",
+        "genres": [],
+        "developers": [
+          "Polar Motion"
+        ],
+        "metacritic": null,
+        "description": "Space Station Designer es un juego de construcción y gestión en el que te conviertes en el director general de una empresa aeroespacial privada, encargado de crear y gestionar una próspera red de puestos avanzados orbitales.\n\nEmpieza con un único módulo central en órbita terrestre baja y amplía gradualmente tus operaciones a órbitas terrestres y lunares más altas. Diseña estaciones autosuficientes, gestiona a los astronautas y la logística, desbloquea tecnologías avanzadas y ayuda a dar forma a la economía espacial de la humanidad.\n\nTu objetivo final...",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/a05/a051d85d3d2fbffa496e368319d19136.jpg",
+          "https://media.rawg.io/media/screenshots/672/672d417ebcdaa532fa501e2dd425423a.jpg",
+          "https://media.rawg.io/media/screenshots/812/812d47a0b8ab21008041c0db6a1b7878.jpg",
+          "https://media.rawg.io/media/screenshots/ec4/ec4fd2755325f8b279d23a6df650fcf2.jpg",
+          "https://media.rawg.io/media/screenshots/4ab/4abbef0deb1fbf1aeb0e23ce600dafc1.jpg",
+          "https://media.rawg.io/media/screenshots/908/908181234e6cb33ad7b45eea72334b4b.jpg"
+        ]
+      },
+      {
+        "name": "Grand Theft Auto VI",
+        "released": "2026-11-19",
+        "platforms": [
+          "PlayStation 5",
+          "Xbox Series S/X"
+        ],
+        "cover": "https://media.rawg.io/media/games/734/7342a1cd82c8997ec620084ae4c2e7e4.jpg",
+        "rawg_url": "https://rawg.io/games/grand-theft-aito-vi",
+        "genres": [
+          "Action"
+        ],
+        "developers": [
+          "Rockstar Games"
+        ],
+        "metacritic": null,
+        "description": "Grand Theft Auto VI es un próximo juego de acción y aventura desarrollado y publicado por Rockstar Games. Será el octavo juego principal de Grand Theft Auto, después de Grand Theft Auto V (2013), y el decimosexto título en total. Ambientada en el estado ficticio estadounidense de Leonida, basado en Florida, la historia sigue al dúo de delincuentes enamorados formado por Jason Duval y Lucía Caminos. Los jugadores podrán moverse libremente por el mundo abierto de Leonida, que incluye Vice City, inspirada en Miami.",
+        "screenshots": [
+          "https://media.rawg.io/media/screenshots/c5a/c5a192a8bc1b96d6388272be20af78af.jpg",
+          "https://media.rawg.io/media/screenshots/598/5983ffe274a237b33e0f0452364fba78.jpg",
+          "https://media.rawg.io/media/screenshots/384/384241113cb4510774289415d7d6dba1.jpg",
+          "https://media.rawg.io/media/screenshots/4c4/4c47d5e898bda3ce131a8e73db6fe505.jpg",
+          "https://media.rawg.io/media/screenshots/db2/db2c206e7896ddc846c60f5d315ecfc3.jpg",
+          "https://media.rawg.io/media/screenshots/05d/05db79dc3d0b0cc9af3f10135ad78025.jpg"
+        ]
+      }
+    ],
+    "fetch_error": null
+  },
+  {
     "slug": "2026-11-09",
     "date": "2026-11-09",
     "week_start": "2026-11-09",
