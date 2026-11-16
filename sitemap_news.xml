@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/dispararon-contra-las-oficinas-de-inxile-entertainment-no-hubo-heridos-y-hay-un-detenido.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-16T14:45:25+00:00</news:publication_date>
+      <news:title>Dispararon contra las oficinas de inXile Entertainment: no hubo heridos y hay un detenido</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/xbox-explica-que-busca-con-project-helix-una-consola-capaz-de-ejecutar-juegos-de-pc.html</loc>
     <news:news>
       <news:publication>
