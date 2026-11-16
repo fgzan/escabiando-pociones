@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Mon, 16 Nov 2026 14:45:37 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 14:51:20 +0000</lastBuildDate>
+  <item>
+    <title>Los nominados a The Game Awards 2026 se anunciarán mañana</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/los-nominados-a-the-game-awards-2026-se-anunciaran-manana.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/los-nominados-a-the-game-awards-2026-se-anunciaran-manana.html</guid>
+    <pubDate>Mon, 16 Nov 2026 14:51:04 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[La organización de The Game Awards confirmó que revelará los nominados de todas las categorías este martes 17 de noviembre, mediante una transmisión especial conducida por Geoff Keighley. La ceremonia principal se celebrará el 10 de diciembre y volverá a reunir a los principales lanzamientos del año.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1794840658278-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Dispararon contra las oficinas de inXile Entertainment: no hubo heridos y hay un detenido</title>
     <link>https://www.escabiandopociones.com.ar/noticias/dispararon-contra-las-oficinas-de-inxile-entertainment-no-hubo-heridos-y-hay-un-detenido.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[DANGEN Entertainment y NANAIRO ENTERPRISE anunciaron un nuevo dungeon crawler que transforma personajes y mundos de la literatura clásica en anime. LitGirls: Bookbound Dungeons combinará exploración de mazmorras, combate por turnos, gestión de recursos y desarrollo de una base.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790863619767-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Football Manager 27 ya tiene fecha de lanzamiento</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/football-manager-27-ya-tiene-fecha-de-lanzamiento.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/football-manager-27-ya-tiene-fecha-de-lanzamiento.html</guid>
-    <pubDate>Thu, 01 Oct 2026 12:54:56 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[SEGA y Sports Interactive confirmaron que Football Manager 27 llegará el 10 de noviembre a PC, PS5, Xbox Series, iOS y Android. La nueva edición también estará disponible desde el primer día mediante Game Pass, mientras que la versión móvil llegará a través de Netflix.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790859288205-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
