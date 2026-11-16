@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/xbox-explica-que-busca-con-project-helix-una-consola-capaz-de-ejecutar-juegos-de-pc.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-16T14:18:31+00:00</news:publication_date>
+      <news:title>Xbox explica qué busca con Project Helix: una consola capaz de ejecutar juegos de PC</news:title>
+    </news:news>
+  </url>
 </urlset>

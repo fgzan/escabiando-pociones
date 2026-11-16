@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Mon, 09 Nov 2026 22:16:15 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 14:18:45 +0000</lastBuildDate>
+  <item>
+    <title>Xbox explica qué busca con Project Helix: una consola capaz de ejecutar juegos de PC</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/xbox-explica-que-busca-con-project-helix-una-consola-capaz-de-ejecutar-juegos-de-pc.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/xbox-explica-que-busca-con-project-helix-una-consola-capaz-de-ejecutar-juegos-de-pc.html</guid>
+    <pubDate>Mon, 16 Nov 2026 14:18:31 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[Jason Ronald, vicepresidente de la próxima generación de Xbox, profundizó en la filosofía detrás de Project Helix. La compañía quiere construir una consola que permita acceder también a juegos de PC, pero sin perder la sencillez de uso que caracteriza a sus sistemas tradicionales. El proyecto todavía no tiene fecha ni precio anunciados.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1794838706356-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>EA cierra BioWare después de más de 30 años y cancela el próximo Mass Effect</title>
     <link>https://www.escabiandopociones.com.ar/noticias/ea-cierra-bioware-despues-de-mas-de-30-anos-y-cancela-el-proximo-mass-effect.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Capcom y TiMi Studio Group confirmaron que Monster Hunter Outlanders, el nuevo RPG de acción y supervivencia basado en la popular franquicia de cacería, llegará a iOS y Android el 29 de octubre. El juego será gratuito y ofrecerá un nuevo mundo, personajes, compañeros y monstruos.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790859115970-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>Silent Hill: Townfall recibirá un parche para hacer menos frustrantes las secciones contra The Weight</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibira-un-parche-para-hacer-menos-frustrantes-las-secciones-contra-the-weight.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/silent-hill-townfall-recibira-un-parche-para-hacer-menos-frustrantes-las-secciones-contra-the-weight.html</guid>
-    <pubDate>Wed, 30 Sep 2026 14:45:48 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[Screen Burn confirmó que está trabajando en un nuevo parche para Silent Hill: Townfall que modificará el balance de las secciones de sigilo protagonizadas por The Weight. El enemigo fue uno de los aspectos más cuestionados por jugadores y análisis, debido a su comportamiento, su capacidad para detectar al protagonista y las muertes instantáneas.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790779095011-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
