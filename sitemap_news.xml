@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/el-remake-de-ocarina-of-time-ya-es-el-juego-fisico-mas-vendido-de-estados-unidos-en-2026.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-17T14:22:36+00:00</news:publication_date>
+      <news:title>El remake de Ocarina of Time ya es el juego físico más vendido de Estados Unidos en 2026</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</loc>
     <news:news>
       <news:publication>

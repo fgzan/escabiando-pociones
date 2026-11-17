@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Tue, 17 Nov 2026 14:20:02 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 14:22:55 +0000</lastBuildDate>
+  <item>
+    <title>El remake de Ocarina of Time ya es el juego físico más vendido de Estados Unidos en 2026</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/el-remake-de-ocarina-of-time-ya-es-el-juego-fisico-mas-vendido-de-estados-unidos-en-2026.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/el-remake-de-ocarina-of-time-ya-es-el-juego-fisico-mas-vendido-de-estados-unidos-en-2026.html</guid>
+    <pubDate>Tue, 17 Nov 2026 14:22:36 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[La nueva versión de Ocarina of Time superó el millón de copias físicas vendidas durante su primera semana en Estados Unidos, según datos de Circana. El resultado lo convirtió en el lanzamiento físico más exitoso del año hasta el momento y marca un nuevo hito para la franquicia.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1794925275917-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Miyamoto recibirá el primer Legend Award de los D.I.C.E. Awards</title>
     <link>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[El estudio japonés liderado por Suda51 dejó oficialmente de pertenecer a NetEase y recuperó su independencia. La separación se produce después de cinco años bajo la compañía china, período durante el cual el estudio lanzó proyectos como Shadows of the Damned: Hella Remastered y Romeo is a Dead Man.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790865321310-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>The Witcher 3 Remastered recibe un nuevo parche con mejoras para DLSS e iluminación</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-recibe-un-nuevo-parche-con-mejoras-para-dlss-e-iluminacion.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/the-witcher-3-remastered-recibe-un-nuevo-parche-con-mejoras-para-dlss-e-iluminacion.html</guid>
-    <pubDate>Thu, 01 Oct 2026 14:28:54 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[CD Projekt Red lanzó una nueva actualización para The Witcher 3: Wild Hunt Remastered que corrige problemas de DLSS en PC, realiza ajustes de iluminación y mejora la paridad entre las versiones de consola y PC. El estudio también prepara un hotfix para solucionar problemas de guardado detectados por algunos jugadores.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790864927235-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

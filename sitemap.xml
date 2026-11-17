@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/el-remake-de-ocarina-of-time-ya-es-el-juego-fisico-mas-vendido-de-estados-unidos-en-2026.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</loc>
     <lastmod>2026-11-17</lastmod>
     <priority>0.9</priority>
@@ -836,12 +841,32 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/shigeru-miyamoto.html</loc>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-legend-of-zelda.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-legend-of-zelda-ocarina-of-time.html</loc>
     <lastmod>2026-11-17</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/nintendo.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nintendo-switch-2.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/ventas.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/shigeru-miyamoto.html</loc>
     <lastmod>2026-11-17</lastmod>
     <priority>0.3</priority>
   </url>
@@ -857,11 +882,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/super-mario.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/the-legend-of-zelda.html</loc>
     <lastmod>2026-11-17</lastmod>
     <priority>0.3</priority>
   </url>
@@ -1777,11 +1797,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/playstack.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/nintendo-switch-2.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
