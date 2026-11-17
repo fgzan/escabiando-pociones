@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/slay-the-spire-2-recibe-su-tercera-gran-actualizacion-con-cambios-de-balance-nuevas-cartas-y-correcciones.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-17T14:17:35+00:00</news:publication_date>
+      <news:title>Slay the Spire 2 recibe su tercera gran actualización con cambios de balance, nuevas cartas y correcciones</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/uno-de-cada-tres-desarrolladores-de-videojuegos-fue-despedido-en-los-ultimos-dos-anos.html</loc>
     <news:news>
       <news:publication>
