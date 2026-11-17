@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Tue, 17 Nov 2026 14:17:46 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 14:20:02 +0000</lastBuildDate>
+  <item>
+    <title>Miyamoto recibirá el primer Legend Award de los D.I.C.E. Awards</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</guid>
+    <pubDate>Tue, 17 Nov 2026 14:19:47 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[La Academy of Interactive Arts & Sciences anunció que el histórico creativo de Nintendo será el primer destinatario de un nuevo reconocimiento que distinguirá a figuras cuya influencia haya marcado a varias generaciones de la industria. El premio se entregará durante la 30.ª edición de los D.I.C.E. Awards, en febrero de 2027.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1794925181375-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Slay the Spire 2 recibe su tercera gran actualización con cambios de balance, nuevas cartas y correcciones</title>
     <link>https://www.escabiandopociones.com.ar/noticias/slay-the-spire-2-recibe-su-tercera-gran-actualizacion-con-cambios-de-balance-nuevas-cartas-y-correcciones.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[CD Projekt Red lanzó una nueva actualización para The Witcher 3: Wild Hunt Remastered que corrige problemas de DLSS en PC, realiza ajustes de iluminación y mejora la paridad entre las versiones de consola y PC. El estudio también prepara un hotfix para solucionar problemas de guardado detectados por algunos jugadores.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790864927235-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>House of the Dead vuelve a los arcades con una experiencia de realidad virtual</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/house-of-the-dead-vuelve-a-los-arcades-con-una-experiencia-de-realidad-virtual.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/house-of-the-dead-vuelve-a-los-arcades-con-una-experiencia-de-realidad-virtual.html</guid>
-    <pubDate>Thu, 01 Oct 2026 14:21:38 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[SEGA Amusements anticipó un nuevo proyecto de The House of the Dead para arcades que utilizará tecnología de realidad virtual. El título, aparentemente llamado House of the Dead: Reawakened, tendrá un gabinete inspirado en una mansión gótica y será presentado públicamente durante la IAAPA Expo de noviembre.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790864473042-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>

@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/miyamoto-recibira-el-primer-legend-award-de-los-d-i-c-e-awards.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/slay-the-spire-2-recibe-su-tercera-gran-actualizacion-con-cambios-de-balance-nuevas-cartas-y-correcciones.html</loc>
     <lastmod>2026-11-17</lastmod>
     <priority>0.9</priority>
@@ -828,6 +833,41 @@
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/1.html</loc>
     <lastmod>2026-09-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/shigeru-miyamoto.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/nintendo.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/d-i-c-e-awards.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/academy-of-interactive-arts-sciences.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/super-mario.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/the-legend-of-zelda.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/donkey-kong.html</loc>
+    <lastmod>2026-11-17</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
@@ -1622,11 +1662,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/playstation-5.html</loc>
-    <lastmod>2026-09-30</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/nintendo.html</loc>
     <lastmod>2026-09-30</lastmod>
     <priority>0.3</priority>
   </url>
