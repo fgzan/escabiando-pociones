@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/uno-de-cada-tres-desarrolladores-de-videojuegos-fue-despedido-en-los-ultimos-dos-anos.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-17T02:35:50+00:00</news:publication_date>
+      <news:title>Uno de cada tres desarrolladores de videojuegos fue despedido en los últimos dos años</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/los-nominados-a-the-game-awards-2026-se-anunciaran-manana.html</loc>
     <news:news>
       <news:publication>

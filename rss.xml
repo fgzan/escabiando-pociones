@@ -5,7 +5,16 @@
   <link>https://www.escabiandopociones.com.ar/</link>
   <description>Portal de noticias de videojuegos y reviews — Escabiando Pociones</description>
   <language>es-AR</language>
-  <lastBuildDate>Mon, 16 Nov 2026 21:55:49 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 02:36:02 +0000</lastBuildDate>
+  <item>
+    <title>Uno de cada tres desarrolladores de videojuegos fue despedido en los últimos dos años</title>
+    <link>https://www.escabiandopociones.com.ar/noticias/uno-de-cada-tres-desarrolladores-de-videojuegos-fue-despedido-en-los-ultimos-dos-anos.html</link>
+    <guid>https://www.escabiandopociones.com.ar/noticias/uno-de-cada-tres-desarrolladores-de-videojuegos-fue-despedido-en-los-ultimos-dos-anos.html</guid>
+    <pubDate>Tue, 17 Nov 2026 02:35:50 +0000</pubDate>
+    <category>Noticia</category>
+    <description><![CDATA[El informe State of the Game Industry: November 2026, elaborado por la organización de la Game Developers Conference, reveló que el 34% de los profesionales encuestados perdió su empleo durante los últimos 24 meses. Más de la mitad de quienes fueron despedidos todavía no consiguió otro trabajo.]]></description>
+    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1794882943367-portada.webp" type="image/webp" length="0"/>
+  </item>
   <item>
     <title>Los nominados a The Game Awards 2026 se anunciarán mañana</title>
     <link>https://www.escabiandopociones.com.ar/noticias/los-nominados-a-the-game-awards-2026-se-anunciaran-manana.html</link>
@@ -266,15 +275,6 @@
     <category>Noticia</category>
     <description><![CDATA[Konami lanzó una demo gratuita de Castlevania: Belmont's Curse que permite jugar el comienzo de la aventura y transferir el progreso a la versión completa. El nuevo juego protagonizado por Rose Belmont llegará el 15 de octubre a PC, PS5, Xbox Series X|S y Nintendo Switch.]]></description>
     <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790864320409-portada.webp" type="image/webp" length="0"/>
-  </item>
-  <item>
-    <title>LitGirls: Bookbound Dungeons mezcla literatura clásica, anime y dungeon crawling</title>
-    <link>https://www.escabiandopociones.com.ar/noticias/litgirls-bookbound-dungeons-mezcla-literatura-clasica-anime-y-dungeon-crawling.html</link>
-    <guid>https://www.escabiandopociones.com.ar/noticias/litgirls-bookbound-dungeons-mezcla-literatura-clasica-anime-y-dungeon-crawling.html</guid>
-    <pubDate>Thu, 01 Oct 2026 14:15:46 +0000</pubDate>
-    <category>Noticia</category>
-    <description><![CDATA[DANGEN Entertainment y NANAIRO ENTERPRISE anunciaron un nuevo dungeon crawler que transforma personajes y mundos de la literatura clásica en anime. LitGirls: Bookbound Dungeons combinará exploración de mazmorras, combate por turnos, gestión de recursos y desarrollo de una base.]]></description>
-    <enclosure url="https://www.escabiandopociones.com.ar/assets/uploads/1790863619767-portada.webp" type="image/webp" length="0"/>
   </item>
 </channel>
 </rss>
