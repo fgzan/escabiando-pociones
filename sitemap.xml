@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/sony-gana-el-juicio-colectivo-de-casi-2-000-millones-de-libras-por-los-precios-de-playstation-store.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/gta-vi-lidera-las-nominaciones-a-the-game-awards-2026-con-ocho-candidaturas.html</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.9</priority>
@@ -846,6 +851,26 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation-store.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.escabiandopociones.com.ar/tags/playstation-network.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/grand-theft-auto-vi.html</loc>
     <lastmod>2026-11-18</lastmod>
     <priority>0.3</priority>
@@ -1246,11 +1271,6 @@
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/sony.html</loc>
-    <lastmod>2026-10-08</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.escabiandopociones.com.ar/tags/meta.html</loc>
     <lastmod>2026-10-08</lastmod>
     <priority>0.3</priority>
@@ -1537,11 +1557,6 @@
   </url>
   <url>
     <loc>https://www.escabiandopociones.com.ar/tags/cassie-drake.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.escabiandopociones.com.ar/tags/playstation.html</loc>
     <lastmod>2026-10-01</lastmod>
     <priority>0.3</priority>
   </url>

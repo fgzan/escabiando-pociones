@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/sony-gana-el-juicio-colectivo-de-casi-2-000-millones-de-libras-por-los-precios-de-playstation-store.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-18T13:07:30+00:00</news:publication_date>
+      <news:title>Sony gana el juicio colectivo de casi 2.000 millones de libras por los precios de PlayStation Store</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/gta-vi-lidera-las-nominaciones-a-the-game-awards-2026-con-ocho-candidaturas.html</loc>
     <news:news>
       <news:publication>
