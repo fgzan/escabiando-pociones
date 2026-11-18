@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/gta-vi-lidera-las-nominaciones-a-the-game-awards-2026-con-ocho-candidaturas.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-18T12:28:06+00:00</news:publication_date>
+      <news:title>GTA VI lidera las nominaciones a The Game Awards 2026 con ocho candidaturas</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/el-remake-de-ocarina-of-time-ya-es-el-juego-fisico-mas-vendido-de-estados-unidos-en-2026.html</loc>
     <news:news>
       <news:publication>
