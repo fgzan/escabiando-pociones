@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.escabiandopociones.com.ar/noticias/phasmophobia-recibira-su-actualizacion-resonance-el-24-de-noviembre-con-nuevo-equipamiento-y-el-salto-a-unity-6.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Escabiando Pociones</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-18T13:22:41+00:00</news:publication_date>
+      <news:title>Phasmophobia recibirá su actualización Resonance el 24 de noviembre con nuevo equipamiento y el salto a Unity 6</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.escabiandopociones.com.ar/noticias/sony-gana-el-juicio-colectivo-de-casi-2-000-millones-de-libras-por-los-precios-de-playstation-store.html</loc>
     <news:news>
       <news:publication>
